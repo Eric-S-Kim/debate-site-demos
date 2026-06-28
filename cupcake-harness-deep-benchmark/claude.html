@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Harness Brief — A Fit for Cupcake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F4EEE1;
+  --cream-2:#FBF7EF;
+  --paper:#FEFBF5;
+  --ink:#2B2420;
+  --ink-soft:#5C5148;
+  --sage:#6F8C66;
+  --sage-deep:#4E6B47;
+  --terra:#D88A60;
+  --terra-deep:#BE6840;
+  --blush:#EAC8B2;
+  --clay:#7E92A0;
+  --rust:#AF4F38;
+  --line:rgba(43,36,32,.14);
+  --line-soft:rgba(43,36,32,.08);
+  --shadow:0 24px 60px -28px rgba(43,36,32,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+/* grain */
+body::after{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;z-index:9999;
+  opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.serif{font-family:'Fraunces',serif}
+
+/* ---------- top meta bar ---------- */
+.topbar{
+  border-bottom:1px solid var(--line);
+  background:rgba(244,238,225,.7);
+  backdrop-filter:blur(8px);
+  position:sticky;top:0;z-index:100;
+}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.topbar .dot{width:7px;height:7px;border-radius:50%;background:var(--sage);display:inline-block;margin-right:8px;vertical-align:1px;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:78px 0 56px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;top:-30%;right:-15%;width:60vw;height:60vw;max-width:760px;max-height:760px;
+  background:radial-gradient(circle at 50% 50%, rgba(111,140,102,.22), rgba(111,140,102,0) 62%);
+  z-index:0;animation:float 16s ease-in-out infinite;
+}
+.hero::after{
+  content:"";position:absolute;bottom:-25%;left:-12%;width:48vw;height:48vw;max-width:560px;max-height:560px;
+  background:radial-gradient(circle at 50% 50%, rgba(216,138,96,.20), rgba(216,138,96,0) 62%);
+  z-index:0;animation:float 19s ease-in-out infinite reverse;
+}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,26px)}}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--sage-deep);margin-bottom:26px}
+.eyebrow .ymark{width:18px;height:18px}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-weight:340;
+  font-size:clamp(2.5rem,6.6vw,5.3rem);
+  line-height:1.02;
+  letter-spacing:-.02em;
+  max-width:16ch;
+  margin-bottom:26px;
+}
+.hero h1 em{font-style:italic;color:var(--terra-deep)}
+.hero .sub{font-size:clamp(1.05rem,2.2vw,1.32rem);max-width:46ch;color:var(--ink-soft);font-weight:400}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center;margin-top:8px}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:30px}}
+
+/* fluffy dog svg card */
+.dogcard{
+  position:relative;background:var(--paper);border:1px solid var(--line);border-radius:26px;
+  padding:30px 26px 24px;box-shadow:var(--shadow);
+}
+.dogcard svg{width:100%;height:auto;display:block}
+.dogcard .cap{margin-top:14px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);text-align:center;font-weight:600}
+
+/* ---------- verdict ribbon ---------- */
+.verdict{background:var(--ink);color:var(--cream-2);position:relative;overflow:hidden}
+.verdict::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%, rgba(216,138,96,.28), transparent 45%),radial-gradient(circle at 10% 120%, rgba(111,140,102,.30), transparent 50%)}
+.verdict .wrap{position:relative;z-index:2;padding:74px 28px}
+.verdict .tag{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--blush);font-weight:700;margin-bottom:22px}
+.verdict-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:50px;align-items:end}
+@media(max-width:860px){.verdict-grid{grid-template-columns:1fr;gap:34px;align-items:start}}
+.verdict h2{font-family:'Fraunces',serif;font-weight:360;font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:20px}
+.verdict h2 .win{color:var(--terra);font-style:italic}
+.verdict .one{font-size:clamp(1rem,2vw,1.18rem);color:rgba(251,247,239,.82);max-width:54ch}
+.conf{border-left:2px solid rgba(234,200,178,.5);padding-left:24px}
+.conf .lvl{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:500;color:var(--blush);line-height:1;margin-bottom:10px}
+.conf .meter{display:flex;gap:6px;margin-bottom:14px}
+.conf .meter span{height:8px;flex:1;border-radius:4px;background:rgba(234,200,178,.22)}
+.conf .meter span.on{background:var(--terra)}
+.conf .txt{font-size:.86rem;color:rgba(251,247,239,.7);line-height:1.5}
+
+/* ---------- section scaffolding ---------- */
+section.block{padding:84px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:46px;flex-wrap:wrap}
+.sec-num{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--terra-deep);font-weight:600;letter-spacing:.04em}
+.sec-head h3{font-family:'Fraunces',serif;font-weight:380;font-size:clamp(1.8rem,3.6vw,2.8rem);letter-spacing:-.015em;line-height:1.05}
+.sec-head .lede{font-size:1rem;color:var(--ink-soft);max-width:40ch;margin-left:auto}
+@media(max-width:760px){.sec-head .lede{margin-left:0;width:100%}}
+
+/* reasons */
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:860px){.reasons{grid-template-columns:1fr}}
+.rcard{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px;position:relative;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.rcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.rcard .ico{width:46px;height:46px;margin-bottom:22px}
+.rcard h4{font-family:'Fraunces',serif;font-weight:480;font-size:1.32rem;margin-bottom:12px;letter-spacing:-.01em}
+.rcard p{color:var(--ink-soft);font-size:.96rem}
+.rcard .idx{position:absolute;top:26px;right:28px;font-family:'Fraunces',serif;font-size:.9rem;color:var(--line);font-weight:600;letter-spacing:.1em}
+
+/* contenders */
+.cont-top{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+@media(max-width:780px){.cont-top{grid-template-columns:1fr}}
+.primecard{background:linear-gradient(160deg,var(--paper),var(--cream-2));border:1.5px solid var(--sage);border-radius:22px;padding:32px 30px;position:relative;overflow:hidden}
+.primecard::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--sage),var(--sage-deep))}
+.chip{display:inline-block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:100px;margin-bottom:18px}
+.chip.best{background:rgba(111,140,102,.16);color:var(--sage-deep)}
+.chip.strong{background:rgba(216,138,96,.16);color:var(--terra-deep)}
+.chip.risk{background:rgba(126,146,160,.18);color:#566876}
+.chip.avoid{background:rgba(175,79,56,.14);color:var(--rust)}
+.primecard h4{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:500;margin-bottom:12px;letter-spacing:-.015em}
+.primecard p{color:var(--ink-soft);font-size:.97rem}
+.cowin{position:absolute;top:30px;right:28px;font-family:'Fraunces',serif;font-style:italic;color:var(--sage);font-size:1.6rem;opacity:.6}
+
+.crow{display:grid;grid-template-columns:60px 1fr;gap:22px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px 28px;margin-top:16px;transition:transform .4s,border-color .4s}
+.crow:hover{transform:translateX(6px)}
+.crow.r2:hover{border-color:var(--terra)}
+.crow.r3:hover{border-color:var(--clay)}
+.crow.r4:hover{border-color:var(--rust)}
+.crow .rk{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:500;line-height:1;color:var(--line)}
+.crow.r2 .rk{color:var(--terra)}
+.crow.r3 .rk{color:var(--clay)}
+.crow.r4 .rk{color:var(--rust)}
+.crow h4{font-family:'Fraunces',serif;font-size:1.32rem;font-weight:500;margin-bottom:6px;display:inline-block;margin-right:14px;vertical-align:middle}
+.crow p{color:var(--ink-soft);font-size:.95rem;margin-top:8px}
+@media(max-width:560px){.crow{grid-template-columns:1fr;gap:8px}.crow .rk{font-size:1.8rem}}
+
+/* anatomy */
+.anatomy{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ana-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+@media(max-width:880px){.ana-grid{grid-template-columns:1fr;gap:34px}}
+.ana-svg{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:var(--shadow)}
+.ana-svg svg{width:100%;height:auto;display:block}
+.ana-list{list-style:none}
+.ana-list li{padding:20px 0;border-bottom:1px solid var(--line-soft);display:flex;gap:18px}
+.ana-list li:last-child{border-bottom:none}
+.ana-list .k{width:14px;height:14px;border-radius:50%;flex:none;margin-top:6px}
+.ana-list .ksage{background:var(--sage)}
+.ana-list .krust{background:var(--rust)}
+.ana-list .kterra{background:var(--terra)}
+.ana-list strong{font-family:'Fraunces',serif;font-weight:540;font-size:1.1rem;display:block;margin-bottom:3px}
+.ana-list span{color:var(--ink-soft);font-size:.94rem}
+
+/* caveats + falsification two col */
+.dual{display:grid;grid-template-columns:1.2fr .8fr;gap:48px}
+@media(max-width:860px){.dual{grid-template-columns:1fr;gap:40px}}
+.caveats{list-style:none}
+.caveats li{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.caveats li:last-child{border-bottom:none}
+.caveats .ymark{width:20px;height:20px;flex:none;margin-top:3px}
+.caveats span{font-size:1rem;color:var(--ink)}
+.falsify{background:var(--ink);color:var(--cream-2);border-radius:24px;padding:38px 34px;align-self:start;position:relative;overflow:hidden}
+.falsify::before{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(216,138,96,.3),transparent 70%)}
+.falsify .lab{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blush);font-weight:700;margin-bottom:16px;position:relative}
+.falsify h4{font-family:'Fraunces',serif;font-weight:380;font-size:1.5rem;margin-bottom:16px;line-height:1.15;position:relative}
+.falsify p{color:rgba(251,247,239,.8);font-size:.96rem;position:relative}
+
+/* action plan timeline */
+.timeline{position:relative;margin-top:8px}
+.timeline::before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--sage),var(--terra))}
+.step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:18px 0;position:relative}
+.step .node{width:48px;height:48px;border-radius:50%;background:var(--paper);border:2px solid var(--sage);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;color:var(--sage-deep);z-index:2;position:relative}
+.step .body{padding-top:4px}
+.step .body strong{font-family:'Fraunces',serif;font-weight:540;font-size:1.12rem;display:block;margin-bottom:5px}
+.step .body p{color:var(--ink-soft);font-size:.96rem}
+
+/* footer / provenance */
+footer{background:var(--ink);color:var(--cream-2);padding:74px 0 50px;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:140%;height:200px;background:radial-gradient(ellipse at 50% 0,rgba(111,140,102,.25),transparent 70%)}
+footer .wrap{position:relative;z-index:2}
+.prov-lab{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blush);font-weight:700;margin-bottom:20px}
+footer .prov{font-family:'Fraunces',serif;font-weight:340;font-size:clamp(1.3rem,3vw,2rem);line-height:1.3;max-width:30ch;margin-bottom:42px;letter-spacing:-.01em}
+.advisors{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.adv{border:1px solid rgba(251,247,239,.2);border-radius:100px;padding:10px 20px;font-size:.86rem;display:flex;align-items:center;gap:9px}
+.adv .d{width:7px;height:7px;border-radius:50%}
+.foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;border-top:1px solid rgba(251,247,239,.15);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(251,247,239,.55)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero::before,.hero::after{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Y motif used inline -->
+<svg style="display:none">
+  <symbol id="y" viewBox="0 0 24 24">
+    <path d="M4 3 L12 12 M20 3 L12 12 M12 12 L12 21" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot"></span>Decision Brief</span>
+    <span>For Cupcake · est. 2011</span>
+    <span>28 June 2026</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><svg class="ymark" style="color:var(--sage-deep)"><use href="#y"/></svg>The Harness Question · 3 Advisors · 2 Rounds</div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="serif">The highest-quality, safest harness for <em>a tiny senior</em> who'll wear it daily, for years.</h1>
+        <p class="sub">Prioritizing trachea safety, shoulder freedom, and a custom fit for one small dog named Cupcake.</p>
+      </div>
+      <div class="dogcard reveal">
+        <svg viewBox="0 0 360 260" role="img" aria-label="Stylized fluffy dog wearing a Y-front harness">
+          <defs>
+            <linearGradient id="fur" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F0D9C4"/><stop offset="1" stop-color="#E3BE9E"/>
+            </linearGradient>
+          </defs>
+          <!-- fluffy cloud body -->
+          <path fill="url(#fur)" stroke="#C99B78" stroke-width="2" d="
+            M70 175
+            q-26 6 -28 -22 q-18 -6 -8 -28 q-14 -16 6 -28 q-2 -24 22 -22
+            q4 -22 28 -14 q10 -20 32 -8 q14 -16 30 0 q22 -10 30 12
+            q24 -4 22 22 q22 4 14 28 q16 12 0 28 q8 24 -16 24
+            q-6 18 -28 12 q-8 14 -26 6 q-8 12 -26 6 q-12 12 -28 0
+            q-22 8 -22 -16 z"/>
+          <!-- ears -->
+          <path fill="#D6A982" stroke="#C99B78" stroke-width="2" d="M78 70 q-14 -34 6 -40 q14 18 14 38 z"/>
+          <path fill="#D6A982" stroke="#C99B78" stroke-width="2" d="M120 64 q4 -34 24 -34 q4 22 -6 40 z"/>
+          <!-- face -->
+          <circle cx="100" cy="118" r="5" fill="#3B2C22"/>
+          <circle cx="132" cy="116" r="5" fill="#3B2C22"/>
+          <path d="M112 134 q6 6 12 0" stroke="#3B2C22" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="118" cy="128" rx="6" ry="4" fill="#3B2C22"/>
+          <!-- legs -->
+          <rect x="120" y="196" width="14" height="34" rx="7" fill="#E3BE9E" stroke="#C99B78" stroke-width="2"/>
+          <rect x="178" y="196" width="14" height="34" rx="7" fill="#E3BE9E" stroke="#C99B78" stroke-width="2"/>
+          <!-- Y harness webbing -->
+          <path d="M150 150 L186 188" stroke="#4E6B47" stroke-width="7" fill="none" stroke-linecap="round" opacity=".92"/>
+          <path d="M222 150 L186 188" stroke="#4E6B47" stroke-width="7" fill="none" stroke-linecap="round" opacity=".92"/>
+          <path d="M186 188 L186 210" stroke="#4E6B47" stroke-width="7" fill="none" stroke-linecap="round" opacity=".92"/>
+          <circle cx="186" cy="188" r="6" fill="#6F8C66" stroke="#fff" stroke-width="2"/>
+          <!-- sternum target -->
+          <circle cx="186" cy="188" r="20" fill="none" stroke="#6F8C66" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
+        </svg>
+        <div class="cap">Y-front · force routed to the sternum</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- VERDICT -->
+<section class="verdict">
+  <div class="wrap">
+    <div class="tag">The Verdict</div>
+    <div class="verdict-grid">
+      <div>
+        <h2 class="serif">A <span class="win">Y-front fit</span>, customized to Cupcake.</h2>
+        <p class="one">Prioritize a Y-front harness meticulously fitted to Cupcake's unique body and daily tolerance — selecting between minimalist webbing or modular fleece for optimal long-term comfort and safety.</p>
+      </div>
+      <div class="conf reveal">
+        <div class="lvl serif">High</div>
+        <div class="meter"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+        <div class="txt">Confidence: advisors strongly converged on the core design principles and fit methodology.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num serif">01</span>
+      <h3 class="serif">Why this is the call</h3>
+      <span class="lede">Three principles the advisors would not bend on.</span>
+    </div>
+    <div class="reasons">
+      <div class="rcard reveal">
+        <span class="idx serif">i</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#6F8C66" stroke-width="2"/><path d="M16 20 q8 -8 16 0" stroke="#AF4F38" stroke-width="2.6" stroke-linecap="round"/><path d="M14 27 l20 0" stroke="#AF4F38" stroke-width="2.6" stroke-linecap="round"/><path d="M14 14 l20 20" stroke="#AF4F38" stroke-width="3" stroke-linecap="round"/></svg>
+        <h4 class="serif">Tracheal safety, paramount</h4>
+        <p>The Y-front design is non-negotiable, directing leash force to the sternum and completely off Cupcake's delicate trachea — crucial for her airway health.</p>
+      </div>
+      <div class="rcard reveal">
+        <span class="idx serif">ii</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#6F8C66" stroke-width="2"/><path d="M16 30 q8 -16 16 0" stroke="#6F8C66" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M24 14 l0 8" stroke="#D88A60" stroke-width="2.6" stroke-linecap="round"/><path d="M24 14 l-5 5 M24 14 l5 5" stroke="#D88A60" stroke-width="2.6" stroke-linecap="round"/></svg>
+        <h4 class="serif">Unrestricted shoulders</h4>
+        <p>Harnesses must allow full, natural foreleg extension without chafing or impeding the shoulder joints — vital for her long-term mobility and comfort as a senior dog.</p>
+      </div>
+      <div class="rcard reveal">
+        <span class="idx serif">iii</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#6F8C66" stroke-width="2"/><path d="M12 24 l24 0" stroke="#6F8C66" stroke-width="2.4"/><path d="M12 24 l4 -4 M12 24 l4 4" stroke="#6F8C66" stroke-width="2.4" stroke-linecap="round"/><path d="M36 24 l-4 -4 M36 24 l-4 4" stroke="#6F8C66" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="24" r="4" fill="#D88A60"/></svg>
+        <h4 class="serif">Individual fit decides</h4>
+        <p>Meticulous measurement and a 7-day trial for body response trump brand, bulk, or even initial design theory. Cupcake's comfort and health are the final judge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENDERS -->
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num serif">02</span>
+      <h3 class="serif">The contenders, ranked</h3>
+      <span class="lede">Two co-favorites lead — then strong, specialist, and disqualified.</span>
+    </div>
+
+    <div class="cont-top">
+      <div class="primecard reveal">
+        <span class="cowin serif">co-#1</span>
+        <span class="chip best">Best Primary</span>
+        <h4 class="serif">Haqihana H-Harness</h4>
+        <p>Minimalist Y-front with precision sizing — ideal for low bulk, heat, and matting risk. Best if Cupcake tolerates over-head donning.</p>
+      </div>
+      <div class="primecard reveal">
+        <span class="cowin serif">co-#1</span>
+        <span class="chip best">Best Primary</span>
+        <h4 class="serif">Perfect Fit 15mm Modular</h4>
+        <p>Customizable 3-piece Y-front — excellent for precise fit, odd shapes, or a buckle-neck donning preference. Can run bulkier and warmer.</p>
+      </div>
+    </div>
+
+    <div class="crow r2 reveal">
+      <span class="rk serif">2</span>
+      <div>
+        <h4 class="serif">Blue-9 Balance Buckle-Neck</h4>
+        <span class="chip strong">Strong Challenger</span>
+        <p>Strong Y-front design with a buckle at the neck for easier donning and less bulk than the Perfect Fit fleece. A capable generalist.</p>
+      </div>
+    </div>
+    <div class="crow r3 reveal">
+      <span class="rk serif">3</span>
+      <div>
+        <h4 class="serif">Ruffwear Flagline / Web Master</h4>
+        <span class="chip risk">Risk-Specific</span>
+        <p>Secure, multi-point harnesses with handles. Reserve for specific escape risks, lifting needs, or crowded outings.</p>
+      </div>
+    </div>
+    <div class="crow r4 reveal">
+      <span class="rk serif">✕</span>
+      <div>
+        <h4 class="serif">Other Designs</h4>
+        <span class="chip avoid">Avoid Completely</span>
+        <p>No collar-only, no vest-style, no front-clip "no-pull," no horizontal throat straps. These are unsafe or anti-gait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<section class="anatomy block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num serif">03</span>
+      <h3 class="serif">The geometry of a safe pull</h3>
+      <span class="lede">Where the force lands is the whole argument.</span>
+    </div>
+    <div class="ana-grid">
+      <div class="ana-svg reveal">
+        <svg viewBox="0 0 420 300" role="img" aria-label="Diagram showing leash force directed to the sternum, away from the trachea">
+          <!-- chest cross section -->
+          <circle cx="210" cy="160" r="92" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="2 7"/>
+          <text x="210" y="262" text-anchor="middle" font-family="Inter" font-size="11" letter-spacing="2" fill="#5C5148">CHEST GIRTH</text>
+          <!-- neck base -->
+          <circle cx="210" cy="78" r="34" fill="none" stroke="var(--clay)" stroke-width="2"/>
+          <!-- trachea danger zone -->
+          <g>
+            <circle cx="210" cy="58" r="16" fill="rgba(175,79,56,.12)" stroke="var(--rust)" stroke-width="2.4"/>
+            <path d="M201 49 l18 18 M219 49 l-18 18" stroke="var(--rust)" stroke-width="3" stroke-linecap="round"/>
+            <text x="246" y="54" font-family="Fraunces" font-size="14" fill="var(--rust)">Trachea</text>
+            <text x="246" y="70" font-family="Inter" font-size="10.5" fill="#5C5148">off-limits</text>
+          </g>
+          <!-- Y harness -->
+          <path d="M180 96 L210 168" stroke="var(--sage-deep)" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M240 96 L210 168" stroke="var(--sage-deep)" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M210 168 L210 232" stroke="var(--sage-deep)" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <!-- sternum target -->
+          <circle cx="210" cy="168" r="11" fill="var(--sage)" stroke="#fff" stroke-width="3"/>
+          <text x="130" y="174" text-anchor="end" font-family="Fraunces" font-size="14" fill="var(--sage-deep)">Sternum</text>
+          <text x="130" y="190" text-anchor="end" font-family="Inter" font-size="10.5" fill="#5C5148">force lands here</text>
+          <!-- force arrow -->
+          <path d="M210 250 L210 195" stroke="var(--terra-deep)" stroke-width="2.6" stroke-dasharray="4 4"/>
+          <path d="M210 195 l-6 9 M210 195 l6 9" stroke="var(--terra-deep)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <text x="222" y="248" font-family="Inter" font-size="10.5" fill="var(--terra-deep)">leash pull</text>
+        </svg>
+      </div>
+      <ul class="ana-list reveal">
+        <li><span class="k ksage"></span><div><strong>The Y meets at the sternum</strong><span>The two straps converge on the breastbone, the strongest, safest point to absorb a pull.</span></div></li>
+        <li><span class="k krust"></span><div><strong>Nothing crosses the throat</strong><span>No horizontal strap sits over the windpipe — the single most important rule for a collapse-prone trachea.</span></div></li>
+        <li><span class="k kterra"></span><div><strong>Shoulders stay open</strong><span>Straps clear the foreleg joints so her natural gait is never shortened or chafed.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CAVEATS + FALSIFICATION -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num serif">04</span>
+      <h3 class="serif">Watch-outs &amp; what would change the call</h3>
+    </div>
+    <div class="dual">
+      <ul class="caveats reveal">
+        <li><svg class="ymark" style="color:var(--sage)"><use href="#y"/></svg><span>Her handling tolerance — over-head vs. buckle-neck donning — is a critical decision point.</span></li>
+        <li><svg class="ymark" style="color:var(--sage)"><use href="#y"/></svg><span>Potential for matting or heat retention in her double coat, especially with fleece or bulkier designs.</span></li>
+        <li><svg class="ymark" style="color:var(--sage)"><use href="#y"/></svg><span>Escape risk, if present, overrides comfort for outdoor safety — and demands a specific security harness.</span></li>
+        <li><svg class="ymark" style="color:var(--sage)"><use href="#y"/></svg><span>Two harnesses are needed to rotate for cleaning and drying, so she never wears a dirty or damp one.</span></li>
+        <li><svg class="ymark" style="color:var(--sage)"><use href="#y"/></svg><span>Regular fit checks and coat inspections are essential to prevent rubbing, pressure sores, or hair loss over years of daily wear.</span></li>
+      </ul>
+      <div class="falsify reveal">
+        <div class="lab">What would change our mind</div>
+        <h4 class="serif">The verdict isn't immune to evidence.</h4>
+        <p>If Cupcake shows sustained, unmanageable distress during donning, or clear adverse reactions — coughing, chafing, gait changes — to a correctly fitted Y-front, a specialized solution is warranted. Likewise if long-term veterinary studies on similar dogs definitively prove one recommended style inferior.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION PLAN -->
+<section class="anatomy block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num serif">05</span>
+      <h3 class="serif">The action plan</h3>
+      <span class="lede">Six steps, in order, from clinic to closet.</span>
+    </div>
+    <div class="timeline">
+      <div class="step reveal"><div class="node serif">1</div><div class="body"><strong>Consult Dr. Gu</strong><p>Confirm Cupcake's tracheal collapse grade and any cervical/shoulder arthritis, and get her opinion on specific fit and material choices.</p></div></div>
+      <div class="step reveal"><div class="node serif">2</div><div class="body"><strong>Measure meticulously</strong><p>Take her chest girth, base-of-neck circumference, and sternum-to-girth distance with a soft tape.</p></div></div>
+      <div class="step reveal"><div class="node serif">3</div><div class="body"><strong>Order &amp; trial</strong><p>Acquire the Haqihana H-Harness (checking the smallest sizes) and/or the Perfect Fit 15mm modular system, with a buckle-neck top piece if preferred.</p></div></div>
+      <div class="step reveal"><div class="node serif">4</div><div class="body"><strong>Run a 7-day fit trial</strong><p>Rigorously test for no throat contact, free shoulder movement, no rubbing, no gait changes, and calm donning and wearing.</p></div></div>
+      <div class="step reveal"><div class="node serif">5</div><div class="body"><strong>Purchase two</strong><p>Once a winner is confirmed, buy a second identical harness so one is always clean and dry.</p></div></div>
+      <div class="step reveal"><div class="node serif">6</div><div class="body"><strong>Reserve the Ruffwear</strong><p>Only acquire a Ruffwear Flagline or Web Master if escape risk or lifting assistance becomes a specific, proven necessity.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="prov-lab">Provenance</div>
+    <p class="prov serif">A three-advisor debate that converged on Y-front geometry, meticulous fit, and tracheal safety.</p>
+    <div class="advisors">
+      <span class="adv"><span class="d" style="background:#6F8C66"></span>ChatGPT · browser engine</span>
+      <span class="adv"><span class="d" style="background:#D88A60"></span>Claude.ai · browser engine</span>
+      <span class="adv"><span class="d" style="background:#7E92A0"></span>Gemini · free API</span>
+    </div>
+    <div class="foot-meta">
+      <span>Decision Brief · 2 Rounds</span>
+      <span>For Cupcake</span>
+      <span>28 June 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay=(i%3*0.08)+'s';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
