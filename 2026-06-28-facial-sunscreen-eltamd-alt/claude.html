@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Mineral Brief — A Sunscreen Decision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..700&family=Outfit:wght@300..700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fdf8ef;
+  --sand:#f4ead6;
+  --ink:#231d16;
+  --zinc:#e9ebec;
+  --gold:#e8a838;
+  --gold-deep:#c8731a;
+  --sun:#f4c542;
+  --moss:#5a7d52;
+  --moss-deep:#3e5b39;
+  --blush:#e8b4a0;
+  --line:rgba(35,29,22,.12);
+  --shadow:0 24px 60px -24px rgba(35,29,22,.32);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Outfit',sans-serif;
+  font-weight:330;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+::selection{background:var(--sun);color:var(--ink)}
+
+/* ---------- atmospheric blobs ---------- */
+.atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:float 18s ease-in-out infinite}
+.blob.b1{width:480px;height:480px;background:radial-gradient(circle,var(--sun),transparent 70%);top:-180px;right:-120px}
+.blob.b2{width:420px;height:420px;background:radial-gradient(circle,var(--blush),transparent 70%);bottom:5%;left:-160px;animation-delay:-6s}
+.blob.b3{width:360px;height:360px;background:radial-gradient(circle,var(--moss),transparent 72%);top:48%;right:-120px;opacity:.32;animation-delay:-11s}
+@keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-36px) translateX(22px)}}
+
+main{position:relative;z-index:1}
+
+/* ---------- top tag ---------- */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.topbar .dot{display:inline-flex;align-items:center;gap:9px}
+.topbar .sundot{width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(232,168,56,.22)}
+
+/* ---------- hero ---------- */
+.hero{padding:34px 0 70px;position:relative}
+.eyebrow{font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:30px}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-weight:400;
+  font-size:clamp(2.7rem,7vw,5.6rem);
+  line-height:1.02;
+  letter-spacing:-.018em;
+  max-width:15ch;
+}
+.hero h1 em{font-style:italic;color:var(--gold-deep)}
+.hero .sub{
+  margin-top:30px;
+  font-size:clamp(1.05rem,1.9vw,1.4rem);
+  max-width:54ch;
+  color:#5e544a;
+  font-weight:330;
+}
+.metaline{
+  margin-top:42px;display:flex;flex-wrap:wrap;gap:14px;
+}
+.chip{
+  font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.08em;
+  padding:9px 16px;border:1px solid var(--line);border-radius:40px;background:rgba(255,255,255,.55);
+  display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;
+}
+.chip svg{width:13px;height:13px}
+
+/* sun svg */
+.sun-mark{position:absolute;top:30px;right:0;width:clamp(120px,18vw,210px);height:auto;opacity:.9}
+@media(max-width:760px){.sun-mark{position:static;display:block;margin:34px 0 -10px;width:120px}}
+.sun-mark .ray{transform-origin:center;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- verdict card ---------- */
+.verdict{
+  margin:20px auto 100px;
+  background:linear-gradient(155deg,#fff,var(--sand));
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:clamp(30px,5vw,58px);
+  box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.verdict::before{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,var(--sun),transparent 70%);opacity:.45;border-radius:50%}
+.verdict .lab{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);position:relative}
+.verdict h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1.06;margin:16px 0 20px;position:relative;letter-spacing:-.01em}
+.verdict p{position:relative;max-width:62ch;font-size:1.1rem;color:#564c42}
+.confbar{position:relative;margin-top:30px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.conf{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--moss-deep);color:#f3f6f1;padding:8px 15px;border-radius:30px}
+
+/* ---------- section heads ---------- */
+.sec{padding:46px 0}
+.sechead{display:flex;align-items:baseline;gap:18px;margin-bottom:46px;flex-wrap:wrap}
+.secnum{font-family:'Space Mono',monospace;font-size:13px;color:var(--gold-deep);letter-spacing:.1em}
+.sechead h3{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.6rem,3.6vw,2.6rem);letter-spacing:-.01em}
+.sechead .rule{flex:1;height:1px;background:var(--line);min-width:40px;align-self:center}
+
+/* ---------- reasons ---------- */
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.reason{background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:22px;padding:32px 28px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.reason:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.reason .n{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--gold);line-height:1;font-weight:500}
+.reason h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.3rem;margin:16px 0 12px}
+.reason p{font-size:.98rem;color:#5e544a}
+
+/* ---------- contenders ---------- */
+.ranks{display:flex;flex-direction:column;gap:20px}
+.rk{
+  display:grid;grid-template-columns:78px 1fr auto;gap:26px;align-items:center;
+  background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:24px;
+  padding:28px 30px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s,border-color .4s;
+  position:relative;overflow:hidden;
+}
+.rk:hover{transform:translateX(6px);box-shadow:var(--shadow);border-color:rgba(232,168,56,.5)}
+.rk .num{font-family:'Fraunces',serif;font-size:3.2rem;font-weight:300;color:var(--ink);line-height:.8;opacity:.85}
+.rk .body h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.4rem;margin-bottom:8px;letter-spacing:-.01em}
+.rk .body p{font-size:.97rem;color:#5e544a;max-width:62ch}
+.rk .tag{align-self:start;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;padding:8px 13px;border-radius:30px;border:1px solid var(--line);background:var(--cream)}
+.rk.top{background:linear-gradient(150deg,#fff,var(--sand));border-color:rgba(232,168,56,.55)}
+.rk.top .tag{background:var(--gold);border-color:var(--gold-deep);color:#3a2a08}
+.rk.cdn .tag{background:var(--moss-deep);color:#f1f5ef;border-color:var(--moss-deep)}
+.rk .stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--line)}
+.rk.top .stripe{background:linear-gradient(var(--sun),var(--gold-deep))}
+.rk.cdn .stripe{background:linear-gradient(var(--moss),var(--moss-deep))}
+
+/* ---------- picks split ---------- */
+.picks{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px}
+.pick{border-radius:26px;padding:40px 36px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.pick.gold{background:linear-gradient(160deg,var(--sun),var(--gold-deep));color:#2c1f06}
+.pick.moss{background:linear-gradient(160deg,var(--moss),var(--moss-deep));color:#f3f7f1}
+.pick .pl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.pick h4{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.5rem,3vw,2.1rem);margin:14px 0 12px;line-height:1.08}
+.pick p{font-size:1rem;opacity:.92}
+.pick .leaf{position:absolute;bottom:-30px;right:-20px;width:140px;height:140px;opacity:.18}
+
+/* ---------- caveats ---------- */
+.caveats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cav{display:flex;gap:16px;padding:24px 26px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.5)}
+.cav .ic{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--sand);display:grid;place-items:center}
+.cav .ic svg{width:17px;height:17px;stroke:var(--gold-deep)}
+.cav p{font-size:.96rem;color:#564c42}
+.cav strong{color:var(--ink);font-weight:600}
+
+/* ---------- action plan ---------- */
+.steps{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:8px}
+.step{position:relative;padding:0 0 36px 40px}
+.step:last-child{padding-bottom:0}
+.step::before{content:"";position:absolute;left:-9px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--gold);border:3px solid var(--cream);box-shadow:0 0 0 1px var(--line)}
+.step h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.18rem;margin-bottom:6px}
+.step p{font-size:.97rem;color:#5e544a;max-width:64ch}
+
+/* ---------- falsification ---------- */
+.falsi{background:var(--ink);color:var(--cream);border-radius:28px;padding:clamp(34px,5vw,56px);position:relative;overflow:hidden}
+.falsi::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(244,197,66,.18),transparent 55%)}
+.falsi .pl{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);position:relative}
+.falsi p{position:relative;font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.3rem,2.7vw,1.9rem);line-height:1.4;margin-top:20px;max-width:66ch}
+.falsi p em{font-style:italic;color:var(--sun)}
+
+/* ---------- footer ---------- */
+footer{padding:70px 0 90px;text-align:center}
+.adv{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 30px}
+.adv span{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;padding:8px 15px;border:1px solid var(--line);border-radius:30px;background:rgba(255,255,255,.5)}
+footer .prov{max-width:64ch;margin:0 auto;font-size:.92rem;color:#6a6157}
+footer .sig{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;margin-top:34px;color:var(--gold-deep)}
+.fdate{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a8074;margin-top:10px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:880px){
+  .reasons{grid-template-columns:1fr}
+  .picks{grid-template-columns:1fr}
+  .caveats{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .rk{grid-template-columns:1fr;gap:14px;padding:26px 24px}
+  .rk .num{font-size:2.4rem}
+  .rk .tag{justify-self:start}
+  .rk:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="atmos">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<main class="wrap">
+
+  <div class="topbar">
+    <span class="dot"><span class="sundot"></span>The Mineral Brief</span>
+    <span>Vancouver · BC</span>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <svg class="sun-mark" viewBox="0 0 200 200" fill="none">
+      <g class="ray" stroke="#e8a838" stroke-width="3" stroke-linecap="round">
+        <line x1="100" y1="14" x2="100" y2="40"/>
+        <line x1="100" y1="160" x2="100" y2="186"/>
+        <line x1="14" y1="100" x2="40" y2="100"/>
+        <line x1="160" y1="100" x2="186" y2="100"/>
+        <line x1="39" y1="39" x2="58" y2="58"/>
+        <line x1="142" y1="142" x2="161" y2="161"/>
+        <line x1="161" y1="39" x2="142" y2="58"/>
+        <line x1="58" y1="142" x2="39" y2="161"/>
+      </g>
+      <circle cx="100" cy="100" r="42" fill="#f4c542"/>
+      <circle cx="100" cy="100" r="42" fill="none" stroke="#c8731a" stroke-width="2" opacity=".5"/>
+    </svg>
+
+    <div class="eyebrow rv">Decision Brief · Daily Facial Sunscreen</div>
+    <h1 class="rv">After EltaMD sold out, the search for a <em>truly mineral</em> daily SPF.</h1>
+    <p class="sub rv">Finding an untinted, truly mineral daily facial sunscreen that is health-conscious and cosmetically elegant for a couple in Vancouver.</p>
+
+    <div class="metaline rv">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#c8731a" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2 Rounds · 3 Advisors</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#5a7d52" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>Mineral · Zinc Oxide only</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#c8731a" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>SPF 30+ · Untinted</span>
+    </div>
+  </header>
+
+  <!-- VERDICT -->
+  <section class="verdict rv">
+    <div class="lab">The Verdict</div>
+    <h2>Colorescience No-Show<br>Mineral Sunscreen SPF 50</h2>
+    <p>This option delivers superior cosmetic elegance and high SPF in a truly mineral, untinted formula, closely matching EltaMD's feel while upholding your clean-ingredient values.</p>
+    <div class="confbar">
+      <span class="conf">Confidence: High</span>
+      <span style="font-size:.92rem;color:#6a6157">Advisors converged on the core problem and top product types.</span>
+    </div>
+  </section>
+
+  <!-- REASONS -->
+  <section class="sec">
+    <div class="sechead rv"><span class="secnum">01</span><h3>Why this call</h3><span class="rule"></span></div>
+    <div class="reasons">
+      <div class="reason rv">
+        <div class="n">①</div>
+        <h4>EltaMD Was Hybrid</h4>
+        <p>Your beloved EltaMD UV Clear SPF 46 contains Octinoxate, a chemical filter. Your true goal is a purely mineral sunscreen, which reframes the search entirely.</p>
+      </div>
+      <div class="reason rv">
+        <div class="n">②</div>
+        <h4>Cosmetic Elegance Matched</h4>
+        <p>While purely mineral, Colorescience No-Show is specifically engineered for an invisible, lightweight, untinted finish, closely replicating the EltaMD feel you loved for daily wear under makeup.</p>
+      </div>
+      <div class="reason rv">
+        <div class="n">③</div>
+        <h4>Truly Clean-Leaning</h4>
+        <p>It's 100% mineral (non-nano zinc), fragrance-free, oil-free, non-comedogenic, and packed with antioxidants — adhering to your health-conscious preferences without controversial chemical filters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENDERS -->
+  <section class="sec">
+    <div class="sechead rv"><span class="secnum">02</span><h3>The ranked shortlist</h3><span class="rule"></span></div>
+    <div class="ranks">
+
+      <article class="rk top rv">
+        <span class="stripe"></span>
+        <div class="num">1</div>
+        <div class="body">
+          <h4>Colorescience No-Show SPF 50</h4>
+          <p>Your top pick for a high-performance, untinted, truly mineral sunscreen that feels lightweight and invisible under makeup, closely matching your EltaMD experience. Buy from Beautysense.ca for $69.80 CAD — in stock.</p>
+        </div>
+        <span class="tag">Overall Top Pick</span>
+      </article>
+
+      <article class="rk rv">
+        <span class="stripe"></span>
+        <div class="num">2</div>
+        <div class="body">
+          <h4>CeraVe Mineral Face SPF 50</h4>
+          <p>The best value option that exactly replicates EltaMD's niacinamide + hyaluronic acid skincare benefits in a 100% mineral, fragrance-free, widely available formula. Buy from Amazon.ca for ~$24.99 CAD — in stock.</p>
+        </div>
+        <span class="tag">Best Value / Skincare</span>
+      </article>
+
+      <article class="rk cdn rv">
+        <span class="stripe"></span>
+        <div class="num">3</div>
+        <div class="body">
+          <h4>Ava Isa Every Morning SPF</h4>
+          <p>A strong Canadian-made, EWG Verified, 100% mineral (25% zinc) option that prioritizes clean credentials. It's SPF 30, but offers high UVA protection. Buy from The Sunscreen Company for $55 CAD — in stock.</p>
+        </div>
+        <span class="tag">Best Canadian Clean</span>
+      </article>
+
+      <article class="rk cdn rv">
+        <span class="stripe"></span>
+        <div class="num">4</div>
+        <div class="body">
+          <h4>Attitude Sunly Face SPF 30</h4>
+          <p>An affordable, EWG Verified, Canadian-made option with a very clean ingredient list. At 20% zinc, it may be thicker and cast more noticeably than higher-ranked picks. Buy from Amazon.ca for ~$20–25 CAD — in stock.</p>
+        </div>
+        <span class="tag">Budget Canadian</span>
+      </article>
+
+      <article class="rk cdn rv">
+        <span class="stripe"></span>
+        <div class="num">5</div>
+        <div class="body">
+          <h4>Green Beaver Mineral SPF</h4>
+          <p>The best choice if certified-organic ingredients are your absolute top priority — it's Ecocert certified. However, its oil/wax-rich texture is less cosmetically elegant for daily facial wear. Buy from Well.ca for $21.99 CAD — in stock.</p>
+        </div>
+        <span class="tag">Best Certified Organic</span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PICKS -->
+  <section class="sec">
+    <div class="sechead rv"><span class="secnum">03</span><h3>Two picks, two priorities</h3><span class="rule"></span></div>
+    <div class="picks">
+      <div class="pick gold rv">
+        <div class="pl">Overall Top Pick</div>
+        <h4>Colorescience No-Show SPF 50</h4>
+        <p>Cosmetic elegance and high SPF in a truly mineral, untinted form — the closest match to the EltaMD feel you loved.</p>
+        <svg class="leaf" viewBox="0 0 100 100" fill="#2c1f06"><circle cx="50" cy="50" r="22"/><g stroke="#2c1f06" stroke-width="4" stroke-linecap="round"><line x1="50" y1="8" x2="50" y2="20"/><line x1="50" y1="80" x2="50" y2="92"/><line x1="8" y1="50" x2="20" y2="50"/><line x1="80" y1="50" x2="92" y2="50"/><line x1="20" y1="20" x2="29" y2="29"/><line x1="71" y1="71" x2="80" y2="80"/><line x1="80" y1="20" x2="71" y2="29"/><line x1="29" y1="71" x2="20" y2="80"/></g></svg>
+      </div>
+      <div class="pick moss rv">
+        <div class="pl">Best Canadian-Made Organic</div>
+        <h4>Ava Isa Every Morning SPF 30</h4>
+        <p>Canadian-made, EWG Verified, 100% mineral with 25% zinc — clean credentials front and centre with high UVA protection.</p>
+        <svg class="leaf" viewBox="0 0 100 100" fill="#f3f7f1"><path d="M50 12C28 24 18 46 26 76c30 8 52-2 64-24C82 30 68 18 50 12z"/><path d="M40 64C46 52 56 42 70 36" stroke="#3e5b39" stroke-width="3" fill="none"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAVEATS -->
+  <section class="sec">
+    <div class="sechead rv"><span class="secnum">04</span><h3>Honest caveats</h3><span class="rule"></span></div>
+    <div class="caveats">
+      <div class="cav rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div><p><strong>Expect a different feel.</strong> Any truly mineral sunscreen will behave differently than your previous hybrid EltaMD.</p></div>
+      <div class="cav rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><p><strong>Greenwashing.</strong> Not all "natural" or "organic-leaning" sunscreens are equal — verify active filters and certifications (EWG, Ecocert).</p></div>
+      <div class="cav rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18z" fill="currentColor" stroke="none"/></svg></div><p><strong>Tinted vs. untinted.</strong> Some highly-rated mineral formulas add a "universal" tint to reduce white cast — verify if you truly want untinted.</p></div>
+      <div class="cav rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21C7 17 4 13 4 9a8 8 0 0116 0c0 4-3 8-8 12z"/></svg></div><p><strong>Botanical sensitizers.</strong> Many "natural" sunscreens use botanical oils (avocado, raspberry seed) that can irritate sensitive skin.</p></div>
+      <div class="cav rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><p><strong>Reapplication is key.</strong> SPF requires generous application and reapplication every 2 hours — or after sweating or swimming.</p></div>
+    </div>
+  </section>
+
+  <!-- ACTION PLAN -->
+  <section class="sec">
+    <div class="sechead rv"><span class="secnum">05</span><h3>The action plan</h3><span class="rule"></span></div>
+    <div class="steps">
+      <div class="step rv"><h4>Acknowledge the EltaMD fact</h4><p>Understand your previous sunscreen contained a chemical filter — this shifts your expectation for alternatives.</p></div>
+      <div class="step rv"><h4>Order Colorescience No-Show SPF 50</h4><p>Make this your primary daily facial sunscreen, prioritizing cosmetic elegance and high SPF in a truly mineral form.</p></div>
+      <div class="step rv"><h4>Consider CeraVe Hydrating Mineral SPF 50</h4><p>Purchase as an affordable, high-SPF backup that replicates EltaMD's niacinamide and hyaluronic acid benefits.</p></div>
+      <div class="step rv"><h4>Patch test first</h4><p>Always test any new sunscreen on a small area of your face for a few days before full application to check for irritation or pilling.</p></div>
+      <div class="step rv"><h4>Apply generously and reapply</h4><p>Use enough (the two-finger rule for face and neck) and reapply every 2 hours for full protection.</p></div>
+    </div>
+  </section>
+
+  <!-- FALSIFICATION -->
+  <section class="sec">
+    <div class="falsi rv">
+      <div class="pl">What would change this verdict</div>
+      <p>If EltaMD released a genuinely <em>100% mineral-only</em> UV Clear formulation — Zinc Oxide and/or Titanium Dioxide only, no chemical filters — that kept its SPF 46 and exceptional cosmetic elegance, consistently available in Canada.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="eyebrow" style="margin-bottom:6px">Provenance</div>
+    <div class="adv">
+      <span>ChatGPT · browser</span>
+      <span>Claude.ai · browser</span>
+      <span>Gemini · free API</span>
+    </div>
+    <p class="prov">This decision brief synthesizes insights from a three-advisor debate. Advisors converged decisively on the fact that EltaMD UV Clear is a hybrid sunscreen — not purely mineral — and identified Colorescience and Ava Isa as strong contenders for mineral-only elegance and clean ingredients.</p>
+    <div class="sig">Stay covered, stay clean.</div>
+    <div class="fdate">Brief dated 2026 · 06 · 28</div>
+  </footer>
+
+</main>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+</script>
+</body>
+</html>
