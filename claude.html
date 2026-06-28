@@ -1,0 +1,480 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA28 Tickets — Decision Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Expanded:wght@600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0a0f;
+    --paper:#f4f1ea;
+    --gold:#d8a23a;
+    --gold-bright:#f4c95d;
+    --flame:#ff5e1f;
+    --azure:#1b5cff;
+    --aqua:#19c2d6;
+    --rose:#ff3d77;
+    --violet:#7b3ff2;
+    --line:rgba(10,10,15,.14);
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo',sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:inherit}
+
+  /* ===== grain + film ===== */
+  .grain{
+    position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:100vh;
+    background:radial-gradient(120% 90% at 80% -10%, #1b1b2e 0%, #0a0a0f 55%);
+    color:var(--paper);overflow:hidden;
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:32px 0 48px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(40% 60% at 12% 110%, rgba(27,92,255,.45), transparent 60%),
+      radial-gradient(45% 55% at 95% 30%, rgba(255,94,31,.38), transparent 60%),
+      radial-gradient(35% 45% at 60% 0%, rgba(216,162,58,.30), transparent 60%);
+    filter:blur(8px);
+    animation:drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes drift{
+    0%{transform:translate3d(0,0,0) scale(1)}
+    100%{transform:translate3d(-3%,2%,0) scale(1.08)}
+  }
+  .rings{position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:screen}
+  .topbar{position:relative;z-index:3}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .badge{
+    font-family:'Archivo Expanded','Archivo';font-weight:800;letter-spacing:.32em;
+    font-size:11px;text-transform:uppercase;color:var(--gold-bright);
+    display:flex;align-items:center;gap:10px;
+  }
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--flame);box-shadow:0 0 12px var(--flame);animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .meta-line{font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.6;font-weight:600}
+
+  .hero-mid{position:relative;z-index:3;flex:1;display:flex;align-items:center}
+  .hero-mid .wrap{width:100%}
+  .eyebrow{
+    font-family:'Newsreader',serif;font-style:italic;font-size:clamp(16px,2.4vw,24px);
+    color:var(--gold-bright);margin-bottom:18px;opacity:0;animation:rise .8s .1s forwards;
+  }
+  h1.title{
+    font-family:'Anton',sans-serif;font-weight:400;
+    font-size:clamp(54px,12vw,168px);line-height:.86;letter-spacing:-.01em;
+    text-transform:uppercase;
+  }
+  h1.title .l1{display:block;opacity:0;animation:rise .9s .2s forwards}
+  h1.title .l2{
+    display:block;opacity:0;animation:rise .9s .34s forwards;
+    background:linear-gradient(100deg,var(--flame),var(--gold-bright) 40%,var(--aqua) 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  h1.title .l3{display:block;opacity:0;animation:rise .9s .48s forwards}
+  .hero-q{
+    max-width:620px;margin-top:28px;font-size:clamp(15px,1.8vw,19px);
+    line-height:1.55;color:rgba(244,241,234,.78);
+    opacity:0;animation:rise .9s .62s forwards;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+  .hero-foot{position:relative;z-index:3}
+  .hero-foot .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .advisors{display:flex;flex-direction:column;gap:8px}
+  .advisors .lbl{font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.5;font-weight:700}
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{
+    border:1px solid rgba(244,241,234,.22);border-radius:100px;padding:7px 15px;
+    font-size:12px;font-weight:600;letter-spacing:.02em;backdrop-filter:blur(4px);
+    background:rgba(244,241,234,.04);
+  }
+  .scroll-cue{font-size:11px;letter-spacing:.28em;text-transform:uppercase;opacity:.55;font-weight:700;display:flex;align-items:center;gap:10px}
+  .scroll-cue .arr{display:inline-block;animation:bob 1.8s infinite}
+  @keyframes bob{50%{transform:translateY(6px)}}
+
+  /* ===== SECTION SCAFFOLD ===== */
+  section{position:relative}
+  .sec-pad{padding:clamp(64px,9vw,128px) 0}
+  .kicker{
+    font-family:'Archivo Expanded','Archivo';font-weight:800;letter-spacing:.3em;
+    text-transform:uppercase;font-size:12px;color:var(--flame);
+    display:flex;align-items:center;gap:14px;margin-bottom:26px;
+  }
+  .kicker::before{content:"";width:38px;height:2px;background:var(--flame)}
+  .sec-h{
+    font-family:'Archivo Expanded','Archivo';font-weight:900;
+    font-size:clamp(30px,5vw,58px);line-height:1.02;letter-spacing:-.01em;
+  }
+
+  /* ===== VERDICT ===== */
+  .verdict{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+  .verdict::after{
+    content:"";position:absolute;right:-10%;top:-20%;width:60%;height:140%;
+    background:radial-gradient(circle,rgba(216,162,58,.22),transparent 65%);pointer-events:none;
+  }
+  .verdict .kicker{color:var(--gold-bright)}
+  .verdict .kicker::before{background:var(--gold-bright)}
+  .verdict-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center}
+  .vbig{
+    font-family:'Anton',sans-serif;font-size:clamp(38px,6vw,82px);line-height:.92;
+    text-transform:uppercase;letter-spacing:-.005em;
+  }
+  .vbig em{
+    font-style:normal;
+    background:linear-gradient(95deg,var(--gold-bright),var(--flame));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .vone{font-family:'Newsreader',serif;font-size:clamp(17px,2vw,23px);line-height:1.5;color:rgba(244,241,234,.82);margin-top:26px;max-width:560px}
+  .vone .src{color:var(--gold-bright);font-style:italic}
+  .conf-card{
+    border:1px solid rgba(244,241,234,.16);border-radius:20px;padding:30px;
+    background:linear-gradient(180deg,rgba(244,241,234,.05),rgba(244,241,234,.01));
+  }
+  .conf-card .cl{font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.55;font-weight:700;margin-bottom:14px}
+  .conf-val{font-family:'Anton';font-size:46px;text-transform:uppercase;color:var(--gold-bright);line-height:1}
+  .gauge{height:8px;border-radius:100px;background:rgba(244,241,234,.12);margin-top:20px;overflow:hidden}
+  .gauge i{display:block;height:100%;width:88%;border-radius:100px;background:linear-gradient(90deg,var(--flame),var(--gold-bright))}
+  .conf-note{font-size:12px;opacity:.55;margin-top:14px;line-height:1.5}
+
+  /* ===== REASONS ===== */
+  .reasons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:18px}
+  .rcard{
+    background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 30px;
+    position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+  }
+  .rcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px -28px rgba(10,10,15,.35)}
+  .rcard .num{
+    font-family:'Anton';font-size:58px;line-height:1;color:transparent;
+    -webkit-text-stroke:1.5px var(--gold);opacity:.7;
+  }
+  .rcard h3{font-family:'Archivo Expanded','Archivo';font-weight:800;font-size:21px;margin:18px 0 12px;line-height:1.12}
+  .rcard p{font-size:15px;line-height:1.6;color:#3a3a44}
+  .rcard .bar{position:absolute;left:0;top:0;height:100%;width:5px;background:linear-gradient(180deg,var(--flame),var(--gold))}
+
+  /* ===== CONTENDERS ===== */
+  .contenders{background:#11111a;color:var(--paper)}
+  .contenders .kicker{color:var(--aqua)}
+  .contenders .kicker::before{background:var(--aqua)}
+  .crow{
+    display:grid;grid-template-columns:88px 1fr auto;gap:30px;align-items:center;
+    padding:30px 4px;border-top:1px solid rgba(244,241,234,.12);
+    transition:padding-left .35s,background .35s;position:relative;
+  }
+  .crow:last-child{border-bottom:1px solid rgba(244,241,234,.12)}
+  .crow:hover{padding-left:18px;background:rgba(244,241,234,.025)}
+  .crank{font-family:'Anton';font-size:54px;line-height:1;opacity:.85}
+  .c1 .crank{color:var(--gold-bright)}
+  .c2 .crank{color:var(--aqua)}
+  .c3 .crank{color:var(--violet)}
+  .c4 .crank{color:#6b6b78}
+  .cmain h3{font-family:'Archivo Expanded','Archivo';font-weight:800;font-size:clamp(20px,2.4vw,28px);margin-bottom:8px}
+  .cmain p{font-size:14.5px;line-height:1.6;color:rgba(244,241,234,.66);max-width:680px}
+  .ctag{
+    font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    padding:9px 15px;border-radius:100px;white-space:nowrap;border:1px solid transparent;
+  }
+  .t-do{background:var(--gold-bright);color:var(--ink)}
+  .t-run{background:transparent;border-color:var(--aqua);color:var(--aqua)}
+  .t-prem{background:transparent;border-color:var(--violet);color:#b99bff}
+  .t-avoid{background:rgba(255,61,119,.12);border-color:var(--rose);color:var(--rose)}
+  @media(max-width:720px){
+    .crow{grid-template-columns:56px 1fr;gap:16px}
+    .ctag{grid-column:2;justify-self:start;margin-top:4px}
+    .crank{font-size:40px}
+  }
+
+  /* ===== CAVEATS ===== */
+  .caveats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:14px}
+  .cav{
+    display:flex;gap:18px;align-items:flex-start;padding:24px 26px;
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    border-left:4px solid var(--rose);
+  }
+  .cav .x{
+    flex-shrink:0;width:30px;height:30px;border-radius:50%;
+    background:var(--rose);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-weight:900;font-size:15px;
+  }
+  .cav p{font-size:15px;line-height:1.55;color:#2c2c34;font-weight:500}
+
+  /* ===== FALSIFICATION ===== */
+  .falsify{background:linear-gradient(120deg,#1b5cff,#7b3ff2);color:#fff;border-radius:28px;padding:clamp(34px,5vw,64px);position:relative;overflow:hidden}
+  .falsify::before{content:"?";position:absolute;right:-20px;top:-60px;font-family:'Anton';font-size:340px;opacity:.08;line-height:1}
+  .falsify .kicker{color:rgba(255,255,255,.85)}
+  .falsify .kicker::before{background:rgba(255,255,255,.85)}
+  .falsify p{font-family:'Newsreader',serif;font-size:clamp(20px,2.6vw,32px);line-height:1.4;max-width:840px;position:relative}
+
+  /* ===== ACTION PLAN ===== */
+  .plan{background:var(--ink);color:var(--paper)}
+  .plan .kicker{color:var(--gold-bright)}
+  .plan .kicker::before{background:var(--gold-bright)}
+  .steps{margin-top:20px;border-top:1px solid rgba(244,241,234,.12)}
+  .step{
+    display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;
+    padding:26px 0;border-bottom:1px solid rgba(244,241,234,.12);
+    transition:transform .35s;
+  }
+  .step:hover{transform:translateX(8px)}
+  .step .sn{
+    font-family:'Anton';font-size:30px;width:62px;height:62px;border-radius:50%;
+    border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+    color:var(--gold-bright);flex-shrink:0;
+  }
+  .step p{font-size:clamp(16px,1.9vw,20px);line-height:1.45;font-weight:500}
+  .step b{color:var(--gold-bright);font-weight:700}
+
+  /* ===== PROVENANCE / FOOT ===== */
+  .prov{background:var(--paper);color:var(--ink);text-align:center}
+  .prov .wrap{max-width:780px}
+  .prov .quote{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(15px,1.9vw,18px);line-height:1.65;color:#3a3a44}
+  .prov .deadline{
+    margin-top:40px;display:inline-flex;align-items:center;gap:14px;
+    background:var(--ink);color:var(--paper);border-radius:100px;padding:16px 28px;
+    font-family:'Archivo Expanded','Archivo';font-weight:800;letter-spacing:.04em;font-size:14px;
+  }
+  .prov .deadline .fdot{width:9px;height:9px;border-radius:50%;background:var(--flame);box-shadow:0 0 12px var(--flame);animation:pulse 2s infinite}
+  .footer{padding:40px 0;border-top:1px solid var(--line);text-align:center}
+  .footer p{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a8a92;font-weight:600}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .verdict-grid{grid-template-columns:1fr;gap:38px}
+    .reasons-grid{grid-template-columns:1fr}
+    .caveats-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <svg class="rings" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke-width="2">
+      <circle cx="1150" cy="180" r="120" stroke="#1b5cff" opacity=".5"/>
+      <circle cx="1300" cy="180" r="120" stroke="#0a0a0f" opacity=".0"/>
+      <circle cx="1250" cy="300" r="120" stroke="#ff5e1f" opacity=".45"/>
+      <circle cx="120" cy="760" r="150" stroke="#d8a23a" opacity=".4"/>
+      <circle cx="320" cy="820" r="150" stroke="#19c2d6" opacity=".35"/>
+    </g>
+  </svg>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="badge"><span class="dot"></span>Decision Brief · LA28</div>
+      <div class="meta-line">Three-Advisor Debate · 1 Round</div>
+    </div>
+  </div>
+
+  <div class="hero-mid">
+    <div class="wrap">
+      <div class="eyebrow">Should I buy now — or gamble on resale?</div>
+      <h1 class="title">
+        <span class="l1">Secure The</span>
+        <span class="l2">Podium Seats</span>
+        <span class="l3">Now.</span>
+      </h1>
+      <p class="hero-q">Secure your must-have LA28 Olympic experiences now; flexibility via verified resale comes later. A strategic brief on timing, fraud risk, and the economics of the secondary market.</p>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="wrap">
+      <div class="advisors">
+        <span class="lbl">Advisors in the room</span>
+        <div class="chips">
+          <span class="chip">ChatGPT · browser</span>
+          <span class="chip">Claude.ai · browser</span>
+          <span class="chip">Gemini · free API</span>
+        </div>
+      </div>
+      <div class="scroll-cue">Read the verdict <span class="arr">↓</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== VERDICT ===================== -->
+<section class="verdict sec-pad">
+  <div class="wrap">
+    <div class="kicker reveal">The Verdict</div>
+    <div class="verdict-grid">
+      <div>
+        <h2 class="vbig reveal">Secure Must-Have Tickets <em>Now</em>, Strategize Resale Later.</h2>
+        <p class="vone reveal">For high-demand LA28 events, primary sales offer the best chance for face value and authenticity; waiting, as <span class="src">Gemini put it</span>, is a high-stakes gamble you're likely to lose.</p>
+      </div>
+      <div class="conf-card reveal">
+        <div class="cl">Confidence</div>
+        <div class="conf-val">High</div>
+        <div class="gauge"><i></i></div>
+        <p class="conf-note">Two of three advisors converged strongly; the recommendation is robust for priority, high-demand sessions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REASONS ===================== -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="kicker reveal">Why It Wins</div>
+    <h2 class="sec-h reveal">Three forces point the same way.</h2>
+    <div class="reasons-grid">
+      <article class="rcard reveal">
+        <span class="bar"></span>
+        <div class="num">01</div>
+        <h3>High Demand, Limited Inventory</h3>
+        <p>LA28 is a major event with global demand. Primary sales are your best opportunity to secure tickets for iconic events, medal sessions, or highly popular sports before inventory becomes scarce and prices escalate.</p>
+      </article>
+      <article class="rcard reveal">
+        <span class="bar"></span>
+        <div class="num">02</div>
+        <h3>Avoid Early Fraud Risk</h3>
+        <p>LA28 explicitly states it cannot verify resale tickets before its official program launches in 2027. Purchasing from unofficial channels now exposes you to significant risk of scams, counterfeit tickets, and inflated prices.</p>
+      </article>
+      <article class="rcard reveal">
+        <span class="bar"></span>
+        <div class="num">03</div>
+        <h3>Resale Favors Sellers</h3>
+        <p>For desirable events, the secondary market — even official verified resale — typically rewards sellers. Do not expect significant discounts; instead, anticipate higher prices for popular sessions if you wait.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTENDERS ===================== -->
+<section class="contenders sec-pad">
+  <div class="wrap">
+    <div class="kicker reveal">The Strategies, Ranked</div>
+    <h2 class="sec-h reveal" style="margin-bottom:42px">Four ways to play it.</h2>
+
+    <div class="crow c1 reveal">
+      <div class="crank">1</div>
+      <div class="cmain">
+        <h3>Core Tickets Now</h3>
+        <p>Buy your essential, high-demand events (e.g., Opening/Closing, Gymnastics, Swimming finals) through primary sales. This secures your non-negotiable experiences at face value.</p>
+      </div>
+      <span class="ctag t-do">Do First</span>
+    </div>
+
+    <div class="crow c2 reveal">
+      <div class="crank">2</div>
+      <div class="cmain">
+        <h3>Hybrid Resale Later</h3>
+        <p>Use official, verified resale platforms (starting 2027) for less critical events, schedule-filling, or to upgrade seats once your travel plans are firm. Reserve 30–50% of your budget for this flexibility, as ChatGPT advises.</p>
+      </div>
+      <span class="ctag t-run">Runner-Up</span>
+    </div>
+
+    <div class="crow c3 reveal">
+      <div class="crank">3</div>
+      <div class="cmain">
+        <h3>Hospitality Packages</h3>
+        <p>These expensive packages offer guaranteed access to premium events and experiences with added perks. Consider if certainty, comfort, and a higher-tier experience outweigh price discipline.</p>
+      </div>
+      <span class="ctag t-prem">Premium Option</span>
+    </div>
+
+    <div class="crow c4 reveal">
+      <div class="crank">4</div>
+      <div class="cmain">
+        <h3>Unofficial Resale Early</h3>
+        <p>Never buy from unofficial channels before LA28's verified resale program launches in 2027. This is the worst option due to extreme fraud risk and unverifiable tickets — a hard rule emphasized by both ChatGPT and Gemini.</p>
+      </div>
+      <span class="ctag t-avoid">Avoid Completely</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAVEATS ===================== -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="kicker reveal">The Don'ts</div>
+    <h2 class="sec-h reveal">Five ways people lose.</h2>
+    <div class="caveats-grid">
+      <div class="cav reveal"><span class="x">✕</span><p>Do not wait for resale on your true "must-see" events; this is a gamble you will likely lose.</p></div>
+      <div class="cav reveal"><span class="x">✕</span><p>Do not assume "resale" means "discount"; for popular events, it often means higher prices.</p></div>
+      <div class="cav reveal"><span class="x">✕</span><p>Do not buy from unofficial sources or street scalpers before LA28's official resale program (2027).</p></div>
+      <div class="cav reveal"><span class="x">✕</span><p>Do not blow your entire budget on one prestige session; diversify your Olympic experience.</p></div>
+      <div class="cav reveal" style="grid-column:1/-1"><span class="x">✕</span><p>Do not ignore venue geography; LA28 events are spread out, so plan accordingly to minimize travel friction.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FALSIFICATION ===================== -->
+<section class="sec-pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="falsify reveal">
+      <div class="kicker">What Would Change The Answer</div>
+      <p>If LA28 announces in 2027 that verified resale is capped near face value with abundant supply for all event types, waiting would become far more attractive for flexible events.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ACTION PLAN ===================== -->
+<section class="plan sec-pad">
+  <div class="wrap">
+    <div class="kicker reveal">The Game Plan</div>
+    <h2 class="sec-h reveal">Five moves, in order.</h2>
+    <div class="steps">
+      <div class="step reveal"><div class="sn">1</div><p>Immediately <b>register for LA28 Drop 2</b> (deadline July 22, 2026) and turn on all official ticketing alerts.</p></div>
+      <div class="step reveal"><div class="sn">2</div><p>Create a prioritized list of <b>"must-have" (A-list)</b> and <b>"nice-to-have" (B-list)</b> events.</p></div>
+      <div class="step reveal"><div class="sn">3</div><p>Before your purchase window, set <b>strict price ceilings</b> for your A-list events.</p></div>
+      <div class="step reveal"><div class="sn">4</div><p>During your window, buy <b>only your A-list tickets first</b>, then add B-list if prices are sane.</p></div>
+      <div class="step reveal"><div class="sn">5</div><p>Save <b>30–50% of your total budget</b> for official verified resale beginning in 2027 to fill gaps or upgrade.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROVENANCE ===================== -->
+<section class="prov sec-pad">
+  <div class="wrap">
+    <div class="kicker reveal" style="justify-content:center">Provenance</div>
+    <p class="quote reveal">This brief distills advice from a three-advisor debate involving ChatGPT (browser engine), Claude.ai (browser engine), and Gemini (free API). Claude.ai failed to provide substantive guidance, but ChatGPT and Gemini strongly converged on immediate action for priority tickets via official channels.</p>
+    <div class="deadline reveal"><span class="fdot"></span>Register before July 22, 2026</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap"><p>Decision Brief · Generated 27 June 2026 · For planning purposes only</p></div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        const els=[...e.target.parentElement.querySelectorAll('.reveal')];
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(Math.min(i%6,5)*0.06)+'s';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1155 @@
+HTML
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LA28 Olympic Ticket Decision Brief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#151019;
+      --muted:#625a68;
+      --paper:#fff9ec;
+      --paper-2:#fff1d4;
+      --red:#ff4d3d;
+      --gold:#e7ae2f;
+      --blue:#2457ff;
+      --green:#0aa875;
+      --violet:#7f56ff;
+      --black:#111014;
+      --line:rgba(21,16,25,.16);
+      --shadow:0 24px 70px rgba(32,21,12,.14);
+      --radius:28px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255,77,61,.18), transparent 30%),
+        radial-gradient(circle at 90% 0%, rgba(36,87,255,.16), transparent 34%),
+        radial-gradient(circle at 54% 38%, rgba(231,174,47,.22), transparent 28%),
+        linear-gradient(180deg, var(--paper), #fffaf0 52%, #f8ead2);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.35;
+      mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg width='220' height='220' viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    }
+
+    .page{
+      position:relative;
+      min-height:100vh;
+    }
+
+    .orb{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(20px);
+      opacity:.7;
+      pointer-events:none;
+      animation:float 9s ease-in-out infinite;
+    }
+    .orb.one{width:180px;height:180px;background:rgba(255,77,61,.28);left:-70px;top:360px}
+    .orb.two{width:240px;height:240px;background:rgba(36,87,255,.18);right:-90px;top:760px;animation-delay:-3s}
+    .orb.three{width:220px;height:220px;background:rgba(10,168,117,.16);left:8%;bottom:12%;animation-delay:-5s}
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-28px)}
+    }
+
+    .wrap{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:24px 0;
+      position:relative;
+      z-index:3;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:-.04em;
+      font-size:1.1rem;
+    }
+
+    .mark{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      background:var(--ink);
+      display:grid;
+      place-items:center;
+      box-shadow:0 8px 20px rgba(21,16,25,.18);
+    }
+
+    .mark svg{width:26px;height:26px}
+
+    .nav-meta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      color:var(--muted);
+      font-size:.82rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.48);
+      backdrop-filter:blur(14px);
+      border-radius:999px;
+      padding:10px 13px;
+    }
+
+    .hero{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:48px;
+      align-items:center;
+      padding:64px 0 78px;
+    }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--red);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      margin-bottom:20px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:44px;
+      height:2px;
+      background:var(--red);
+      border-radius:999px;
+    }
+
+    h1{
+      font-family:"Instrument Serif", Georgia, serif;
+      font-weight:400;
+      font-size:clamp(4.2rem, 10vw, 9.8rem);
+      line-height:.82;
+      letter-spacing:-.075em;
+      margin:0;
+      max-width:790px;
+    }
+
+    .hero h1 em{
+      font-style:italic;
+      color:var(--blue);
+    }
+
+    .subtitle{
+      max-width:670px;
+      font-size:clamp(1.08rem, 2vw, 1.45rem);
+      line-height:1.48;
+      color:var(--muted);
+      margin:28px 0 0;
+      font-weight:500;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:34px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:#fff;
+      background:var(--ink);
+      border-radius:999px;
+      padding:15px 20px;
+      font-weight:900;
+      box-shadow:0 16px 40px rgba(21,16,25,.22);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .button:hover{
+      transform:translateY(-3px);
+      box-shadow:0 22px 55px rgba(21,16,25,.25);
+    }
+
+    .button.secondary{
+      color:var(--ink);
+      background:rgba(255,255,255,.58);
+      border:1px solid var(--line);
+      box-shadow:none;
+      backdrop-filter:blur(12px);
+    }
+
+    .ticket-stack{
+      position:relative;
+      min-height:600px;
+      display:grid;
+      place-items:center;
+      perspective:1400px;
+    }
+
+    .ring-field{
+      position:absolute;
+      width:min(580px, 96vw);
+      height:min(580px, 96vw);
+      inset:auto;
+      animation:spin 42s linear infinite;
+      opacity:.95;
+    }
+
+    @keyframes spin{
+      to{transform:rotate(360deg)}
+    }
+
+    .ring-field circle{
+      fill:none;
+      stroke-width:11;
+      stroke-linecap:round;
+      filter:drop-shadow(0 10px 22px rgba(21,16,25,.08));
+    }
+
+    .ticket{
+      width:min(430px, 88vw);
+      border-radius:34px;
+      position:relative;
+      transform:rotate(-4deg);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,244,217,.72)),
+        repeating-linear-gradient(90deg, rgba(21,16,25,.035) 0 1px, transparent 1px 12px);
+      border:1px solid rgba(21,16,25,.12);
+      box-shadow:var(--shadow);
+      padding:28px;
+      overflow:hidden;
+      backdrop-filter:blur(18px);
+    }
+
+    .ticket::before,
+    .ticket::after{
+      content:"";
+      position:absolute;
+      top:50%;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:var(--paper);
+      border:1px solid rgba(21,16,25,.1);
+      transform:translateY(-50%);
+      z-index:2;
+    }
+    .ticket::before{left:-18px}
+    .ticket::after{right:-18px}
+
+    .ticket-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+      border-bottom:2px dashed rgba(21,16,25,.18);
+      padding-bottom:22px;
+      margin-bottom:24px;
+    }
+
+    .ticket-title{
+      font-family:"Instrument Serif", Georgia, serif;
+      font-size:3.4rem;
+      line-height:.86;
+      letter-spacing:-.055em;
+      margin:0;
+    }
+
+    .status{
+      display:grid;
+      place-items:center;
+      text-align:center;
+      min-width:86px;
+      height:86px;
+      border-radius:50%;
+      background:var(--gold);
+      color:#2b1800;
+      font-size:.67rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      transform:rotate(8deg);
+      box-shadow:0 14px 26px rgba(231,174,47,.35);
+    }
+
+    .verdict-card{
+      background:var(--ink);
+      color:#fff;
+      border-radius:26px;
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .verdict-card::after{
+      content:"";
+      position:absolute;
+      width:170px;
+      height:170px;
+      right:-60px;
+      top:-70px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,77,61,.8), transparent 68%);
+    }
+
+    .verdict-card small{
+      color:rgba(255,255,255,.62);
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      font-weight:900;
+    }
+
+    .verdict-card h2{
+      margin:10px 0 14px;
+      font-size:1.55rem;
+      line-height:1.04;
+      letter-spacing:-.04em;
+    }
+
+    .verdict-card p{
+      margin:0;
+      color:rgba(255,255,255,.82);
+      line-height:1.5;
+      font-size:.98rem;
+    }
+
+    .barcode{
+      height:58px;
+      margin-top:24px;
+      border-radius:14px;
+      background:
+        repeating-linear-gradient(90deg,
+          var(--ink) 0 3px,
+          transparent 3px 8px,
+          var(--ink) 8px 10px,
+          transparent 10px 19px,
+          var(--ink) 19px 25px,
+          transparent 25px 32px);
+      opacity:.85;
+    }
+
+    .section{
+      position:relative;
+      z-index:2;
+      padding:56px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:28px;
+      margin-bottom:28px;
+    }
+
+    .section-kicker{
+      color:var(--red);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.76rem;
+      margin:0 0 10px;
+    }
+
+    h2.section-title{
+      font-family:"Instrument Serif", Georgia, serif;
+      font-weight:400;
+      font-size:clamp(2.9rem, 6.2vw, 6rem);
+      line-height:.9;
+      letter-spacing:-.065em;
+      margin:0;
+    }
+
+    .section-note{
+      max-width:360px;
+      color:var(--muted);
+      line-height:1.5;
+      font-weight:600;
+      margin:0;
+    }
+
+    .decision-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+    }
+
+    .reason{
+      background:rgba(255,255,255,.58);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 16px 42px rgba(21,16,25,.07);
+      position:relative;
+      overflow:hidden;
+      min-height:300px;
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+
+    .reason:hover{
+      transform:translateY(-6px);
+      box-shadow:0 28px 70px rgba(21,16,25,.12);
+    }
+
+    .reason::before{
+      content:"";
+      position:absolute;
+      width:160px;
+      height:160px;
+      right:-70px;
+      top:-70px;
+      border-radius:50%;
+      background:var(--accent, var(--gold));
+      opacity:.22;
+    }
+
+    .reason-num{
+      width:52px;
+      height:52px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:var(--accent, var(--ink));
+      font-weight:950;
+      font-size:1.2rem;
+      margin-bottom:74px;
+      box-shadow:0 14px 30px color-mix(in srgb, var(--accent, #111) 28%, transparent);
+    }
+
+    .reason h3{
+      font-size:1.45rem;
+      line-height:1;
+      letter-spacing:-.04em;
+      margin:0 0 14px;
+    }
+
+    .reason p{
+      color:var(--muted);
+      line-height:1.55;
+      margin:0;
+      font-weight:500;
+    }
+
+    .ranking{
+      display:grid;
+      gap:18px;
+    }
+
+    .contender{
+      display:grid;
+      grid-template-columns:92px 1.1fr 1.6fr auto;
+      align-items:center;
+      gap:20px;
+      background:rgba(255,255,255,.62);
+      border:1px solid var(--line);
+      border-radius:32px;
+      padding:18px 18px 18px 22px;
+      box-shadow:0 16px 42px rgba(21,16,25,.07);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .contender::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.34), transparent);
+      transform:translateX(-120%);
+      transition:transform .7s ease;
+    }
+
+    .contender:hover::after{transform:translateX(120%)}
+
+    .rank{
+      font-family:"Instrument Serif", Georgia, serif;
+      font-size:4.4rem;
+      line-height:.78;
+      letter-spacing:-.08em;
+      color:var(--accent);
+    }
+
+    .contender h3{
+      font-size:1.45rem;
+      line-height:1;
+      letter-spacing:-.045em;
+      margin:0;
+    }
+
+    .contender p{
+      color:var(--muted);
+      line-height:1.48;
+      margin:0;
+      font-weight:500;
+    }
+
+    .tag{
+      justify-self:end;
+      white-space:nowrap;
+      border-radius:999px;
+      padding:10px 13px;
+      background:var(--accent);
+      color:#fff;
+      font-size:.7rem;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .strategy-panel{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .big-callout{
+      border-radius:38px;
+      background:var(--ink);
+      color:#fff;
+      padding:34px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:430px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .big-callout::before{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border:38px solid rgba(255,77,61,.38);
+      border-radius:50%;
+      right:-190px;
+      bottom:-170px;
+    }
+
+    .big-callout h3{
+      font-family:"Instrument Serif", Georgia, serif;
+      font-size:clamp(3.4rem, 6vw, 6.5rem);
+      line-height:.82;
+      letter-spacing:-.075em;
+      margin:0;
+      position:relative;
+      z-index:1;
+    }
+
+    .big-callout p{
+      color:rgba(255,255,255,.72);
+      max-width:460px;
+      line-height:1.55;
+      font-weight:600;
+      margin:26px 0 0;
+      position:relative;
+      z-index:1;
+    }
+
+    .confidence{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:max-content;
+      border-radius:999px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      padding:12px 14px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-size:.76rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .confidence-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 6px rgba(10,168,117,.18);
+    }
+
+    .caveats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .caveat{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:20px;
+      border-radius:22px;
+      background:rgba(255,255,255,.6);
+      border:1px solid var(--line);
+      font-weight:650;
+      line-height:1.42;
+      color:var(--ink);
+    }
+
+    .caveat svg{
+      flex:0 0 auto;
+      width:24px;
+      height:24px;
+      color:var(--red);
+    }
+
+    .plan{
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:12px;
+      counter-reset:plan;
+    }
+
+    .step{
+      counter-increment:plan;
+      min-height:260px;
+      padding:22px;
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.62);
+      box-shadow:0 14px 36px rgba(21,16,25,.07);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .step::before{
+      content:counter(plan);
+      position:absolute;
+      top:16px;
+      right:18px;
+      font-family:"Instrument Serif", Georgia, serif;
+      font-size:5rem;
+      line-height:1;
+      letter-spacing:-.08em;
+      color:rgba(21,16,25,.08);
+    }
+
+    .step h3{
+      margin:0 0 52px;
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:19px;
+      background:var(--accent);
+      color:#fff;
+      font-size:1.05rem;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.48;
+      font-weight:650;
+    }
+
+    .falsification{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:24px;
+      border-radius:42px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(127,86,255,.26), transparent 38%),
+        linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,240,205,.72));
+      border:1px solid var(--line);
+      padding:34px;
+      box-shadow:var(--shadow);
+      align-items:center;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .falsification h2{
+      font-family:"Instrument Serif", Georgia, serif;
+      font-size:clamp(3.2rem, 6vw, 6.2rem);
+      line-height:.84;
+      letter-spacing:-.075em;
+      margin:0;
+    }
+
+    .falsification p{
+      font-size:1.25rem;
+      line-height:1.48;
+      color:var(--muted);
+      font-weight:650;
+      margin:0;
+    }
+
+    .advisors{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .advisor{
+      border-radius:24px;
+      padding:22px;
+      background:rgba(255,255,255,.58);
+      border:1px solid var(--line);
+    }
+
+    .advisor span{
+      display:block;
+      color:var(--muted);
+      font-size:.75rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      margin-bottom:10px;
+    }
+
+    .advisor strong{
+      display:block;
+      font-size:1.05rem;
+      letter-spacing:-.02em;
+    }
+
+    .footer{
+      padding:46px 0 70px;
+      color:var(--muted);
+      position:relative;
+      z-index:2;
+    }
+
+    .footer-card{
+      border-top:1px solid var(--line);
+      padding-top:28px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      align-items:start;
+    }
+
+    .footer p{
+      max-width:780px;
+      margin:0;
+      line-height:1.55;
+      font-weight:550;
+    }
+
+    .mini-principle{
+      border-radius:999px;
+      padding:14px 18px;
+      background:var(--ink);
+      color:#fff;
+      font-weight:950;
+      white-space:nowrap;
+      box-shadow:0 14px 30px rgba(21,16,25,.18);
+    }
+
+    .mobile-only{display:none}
+
+    @media (max-width:980px){
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:38px;
+      }
+      .ticket-stack{
+        min-height:520px;
+        order:-1;
+      }
+      .decision-grid,
+      .strategy-panel,
+      .falsification,
+      .footer-card{
+        grid-template-columns:1fr;
+      }
+      .contender{
+        grid-template-columns:74px 1fr;
+      }
+      .contender p,
+      .contender .tag{
+        grid-column:2;
+      }
+      .tag{justify-self:start}
+      .plan{
+        grid-template-columns:1fr 1fr;
+      }
+      .advisors{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .wrap{width:min(100% - 26px, var(--max))}
+      .nav{
+        align-items:flex-start;
+        gap:14px;
+      }
+      .nav-meta{
+        font-size:.68rem;
+      }
+      .pill{padding:8px 10px}
+      .hero{
+        gap:18px;
+        padding-bottom:48px;
+      }
+      .ticket-stack{
+        min-height:455px;
+      }
+      .ticket{
+        padding:20px;
+        border-radius:28px;
+      }
+      .ticket-title{
+        font-size:2.7rem;
+      }
+      .status{
+        min-width:70px;
+        height:70px;
+        font-size:.58rem;
+      }
+      .hero-actions{
+        flex-direction:column;
+      }
+      .button{
+        justify-content:center;
+      }
+      .section{
+        padding:42px 0;
+      }
+      .section-head{
+        display:block;
+      }
+      .section-note{
+        margin-top:16px;
+      }
+      .decision-grid,
+      .caveats,
+      .plan{
+        grid-template-columns:1fr;
+      }
+      .reason{
+        min-height:auto;
+      }
+      .reason-num{
+        margin-bottom:48px;
+      }
+      .contender{
+        grid-template-columns:1fr;
+        gap:12px;
+        padding:22px;
+      }
+      .rank{
+        font-size:3.7rem;
+      }
+      .contender p,
+      .contender .tag{
+        grid-column:auto;
+      }
+      .big-callout{
+        min-height:360px;
+        border-radius:30px;
+      }
+      .falsification{
+        border-radius:30px;
+        padding:24px;
+      }
+      .mini-principle{
+        white-space:normal;
+        border-radius:22px;
+      }
+      .desktop-only{display:none}
+      .mobile-only{display:inline}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition:none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+
+    <nav class="wrap nav" aria-label="Page">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M15 37c8-18 26-18 34 0" stroke="#fff9ec" stroke-width="6" stroke-linecap="round"/>
+            <path d="M20 46h24" stroke="#ff4d3d" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="32" cy="24" r="7" fill="#e7ae2f"/>
+          </svg>
+        </div>
+        <span>LA28 Ticket Brief</span>
+      </div>
+      <div class="nav-meta">
+        <span class="pill">2026-06-27</span>
+        <span class="pill">Round 1</span>
+        <span class="pill">Confidence: High</span>
+      </div>
+    </nav>
+
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Olympic ticket strategy</div>
+        <h1>Buy certainty. <em>Save flexibility.</em></h1>
+        <p class="subtitle">Secure your must-have LA28 Olympic experiences now; flexibility via verified resale comes later.</p>
+        <div class="hero-actions">
+          <a class="button" href="#plan">
+            Jump to action plan
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="button secondary" href="#ranking">See ranked options</a>
+        </div>
+      </div>
+
+      <div class="ticket-stack" aria-label="Verdict ticket illustration">
+        <svg class="ring-field" viewBox="0 0 600 600" aria-hidden="true">
+          <circle cx="215" cy="230" r="82" stroke="#2457ff"/>
+          <circle cx="302" cy="230" r="82" stroke="#151019"/>
+          <circle cx="389" cy="230" r="82" stroke="#ff4d3d"/>
+          <circle cx="260" cy="315" r="82" stroke="#e7ae2f"/>
+          <circle cx="348" cy="315" r="82" stroke="#0aa875"/>
+          <path d="M85 430 C 170 360, 240 490, 330 410 S 480 360, 535 440" stroke="#7f56ff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".48"/>
+        </svg>
+
+        <article class="ticket">
+          <div class="ticket-top">
+            <h2 class="ticket-title">LA28<br>Decision</h2>
+            <div class="status">Buy<br>Now</div>
+          </div>
+
+          <div class="verdict-card">
+            <small>Winner</small>
+            <h2>Secure Must-Have Tickets Now, Strategize Resale Later</h2>
+            <p>For high-demand LA28 events, primary sales offer the best chance for face value and authenticity; waiting, as Gemini put it, is a high-stakes gamble you're likely to lose.</p>
+          </div>
+
+          <div class="barcode" aria-hidden="true"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="why">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Why this wins</p>
+          <h2 class="section-title">Primary sales beat hope.</h2>
+        </div>
+        <p class="section-note">The logic is blunt: lock down the scarce, emotional, high-demand sessions through official channels. Treat resale as optionality, not salvation.</p>
+      </div>
+
+      <div class="decision-grid">
+        <article class="reason" style="--accent:#2457ff">
+          <div class="reason-num">1</div>
+          <h3>High Demand, Limited Inventory</h3>
+          <p>LA28 is a major event with global demand. Primary sales are your best opportunity to secure tickets for iconic events, medal sessions, or highly popular sports before inventory becomes scarce and prices escalate.</p>
+        </article>
+
+        <article class="reason" style="--accent:#ff4d3d">
+          <div class="reason-num">2</div>
+          <h3>Avoid Early Fraud Risk</h3>
+          <p>LA28 explicitly states it cannot verify resale tickets before its official program launches in 2027. Purchasing from unofficial channels now exposes you to significant risk of scams, counterfeit tickets, and inflated prices.</p>
+        </article>
+
+        <article class="reason" style="--accent:#0aa875">
+          <div class="reason-num">3</div>
+          <h3>Resale Favors Sellers</h3>
+          <p>For desirable events, the secondary market, even official verified resale, typically rewards sellers. Do not expect significant discounts; instead, anticipate higher prices for popular sessions if you wait.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="ranking">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Ranked strategies</p>
+          <h2 class="section-title">Best to worst.</h2>
+        </div>
+        <p class="section-note">Buy the dream through primary sales. Buy the extras later. Never gamble with unofficial early resale.</p>
+      </div>
+
+      <div class="ranking">
+        <article class="contender" style="--accent:#2457ff">
+          <div class="rank">1</div>
+          <h3>Core Tickets Now</h3>
+          <p>Buy your essential, high-demand events (e.g., Opening/Closing, Gymnastics, Swimming finals) through primary sales. This secures your non-negotiable experiences at face value.</p>
+          <span class="tag">DO FIRST</span>
+        </article>
+
+        <article class="contender" style="--accent:#0aa875">
+          <div class="rank">2</div>
+          <h3>Hybrid Resale Later</h3>
+          <p>Use official, verified resale platforms (starting 2027) for less critical events, schedule-filling, or to upgrade seats once your travel plans are firm. Reserve 30-50% of your budget for this flexibility, as ChatGPT advises.</p>
+          <span class="tag">RUNNER-UP</span>
+        </article>
+
+        <article class="contender" style="--accent:#e7ae2f">
+          <div class="rank">3</div>
+          <h3>Hospitality Packages</h3>
+          <p>These expensive packages offer guaranteed access to premium events and experiences with added perks. Consider if certainty, comfort, and a higher-tier experience outweigh price discipline.</p>
+          <span class="tag">PREMIUM OPTION</span>
+        </article>
+
+        <article class="contender" style="--accent:#ff4d3d">
+          <div class="rank">4</div>
+          <h3>Unofficial Resale Early</h3>
+          <p>Never buy from unofficial channels before LA28's verified resale program launches in 2027. This is the worst option due to extreme fraud risk and unverifiable tickets, a hard rule emphasized by both ChatGPT and Gemini.</p>
+          <span class="tag">AVOID COMPLETELY</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="strategy-panel">
+        <article class="big-callout">
+          <div class="confidence"><span class="confidence-dot"></span> Confidence: High</div>
+          <div>
+            <h3>The clean rule: secure the scarce.</h3>
+            <p>Do not ask resale to solve your must-have problem. Resale is for upgrades, schedule gaps, and nice-to-have sessions once travel plans are firmer.</p>
+          </div>
+        </article>
+
+        <div>
+          <div class="section-head" style="margin-bottom:18px">
+            <div>
+              <p class="section-kicker">Pitfalls</p>
+              <h2 class="section-title" style="font-size:clamp(2.6rem,5vw,4.5rem)">Don’t do these.</h2>
+            </div>
+          </div>
+
+          <div class="caveats">
+            <div class="caveat">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v5m0 4h.01M10.3 3.8 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.8a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <span>Do not wait for resale on your true 'must-see' events; this is a gamble you will likely lose.</span>
+            </div>
+            <div class="caveat">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v5m0 4h.01M10.3 3.8 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.8a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <span>Do not assume 'resale' means 'discount'; for popular events, it often means higher prices.</span>
+            </div>
+            <div class="caveat">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v5m0 4h.01M10.3 3.8 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.8a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <span>Do not buy from unofficial sources or street scalpers before LA28's official resale program (2027).</span>
+            </div>
+            <div class="caveat">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v5m0 4h.01M10.3 3.8 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.8a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <span>Do not blow your entire budget on one prestige session; diversify your Olympic experience.</span>
+            </div>
+            <div class="caveat" style="grid-column:1 / -1">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v5m0 4h.01M10.3 3.8 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.8a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <span>Do not ignore venue geography; LA28 events are spread out, so plan accordingly to minimize travel friction.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <article class="falsification">
+        <h2>What would change the answer?</h2>
+        <p>If LA28 announces in 2027 that verified resale is capped near face value and has abundant supply for all event types, this would make waiting much more attractive for flexible events.</p>
+      </article>
+    </section>
+
+    <section class="wrap section" id="plan">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Action plan</p>
+          <h2 class="section-title">Five moves. No drama.</h2>
+        </div>
+        <p class="section-note">The operational play: get eligible, prioritize ruthlessly, set ceilings, buy A-list first, preserve resale budget.</p>
+      </div>
+
+      <div class="plan">
+        <article class="step" style="--accent:#2457ff">
+          <h3>01</h3>
+          <p>Immediately register for LA28 Drop 2 (deadline July 22, 2026) and all official ticketing alerts.</p>
+        </article>
+        <article class="step" style="--accent:#ff4d3d">
+          <h3>02</h3>
+          <p>Create a prioritized list of 'must-have' (A-list) and 'nice-to-have' (B-list) events.</p>
+        </article>
+        <article class="step" style="--accent:#e7ae2f">
+          <h3>03</h3>
+          <p>Before your purchase window, set strict price ceilings for your A-list events.</p>
+        </article>
+        <article class="step" style="--accent:#0aa875">
+          <h3>04</h3>
+          <p>During your purchase window, buy only your A-list tickets first, then add B-list if prices are sane.</p>
+        </article>
+        <article class="step" style="--accent:#7f56ff">
+          <h3>05</h3>
+          <p>Save 30-50% of your total budget for official, verified resale opportunities beginning in 2027 to fill gaps or upgrade.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Advisors</p>
+          <h2 class="section-title">Three-advisor debate.</h2>
+        </div>
+        <p class="section-note">This brief distills advice from a three-advisor debate involving ChatGPT, Claude.ai, and Gemini.</p>
+      </div>
+
+      <div class="advisors">
+        <div class="advisor"><span>Advisor 1</span><strong>ChatGPT (browser engine)</strong></div>
+        <div class="advisor"><span>Advisor 2</span><strong>Claude.ai (browser engine)</strong></div>
+        <div class="advisor"><span>Advisor 3</span><strong>Gemini (free API)</strong></div>
+      </div>
+    </section>
+
+    <footer class="wrap footer">
+      <div class="footer-card">
+        <p><strong>Provenance:</strong> This brief distills advice from a three-advisor debate involving ChatGPT (browser engine), Claude.ai (browser engine), and Gemini (free API). Claude.ai failed to provide substantive guidance, but ChatGPT and Gemini strongly converged on immediate action for priority tickets via official channels.</p>
+        <div class="mini-principle">Principle: Buy certainty for what matters; buy flexibility for everything else.</div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
