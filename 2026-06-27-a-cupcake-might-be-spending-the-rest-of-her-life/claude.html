@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Harness Brief — A Lifelong Fit for Cupcake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF5EC;
+    --paper:#F3E9DA;
+    --ink:#2A2420;
+    --ink-soft:#5B5048;
+    --rose:#D98A82;
+    --rose-deep:#B86259;
+    --caramel:#C79555;
+    --sage:#8E9E7E;
+    --line:#E3D6C2;
+    --shadow:rgba(64,46,32,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .serif{font-family:'Fraunces',serif}
+  .eyebrow{
+    font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:600;color:var(--rose-deep);
+  }
+
+  /* ---------- grain + drifting backdrop ---------- */
+  .backdrop{position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(60% 50% at 15% 12%, rgba(217,138,130,.20), transparent 60%),
+      radial-gradient(55% 55% at 88% 8%, rgba(199,149,85,.18), transparent 60%),
+      radial-gradient(70% 60% at 80% 92%, rgba(142,158,126,.16), transparent 60%),
+      var(--cream);
+    animation:drift 22s ease-in-out infinite alternate;
+  }
+  @keyframes drift{to{transform:scale(1.08) translate(-1.5%, -1%)}}
+  .grain{position:fixed;inset:0;z-index:-1;opacity:.05;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(251,245,236,.78);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:1180px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Fraunces';font-weight:600;font-size:1.05rem}
+  .brand svg{width:30px;height:30px}
+  .nav-links{display:flex;gap:26px;font-size:.82rem;font-weight:500;letter-spacing:.02em}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;transition:color .25s}
+  .nav-links a:hover{color:var(--rose-deep)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  header{padding:clamp(70px,11vw,140px) 0 clamp(50px,7vw,90px);position:relative}
+  .stitch-line{height:1px;width:100%;background:repeating-linear-gradient(90deg,var(--rose) 0 8px,transparent 8px 16px);opacity:.5;margin:38px 0}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;margin-bottom:30px;font-size:.8rem;color:var(--ink-soft)}
+  .hero-meta b{color:var(--ink)}
+  h1.title{
+    font-family:'Fraunces';font-weight:400;
+    font-size:clamp(2.5rem,6.6vw,5.4rem);
+    line-height:1.02;letter-spacing:-.02em;max-width:16ch;
+  }
+  h1.title em{font-style:italic;color:var(--rose-deep)}
+  .subtitle{margin-top:26px;font-size:clamp(1.05rem,2vw,1.35rem);color:var(--ink-soft);max-width:46ch;font-weight:400}
+  .advisors{margin-top:42px;display:flex;flex-wrap:wrap;gap:12px}
+  .chip{border:1px solid var(--line);background:rgba(255,255,255,.45);
+    padding:8px 16px;border-radius:50px;font-size:.78rem;font-weight:500;color:var(--ink-soft);
+    display:flex;align-items:center;gap:8px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--sage)}
+  .dot.off{background:var(--rose);box-shadow:0 0 0 0 var(--rose)}
+
+  /* ---------- verdict ---------- */
+  .verdict{margin:clamp(40px,6vw,80px) 0}
+  .verdict-card{
+    background:linear-gradient(155deg,#fff 0%,var(--paper) 100%);
+    border:1px solid var(--line);border-radius:28px;
+    padding:clamp(32px,5vw,64px);box-shadow:0 30px 70px -40px var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .verdict-card .seal{position:absolute;top:-40px;right:-40px;width:180px;height:180px;opacity:.12}
+  .verdict-card h2{font-family:'Fraunces';font-weight:500;font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.1;margin:14px 0 18px;max-width:20ch}
+  .verdict-card .one{font-size:clamp(1rem,1.7vw,1.18rem);color:var(--ink-soft);max-width:62ch}
+  .conf{margin-top:30px;padding-top:24px;border-top:1px dashed var(--line);font-size:.86rem;color:var(--ink-soft)}
+  .conf .badge{display:inline-block;background:var(--sage);color:#fff;font-weight:600;
+    padding:3px 12px;border-radius:50px;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;margin-right:10px}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(50px,7vw,90px) 0}
+  .sec-head{max-width:54ch;margin-bottom:48px}
+  .sec-head h3{font-family:'Fraunces';font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.08;margin:12px 0;letter-spacing:-.01em}
+  .sec-head p{color:var(--ink-soft);font-size:1rem}
+
+  /* reasons */
+  .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .reason{background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:22px;padding:34px 30px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+  .reason:hover{transform:translateY(-7px);box-shadow:0 26px 50px -34px var(--shadow)}
+  .reason .num{font-family:'Fraunces';font-style:italic;font-size:2.6rem;color:var(--rose);line-height:1}
+  .reason h4{font-family:'Fraunces';font-weight:600;font-size:1.25rem;margin:16px 0 12px}
+  .reason p{font-size:.93rem;color:var(--ink-soft)}
+  @media(max-width:860px){.reasons{grid-template-columns:1fr}}
+
+  /* contenders */
+  .ranked{display:flex;flex-direction:column;gap:18px}
+  .row{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:start;
+    background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:20px;
+    padding:26px 30px;transition:border-color .35s,background .35s}
+  .row:hover{border-color:var(--rose);background:#fff}
+  .row .rk{font-family:'Fraunces';font-size:2.1rem;font-weight:500;color:var(--ink)}
+  .row h4{font-family:'Fraunces';font-weight:600;font-size:1.18rem;margin-bottom:7px}
+  .row p{font-size:.9rem;color:var(--ink-soft);max-width:64ch}
+  .tag{align-self:center;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding:6px 13px;border-radius:50px;white-space:nowrap}
+  .t-do{background:var(--sage);color:#fff}
+  .t-run{background:var(--caramel);color:#fff}
+  .t-ok{background:var(--paper);color:var(--ink-soft);border:1px solid var(--line)}
+  .t-avoid{background:#fff;color:var(--rose-deep);border:1px solid var(--rose)}
+  @media(max-width:680px){.row{grid-template-columns:48px 1fr;gap:14px}.row .tag{grid-column:2;justify-self:start;margin-top:6px}}
+
+  /* caveats */
+  .caveats-wrap{background:var(--ink);color:var(--cream);border-radius:28px;padding:clamp(34px,5vw,62px);position:relative;overflow:hidden}
+  .caveats-wrap .eyebrow{color:var(--rose)}
+  .caveats-wrap h3{font-family:'Fraunces';color:var(--cream);font-weight:500;font-size:clamp(1.7rem,3.2vw,2.5rem);margin:12px 0 36px}
+  .cav-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .cav{display:flex;gap:16px;align-items:flex-start;font-size:.95rem;color:#E6DCCD;line-height:1.6}
+  .cav svg{flex:none;margin-top:3px}
+  @media(max-width:760px){.cav-grid{grid-template-columns:1fr}}
+
+  /* falsification */
+  .falsify{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;
+    border:1px dashed var(--rose);border-radius:24px;padding:clamp(28px,4vw,48px);background:rgba(217,138,130,.06)}
+  .falsify .ico{width:70px;height:70px}
+  .falsify h4{font-family:'Fraunces';font-weight:600;font-size:1.3rem;margin-bottom:10px}
+  .falsify p{color:var(--ink-soft);max-width:74ch}
+  @media(max-width:620px){.falsify{grid-template-columns:1fr;text-align:left}.falsify .ico{width:54px;height:54px}}
+
+  /* action plan */
+  .plan{position:relative}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step .st-num{font-family:'Fraunces';font-style:italic;font-size:2.4rem;color:var(--rose);line-height:1;min-width:56px}
+  .step h4{font-family:'Fraunces';font-weight:600;font-size:1.22rem;margin-bottom:8px}
+  .step p{color:var(--ink-soft);font-size:.96rem;max-width:72ch}
+  @media(max-width:560px){.step{gap:18px}.step .st-num{font-size:1.9rem;min-width:40px}}
+
+  /* footer */
+  footer{padding:clamp(50px,7vw,90px) 0 60px;border-top:1px solid var(--line);margin-top:40px}
+  .prov{max-width:72ch;color:var(--ink-soft);font-size:.95rem}
+  .prov h5{font-family:'Fraunces';color:var(--ink);font-weight:600;font-size:1.05rem;margin-bottom:14px}
+  .foot-bottom{margin-top:44px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
+    font-size:.78rem;color:var(--ink-soft);align-items:center}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="backdrop"></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none">
+        <path d="M8 28c0-7 5-12 12-12s12 5 12 12" stroke="#B86259" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="20" cy="13" r="4.6" stroke="#C79555" stroke-width="2.4"/>
+        <path d="M8 28h24" stroke="#8E9E7E" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="13" cy="28" r="1.8" fill="#B86259"/><circle cx="27" cy="28" r="1.8" fill="#B86259"/>
+      </svg>
+      The Harness Brief
+    </div>
+    <div class="nav-links">
+      <a href="#verdict">Verdict</a>
+      <a href="#why">Why</a>
+      <a href="#contenders">Contenders</a>
+      <a href="#caveats">Caveats</a>
+      <a href="#plan">Plan</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="hero-meta reveal">
+      <span class="eyebrow">Decision Brief</span>
+      <span>Dated <b>27 June 2026</b></span>
+      <span><b>1</b> round of deliberation</span>
+      <span><b>3</b> advisors convened</span>
+    </div>
+    <h1 class="title serif reveal">A lifetime in the harness deserves the <em>finest fit</em> ever made.</h1>
+    <p class="subtitle reveal">Prioritizing bespoke fit and holistic support for a vulnerable “cupcake.”</p>
+    <div class="advisors reveal">
+      <span class="chip"><span class="dot"></span>ChatGPT · browser engine</span>
+      <span class="chip"><span class="dot off"></span>Claude.ai · browser engine (unresponsive)</span>
+      <span class="chip"><span class="dot"></span>Gemini · free API</span>
+    </div>
+    <div class="stitch-line reveal"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="verdict" id="verdict">
+    <div class="verdict-card reveal">
+      <svg class="seal" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="#B86259" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="38" stroke="#C79555" stroke-width="1" stroke-dasharray="3 4"/>
+        <path d="M32 50l12 12 24-26" stroke="#8E9E7E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="eyebrow">The Verdict</span>
+      <h2 class="serif">A bespoke-fitted, biomechanically optimized specialist harness.</h2>
+      <p class="one">The highest quality harness is a carefully selected, precision-fitted device treated as part of a lifelong, holistic support system — not just a product.</p>
+      <div class="conf">
+        <span class="badge">High confidence</span>
+        ChatGPT provided concrete product options; Gemini offered an excellent framework for “highest quality” design and implementation. Claude was unresponsive.
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Reasoning</span>
+      <h3 class="serif">Three convictions behind the call</h3>
+      <p>Where two independent advisors converged, the signal was strong — and unmistakably about care.</p>
+    </div>
+    <div class="reasons">
+      <div class="reason reveal">
+        <div class="num serif">01</div>
+        <h4 class="serif">Precision fit is paramount</h4>
+        <p>A harness is only as good as its fit, especially for a delicate being with lifelong needs. Poor fit causes pain, restricts movement, and defeats the purpose — a principle strongly advocated by both ChatGPT in fitting specifics and Gemini in its conceptual framework.</p>
+      </div>
+      <div class="reason reveal">
+        <div class="num serif">02</div>
+        <h4 class="serif">Holistic integration for well-being</h4>
+        <p>The harness must integrate seamlessly into the daily life, physical health, and psychological comfort of the cupcake — requiring ongoing monitoring and care, as emphasized by Gemini’s holistic approach and ChatGPT’s detailed routine.</p>
+      </div>
+      <div class="reason reveal">
+        <div class="num serif">03</div>
+        <h4 class="serif">Specialized design over generic</h4>
+        <p>For a lifelong commitment, generic or aesthetically driven choices are a false economy. True quality comes from specialized, durable materials and designs that explicitly address the cupcake’s vulnerabilities — a pitfall both advisors highlighted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contenders">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Field</span>
+      <h3 class="serif">Four tiers, ranked with intent</h3>
+      <p>From the ultimate quality approach down to the choice that invariably fails.</p>
+    </div>
+    <div class="ranked">
+      <div class="row reveal">
+        <div class="rk serif">1</div>
+        <div>
+          <h4 class="serif">Bespoke System Integration</h4>
+          <p>A custom-fabricated or meticulously chosen and fitted top-tier harness, integrated into a holistic, expert-guided support plan for unique needs. This is the ultimate quality approach.</p>
+        </div>
+        <span class="tag t-do">Do First</span>
+      </div>
+      <div class="row reveal">
+        <div class="rk serif">2</div>
+        <div>
+          <h4 class="serif">Premium Adaptable Harness</h4>
+          <p>A top-tier, commercially available harness (e.g., Haqihana, Blue-9) with advanced ergonomics, high-quality materials, and significant adjustability. Requires professional fitting.</p>
+        </div>
+        <span class="tag t-run">Runner-Up</span>
+      </div>
+      <div class="row reveal">
+        <div class="rk serif">3</div>
+        <div>
+          <h4 class="serif">Functional Standard</h4>
+          <p>A reliable, well-made product meeting core functional and safety requirements, prioritizing durability. Lacks the fine-tuned ergonomics or extensive adaptability of higher tiers.</p>
+        </div>
+        <span class="tag t-ok">Acceptable · caveats</span>
+      </div>
+      <div class="row reveal">
+        <div class="rk serif">4</div>
+        <div>
+          <h4 class="serif">Generic / Aesthetic Harness</h4>
+          <p>A harness chosen on appearance, lowest price, or common availability without regard for individual fit, quality, or ergonomic design. This invariably leads to discomfort and failure.</p>
+        </div>
+        <span class="tag t-avoid">Avoid</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="caveats">
+  <div class="wrap">
+    <div class="caveats-wrap reveal">
+      <span class="eyebrow">Proceed With Care</span>
+      <h3 class="serif">Four warnings worth heeding</h3>
+      <div class="cav-grid">
+        <div class="cav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3z" stroke="#D98A82" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v5M12 16.5v.5" stroke="#D98A82" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Do not prioritize appearance, price, or brand over function and perfect fit — a common pitfall both ChatGPT and Gemini warned against.
+        </div>
+        <div class="cav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3z" stroke="#D98A82" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v5M12 16.5v.5" stroke="#D98A82" stroke-width="1.8" stroke-linecap="round"/></svg>
+          “Bulk” does not equal “safety.” For a delicate being, bulk can mean heat, friction, and discomfort — as ChatGPT noted for the specific dog case.
+        </div>
+        <div class="cav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3z" stroke="#D98A82" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v5M12 16.5v.5" stroke="#D98A82" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Never assume a “set-it-and-forget-it” approach. Ongoing maintenance and vigilance for early warning signs are critical — a core theme in Gemini’s holistic plan and ChatGPT’s daily inspections.
+        </div>
+        <div class="cav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3z" stroke="#D98A82" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v5M12 16.5v.5" stroke="#D98A82" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Beware of harnesses that restrict shoulder movement or ride up toward sensitive areas like the trachea — a key fitting concern for ChatGPT.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="falsify reveal">
+      <svg class="ico" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="29" stroke="#D98A82" stroke-width="2"/>
+        <path d="M22 26c2-4 6-4 8 0M34 26c2-4 6-4 8 0" stroke="#B86259" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M24 44c4-3 12-3 16 0" stroke="#B86259" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <span class="eyebrow">What Would Change The Verdict</span>
+        <h4 class="serif">The falsification clause</h4>
+        <p>If the “cupcake” is revealed to be inanimate, insentient, and incapable of experiencing comfort or long-term wear, the emphasis shifts entirely to durability and mechanical function over well-being.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Path Forward</span>
+      <h3 class="serif">A four-step plan for a lifelong fit</h3>
+      <p>Assess, consult, test, and never stop adapting.</p>
+    </div>
+    <div class="plan">
+      <div class="step reveal">
+        <div class="st-num serif">i</div>
+        <div>
+          <h4 class="serif">Deep-dive needs assessment</h4>
+          <p>Thoroughly document the cupcake’s exact physical dimensions (measurements!), sensitive areas, gait, temperament, and the specific demands of the harness role.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="st-num serif">ii</div>
+        <div>
+          <h4 class="serif">Consult experts</h4>
+          <p>Engage relevant specialists — veterinarian or doctor, trainer or rehabilitation specialist — for professional guidance on specific product types and proper fitting techniques.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="st-num serif">iii</div>
+        <div>
+          <h4 class="serif">Select &amp; test premium options</h4>
+          <p>Choose one or two top-tier harness candidates based on expert advice and the needs assessment. Conduct rigorous indoor and short-duration real-world testing, observing comfort, gait, and any adverse reactions.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="st-num serif">iv</div>
+        <div>
+          <h4 class="serif">Monitor &amp; adapt for life</h4>
+          <p>Implement a daily routine of skin inspection, harness cleaning, and regular health check-ups. Be prepared to adjust or replace the harness as the cupcake’s needs — or the harness’s wear — change over time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="prov reveal">
+      <h5 class="serif">Provenance</h5>
+      <p>This decision brief synthesizes insights from a three-advisor debate — ChatGPT (browser engine), Claude.ai (browser engine), and Gemini (free API). While Claude.ai was unresponsive, ChatGPT offered highly practical, product-specific advice for a dog, and Gemini provided a robust, conceptual framework for the “highest quality” approach to a delicate, sentient being. They converged strongly on the critical importance of bespoke fit, holistic integration, and continuous monitoring.</p>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 — The Harness Brief · A bespoke fit for a lifelong companion</span>
+      <span style="display:flex;align-items:center;gap:8px">
+        <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M8 28c0-7 5-12 12-12s12 5 12 12" stroke="#B86259" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="13" r="4.6" stroke="#C79555" stroke-width="2.4"/></svg>
+        Convened 27.06.2026
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%3*70)+'ms'; io.observe(el); });
+</script>
+</body>
+</html>

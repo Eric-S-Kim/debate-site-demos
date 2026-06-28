@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harness Decision Brief · Cupcake Lifelong Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,70..100,0..1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#241712;
+      --muted:#765f53;
+      --paper:#fff8ef;
+      --cream:#f8ead7;
+      --cream-2:#ead2b9;
+      --rose:#ffb7aa;
+      --rose-2:#f36f64;
+      --berry:#6d2c5f;
+      --blue:#25335c;
+      --mint:#a7d8c8;
+      --gold:#d8a441;
+      --green:#2f6d55;
+      --shadow: 0 28px 90px rgba(36,23,18,.18);
+      --radius: 32px;
+      --max: 1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255,183,170,.42), transparent 30rem),
+        radial-gradient(circle at 82% 20%, rgba(167,216,200,.45), transparent 28rem),
+        radial-gradient(circle at 50% 100%, rgba(216,164,65,.22), transparent 34rem),
+        linear-gradient(180deg, #fff8ef 0%, #f8ead7 54%, #fff8ef 100%);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.32;
+      background-image:
+        linear-gradient(rgba(36,23,18,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36,23,18,.035) 1px, transparent 1px);
+      background-size:34px 34px;
+      mask-image:linear-gradient(to bottom, black, transparent 90%);
+      z-index:-2;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:-20%;
+      pointer-events:none;
+      background:
+        conic-gradient(from 180deg at 50% 50%, transparent, rgba(109,44,95,.055), transparent, rgba(243,111,100,.06), transparent);
+      animation: drift 24s linear infinite;
+      z-index:-3;
+    }
+
+    @keyframes drift{
+      0%{transform:rotate(0deg) scale(1)}
+      50%{transform:rotate(8deg) scale(1.04)}
+      100%{transform:rotate(0deg) scale(1)}
+    }
+
+    .grain{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.12;
+      mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      z-index:20;
+    }
+
+    a{color:inherit}
+    .page{position:relative; isolation:isolate}
+    .wrap{
+      width:min(calc(100% - 32px), var(--max));
+      margin-inline:auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:14px;
+      z-index:10;
+      width:min(calc(100% - 32px), var(--max));
+      margin:14px auto 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:10px 10px 10px 18px;
+      border:1px solid rgba(36,23,18,.12);
+      border-radius:999px;
+      background:rgba(255,248,239,.72);
+      backdrop-filter: blur(18px);
+      box-shadow:0 14px 38px rgba(36,23,18,.08);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--blue);
+    }
+
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--rose), var(--gold));
+      box-shadow:inset 0 -8px 18px rgba(36,23,18,.13);
+      flex:0 0 auto;
+    }
+
+    .brand span:last-child{
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      padding:4px;
+      border-radius:999px;
+      background:rgba(255,255,255,.42);
+    }
+
+    .nav a{
+      text-decoration:none;
+      font-size:12px;
+      font-weight:800;
+      color:rgba(36,23,18,.72);
+      padding:10px 13px;
+      border-radius:999px;
+      transition:.25s ease;
+      white-space:nowrap;
+    }
+
+    .nav a:hover{
+      color:var(--ink);
+      background:white;
+      box-shadow:0 8px 20px rgba(36,23,18,.08);
+    }
+
+    .hero{
+      position:relative;
+      padding:88px 0 76px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.08fr) minmax(320px, .72fr);
+      gap:44px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:10px;
+      margin-bottom:24px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(36,23,18,.14);
+      border-radius:999px;
+      padding:9px 13px;
+      background:rgba(255,255,255,.42);
+      box-shadow:0 10px 26px rgba(36,23,18,.06);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:99px;
+      background:var(--rose-2);
+      box-shadow:0 0 0 7px rgba(243,111,100,.14);
+    }
+
+    h1,h2,h3{
+      font-family: Fraunces, Georgia, serif;
+      margin:0;
+      line-height:.94;
+      letter-spacing:-.06em;
+    }
+
+    h1{
+      max-width:920px;
+      font-size:clamp(56px, 9.5vw, 142px);
+      font-weight:900;
+      font-variation-settings:"SOFT" 90, "WONK" 1;
+    }
+
+    .hero h1 .accent{
+      position:relative;
+      color:var(--berry);
+      white-space:nowrap;
+    }
+
+    .hero h1 .accent::after{
+      content:"";
+      position:absolute;
+      left:.02em;
+      right:.02em;
+      bottom:.04em;
+      height:.16em;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,183,170,.75), rgba(216,164,65,.6));
+      z-index:-1;
+      transform:rotate(-1deg);
+    }
+
+    .subtitle{
+      max-width:740px;
+      margin:28px 0 0;
+      color:var(--muted);
+      font-size:clamp(19px, 2vw, 28px);
+      line-height:1.35;
+      font-weight:550;
+    }
+
+    .topic-card{
+      margin-top:30px;
+      position:relative;
+      overflow:hidden;
+      border-radius:26px;
+      border:1px solid rgba(36,23,18,.12);
+      background:linear-gradient(135deg, rgba(255,255,255,.68), rgba(255,248,239,.44));
+      box-shadow:0 18px 50px rgba(36,23,18,.08);
+      padding:22px;
+      max-width:800px;
+    }
+
+    .topic-card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:6px;
+      background:linear-gradient(180deg, var(--rose-2), var(--gold), var(--mint));
+    }
+
+    .topic-label{
+      display:block;
+      color:var(--rose-2);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:9px;
+    }
+
+    .topic-card p{
+      margin:0;
+      font-family:Fraunces, Georgia, serif;
+      font-size:clamp(22px, 2.6vw, 36px);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      font-weight:760;
+      color:var(--blue);
+    }
+
+    .hero-panel{
+      position:relative;
+      min-height:560px;
+      border-radius:42px;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(255,183,170,.78), transparent 15rem),
+        radial-gradient(circle at 20% 72%, rgba(167,216,200,.75), transparent 15rem),
+        linear-gradient(145deg, rgba(255,255,255,.76), rgba(234,210,185,.62));
+      border:1px solid rgba(36,23,18,.13);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transform:rotate(1.2deg);
+    }
+
+    .hero-panel::before{
+      content:"";
+      position:absolute;
+      inset:18px;
+      border:1px solid rgba(36,23,18,.16);
+      border-radius:31px;
+      pointer-events:none;
+    }
+
+    .hero-panel::after{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      right:-120px;
+      bottom:-130px;
+      border-radius:50%;
+      border:42px solid rgba(109,44,95,.12);
+    }
+
+    .device-svg{
+      position:absolute;
+      inset:auto 5% 11% 5%;
+      width:90%;
+      height:auto;
+      filter:drop-shadow(0 30px 45px rgba(36,23,18,.18));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0) rotate(-1deg)}
+      50%{transform:translateY(-12px) rotate(1deg)}
+    }
+
+    .panel-copy{
+      position:absolute;
+      top:42px;
+      left:36px;
+      right:36px;
+      z-index:2;
+    }
+
+    .panel-copy .number{
+      font-family:Fraunces, Georgia, serif;
+      font-size:92px;
+      line-height:.8;
+      letter-spacing:-.08em;
+      color:var(--berry);
+      font-weight:900;
+    }
+
+    .panel-copy p{
+      margin:14px 0 0;
+      max-width:320px;
+      font-size:15px;
+      line-height:1.55;
+      color:rgba(36,23,18,.72);
+      font-weight:650;
+    }
+
+    .confidence{
+      position:absolute;
+      right:26px;
+      bottom:26px;
+      z-index:3;
+      width:min(320px, calc(100% - 52px));
+      border-radius:24px;
+      background:rgba(36,23,18,.86);
+      color:#fff8ef;
+      padding:18px;
+      box-shadow:0 22px 60px rgba(36,23,18,.24);
+    }
+
+    .confidence strong{
+      display:block;
+      color:var(--mint);
+      font-size:12px;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .confidence span{
+      display:block;
+      font-size:13px;
+      line-height:1.45;
+      color:rgba(255,248,239,.86);
+    }
+
+    .meta-row{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .meta{
+      border-radius:22px;
+      padding:18px;
+      background:rgba(255,255,255,.43);
+      border:1px solid rgba(36,23,18,.1);
+    }
+
+    .meta small{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:8px;
+    }
+
+    .meta b{
+      display:block;
+      font-size:17px;
+      color:var(--ink);
+    }
+
+    section{
+      padding:66px 0;
+      position:relative;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:minmax(0, .8fr) minmax(260px, .42fr);
+      align-items:end;
+      gap:34px;
+      margin-bottom:30px;
+    }
+
+    h2{
+      font-size:clamp(44px, 6vw, 84px);
+      font-weight:900;
+      font-variation-settings:"SOFT" 88, "WONK" 1;
+    }
+
+    .section-kicker{
+      font-size:13px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--rose-2);
+      margin-bottom:14px;
+    }
+
+    .section-deck{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.55;
+      font-weight:520;
+    }
+
+    .verdict{
+      position:relative;
+      overflow:hidden;
+      border-radius:44px;
+      padding:44px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,183,170,.56), transparent 22rem),
+        radial-gradient(circle at 90% 75%, rgba(167,216,200,.55), transparent 20rem),
+        linear-gradient(135deg, rgba(36,23,18,.96), rgba(37,51,92,.94));
+      color:var(--paper);
+      box-shadow:var(--shadow);
+    }
+
+    .verdict::before{
+      content:"";
+      position:absolute;
+      inset:18px;
+      border:1px solid rgba(255,248,239,.2);
+      border-radius:32px;
+      pointer-events:none;
+    }
+
+    .verdict-grid{
+      display:grid;
+      grid-template-columns:minmax(0, .92fr) minmax(280px, .48fr);
+      gap:38px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+
+    .verdict h2{
+      color:var(--paper);
+      max-width:760px;
+    }
+
+    .winner-label{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:18px;
+      color:var(--mint);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .winner-label::before{
+      content:"";
+      width:34px;
+      height:2px;
+      background:var(--mint);
+    }
+
+    .one-liner{
+      margin:22px 0 0;
+      max-width:720px;
+      font-size:clamp(21px, 2.4vw, 34px);
+      line-height:1.18;
+      font-family:Fraunces, Georgia, serif;
+      letter-spacing:-.035em;
+      color:rgba(255,248,239,.88);
+    }
+
+    .verdict-stamp{
+      aspect-ratio:1;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle, rgba(255,248,239,.96) 0 55%, transparent 56%),
+        conic-gradient(from -20deg, var(--rose), var(--gold), var(--mint), var(--rose));
+      color:var(--ink);
+      transform:rotate(5deg);
+      box-shadow:0 30px 80px rgba(0,0,0,.22);
+    }
+
+    .stamp-inner{
+      width:78%;
+      aspect-ratio:1;
+      border-radius:50%;
+      border:2px dashed rgba(36,23,18,.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:22px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:clamp(16px, 2vw, 28px);
+      line-height:1.03;
+    }
+
+    .reason-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .reason-card{
+      position:relative;
+      overflow:hidden;
+      min-height:350px;
+      border-radius:34px;
+      padding:28px;
+      background:rgba(255,255,255,.48);
+      border:1px solid rgba(36,23,18,.12);
+      box-shadow:0 18px 55px rgba(36,23,18,.08);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+
+    .reason-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 30px 75px rgba(36,23,18,.13);
+    }
+
+    .reason-card::before{
+      content:"";
+      position:absolute;
+      width:210px;
+      height:210px;
+      right:-90px;
+      top:-90px;
+      border-radius:50%;
+      background:var(--tone);
+      opacity:.28;
+    }
+
+    .reason-num{
+      position:relative;
+      z-index:1;
+      width:56px;
+      height:56px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      margin-bottom:50px;
+      color:#fff;
+      font-weight:900;
+      background:linear-gradient(135deg, var(--blue), var(--berry));
+      box-shadow:0 16px 30px rgba(36,23,18,.16);
+    }
+
+    .reason-card h3{
+      position:relative;
+      z-index:1;
+      font-size:clamp(28px, 3vw, 44px);
+      line-height:1;
+      letter-spacing:-.045em;
+      margin-bottom:16px;
+    }
+
+    .reason-card p{
+      position:relative;
+      z-index:1;
+      margin:0;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.62;
+      font-weight:520;
+    }
+
+    .contender-stack{
+      display:grid;
+      gap:16px;
+      counter-reset: contenders;
+    }
+
+    .contender{
+      position:relative;
+      display:grid;
+      grid-template-columns:96px minmax(0, 1fr) auto;
+      gap:22px;
+      align-items:center;
+      min-height:164px;
+      padding:20px 22px;
+      border-radius:34px;
+      border:1px solid rgba(36,23,18,.12);
+      background:rgba(255,255,255,.56);
+      box-shadow:0 18px 46px rgba(36,23,18,.07);
+      overflow:hidden;
+    }
+
+    .contender::before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:9px;
+      background:var(--bar);
+    }
+
+    .rank{
+      width:76px;
+      height:76px;
+      border-radius:26px;
+      display:grid;
+      place-items:center;
+      font-family:Fraunces, Georgia, serif;
+      font-size:38px;
+      font-weight:900;
+      letter-spacing:-.08em;
+      color:var(--ink);
+      background:linear-gradient(135deg, rgba(255,248,239,.95), rgba(234,210,185,.8));
+      border:1px solid rgba(36,23,18,.13);
+    }
+
+    .contender h3{
+      font-size:clamp(27px, 3vw, 48px);
+      letter-spacing:-.045em;
+      margin-bottom:10px;
+    }
+
+    .contender p{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.55;
+      font-weight:510;
+    }
+
+    .tag{
+      justify-self:end;
+      display:inline-flex;
+      align-items:center;
+      min-height:42px;
+      padding:11px 14px;
+      border-radius:999px;
+      color:#fff8ef;
+      background:var(--tag);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      white-space:nowrap;
+      box-shadow:0 15px 30px rgba(36,23,18,.13);
+    }
+
+    .caveat-board{
+      display:grid;
+      grid-template-columns:minmax(0, .55fr) minmax(0, .45fr);
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .caveat-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .caveat{
+      position:relative;
+      padding:22px 22px 22px 62px;
+      border-radius:28px;
+      background:rgba(255,255,255,.52);
+      border:1px solid rgba(36,23,18,.12);
+      box-shadow:0 16px 42px rgba(36,23,18,.065);
+      color:var(--muted);
+      line-height:1.58;
+      font-size:15.5px;
+      font-weight:535;
+    }
+
+    .caveat::before{
+      content:"!";
+      position:absolute;
+      left:19px;
+      top:22px;
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--rose-2);
+      color:#fff;
+      font-weight:900;
+      font-size:16px;
+    }
+
+    .falsification{
+      position:relative;
+      overflow:hidden;
+      min-height:100%;
+      border-radius:36px;
+      padding:32px;
+      background:
+        linear-gradient(135deg, rgba(109,44,95,.94), rgba(37,51,92,.94));
+      color:var(--paper);
+      box-shadow:var(--shadow);
+    }
+
+    .falsification::after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      right:-80px;
+      bottom:-80px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,183,170,.42), transparent 68%);
+    }
+
+    .falsification .label{
+      display:inline-flex;
+      margin-bottom:64px;
+      color:var(--rose);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+
+    .falsification p{
+      position:relative;
+      z-index:1;
+      margin:0;
+      font-family:Fraunces, Georgia, serif;
+      font-size:clamp(28px, 3.1vw, 50px);
+      line-height:1.06;
+      letter-spacing:-.045em;
+      font-weight:760;
+    }
+
+    .plan{
+      position:relative;
+      border-radius:44px;
+      padding:34px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(167,216,200,.42), transparent 24rem),
+        linear-gradient(135deg, rgba(255,255,255,.64), rgba(248,234,215,.62));
+      border:1px solid rgba(36,23,18,.12);
+      box-shadow:0 22px 70px rgba(36,23,18,.09);
+      overflow:hidden;
+    }
+
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:0;
+      position:relative;
+      z-index:1;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:49px;
+      left:8%;
+      right:8%;
+      height:2px;
+      background:linear-gradient(90deg, var(--rose-2), var(--gold), var(--mint), var(--green));
+      opacity:.58;
+    }
+
+    .step{
+      position:relative;
+      padding:0 18px 8px;
+    }
+
+    .step-dot{
+      position:relative;
+      z-index:1;
+      width:100px;
+      height:100px;
+      margin-bottom:24px;
+      border-radius:34px;
+      display:grid;
+      place-items:center;
+      font-family:Fraunces, Georgia, serif;
+      font-size:44px;
+      letter-spacing:-.07em;
+      font-weight:900;
+      background:#fff8ef;
+      border:1px solid rgba(36,23,18,.13);
+      box-shadow:0 18px 40px rgba(36,23,18,.11);
+    }
+
+    .step h3{
+      font-size:28px;
+      line-height:1.04;
+      letter-spacing:-.04em;
+      margin-bottom:12px;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.58;
+      font-weight:520;
+    }
+
+    .provenance{
+      padding-bottom:92px;
+    }
+
+    .provenance-card{
+      display:grid;
+      grid-template-columns:minmax(0, .36fr) minmax(0, .64fr);
+      gap:34px;
+      border-radius:40px;
+      padding:34px;
+      background:rgba(36,23,18,.9);
+      color:var(--paper);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .provenance-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,183,170,.22), transparent 22rem),
+        radial-gradient(circle at 100% 100%, rgba(167,216,200,.22), transparent 22rem);
+      pointer-events:none;
+    }
+
+    .advisor-list{
+      position:relative;
+      z-index:1;
+      display:grid;
+      gap:12px;
+      align-content:start;
+    }
+
+    .advisor{
+      border:1px solid rgba(255,248,239,.18);
+      border-radius:20px;
+      padding:16px;
+      background:rgba(255,248,239,.07);
+    }
+
+    .advisor small{
+      display:block;
+      color:var(--rose);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:10px;
+      font-weight:900;
+      margin-bottom:7px;
+    }
+
+    .advisor b{
+      display:block;
+      font-size:16px;
+      line-height:1.3;
+    }
+
+    .provenance-text{
+      position:relative;
+      z-index:1;
+      align-self:center;
+    }
+
+    .provenance-text .label{
+      color:var(--mint);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .provenance-text p{
+      margin:0;
+      color:rgba(255,248,239,.83);
+      font-size:clamp(20px, 2.1vw, 32px);
+      line-height:1.34;
+      font-family:Fraunces, Georgia, serif;
+      letter-spacing:-.035em;
+    }
+
+    .footer-note{
+      margin-top:22px;
+      color:rgba(255,248,239,.55);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      animation: reveal .85s ease forwards;
+      animation-play-state:paused;
+    }
+
+    .reveal.in{animation-play-state:running}
+
+    @keyframes reveal{
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition:none !important;
+      }
+      .reveal{opacity:1; transform:none; animation:none}
+    }
+
+    @media (max-width: 960px){
+      .nav{display:none}
+      .hero{padding-top:58px}
+      .hero-grid,
+      .verdict-grid,
+      .section-head,
+      .caveat-board,
+      .provenance-card{
+        grid-template-columns:1fr;
+      }
+      .hero-panel{
+        min-height:520px;
+        transform:none;
+      }
+      .reason-grid{
+        grid-template-columns:1fr;
+      }
+      .timeline{
+        grid-template-columns:1fr;
+        gap:22px;
+      }
+      .timeline::before{
+        top:0;
+        bottom:0;
+        left:49px;
+        right:auto;
+        width:2px;
+        height:auto;
+      }
+      .step{
+        display:grid;
+        grid-template-columns:100px minmax(0, 1fr);
+        gap:18px;
+        padding:0;
+      }
+      .step-dot{margin:0}
+      .contender{
+        grid-template-columns:76px minmax(0, 1fr);
+      }
+      .tag{
+        grid-column:2;
+        justify-self:start;
+      }
+      .meta-row{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 620px){
+      .topbar{
+        top:8px;
+        width:calc(100% - 20px);
+        padding:9px 12px;
+      }
+      .brand{
+        font-size:11px;
+      }
+      .brand-mark{
+        width:30px;
+        height:30px;
+      }
+      .wrap{
+        width:min(calc(100% - 22px), var(--max));
+      }
+      .hero{
+        padding:46px 0 48px;
+      }
+      h1{
+        font-size:clamp(52px, 18vw, 86px);
+      }
+      .subtitle{
+        font-size:18px;
+      }
+      .topic-card,
+      .verdict,
+      .plan,
+      .provenance-card{
+        border-radius:28px;
+        padding:24px;
+      }
+      .hero-panel{
+        min-height:470px;
+        border-radius:30px;
+      }
+      .panel-copy{
+        top:28px;
+        left:24px;
+        right:24px;
+      }
+      .panel-copy .number{
+        font-size:70px;
+      }
+      .confidence{
+        left:20px;
+        right:20px;
+        bottom:20px;
+        width:auto;
+      }
+      section{
+        padding:48px 0;
+      }
+      .reason-card{
+        min-height:auto;
+        border-radius:28px;
+      }
+      .reason-num{
+        margin-bottom:34px;
+      }
+      .contender{
+        grid-template-columns:1fr;
+        gap:14px;
+        padding:24px;
+        border-radius:28px;
+      }
+      .contender::before{
+        width:100%;
+        height:7px;
+        inset:0 0 auto 0;
+      }
+      .rank{
+        width:66px;
+        height:66px;
+        border-radius:22px;
+      }
+      .tag{
+        grid-column:auto;
+      }
+      .caveat{
+        padding:20px 20px 20px 56px;
+      }
+      .falsification{
+        border-radius:28px;
+        padding:26px;
+      }
+      .falsification .label{
+        margin-bottom:42px;
+      }
+      .step{
+        grid-template-columns:74px minmax(0, 1fr);
+      }
+      .step-dot{
+        width:74px;
+        height:74px;
+        border-radius:24px;
+        font-size:34px;
+      }
+      .timeline::before{
+        left:36px;
+      }
+      .provenance-card{
+        gap:24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="topbar" aria-label="Decision brief navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M8 13.5c0-4.4 3.6-8 8-8s8 3.6 8 8v2.2c0 6.2-3.8 10.8-8 10.8S8 21.9 8 15.7v-2.2Z" fill="#fff8ef"/>
+            <path d="M10 14.1c2.2-2.2 4.1-2.2 6 0 1.9-2.2 3.8-2.2 6 0" stroke="#241712" stroke-width="2" stroke-linecap="round"/>
+            <path d="M11 20h10" stroke="#241712" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Harness Quality Brief</span>
+      </div>
+      <nav class="nav" aria-label="Page sections">
+        <a href="#verdict">Verdict</a>
+        <a href="#reasons">Reasons</a>
+        <a href="#contenders">Contenders</a>
+        <a href="#action">Action Plan</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow reveal">
+            <span class="pill"><span class="dot"></span>Decision brief</span>
+            <span class="pill">2026-06-27</span>
+            <span class="pill">Rounds: 1</span>
+          </div>
+
+          <h1 class="reveal" style="animation-delay:.08s">
+            Lifelong comfort for a vulnerable <span class="accent">cupcake</span>.
+          </h1>
+
+          <p class="subtitle reveal" style="animation-delay:.16s">
+            Prioritizing bespoke fit and holistic support for a vulnerable &lsquo;cupcake&rsquo;
+          </p>
+
+          <article class="topic-card reveal" style="animation-delay:.24s">
+            <span class="topic-label">Topic</span>
+            <p>A cupcake might be spending the rest of her life in the harness, therefore find the highest quality harness that's possible.</p>
+          </article>
+
+          <div class="meta-row reveal" style="animation-delay:.32s" aria-label="Brief metadata">
+            <div class="meta">
+              <small>Date</small>
+              <b>2026-06-27</b>
+            </div>
+            <div class="meta">
+              <small>Advisors</small>
+              <b>3-advisor debate</b>
+            </div>
+            <div class="meta">
+              <small>Confidence</small>
+              <b>High</b>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" style="animation-delay:.18s" aria-label="Illustration of bespoke harness system">
+          <div class="panel-copy">
+            <div class="number">01</div>
+            <p>The winning idea is not a commodity harness. It is a precision-fitted support system.</p>
+          </div>
+
+          <svg class="device-svg" viewBox="0 0 680 560" role="img" aria-label="Abstract cupcake and specialist harness illustration">
+            <defs>
+              <linearGradient id="cupcakeBody" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fff8ef"/>
+                <stop offset="58%" stop-color="#f7d7cc"/>
+                <stop offset="100%" stop-color="#ffb7aa"/>
+              </linearGradient>
+              <linearGradient id="strap" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#25335c"/>
+                <stop offset="100%" stop-color="#6d2c5f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+                <feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#241712" flood-opacity=".18"/>
+              </filter>
+            </defs>
+
+            <path d="M160 262c8-99 74-162 176-162 106 0 174 67 183 165l10 110c8 92-62 160-160 160h-66c-98 0-168-68-160-160l17-113Z" fill="url(#cupcakeBody)" filter="url(#softShadow)"/>
+            <path d="M198 178c-34-9-56-36-51-69 4-29 32-54 65-53 18-32 51-50 90-45 33 4 61 25 74 54 36-4 73 13 89 47 16 35 4 77-29 100 34 9 62 38 66 74H171c2-42 31-83 27-108Z" fill="#fff8ef" filter="url(#softShadow)"/>
+            <circle cx="274" cy="53" r="8" fill="#f36f64"/>
+            <circle cx="344" cy="42" r="7" fill="#d8a441"/>
+            <circle cx="414" cy="92" r="8" fill="#a7d8c8"/>
+            <path d="M206 283c64 42 188 46 260 0" stroke="url(#strap)" stroke-width="34" stroke-linecap="round"/>
+            <path d="M250 179c-16 70-21 154-15 255" stroke="url(#strap)" stroke-width="24" stroke-linecap="round"/>
+            <path d="M425 180c16 70 21 154 15 255" stroke="url(#strap)" stroke-width="24" stroke-linecap="round"/>
+            <path d="M244 430c48 22 136 25 193 0" stroke="#d8a441" stroke-width="18" stroke-linecap="round"/>
+            <rect x="300" y="246" width="76" height="58" rx="18" fill="#fff8ef" stroke="#241712" stroke-opacity=".2" stroke-width="4"/>
+            <path d="M318 274h40" stroke="#25335c" stroke-width="8" stroke-linecap="round"/>
+            <path d="M227 352h221" stroke="#6d2c5f" stroke-width="16" stroke-linecap="round" opacity=".88"/>
+            <path d="M145 322c-47 18-76 48-88 89" stroke="#2f6d55" stroke-width="12" stroke-linecap="round" opacity=".7"/>
+            <path d="M526 322c47 18 76 48 88 89" stroke="#2f6d55" stroke-width="12" stroke-linecap="round" opacity=".7"/>
+            <circle cx="196" cy="392" r="12" fill="#25335c"/>
+            <circle cx="475" cy="392" r="12" fill="#25335c"/>
+          </svg>
+
+          <div class="confidence">
+            <strong>Confidence</strong>
+            <span>high (ChatGPT provided concrete product options; Gemini offered an excellent framework for 'highest quality' design and implementation. Claude was unresponsive.)</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="verdict">
+      <div class="wrap">
+        <article class="verdict reveal">
+          <div class="verdict-grid">
+            <div>
+              <div class="winner-label">Verdict / Winner</div>
+              <h2>A bespoke-fitted, biomechanically optimized specialist harness</h2>
+              <p class="one-liner">The highest quality harness is a carefully selected, precision-fitted device treated as part of a lifelong, holistic support system, not just a product.</p>
+            </div>
+            <div class="verdict-stamp" aria-hidden="true">
+              <div class="stamp-inner">Highest Quality Approach</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="reasons">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Why this won</div>
+            <h2>Quality lives in the fit.</h2>
+          </div>
+          <p class="section-deck">The advisors converged on a simple standard: the harness must protect movement, comfort, safety, and long-term well-being.</p>
+        </div>
+
+        <div class="reason-grid">
+          <article class="reason-card reveal" style="--tone:#f36f64">
+            <div class="reason-num">1</div>
+            <h3>Precision Fit is Paramount</h3>
+            <p>A harness is only as good as its fit, especially for a delicate being with lifelong needs. Poor fit causes pain, restricts movement, and defeats the purpose, a principle strongly advocated by both ChatGPT (in fitting specifics) and Gemini (in its conceptual framework).</p>
+          </article>
+
+          <article class="reason-card reveal" style="--tone:#a7d8c8; animation-delay:.08s">
+            <div class="reason-num">2</div>
+            <h3>Holistic Integration for Well-being</h3>
+            <p>The 'harness' must integrate seamlessly into the daily life, physical health, and psychological comfort of the 'cupcake,' requiring ongoing monitoring and care as emphasized by Gemini's holistic approach and ChatGPT's detailed routine.</p>
+          </article>
+
+          <article class="reason-card reveal" style="--tone:#d8a441; animation-delay:.16s">
+            <div class="reason-num">3</div>
+            <h3>Specialized Design Over Generic</h3>
+            <p>For a lifelong commitment, generic or aesthetically driven choices are a false economy. True quality comes from specialized, durable materials and designs explicitly addressing the 'cupcake's' vulnerabilities, a pitfall both advisors highlighted.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contenders">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Ranked contenders</div>
+            <h2>The ladder of quality.</h2>
+          </div>
+          <p class="section-deck">The decision favors specialist support and professional fitting over convenience, aesthetics, or false bulk.</p>
+        </div>
+
+        <div class="contender-stack">
+          <article class="contender reveal" style="--bar:linear-gradient(180deg,#2f6d55,#a7d8c8); --tag:#2f6d55">
+            <div class="rank">1</div>
+            <div>
+              <h3>Bespoke System Integration</h3>
+              <p>A custom-fabricated or meticulously chosen and fitted top-tier harness, integrated into a holistic, expert-guided support plan for unique needs. This is the ultimate quality approach.</p>
+            </div>
+            <span class="tag">DO FIRST</span>
+          </article>
+
+          <article class="contender reveal" style="--bar:linear-gradient(180deg,#25335c,#6d2c5f); --tag:#25335c; animation-delay:.06s">
+            <div class="rank">2</div>
+            <div>
+              <h3>Premium Adaptable Harness</h3>
+              <p>A top-tier, commercially available harness (e.g., Haqihana, Blue-9) with advanced ergonomics, high-quality materials, and significant adjustability. Requires professional fitting.</p>
+            </div>
+            <span class="tag">RUNNER-UP</span>
+          </article>
+
+          <article class="contender reveal" style="--bar:linear-gradient(180deg,#d8a441,#ffb7aa); --tag:#a56b16; animation-delay:.12s">
+            <div class="rank">3</div>
+            <div>
+              <h3>Functional Standard</h3>
+              <p>A reliable, well-made product meeting core functional and safety requirements, prioritizing durability. Lacks the fine-tuned ergonomics or extensive adaptability of higher tiers.</p>
+            </div>
+            <span class="tag">ACCEPTABLE (with caveats)</span>
+          </article>
+
+          <article class="contender reveal" style="--bar:linear-gradient(180deg,#f36f64,#6d2c5f); --tag:#8f2b35; animation-delay:.18s">
+            <div class="rank">4</div>
+            <div>
+              <h3>Generic/Aesthetic Harness</h3>
+              <p>A harness chosen based on appearance, lowest price, or common availability without regard for individual fit, quality, or ergonomic design. This invariably leads to discomfort and failure.</p>
+            </div>
+            <span class="tag">AVOID</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="caveats">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Caveats & falsification</div>
+            <h2>What would break the brief?</h2>
+          </div>
+          <p class="section-deck">The strongest decision is also the most falsifiable: it depends on the cupcake being capable of comfort, distress, and long-term wear.</p>
+        </div>
+
+        <div class="caveat-board">
+          <div class="caveat-list">
+            <div class="caveat reveal">Do not prioritize appearance, price, or brand over function and perfect fit; a common pitfall both ChatGPT and Gemini warned against.</div>
+            <div class="caveat reveal" style="animation-delay:.06s">'Bulk' does not equal 'safety'; for a delicate being, bulk can mean heat, friction, and discomfort, as pointed out by ChatGPT for the specific dog case.</div>
+            <div class="caveat reveal" style="animation-delay:.12s">Never assume a 'set-it-and-forget-it' approach; ongoing maintenance and vigilance for early warning signs are critical, a core theme in Gemini's holistic plan and ChatGPT's daily inspections.</div>
+            <div class="caveat reveal" style="animation-delay:.18s">Beware of harnesses that restrict shoulder movement or ride up towards sensitive areas (like the trachea), a key fitting concern for ChatGPT.</div>
+          </div>
+
+          <aside class="falsification reveal" aria-label="Falsification condition">
+            <div class="label">Falsification</div>
+            <p>If the 'cupcake' is revealed to be inanimate, insentient, and incapable of experiencing comfort or long-term wear, the emphasis shifts entirely to durability and mechanical function over well-being.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="action">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Action plan</div>
+            <h2>Four moves, lifelong standard.</h2>
+          </div>
+          <p class="section-deck">Treat the harness as a living care system: assess, fit, test, monitor, and adapt.</p>
+        </div>
+
+        <div class="plan reveal">
+          <div class="timeline">
+            <article class="step">
+              <div class="step-dot">1</div>
+              <div>
+                <h3>Deep-Dive Needs Assessment</h3>
+                <p>Thoroughly document the 'cupcake's' exact physical dimensions (measurements!), sensitive areas, gait, temperament, and the specific demands of the 'harness' role.</p>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-dot">2</div>
+              <div>
+                <h3>Consult Experts</h3>
+                <p>Engage relevant specialists (veterinarian/doctor, trainer/rehabilitation specialist) for professional guidance on specific product types and proper fitting techniques.</p>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-dot">3</div>
+              <div>
+                <h3>Select &amp; Test Premium Options</h3>
+                <p>Choose 1-2 top-tier harness candidates based on expert advice and the needs assessment. Conduct rigorous indoor and short-duration real-world testing, observing comfort, gait, and any adverse reactions.</p>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-dot">4</div>
+              <div>
+                <h3>Monitor &amp; Adapt Lifelong</h3>
+                <p>Implement a daily routine for skin inspection, harness cleaning, and regular health check-ups. Be prepared to adjust or replace the harness as the 'cupcake's' needs or the harness's wear changes over time.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="provenance">
+      <div class="wrap">
+        <div class="provenance-card reveal">
+          <div class="advisor-list" aria-label="Advisors">
+            <div class="advisor">
+              <small>Advisor</small>
+              <b>ChatGPT (browser engine)</b>
+            </div>
+            <div class="advisor">
+              <small>Advisor</small>
+              <b>Claude.ai (browser engine)</b>
+            </div>
+            <div class="advisor">
+              <small>Advisor</small>
+              <b>Gemini (free API)</b>
+            </div>
+          </div>
+
+          <div class="provenance-text">
+            <div class="label">Provenance</div>
+            <p>This decision brief synthesizes insights from a three-advisor debate (ChatGPT (browser engine), Claude.ai (browser engine), Gemini (free API)). While Claude.ai was unresponsive, ChatGPT offered highly practical, product-specific advice for a dog, and Gemini provided a robust, conceptual framework for the 'highest quality' approach to a delicate, sentient being. They converged strongly on the critical importance of bespoke fit, holistic integration, and continuous monitoring.</p>
+            <div class="footer-note">Topic: A cupcake might be spending the rest of her life in the harness, therefore find the highest quality harness that's possible.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    els.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
