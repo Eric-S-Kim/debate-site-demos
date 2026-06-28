@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Sunday, June 28th — Decision Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF5E9;
+    --cream-2:#F3E9D6;
+    --sea:#0E3A52;
+    --sea-deep:#0A2A3C;
+    --coral:#E0613E;
+    --gold:#EBA63A;
+    --ink:#19272D;
+    --muted:#5C6E73;
+    --line:rgba(14,58,82,0.16);
+    --shadow:0 30px 70px -40px rgba(10,42,60,0.55);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Space Grotesk',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .display{font-family:'Fraunces',serif;line-height:0.98;letter-spacing:-0.02em}
+  .kicker{
+    font-size:12px;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;
+    color:var(--coral);display:inline-flex;align-items:center;gap:12px;
+  }
+  .kicker::before{content:"";width:34px;height:1px;background:var(--coral);display:inline-block}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:120px 0 80px;overflow:hidden;
+    background:
+      radial-gradient(120% 80% at 85% -10%, rgba(235,166,58,0.30), transparent 55%),
+      radial-gradient(90% 60% at 10% 110%, rgba(224,97,62,0.18), transparent 60%),
+      var(--cream);
+  }
+  .sun{
+    position:absolute;top:-160px;right:-160px;width:560px;height:560px;
+    pointer-events:none;animation:spin 90s linear infinite;opacity:0.85;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hero-inner{position:relative;z-index:2}
+  .hero h1{
+    font-size:clamp(3.4rem,11vw,8.5rem);font-weight:500;color:var(--sea);
+    margin:26px 0 0;
+  }
+  .hero h1 em{font-style:italic;color:var(--coral);font-weight:400}
+  .hero .sub{
+    font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,3.4vw,2.2rem);
+    color:var(--ink);margin-top:18px;font-weight:400;
+  }
+  .hero .lede{
+    max-width:620px;margin-top:30px;font-size:clamp(1rem,1.6vw,1.18rem);color:var(--muted);
+  }
+  .scrollcue{margin-top:64px;display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--sea)}
+  .scrollcue .dot{width:9px;height:9px;border-radius:50%;background:var(--coral);animation:pulse 1.8s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.4}}
+
+  /* meander divider */
+  .meander{height:26px;width:100%;color:var(--sea);opacity:.9}
+
+  /* ---------- VERDICT ---------- */
+  .verdict{
+    background:var(--sea);color:var(--cream);padding:110px 0;position:relative;overflow:hidden;
+  }
+  .verdict::after{
+    content:"";position:absolute;inset:0;opacity:0.07;pointer-events:none;
+    background-image:radial-gradient(var(--gold) 1px, transparent 1px);background-size:26px 26px;
+  }
+  .verdict .wrap{position:relative;z-index:2}
+  .verdict .kicker{color:var(--gold)}
+  .verdict .kicker::before{background:var(--gold)}
+  .verdict h2{
+    font-size:clamp(3rem,9vw,6.6rem);font-weight:500;margin:24px 0 0;color:#fff;
+  }
+  .verdict .oneliner{
+    font-family:'Fraunces',serif;font-size:clamp(1.3rem,3vw,2rem);font-weight:300;line-height:1.4;
+    max-width:760px;margin-top:30px;color:var(--cream);
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:10px;margin-top:40px;
+    border:1px solid rgba(235,166,58,0.5);border-radius:100px;padding:11px 22px;
+    font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;
+  }
+  .badge b{color:#fff;font-weight:700;letter-spacing:0.1em}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section.block{padding:120px 0}
+  .head{max-width:680px;margin-bottom:64px}
+  .head h3{
+    font-family:'Fraunces',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:500;color:var(--sea);
+    margin-top:22px;line-height:1.02;
+  }
+  .head p{margin-top:18px;color:var(--muted);font-size:1.05rem}
+
+  /* reasons */
+  .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .reason{
+    background:#fff;border-radius:22px;padding:40px 34px;border:1px solid var(--line);
+    position:relative;box-shadow:var(--shadow);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+  .reason:hover{transform:translateY(-8px)}
+  .reason .num{font-family:'Fraunces',serif;font-size:3.2rem;color:var(--coral);font-weight:400;line-height:1}
+  .reason h4{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--sea);margin:18px 0 12px}
+  .reason p{color:var(--muted);font-size:0.98rem}
+
+  /* energy arc */
+  .arc-band{background:var(--cream-2);padding:110px 0}
+  .arc-flex{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:center}
+  .arc-svg{width:100%;height:auto}
+  .arc-legend{display:flex;flex-direction:column;gap:22px;margin-top:34px}
+  .arc-legend .row{display:flex;align-items:baseline;gap:16px}
+  .arc-legend .tg{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--sea);min-width:84px;font-weight:600}
+  .arc-legend .ds{color:var(--muted);font-size:.98rem}
+
+  /* contenders */
+  .contenders{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  .cont{
+    display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;
+    padding:38px 0;border-bottom:1px solid var(--line);transition:padding .4s ease;
+  }
+  .cont:hover{padding-left:14px}
+  .cont .rk{font-family:'Fraunces',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:400;color:var(--sea);opacity:.35;line-height:1}
+  .cont .body h4{font-family:'Fraunces',serif;font-size:clamp(1.4rem,3vw,2.1rem);font-weight:600;color:var(--sea)}
+  .cont .body p{color:var(--muted);margin-top:8px;max-width:640px}
+  .cont .tag{
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;
+    padding:8px 16px;border-radius:100px;white-space:nowrap;
+  }
+  .t1{background:var(--coral);color:#fff}
+  .t2{background:var(--gold);color:var(--sea-deep)}
+  .t3{background:rgba(14,58,82,0.10);color:var(--sea)}
+  .t4{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+  /* caveats + action two-col */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+  .caveat-list{list-style:none;display:flex;flex-direction:column;gap:22px}
+  .caveat-list li{display:flex;gap:18px;align-items:flex-start;padding-bottom:22px;border-bottom:1px solid var(--line);color:var(--ink)}
+  .caveat-list li:last-child{border-bottom:none}
+  .caveat-list .ic{flex:none;width:30px;height:30px;border-radius:8px;background:rgba(224,97,62,0.14);display:grid;place-items:center;color:var(--coral)}
+  .action-list{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:18px}
+  .action-list li{counter-increment:step;display:flex;gap:18px;align-items:flex-start}
+  .action-list li::before{
+    content:counter(step,decimal-leading-zero);font-family:'Fraunces',serif;font-weight:600;
+    color:var(--coral);font-size:1.05rem;flex:none;width:38px
+  }
+  .duo h3{font-family:'Fraunces',serif;font-size:2rem;color:var(--sea);margin-bottom:30px;font-weight:600}
+
+  /* falsification */
+  .fals{background:var(--sea-deep);color:var(--cream);padding:120px 0}
+  .fals .wrap{max-width:880px}
+  .fals .kicker{color:var(--gold)}
+  .fals .kicker::before{background:var(--gold)}
+  .fals blockquote{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+    font-size:clamp(1.5rem,4vw,2.6rem);line-height:1.4;margin-top:30px;color:#fff;
+  }
+  .fals blockquote span{color:var(--gold);font-style:normal}
+
+  /* provenance / footer */
+  .prov{padding:110px 0 70px;background:var(--cream)}
+  .advisors{display:flex;flex-wrap:wrap;gap:16px;margin:36px 0 50px}
+  .chip{
+    border:1px solid var(--line);border-radius:100px;padding:12px 22px;font-size:0.92rem;
+    color:var(--sea);background:#fff;display:flex;align-items:center;gap:10px;font-weight:500;
+  }
+  .chip .led{width:8px;height:8px;border-radius:50%;background:var(--coral)}
+  .prov p.note{max-width:720px;color:var(--muted);font-size:1.02rem}
+  .foot{margin-top:60px;padding-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:880px){
+    .reasons{grid-template-columns:1fr}
+    .arc-flex{grid-template-columns:1fr;gap:34px}
+    .duo{grid-template-columns:1fr;gap:60px}
+    .cont{grid-template-columns:auto 1fr;gap:18px}
+    .cont .tag{grid-column:1/-1;justify-self:start;margin-top:4px}
+    section.block,.arc-band,.verdict,.fals{padding:84px 0}
+    .sun{width:360px;height:360px;top:-120px;right:-120px}
+    .wrap{padding:0 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <svg class="sun" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#EBA63A" stroke-width="2" stroke-linecap="round">
+      <circle cx="100" cy="100" r="44" fill="rgba(235,166,58,0.18)" stroke="#E0613E"/>
+      <g stroke="#E0613E">
+        <line x1="100" y1="6" x2="100" y2="34"/><line x1="100" y1="166" x2="100" y2="194"/>
+        <line x1="6" y1="100" x2="34" y2="100"/><line x1="166" y1="100" x2="194" y2="100"/>
+        <line x1="34" y1="34" x2="54" y2="54"/><line x1="146" y1="146" x2="166" y2="166"/>
+        <line x1="166" y1="34" x2="146" y2="54"/><line x1="54" y1="146" x2="34" y2="166"/>
+        <line x1="67" y1="14" x2="78" y2="40"/><line x1="122" y1="160" x2="133" y2="186"/>
+        <line x1="14" y1="67" x2="40" y2="78"/><line x1="160" y1="122" x2="186" y2="133"/>
+        <line x1="133" y1="14" x2="122" y2="40"/><line x1="78" y1="160" x2="67" y2="186"/>
+        <line x1="14" y1="133" x2="40" y2="122"/><line x1="160" y1="78" x2="186" y2="67"/>
+      </g>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="kicker">Decision Brief · June 27, 2026</span>
+    <h1 class="display">One Sunday,<br>three <em>ways</em><br>to spend it.</h1>
+    <p class="sub">Your Sunday, June 28th: Festival, Bespoke, or Mosaic?</p>
+    <p class="lede">We scanned tomorrow's big festivals and the quieter corners of the city, then built an itinerary with a real arc of energy — somewhere to start slow, somewhere to feel the crowd, somewhere to land soft.</p>
+    <div class="scrollcue"><span class="dot"></span> Scroll for the verdict</div>
+  </div>
+</header>
+
+<!-- meander divider -->
+<svg class="meander" viewBox="0 0 96 16" preserveAspectRatio="none" aria-hidden="true">
+  <defs><pattern id="key" width="32" height="16" patternUnits="userSpaceOnUse">
+    <path d="M2 14 V4 H14 V12 H8 V8" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M18 2 V12 H30 V4 H24 V8" fill="none" stroke="currentColor" stroke-width="2"/>
+  </pattern></defs>
+  <rect width="96" height="16" fill="url(#key)"/>
+</svg>
+
+<!-- VERDICT -->
+<section class="verdict">
+  <div class="wrap reveal">
+    <span class="kicker">The Verdict</span>
+    <h2 class="display">The Greek Day<br>Spine</h2>
+    <p class="oneliner">Leverage the massive, free Greek Day festival as your centerpiece for a vibrant communal experience — then let the day flow naturally into calmer moments.</p>
+    <div class="badge">Confidence <b>HIGH</b></div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section class="block">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Why this wins</span>
+      <h3 class="display">Three reasons it holds up.</h3>
+    </div>
+    <div class="reasons">
+      <article class="reason reveal">
+        <div class="num">01</div>
+        <h4>Dominant Communal Event</h4>
+        <p>Greek Day is identified by Claude as the "one genuinely big communal event," offering free admission and massive crowds for a true festival feel.</p>
+      </article>
+      <article class="reason reveal" style="transition-delay:.1s">
+        <div class="num">02</div>
+        <h4>Natural Energy Arc</h4>
+        <p>This plan, as Claude puts it, naturally delivers a "calm → festive → mellow" energy arc — starting slow, building to the festival, then winding down.</p>
+      </article>
+      <article class="reason reveal" style="transition-delay:.2s">
+        <div class="num">03</div>
+        <h4>Logistical Clarity</h4>
+        <p>All advisors emphasize planning, and Greek Day's defined hours and location (with clear transit advice) make it the most actionable headline event.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ENERGY ARC -->
+<section class="arc-band">
+  <div class="wrap arc-flex">
+    <div class="reveal">
+      <span class="kicker">The shape of the day</span>
+      <h3 class="display" style="font-family:'Fraunces',serif;font-size:clamp(2.2rem,6vw,3.6rem);color:var(--sea);margin-top:20px;font-weight:500;line-height:1.02">An arc, not a checklist.</h3>
+      <div class="arc-legend">
+        <div class="row"><span class="tg">Calm</span><span class="ds">A light breakfast or brunch before you head out — save the appetite for later.</span></div>
+        <div class="row"><span class="tg">Festive</span><span class="ds">Greek Day on Broadway: food, music, crowds. The communal peak of the day.</span></div>
+        <div class="row"><span class="tg">Mellow</span><span class="ds">Wind down — or chase the high-octane FIFA Fan Fest at the PNE as a late option.</span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <svg class="arc-svg" viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Energy arc from calm to festive to mellow">
+        <line x1="40" y1="270" x2="560" y2="270" stroke="var(--line)" stroke-width="2"/>
+        <path d="M40 240 C 150 230, 200 70, 300 60 C 400 50, 450 200, 560 215" stroke="var(--coral)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M40 240 C 150 230, 200 70, 300 60 C 400 50, 450 200, 560 215 L560 270 L40 270 Z" fill="rgba(224,97,62,0.10)"/>
+        <circle cx="40" cy="240" r="9" fill="var(--sea)"/>
+        <circle cx="300" cy="60" r="11" fill="var(--gold)" stroke="#fff" stroke-width="3"/>
+        <circle cx="560" cy="215" r="9" fill="var(--sea)"/>
+        <text x="40" y="300" fill="var(--muted)" font-family="Space Grotesk" font-size="15" text-anchor="middle">Morning</text>
+        <text x="300" y="300" fill="var(--muted)" font-family="Space Grotesk" font-size="15" text-anchor="middle">Afternoon</text>
+        <text x="560" y="300" fill="var(--muted)" font-family="Space Grotesk" font-size="15" text-anchor="middle">Evening</text>
+        <text x="300" y="36" fill="var(--sea)" font-family="Fraunces" font-size="18" font-style="italic" text-anchor="middle">peak</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENDERS -->
+<section class="block">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">The field</span>
+      <h3 class="display">Four ways to play tomorrow.</h3>
+      <p>Ranked from the day we'd choose first to the one that's still just a theory.</p>
+    </div>
+    <div class="contenders">
+      <div class="cont reveal">
+        <div class="rk">01</div>
+        <div class="body"><h4>Greek Day Spine</h4><p>Anchor your day in Greek Day on Broadway, with optional evening energy at the FIFA Fan Fest.</p></div>
+        <span class="tag t1">Do First</span>
+      </div>
+      <div class="cont reveal">
+        <div class="rk">02</div>
+        <div class="body"><h4>Fan Fest Day</h4><p>Focus on the FIFA Fan Fest at the PNE for a high-octane day of World Cup matches and live music.</p></div>
+        <span class="tag t2">Runner-up</span>
+      </div>
+      <div class="cont reveal">
+        <div class="rk">03</div>
+        <div class="body"><h4>Bespoke Kits / Granville</h4><p>A lower-key, curated day: farmers market, Kits Beach, Jazz Fest, Granville Island, unhurried dinner.</p></div>
+        <span class="tag t3">Alternative</span>
+      </div>
+      <div class="cont reveal">
+        <div class="rk">04</div>
+        <div class="body"><h4>Curated Mosaic</h4><p>Gemini's recommendation to blend a major event with smaller, enriching experiences — though less specific on Sunday's events.</p></div>
+        <span class="tag t4">Theory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAVEATS + ACTION -->
+<section class="block" style="padding-top:40px">
+  <div class="wrap duo">
+    <div class="reveal">
+      <h3 class="display">Mind these.</h3>
+      <ul class="caveat-list">
+        <li><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Don't drive to Greek Day — use transit or bike, due to extensive road closures.</li>
+        <li><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Avoid bringing pets to large, crowded events like Greek Day.</li>
+        <li><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Over-scheduling is the primary pitfall — leave room to prevent burnout.</li>
+      </ul>
+    </div>
+    <div class="reveal" style="transition-delay:.1s">
+      <h3 class="display">Do this next.</h3>
+      <ol class="action-list">
+        <li>Research specific timings for Greek Day stages / food vendors and the PNE Fan Fest music schedule.</li>
+        <li>Decide between making the PNE Fan Fest a late-night option or a separate focus.</li>
+        <li>Plan your transit route to Kitsilano for Greek Day.</li>
+        <li>Consider a light breakfast / brunch before heading out — the main meals will be there.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- FALSIFICATION -->
+<section class="fals">
+  <div class="wrap reveal">
+    <span class="kicker">What would change our mind</span>
+    <blockquote>The absence of a single, overwhelmingly significant event that appeals across all energy levels and interests would shift the recommendation toward Gemini's <span>"Curated Mosaic"</span> approach.</blockquote>
+  </div>
+</section>
+
+<!-- PROVENANCE -->
+<footer class="prov">
+  <div class="wrap reveal">
+    <span class="kicker">How this was made</span>
+    <div class="advisors">
+      <span class="chip"><span class="led"></span>ChatGPT — browser engine</span>
+      <span class="chip"><span class="led" style="background:var(--gold)"></span>Claude.ai — browser engine</span>
+      <span class="chip"><span class="led" style="background:var(--sea)"></span>Gemini — free API</span>
+    </div>
+    <p class="note">This brief is synthesized from the independent analyses of ChatGPT, Claude.ai, and Gemini. A key convergence point was the identification of major events — though Claude specifically pinpointed Greek Day as the dominant headline for Sunday, June 28th.</p>
+    <div class="foot">
+      <span>Decision Brief · 1 round · 3 advisors</span>
+      <span>Vancouver · June 28, 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
