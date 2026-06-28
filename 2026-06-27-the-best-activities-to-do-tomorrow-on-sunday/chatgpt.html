@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Strategic Recharge — Sunday Decision Brief</title>
+  <meta name="description" content="A single-page decision brief on the best activities to do tomorrow on Sunday: optimizing Sunday for rest and readiness." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #18130f;
+      --muted: #756a5e;
+      --paper: #fbf3e7;
+      --paper-2: #fffaf2;
+      --sand: #ead6b8;
+      --clay: #b45f43;
+      --copper: #d78954;
+      --sage: #7f9275;
+      --moss: #32483a;
+      --blue: #313c58;
+      --line: rgba(24, 19, 15, .16);
+      --soft-shadow: 0 24px 80px rgba(49, 60, 88, .14);
+      --hard-shadow: 0 10px 0 rgba(24, 19, 15, .88);
+      --radius-xl: 42px;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 7%, rgba(215, 137, 84, .24), transparent 34%),
+        radial-gradient(circle at 82% 12%, rgba(127, 146, 117, .24), transparent 31%),
+        linear-gradient(135deg, #fffaf2 0%, #fbf3e7 42%, #f5e2c7 100%);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(24, 19, 15, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 19, 15, .05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          -9deg,
+          rgba(24, 19, 15, .018) 0px,
+          rgba(24, 19, 15, .018) 1px,
+          transparent 1px,
+          transparent 7px
+        );
+      mix-blend-mode: multiply;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      width: min(var(--max), calc(100% - 36px));
+      margin: 16px auto 0;
+      padding: 12px 14px 12px 18px;
+      border: 1px solid rgba(24, 19, 15, .14);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, .74);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 35px rgba(49, 60, 88, .09);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(from 220deg, var(--sage), var(--sand), var(--copper), var(--sage));
+      box-shadow: 0 4px 0 rgba(24, 19, 15, .86);
+    }
+
+    .brand-mark svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: rgba(24, 19, 15, .72);
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: background .25s ease, color .25s ease, transform .25s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(24, 19, 15, .08);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      padding: 92px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr);
+      gap: 48px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 13px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(24, 19, 15, .16);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, .62);
+      color: var(--moss);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--clay);
+      box-shadow: 16px 0 0 var(--sage), 32px 0 0 var(--copper);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(4rem, 12vw, 10.8rem);
+      line-height: .82;
+      letter-spacing: -.085em;
+      font-weight: 400;
+    }
+
+    .hero-title-kicker {
+      display: block;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: clamp(.92rem, 1.6vw, 1.18rem);
+      line-height: 1;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .italic {
+      font-style: italic;
+      letter-spacing: -.075em;
+    }
+
+    .subtitle {
+      max-width: 670px;
+      margin: 28px 0 0;
+      color: rgba(24, 19, 15, .72);
+      font-size: clamp(1.08rem, 2.2vw, 1.35rem);
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 14px 18px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--paper-2);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      box-shadow: 0 6px 0 rgba(24, 19, 15, .22);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .button.secondary {
+      background: rgba(255, 250, 242, .5);
+      color: var(--ink);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 0 rgba(24, 19, 15, .19);
+    }
+
+    .verdict-card {
+      position: relative;
+      min-height: 570px;
+      padding: 26px;
+      border: 1.5px solid rgba(24, 19, 15, .19);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(160deg, rgba(255, 250, 242, .86), rgba(234, 214, 184, .58)),
+        radial-gradient(circle at 80% 18%, rgba(127, 146, 117, .34), transparent 36%);
+      box-shadow: var(--soft-shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .verdict-card::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -74px;
+      top: -78px;
+      border-radius: 50%;
+      border: 1px solid rgba(24, 19, 15, .15);
+      background:
+        radial-gradient(circle, transparent 0 34%, rgba(180, 95, 67, .16) 35% 36%, transparent 37% 50%, rgba(49, 60, 88, .14) 51% 52%, transparent 53%);
+      animation: slowSpin 28s linear infinite;
+      z-index: -1;
+    }
+
+    .verdict-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 24px 24px 24px;
+      height: 156px;
+      border-radius: 24px;
+      background:
+        linear-gradient(90deg, rgba(24, 19, 15, .9), rgba(50, 72, 58, .92)),
+        radial-gradient(circle at 20% 50%, rgba(215, 137, 84, .5), transparent 34%);
+      z-index: -2;
+      transform: rotate(-1.3deg);
+      box-shadow: 0 20px 45px rgba(24, 19, 15, .18);
+    }
+
+    .stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: var(--clay);
+      color: #fff7ec;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .stamp::before {
+      content: "★";
+      font-size: 11px;
+    }
+
+    .verdict-card h2 {
+      margin: 26px 0 0;
+      max-width: 420px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(3.1rem, 6.2vw, 5.8rem);
+      line-height: .86;
+      letter-spacing: -.055em;
+    }
+
+    .verdict-card .one-liner {
+      margin: 26px 0 0;
+      max-width: 445px;
+      color: rgba(24, 19, 15, .75);
+      font-size: 1.02rem;
+      line-height: 1.68;
+    }
+
+    .meta-cluster {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 42px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      color: var(--paper-2);
+    }
+
+    .meta-tile {
+      padding: 18px;
+      border: 1px solid rgba(255, 250, 242, .16);
+      border-radius: 20px;
+      background: rgba(255, 250, 242, .08);
+      backdrop-filter: blur(12px);
+    }
+
+    .meta-label {
+      display: block;
+      margin-bottom: 7px;
+      color: rgba(255, 250, 242, .62);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      font-size: .95rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .section {
+      position: relative;
+      padding: 78px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(260px, .58fr);
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--clay);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h2.section-title {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 6.8vw, 6.6rem);
+      line-height: .88;
+      letter-spacing: -.06em;
+    }
+
+    .section-copy {
+      margin: 0;
+      color: rgba(24, 19, 15, .68);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .reason-card {
+      position: relative;
+      min-height: 330px;
+      padding: 26px;
+      border: 1px solid rgba(24, 19, 15, .15);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 250, 242, .64);
+      box-shadow: 0 20px 60px rgba(49, 60, 88, .08);
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-7px);
+      background: rgba(255, 250, 242, .88);
+      box-shadow: 0 28px 80px rgba(49, 60, 88, .12);
+    }
+
+    .reason-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -30px -66px auto;
+      width: 176px;
+      height: 176px;
+      border-radius: 50%;
+      background: var(--sand);
+      opacity: .65;
+      transition: transform .28s ease;
+    }
+
+    .reason-card:hover::before {
+      transform: scale(1.18) translate(-8px, -8px);
+    }
+
+    .reason-number {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--ink);
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--copper), var(--sand));
+      box-shadow: 0 5px 0 rgba(24, 19, 15, .82);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .reason-card h3 {
+      position: relative;
+      margin: 72px 0 12px;
+      max-width: 280px;
+      font-size: clamp(1.42rem, 2vw, 1.86rem);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+    }
+
+    .reason-card p {
+      position: relative;
+      margin: 0;
+      color: rgba(24, 19, 15, .68);
+      line-height: 1.65;
+      font-size: .98rem;
+    }
+
+    .leaderboard {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contender {
+      position: relative;
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid rgba(24, 19, 15, .15);
+      border-radius: 28px;
+      background: rgba(255, 250, 242, .62);
+      box-shadow: 0 16px 50px rgba(49, 60, 88, .07);
+      overflow: hidden;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+
+    .contender:hover {
+      transform: translateX(6px);
+      background: rgba(255, 250, 242, .9);
+      border-color: rgba(24, 19, 15, .28);
+    }
+
+    .contender:first-child {
+      background:
+        linear-gradient(135deg, rgba(255, 250, 242, .92), rgba(234, 214, 184, .68)),
+        radial-gradient(circle at 90% 20%, rgba(127, 146, 117, .32), transparent 24%);
+      border: 1.5px solid rgba(24, 19, 15, .32);
+      box-shadow: 0 20px 70px rgba(49, 60, 88, .14);
+    }
+
+    .rank {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper-2);
+      box-shadow: 0 6px 0 rgba(24, 19, 15, .8);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 2.8rem;
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .contender:first-child .rank {
+      color: var(--paper-2);
+      background: var(--ink);
+    }
+
+    .contender h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+
+    .contender p {
+      margin: 0;
+      color: rgba(24, 19, 15, .66);
+      line-height: 1.58;
+      max-width: 720px;
+    }
+
+    .tag {
+      min-width: max-content;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(24, 19, 15, .14);
+      background: rgba(24, 19, 15, .07);
+      color: rgba(24, 19, 15, .7);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .contender:first-child .tag {
+      background: var(--clay);
+      color: #fff7ec;
+      border-color: transparent;
+    }
+
+    .plan-wrap {
+      position: relative;
+      border: 1.5px solid rgba(24, 19, 15, .18);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(140deg, rgba(24, 19, 15, .92), rgba(49, 60, 88, .92)),
+        radial-gradient(circle at 12% 14%, rgba(215, 137, 84, .72), transparent 30%);
+      box-shadow: var(--soft-shadow);
+      color: var(--paper-2);
+      overflow: hidden;
+    }
+
+    .plan-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto 48%;
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(234, 214, 184, .16) 0 18%, transparent 19%),
+        repeating-conic-gradient(from 20deg, rgba(255, 250, 242, .12) 0 8deg, transparent 8deg 18deg);
+      animation: slowSpin 38s linear infinite reverse;
+      opacity: .72;
+    }
+
+    .plan-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 34px;
+      padding: clamp(24px, 5vw, 52px);
+    }
+
+    .plan-label {
+      color: rgba(255, 250, 242, .58);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .plan-title {
+      margin: 16px 0 18px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(3rem, 7vw, 7rem);
+      line-height: .82;
+      letter-spacing: -.06em;
+      font-weight: 400;
+    }
+
+    .plan-note {
+      margin: 0;
+      color: rgba(255, 250, 242, .7);
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 250, 242, .14);
+      background: rgba(255, 250, 242, .08);
+      backdrop-filter: blur(16px);
+    }
+
+    .step-time {
+      color: var(--sand);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      line-height: 1.45;
+    }
+
+    .step p {
+      margin: 0;
+      color: rgba(255, 250, 242, .82);
+      line-height: 1.6;
+    }
+
+    .step strong {
+      color: var(--paper-2);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      position: relative;
+      padding: 28px;
+      border: 1px solid rgba(24, 19, 15, .15);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 250, 242, .68);
+      box-shadow: 0 16px 55px rgba(49, 60, 88, .08);
+      overflow: hidden;
+    }
+
+    .panel h3 {
+      margin: 0 0 16px;
+      font-size: clamp(1.4rem, 2vw, 1.9rem);
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .panel li {
+      position: relative;
+      padding-left: 28px;
+      color: rgba(24, 19, 15, .68);
+      line-height: 1.62;
+    }
+
+    .panel li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .65em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--clay);
+      box-shadow: 0 0 0 5px rgba(180, 95, 67, .12);
+    }
+
+    .falsification {
+      background:
+        linear-gradient(145deg, rgba(255, 250, 242, .7), rgba(234, 214, 184, .58)),
+        radial-gradient(circle at 90% 20%, rgba(180, 95, 67, .14), transparent 30%);
+    }
+
+    .falsification .signal {
+      display: inline-flex;
+      margin-bottom: 20px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(180, 95, 67, .13);
+      color: var(--clay);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .falsification p {
+      margin: 0;
+      color: rgba(24, 19, 15, .74);
+      font-size: 1.22rem;
+      line-height: 1.55;
+    }
+
+    .provenance {
+      padding: 44px 0 74px;
+    }
+
+    .source-card {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 28px;
+      align-items: start;
+      padding: clamp(24px, 5vw, 42px);
+      border: 1px solid rgba(24, 19, 15, .16);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 250, 242, .66);
+      box-shadow: 0 18px 70px rgba(49, 60, 88, .08);
+    }
+
+    .source-card h2 {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.6rem, 5vw, 5.3rem);
+      line-height: .88;
+      letter-spacing: -.055em;
+      font-weight: 400;
+    }
+
+    .source-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .source-list li {
+      padding: 10px 12px;
+      border: 1px solid rgba(24, 19, 15, .16);
+      border-radius: 999px;
+      background: rgba(24, 19, 15, .04);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .04em;
+    }
+
+    .source-card p {
+      margin: 0;
+      color: rgba(24, 19, 15, .68);
+      line-height: 1.72;
+    }
+
+    .footer-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 0 40px;
+      color: rgba(24, 19, 15, .55);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(.2px);
+      opacity: .75;
+      animation: float 9s ease-in-out infinite;
+    }
+
+    .orb.one {
+      width: 90px;
+      height: 90px;
+      top: 170px;
+      right: 8vw;
+      background: rgba(180, 95, 67, .18);
+    }
+
+    .orb.two {
+      width: 54px;
+      height: 54px;
+      top: 710px;
+      left: 6vw;
+      background: rgba(127, 146, 117, .22);
+      animation-delay: -3s;
+    }
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      border-block: 1px solid rgba(24, 19, 15, .16);
+      background: rgba(255, 250, 242, .36);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee span {
+      display: inline-flex;
+      padding: 18px 24px;
+      color: rgba(24, 19, 15, .68);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    @keyframes slowSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(10px, -16px, 0); }
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-heading,
+      .plan-inner,
+      .source-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .verdict-card {
+        min-height: 520px;
+      }
+
+      .reason-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .reason-card {
+        min-height: 260px;
+      }
+
+      .reason-card h3 {
+        margin-top: 42px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        top: 10px;
+        align-items: flex-start;
+        border-radius: 28px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .site-shell,
+      .nav {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .hero {
+        padding: 54px 0 48px;
+      }
+
+      h1 {
+        font-size: clamp(4rem, 19vw, 7rem);
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .verdict-card {
+        min-height: auto;
+        padding: 22px;
+      }
+
+      .verdict-card::after {
+        position: relative;
+        display: block;
+        inset: auto;
+        height: auto;
+        min-height: 1px;
+        margin-top: 28px;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .meta-cluster {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+        color: var(--ink);
+      }
+
+      .meta-tile {
+        border-color: rgba(24, 19, 15, .12);
+        background: rgba(24, 19, 15, .045);
+      }
+
+      .meta-label {
+        color: rgba(24, 19, 15, .48);
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .contender {
+        grid-template-columns: 62px minmax(0, 1fr);
+        align-items: start;
+        border-radius: 24px;
+      }
+
+      .rank {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        font-size: 2.15rem;
+      }
+
+      .tag {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-left: 74px;
+      }
+
+      .plan-inner {
+        padding: 24px;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .footer-strip {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-only {
+        display: inline;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .eyebrow {
+        font-size: 10px;
+      }
+
+      .verdict-card h2,
+      h2.section-title,
+      .plan-title,
+      .source-card h2 {
+        letter-spacing: -.045em;
+      }
+
+      .panel,
+      .reason-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <nav class="nav" aria-label="Page navigation">
+    <a class="brand" href="#top" aria-label="Sunday Decision Brief home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3v4M12 17v4M4.8 5.8l2.8 2.8M16.4 15.4l2.8 2.8M3 12h4M17 12h4M4.8 18.2l2.8-2.8M16.4 8.6l2.8-2.8"/>
+        </svg>
+      </span>
+      Sunday Brief
+    </a>
+    <div class="nav-links" aria-label="Section links">
+      <a href="#verdict">Verdict</a>
+      <a href="#reasons">Reasons</a>
+      <a href="#ranking">Ranking</a>
+      <a href="#plan">2-Day Feel</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero site-shell" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Decision date · 2026-06-27</div>
+          <h1 id="hero-title">
+            <span class="hero-title-kicker">The best activities to do tomorrow on Sunday</span>
+            Strategic <span class="italic">Recharge</span>
+          </h1>
+          <p class="subtitle">A debate on optimizing Sunday for rest and readiness. The winning answer: balance restorative rest with essential preparation so you genuinely unwind and approach the week with clarity, purpose, and reduced stress.</p>
+          <div class="hero-actions">
+            <a class="button" href="#plan">See the Sunday plan</a>
+            <a class="button secondary" href="#ranking">View contenders</a>
+          </div>
+        </div>
+
+        <aside class="verdict-card" id="verdict" aria-label="Verdict">
+          <span class="stamp">Winner</span>
+          <h2>The Strategic Recharge</h2>
+          <p class="one-liner">Balance restorative rest with essential preparation to ensure you both genuinely unwind and approach the week with clarity, purpose, and reduced stress.</p>
+
+          <div class="meta-cluster" aria-label="Decision metadata">
+            <div class="meta-tile">
+              <span class="meta-label">Confidence</span>
+              <span class="meta-value">high, as it provides a universally applicable framework when specific context is absent.</span>
+            </div>
+            <div class="meta-tile">
+              <span class="meta-label">Rounds</span>
+              <span class="meta-value">1 round · three-advisor debate</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Rest without drifting</span>
+        <span>Prepare without overworking</span>
+        <span>Enjoy the day on purpose</span>
+        <span>Protect Monday morning</span>
+        <span>Rest without drifting</span>
+        <span>Prepare without overworking</span>
+        <span>Enjoy the day on purpose</span>
+        <span>Protect Monday morning</span>
+      </div>
+    </div>
+
+    <section class="section site-shell" id="reasons" aria-labelledby="reasons-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Why this wins</span>
+          <h2 class="section-title" id="reasons-title">A Sunday that gives energy back.</h2>
+        </div>
+        <p class="section-copy">The best default is not pure productivity and not passive collapse. It is a deliberate blend: enough order to lower stress, enough spaciousness to feel like a real day off.</p>
+      </div>
+
+      <div class="reason-grid">
+        <article class="reason-card">
+          <div class="reason-number">1</div>
+          <h3>Universal Applicability</h3>
+          <p>Gemini's strategic framework is not tied to a specific location or event, making it actionable for anyone, anywhere, addressing the generic nature of the prompt.</p>
+        </article>
+
+        <article class="reason-card">
+          <div class="reason-number">2</div>
+          <h3>Proactive Energy Management</h3>
+          <p>It emphasizes intentional planning to avoid Monday morning panic, shifting from reactive recovery to proactive well-being and sustained productivity.</p>
+        </article>
+
+        <article class="reason-card">
+          <div class="reason-number">3</div>
+          <h3>Balanced Approach</h3>
+          <p>It wisely integrates both genuine enjoyment and high-leverage preparation, preventing either over-scheduling or feeling like the day was wasted.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section site-shell" id="ranking" aria-labelledby="ranking-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Ranked contenders</span>
+          <h2 class="section-title" id="ranking-title">Five ways Sunday can go.</h2>
+        </div>
+        <p class="section-copy">The debate ranked each Sunday mode by how well it supports recovery, readiness, and Monday-morning calm.</p>
+      </div>
+
+      <div class="leaderboard">
+        <article class="contender">
+          <div class="rank">1</div>
+          <div>
+            <h3>Strategic Recharge</h3>
+            <p>A curated blend of restful activities and high-leverage preparation, ensuring you unwind and hit Monday with purpose. Optimal default for consistent well-being.</p>
+          </div>
+          <div class="tag">DO FIRST</div>
+        </article>
+
+        <article class="contender">
+          <div class="rank">2</div>
+          <div>
+            <h3>Pure Indulgence</h3>
+            <p>Unadulterated relaxation, entertainment, or pursuit of pure pleasure with minimal prep. Best when you are genuinely at the absolute edge of burnout.</p>
+          </div>
+          <div class="tag">SITUATIONAL</div>
+        </article>
+
+        <article class="contender">
+          <div class="rank">3</div>
+          <div>
+            <h3>Specific Event Day</h3>
+            <p>A day anchored around one high-energy public experience, like a festival or concert. Excellent if your location and specific context match, as ChatGPT detailed.</p>
+          </div>
+          <div class="tag">RUNNER-UP (if context known)</div>
+        </article>
+
+        <article class="contender">
+          <div class="rank">4</div>
+          <div>
+            <h3>Pure Productivity</h3>
+            <p>Dedicating the day primarily to chores, errands, or catching up on work. Minimize this approach, as it robs you of critical recharge time.</p>
+          </div>
+          <div class="tag">AVOID (mostly)</div>
+        </article>
+
+        <article class="contender">
+          <div class="rank">5</div>
+          <div>
+            <h3>Aimless Drift</h3>
+            <p>Waking without a plan, succumbing to digital distractions, and bouncing between low-value activities. This approach almost always leads to Monday morning regret and increased stress.</p>
+          </div>
+          <div class="tag">WORST OPTION</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section site-shell" id="plan" aria-labelledby="plan-title">
+      <div class="plan-wrap">
+        <div class="plan-inner">
+          <div>
+            <div class="plan-label">Action plan</div>
+            <h2 class="plan-title" id="plan-title">Build a calm Monday before it arrives.</h2>
+            <p class="plan-note">The winning plan protects the day from both extremes: no frantic errand marathon, no screen-soaked drift.</p>
+          </div>
+
+          <div class="timeline" aria-label="Sunday action plan">
+            <article class="step">
+              <div class="step-time">Morning Ritual</div>
+              <p><strong>Wake naturally, move your body (30-60 mins),</strong> then spend 30-45 mins planning top 3 week priorities and dumping mental clutter.</p>
+            </article>
+
+            <article class="step">
+              <div class="step-time">Practical Prep</div>
+              <p><strong>Dedicate 60-90 mins</strong> to 1-2 high-impact, low-effort weekly tasks, such as laundry, light meal prep, or tidying main spaces.</p>
+            </article>
+
+            <article class="step">
+              <div class="step-time">Genuine Recharge</div>
+              <p><strong>Block out 2-3 hours</strong> for a truly enjoyable, screen-free, non-work activity, such as a hobby, nature, reading, or meaningful social connection.</p>
+            </article>
+
+            <article class="step">
+              <div class="step-time">Early Wind-Down</div>
+              <p><strong>Disconnect from screens 2 hours before bed,</strong> briefly preview Monday, and prioritize sufficient sleep.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section site-shell" aria-labelledby="caveats-title">
+      <div class="two-col">
+        <article class="panel">
+          <h3 id="caveats-title">Caveats: what to avoid</h3>
+          <ul>
+            <li>Avoid over-scheduling, treating Sunday like another workday, or succumbing to passive digital distractions that drain rather than recharge.</li>
+            <li>Do not leave all high-impact weekly preparation until Monday morning.</li>
+          </ul>
+        </article>
+
+        <article class="panel falsification">
+          <span class="signal">Falsification test</span>
+          <h3>When the winner changes</h3>
+          <p>If you are genuinely suffering from severe, sustained physical and/or mental burnout, the priority shifts entirely to unadulterated, guilt-free rest (Pure Indulgence).</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="provenance site-shell" aria-labelledby="provenance-title">
+      <div class="source-card">
+        <h2 id="provenance-title">How the verdict was reached.</h2>
+        <div>
+          <ul class="source-list" aria-label="Advisors">
+            <li>ChatGPT (browser engine)</li>
+            <li>Claude.ai (browser engine)</li>
+            <li>Gemini (free API)</li>
+          </ul>
+          <p>a three-advisor debate (ChatGPT (browser engine), Claude.ai (browser engine), Gemini (free API)); Gemini provided a strategic framework for Sunday optimization, while ChatGPT offered a highly specific, location-based event plan assuming a Vancouver context, and Claude.ai did not respond, failing to provide an answer.</p>
+        </div>
+      </div>
+
+      <div class="footer-strip">
+        <span>Topic: the best activities to do tomorrow on Sunday</span>
+        <span>Subtitle: A debate on optimizing Sunday for rest and readiness.</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
