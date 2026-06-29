@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GStack Immersion: Output-Gated & Broad</title>
+  <meta name="description" content="A one-week GStack immersion decision brief: anchored extraction, output-gated and broad." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #101218;
+      --muted: #575b66;
+      --paper: #f6f0e5;
+      --paper-2: #fff9ed;
+      --green: #9fff70;
+      --blue: #2547ff;
+      --red: #ff5d4d;
+      --yellow: #ffcf47;
+      --line: rgba(16, 18, 24, .15);
+      --line-strong: rgba(16, 18, 24, .34);
+      --shadow: 0 24px 70px rgba(16, 18, 24, .18);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 12%, rgba(159, 255, 112, .50), transparent 28%),
+        radial-gradient(circle at 88% 5%, rgba(37, 71, 255, .22), transparent 30%),
+        radial-gradient(circle at 72% 80%, rgba(255, 93, 77, .18), transparent 35%),
+        linear-gradient(180deg, var(--paper-2), var(--paper));
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: .22;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(16,18,24,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,18,24,.08) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.5) 68%, transparent 100%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .36;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      margin: 16px auto 0;
+      width: min(var(--max), calc(100% - 32px));
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 249, 237, .76);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 38px rgba(16,18,24,.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px 10px 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font: 800 12px/1 JetBrains Mono, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background:
+        linear-gradient(135deg, var(--green) 0 45%, var(--ink) 45% 56%, var(--blue) 56% 100%);
+      border: 1px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: rgba(16,18,24,.72);
+    }
+
+    .nav-links a:hover {
+      background: rgba(16,18,24,.08);
+      color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      padding: 70px 0 42px;
+      min-height: 760px;
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(255,255,255,.34);
+      font: 700 12px/1 JetBrains Mono, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 6px 6px 0 rgba(16,18,24,.08);
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      box-shadow: 0 0 0 7px rgba(255,93,77,.15);
+    }
+
+    h1 {
+      margin: 26px 0 18px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(64px, 12vw, 154px);
+      line-height: .78;
+      letter-spacing: -.075em;
+      font-weight: 400;
+    }
+
+    .title-tight {
+      letter-spacing: -.09em;
+    }
+
+    .subtitle {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 18px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: -.01em;
+      box-shadow: 6px 6px 0 var(--ink);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--paper-2);
+      box-shadow: 6px 6px 0 var(--green);
+    }
+
+    .button.secondary {
+      background: var(--green);
+    }
+
+    .artifact {
+      position: relative;
+      border: 1.5px solid var(--ink);
+      border-radius: 34px;
+      background: rgba(255, 249, 237, .68);
+      box-shadow: var(--shadow), 14px 14px 0 var(--ink);
+      overflow: hidden;
+      min-height: 620px;
+    }
+
+    .artifact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 22% 20%, rgba(159,255,112,.55), transparent 22%),
+        radial-gradient(circle at 76% 30%, rgba(37,71,255,.20), transparent 26%),
+        linear-gradient(135deg, transparent 0 44%, rgba(16,18,24,.08) 44% 45%, transparent 45% 100%);
+      pointer-events: none;
+    }
+
+    .artifact-top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px;
+      border-bottom: 1.5px solid var(--ink);
+      background: rgba(246,240,229,.78);
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper);
+    }
+
+    .dot:nth-child(1) { background: var(--red); }
+    .dot:nth-child(2) { background: var(--yellow); }
+    .dot:nth-child(3) { background: var(--green); }
+
+    .artifact-code {
+      font: 700 12px/1 JetBrains Mono, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .gate-map {
+      position: relative;
+      padding: 32px 26px;
+      height: calc(100% - 54px);
+      min-height: 560px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 26px;
+    }
+
+    .ship-card {
+      position: relative;
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: var(--green);
+      box-shadow: 8px 8px 0 var(--ink);
+      padding: 24px;
+      transform: rotate(-1.2deg);
+    }
+
+    .ship-card .small-label,
+    .layer-card .small-label {
+      display: block;
+      margin-bottom: 12px;
+      font: 800 11px/1 JetBrains Mono, monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .ship-card h2 {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: .9;
+      letter-spacing: -.04em;
+      font-weight: 400;
+    }
+
+    .stack-orbit {
+      position: relative;
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      width: min(92%, 420px);
+      aspect-ratio: 1;
+      border: 1.5px dashed rgba(16,18,24,.36);
+      border-radius: 50%;
+      animation: rotate 28s linear infinite;
+    }
+
+    .orbit-ring:nth-child(2) {
+      width: min(67%, 304px);
+      animation-direction: reverse;
+      animation-duration: 20s;
+      border-style: solid;
+      opacity: .55;
+    }
+
+    .core {
+      position: relative;
+      width: min(56vw, 230px);
+      aspect-ratio: 1;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper-2);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 18px 50px rgba(16,18,24,.28);
+    }
+
+    .core strong {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: .82;
+      letter-spacing: -.06em;
+      font-weight: 400;
+    }
+
+    .gear {
+      position: absolute;
+      padding: 9px 10px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      background: var(--paper-2);
+      font: 800 11px/1 JetBrains Mono, monospace;
+      box-shadow: 4px 4px 0 var(--ink);
+      white-space: nowrap;
+    }
+
+    .g1 { top: 18px; left: 8%; }
+    .g2 { top: 32px; right: 2%; background: var(--blue); color: white; }
+    .g3 { bottom: 28px; left: 4%; background: var(--yellow); }
+    .g4 { bottom: 18px; right: 8%; background: var(--green); }
+
+    .layer-card {
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: var(--paper-2);
+      box-shadow: 8px 8px 0 var(--blue);
+      padding: 22px;
+      transform: rotate(1deg);
+    }
+
+    .layer-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,.38);
+    }
+
+    .meta span {
+      display: block;
+      margin-bottom: 8px;
+      font: 800 10px/1 JetBrains Mono, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta b {
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    section {
+      padding: 54px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: .83;
+      letter-spacing: -.06em;
+      font-weight: 400;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .verdict-panel {
+      border: 1.5px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper-2);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+    }
+
+    .verdict-left {
+      padding: clamp(26px, 5vw, 52px);
+      border-right: 1px solid rgba(255,255,255,.22);
+    }
+
+    .verdict-left .label {
+      color: var(--green);
+      font: 800 12px/1 JetBrains Mono, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .verdict-left h2 {
+      margin: 18px 0 22px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(50px, 8vw, 104px);
+      line-height: .82;
+      letter-spacing: -.065em;
+      font-weight: 400;
+    }
+
+    .verdict-left p {
+      margin: 0;
+      color: rgba(255,249,237,.76);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .confidence {
+      margin-top: 28px;
+      width: fit-content;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      color: var(--green);
+      font: 800 12px/1 JetBrains Mono, monospace;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: rgba(159,255,112,.08);
+    }
+
+    .verdict-right {
+      position: relative;
+      padding: clamp(26px, 5vw, 52px);
+      background:
+        radial-gradient(circle at 82% 15%, rgba(159,255,112,.20), transparent 24%),
+        radial-gradient(circle at 15% 85%, rgba(37,71,255,.32), transparent 32%);
+    }
+
+    .why-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .why-card {
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(255,255,255,.065);
+      backdrop-filter: blur(10px);
+    }
+
+    .why-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -.02em;
+    }
+
+    .why-card p {
+      margin: 0;
+      color: rgba(255,249,237,.74);
+      line-height: 1.5;
+      font-weight: 550;
+    }
+
+    .contender-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .contender {
+      position: relative;
+      min-height: 330px;
+      border: 1.5px solid var(--ink);
+      border-radius: 30px;
+      padding: 20px;
+      background: rgba(255,249,237,.7);
+      box-shadow: 8px 8px 0 rgba(16,18,24,.12);
+      overflow: hidden;
+    }
+
+    .contender:nth-child(1) {
+      background: var(--green);
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+
+    .contender:nth-child(2) {
+      background: var(--paper-2);
+    }
+
+    .contender:nth-child(3),
+    .contender:nth-child(4) {
+      background:
+        linear-gradient(135deg, rgba(255,93,77,.18), rgba(255,249,237,.78));
+    }
+
+    .rank {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .rank-number {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper-2);
+      font: 900 22px/1 Inter, sans-serif;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .tag {
+      padding: 8px 10px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      font: 800 10px/1 JetBrains Mono, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--paper-2);
+    }
+
+    .contender h3 {
+      margin: 0 0 14px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 38px;
+      line-height: .9;
+      letter-spacing: -.045em;
+      font-weight: 400;
+    }
+
+    .contender p {
+      margin: 0;
+      color: rgba(16,18,24,.72);
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .contender::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -58px;
+      bottom: -58px;
+      border: 1.5px dashed rgba(16,18,24,.24);
+      border-radius: 50%;
+    }
+
+    .rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .guardrails {
+      border: 1.5px solid var(--ink);
+      border-radius: var(--radius);
+      background: rgba(255,249,237,.75);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4vw, 36px);
+    }
+
+    .guardrails h3,
+    .falsify h3 {
+      margin: 0 0 20px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(38px, 4vw, 58px);
+      line-height: .88;
+      letter-spacing: -.045em;
+      font-weight: 400;
+    }
+
+    .guardrail-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .guardrail-list li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      color: rgba(16,18,24,.74);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .check {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      background: var(--green);
+      font: 900 13px/1 Inter, sans-serif;
+    }
+
+    .falsify {
+      position: relative;
+      border: 1.5px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: var(--paper-2);
+      padding: clamp(22px, 4vw, 36px);
+      overflow: hidden;
+      box-shadow: 12px 12px 0 var(--ink);
+    }
+
+    .falsify::before {
+      content: "";
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(255,255,255,.32);
+    }
+
+    .falsify p {
+      position: relative;
+      margin: 0;
+      color: rgba(255,249,237,.86);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.34;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .week-system {
+      border: 1.5px solid var(--ink);
+      border-radius: 36px;
+      background: rgba(255,249,237,.78);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .system-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 22px;
+      border-bottom: 1.5px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper-2);
+    }
+
+    .system-top span {
+      font: 800 12px/1 JetBrains Mono, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .system-top b {
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+
+    .timeline-aside {
+      padding: 28px;
+      border-right: 1.5px solid var(--ink);
+      background:
+        radial-gradient(circle at 40% 20%, rgba(159,255,112,.46), transparent 28%),
+        linear-gradient(180deg, rgba(255,249,237,.9), rgba(246,240,229,.9));
+    }
+
+    .timeline-aside h3 {
+      margin: 0 0 14px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 56px;
+      line-height: .83;
+      letter-spacing: -.055em;
+      font-weight: 400;
+    }
+
+    .timeline-aside p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.45;
+    }
+
+    .steps {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 16px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.38);
+      overflow: hidden;
+    }
+
+    .step-label {
+      padding: 18px;
+      border-right: 1px solid var(--line);
+      background: rgba(16,18,24,.04);
+      font: 800 12px/1.2 JetBrains Mono, monospace;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .step-body {
+      padding: 18px 18px 18px 0;
+      color: rgba(16,18,24,.76);
+      font-size: 15px;
+      line-height: 1.48;
+      font-weight: 650;
+    }
+
+    .step:first-child {
+      border-color: var(--ink);
+      background: rgba(159,255,112,.28);
+    }
+
+    .step:first-child .step-label {
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    .provenance {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .source-card,
+    .principle-card {
+      border: 1.5px solid var(--ink);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 36px);
+      background: rgba(255,249,237,.8);
+      box-shadow: 8px 8px 0 rgba(16,18,24,.14);
+    }
+
+    .source-card h2,
+    .principle-card h2 {
+      margin: 0 0 18px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(44px, 6vw, 78px);
+      line-height: .82;
+      letter-spacing: -.055em;
+      font-weight: 400;
+    }
+
+    .source-card p,
+    .principle-card p {
+      margin: 0;
+      color: rgba(16,18,24,.74);
+      font-size: 17px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .advisor-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .advisor {
+      padding: 10px 12px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      background: var(--paper-2);
+      font: 800 11px/1 JetBrains Mono, monospace;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .principle-card {
+      background: var(--yellow);
+      display: grid;
+      align-content: space-between;
+    }
+
+    .principle-card .seal {
+      width: 110px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper-2);
+      box-shadow: 7px 7px 0 var(--ink);
+      font: 900 11px/1.05 JetBrains Mono, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: center;
+      animation: float 4.5s ease-in-out infinite;
+    }
+
+    footer {
+      padding: 46px 0 64px;
+    }
+
+    .footer-card {
+      border-top: 1.5px solid var(--ink);
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font: 700 12px/1.4 JetBrains Mono, monospace;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-grid,
+      .verdict-panel,
+      .section-heading,
+      .rules,
+      .provenance {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact {
+        min-height: auto;
+        box-shadow: var(--shadow), 9px 9px 0 var(--ink);
+      }
+
+      .meta-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contender-board {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-aside {
+        border-right: 0;
+        border-bottom: 1.5px solid var(--ink);
+      }
+
+      .verdict-left {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.22);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page,
+      .nav {
+        width: min(100% - 22px, var(--max));
+      }
+
+      .nav {
+        align-items: flex-start;
+        border-radius: 24px;
+        padding: 14px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 42px 0 24px;
+      }
+
+      h1 {
+        font-size: clamp(58px, 18vw, 86px);
+      }
+
+      .artifact {
+        border-radius: 26px;
+      }
+
+      .gate-map {
+        padding: 22px 16px;
+      }
+
+      .gear {
+        font-size: 9px;
+      }
+
+      .meta-strip,
+      .contender-board {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(44px, 15vw, 70px);
+      }
+
+      section {
+        padding: 38px 0;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .step-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .step-body {
+        padding: 16px;
+      }
+
+      .system-top,
+      .footer-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contender {
+        min-height: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav" aria-label="Page navigation">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>GStack / Extraction Week</span>
+    </a>
+    <div class="nav-links" aria-label="Section links">
+      <a href="#verdict">Verdict</a>
+      <a href="#options">Options</a>
+      <a href="#guardrails">Guardrails</a>
+      <a href="#plan">Plan</a>
+      <a href="#decision">Decision</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero page">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Decision Brief · 2026-06-29</div>
+          <h1><span class="title-tight">GStack</span><br>Immersion</h1>
+          <p class="subtitle">Output-Gated & Broad: balance shipping a key deliverable with light, full-life GStack testing.</p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#plan">Run the Week</a>
+            <a class="button secondary" href="#verdict">See the Verdict</a>
+          </div>
+
+          <div class="meta-strip" aria-label="Brief metadata">
+            <div class="meta">
+              <span>Topic</span>
+              <b>Best way to run a 1-week GStack immersion across all my real work and life</b>
+            </div>
+            <div class="meta">
+              <span>Rounds</span>
+              <b>2</b>
+            </div>
+            <div class="meta">
+              <span>Confidence</span>
+              <b>High</b>
+            </div>
+            <div class="meta">
+              <span>Model</span>
+              <b>Hybrid anchored immersion</b>
+            </div>
+          </div>
+        </div>
+
+        <aside class="artifact" aria-label="GStack immersion visual system">
+          <div class="artifact-top">
+            <div class="dots" aria-hidden="true">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="artifact-code">/week-log · /ship · /decide</div>
+          </div>
+
+          <div class="gate-map">
+            <div class="ship-card">
+              <span class="small-label">Anchor Deliverable</span>
+              <h2>One avoided, consequential thing ships by Friday 5 pm.</h2>
+            </div>
+
+            <div class="stack-orbit" aria-label="GStack judgment gears">
+              <div class="orbit-ring"></div>
+              <div class="orbit-ring"></div>
+              <div class="gear g1">/office-hours</div>
+              <div class="gear g2">/plan-ceo-review</div>
+              <div class="gear g3">/codex</div>
+              <div class="gear g4">/investigate</div>
+              <div class="core">
+                <strong>Judgment<br>System</strong>
+              </div>
+            </div>
+
+            <div class="layer-card">
+              <span class="small-label">Thin Whole-Life Layer</span>
+              <p>Capture, triage, prepare, close — across emails, tasks, life admin, and mobile capture. No deep redesign.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="verdict" class="page reveal">
+      <div class="verdict-panel">
+        <div class="verdict-left">
+          <div class="label">Winner</div>
+          <h2>Anchored GStack Extraction Week</h2>
+          <p>Ship one high-value deliverable with deep GStack judgment, while testing a thin GStack operating layer across the rest of your life.</p>
+          <div class="confidence">Confidence: high · advisors converged</div>
+        </div>
+
+        <div class="verdict-right">
+          <div class="why-grid">
+            <article class="why-card">
+              <h3>Combat Productive Procrastination</h3>
+              <p>All advisors converged that a tangible output anchor, an “integrity test” as Claude put it, is essential to prevent GStack immersion from becoming sophisticated productive procrastination.</p>
+            </article>
+
+            <article class="why-card">
+              <h3>Balance Depth & Breadth</h3>
+              <p>This hybrid approach allows deep GStack application on one critical deliverable while also testing a lightweight operating layer across all work and life, as requested by the prompt.</p>
+            </article>
+
+            <article class="why-card">
+              <h3>Lean Pre-Game</h3>
+              <p>A focused Day 0 setup, capped at 2-3 hours as ChatGPT specified, defines constraints and freezes infrastructure, avoiding Gemini’s risk of “setup-as-procrastination”.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="options" class="page reveal">
+      <div class="section-heading">
+        <h2>The field,<br>ranked.</h2>
+        <p>The best option is not the most intense immersion. It is the one that creates a hard output gate while still letting GStack touch the rest of real life lightly enough to learn what deserves to be ported.</p>
+      </div>
+
+      <div class="contender-board">
+        <article class="contender">
+          <div class="rank">
+            <div class="rank-number">1</div>
+            <div class="tag">DO FIRST</div>
+          </div>
+          <h3>Anchored Extraction Week</h3>
+          <p>Ship one key deliverable using deep GStack judgment, while testing a thin operating layer across the rest of life. Best default for balancing output & evaluation.</p>
+        </article>
+
+        <article class="contender">
+          <div class="rank">
+            <div class="rank-number">2</div>
+            <div class="tag">RUNNER-UP</div>
+          </div>
+          <h3>Pure Output Sprint</h3>
+          <p>Focus solely on shipping one high-stakes deliverable with GStack. Best if an urgent deadline demands it, but misses broader life integration.</p>
+        </article>
+
+        <article class="contender">
+          <div class="rank">
+            <div class="rank-number">3</div>
+            <div class="tag">AVOID</div>
+          </div>
+          <h3>Pre-Architected Full</h3>
+          <p>Extensive multi-week pre-setup to migrate and broadly integrate GStack. This is a high-risk strategy, prone to “productive procrastination” as setup becomes the goal.</p>
+        </article>
+
+        <article class="contender">
+          <div class="rank">
+            <div class="rank-number">4</div>
+            <div class="tag">AVOID</div>
+          </div>
+          <h3>Chaos / Feature Safari</h3>
+          <p>Unbounded exploration, trying everything everywhere. All advisors rejected this approach as leading to tool thrashing and no concrete output.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="guardrails" class="page reveal">
+      <div class="section-heading">
+        <h2>Rules that<br>keep it honest.</h2>
+        <p>This is an extraction test, not a migration fantasy. Keep it bounded, physical, private where needed, and judged by output rather than novelty.</p>
+      </div>
+
+      <div class="rules">
+        <article class="guardrails">
+          <h3>Caveats</h3>
+          <ul class="guardrail-list">
+            <li><span class="check">1</span><span>Define “shipped” concretely for your anchor deliverable, e.g., “sent to coauthors,” not just “progress made”.</span></li>
+            <li><span class="check">2</span><span>Prioritize GStack as a judgment system — reframing and adversarial review — over a deep operations system for this week.</span></li>
+            <li><span class="check">3</span><span>Do not let GStack increase screen time, reduce movement, or worsen sleep; it should make you less fragmented.</span></li>
+            <li><span class="check">4</span><span>Clarify privacy and account boundaries: what data, including academic or health data, can freely enter GStack, what must be redacted, or stays local.</span></li>
+            <li><span class="check">5</span><span>This is primarily an extraction test — what to port — not a full migration test.</span></li>
+            <li><span class="check">6</span><span>GStack’s utility is mainly in its four judgment-shaped gears: /office-hours, /plan-ceo-review, /codex, and /investigate, not its code-specific ones.</span></li>
+          </ul>
+        </article>
+
+        <article class="falsify">
+          <h3>Falsification</h3>
+          <p>If your manuscript submission count actually rose in the six months after building your existing stack, the goal-displacement worry is falsified, making the output-gate potentially unnecessary overhead.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="plan" class="page reveal">
+      <div class="section-heading">
+        <h2>The week<br>operating system.</h2>
+        <p>A practical seven-part protocol: tight setup, one external ship target, daily judgment blocks, thin whole-life capture, a mid-week failure drill, and a Friday decision brief.</p>
+      </div>
+
+      <div class="week-system">
+        <div class="system-top">
+          <span>Action Plan</span>
+          <b>Output-gated · broad testing · no new infrastructure</b>
+        </div>
+
+        <div class="timeline">
+          <aside class="timeline-aside">
+            <h3>Ship by Friday.</h3>
+            <p>The week is won only if a real deliverable leaves your private workspace and enters the world.</p>
+          </aside>
+
+          <div class="steps">
+            <article class="step">
+              <div class="step-label">Day 0<br>2–3 hrs max</div>
+              <div class="step-body">Pick one most avoided, consequential deliverable, e.g., Add Health R&amp;R. Define “shipped” as a concrete, external output by Friday 5 pm. Freeze your tech stack — no new tools or refactors. Create a Week Log: anchor progress, daily briefs, keep/adapt/discard.</div>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Configure<br>Devices</div>
+              <div class="step-body">Uninstall or hide competing apps, set GStack as defaults on phone and computer, and clarify account strategy for personal and work use.</div>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Daily Brief<br>20 min AM</div>
+              <div class="step-body">Frame today’s anchor move, identify emails/calendar risks, note life constraints, define one daily output, and protect energy.</div>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Deep Work<br>90–150 min</div>
+              <div class="step-body">Use GStack’s judgment gears — /office-hours, /plan-ceo-review, /codex, /investigate — exclusively on the anchor deliverable: frame, produce, adversarial review, cut, commit.</div>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Whole-Life<br>Thin Layer</div>
+              <div class="step-body">All other emails, tasks, life admin, and mobile capture enter GStack only via lightweight capture-triage-prepare-close loops. No deep redesign.</div>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Mid-Week<br>Failure Drill</div>
+              <div class="step-body">Deliberately test GStack on messy cases; classify cause of failure — retrieval, reasoning, prompt, context — and define fix or kill.</div>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Friday<br>Ship &amp; Decide</div>
+              <div class="step-body">Submit or send the anchor deliverable. Create a one-page decision brief: 3–6 GStack patterns to keep, ideas to adapt, what to discard, and new rules/boundaries.</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="decision" class="page reveal">
+      <div class="provenance">
+        <article class="source-card">
+          <h2>Where the verdict came from.</h2>
+          <p>A three-advisor debate — ChatGPT (browser engine), Claude.ai (browser engine), Gemini (free API). All advisors converged on the critical need for an output anchor to combat productive procrastination, moving toward a hybrid “anchored immersion” model.</p>
+
+          <div class="advisor-list" aria-label="Advisors">
+            <span class="advisor">ChatGPT · browser engine</span>
+            <span class="advisor">Claude.ai · browser engine</span>
+            <span class="advisor">Gemini · free API</span>
+          </div>
+        </article>
+
+        <article class="principle-card">
+          <div>
+            <div class="seal">Keep / Adapt / Discard</div>
+            <h2>The principle.</h2>
+          </div>
+          <p>Do not test whether GStack feels powerful. Test whether it helps you ship the avoided thing while making the rest of life less fragmented.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page">
+    <div class="footer-card">
+      <span>GStack Immersion: Output-Gated &amp; Broad</span>
+      <span>Decision Brief · 2026-06-29</span>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
