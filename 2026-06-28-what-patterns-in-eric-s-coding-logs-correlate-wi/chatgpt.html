@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eric's Coding & Whoop Age Drops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#07120f;
+      --night:#07120f;
+      --deep:#0c1a16;
+      --panel:#10231d;
+      --panel2:#132b24;
+      --mint:#baffdc;
+      --green:#54f7a2;
+      --lime:#d8ff6e;
+      --aqua:#58ffe0;
+      --cream:#f5f0dd;
+      --cream2:#fff9e7;
+      --amber:#ffbd6b;
+      --rose:#ff7d9a;
+      --muted:rgba(245,240,221,.68);
+      --line:rgba(245,240,221,.16);
+      --shadow:0 40px 120px rgba(0,0,0,.38);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--cream);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(84,247,162,.22), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(255,189,107,.18), transparent 28%),
+        linear-gradient(135deg,#06110f 0%,#07120f 38%,#0f211b 100%);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      opacity:.34;
+      background-image:
+        linear-gradient(rgba(245,240,221,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,240,221,.05) 1px, transparent 1px);
+      background-size:54px 54px;
+      mask-image:linear-gradient(to bottom, black, transparent 92%);
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      opacity:.055;
+      background:url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    a{color:inherit}
+    .page{
+      position:relative;
+      z-index:2;
+      width:min(1440px,100%);
+      margin:0 auto;
+      padding:24px;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      padding:16px 0 34px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--cream2);
+      font-weight:800;
+      letter-spacing:-.03em;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 32% 32%, var(--cream2), transparent 15%),
+        conic-gradient(from 200deg, var(--green), var(--aqua), var(--lime), var(--amber), var(--green));
+      box-shadow:0 0 38px rgba(84,247,162,.28);
+      position:relative;
+    }
+
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:9px;
+      border-radius:50%;
+      background:var(--night);
+      border:1px solid rgba(245,240,221,.18);
+    }
+
+    .nav-meta{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:8px;
+      font-family:"JetBrains Mono", monospace;
+      font-size:12px;
+      color:rgba(245,240,221,.7);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(245,240,221,.06);
+      backdrop-filter:blur(16px);
+      border-radius:999px;
+      padding:9px 12px;
+    }
+
+    .hero{
+      min-height:76vh;
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-copy{
+      position:relative;
+      overflow:hidden;
+      border-radius:44px;
+      padding:clamp(34px,6vw,76px);
+      background:
+        linear-gradient(135deg, rgba(245,240,221,.12), rgba(245,240,221,.03)),
+        radial-gradient(circle at 76% 22%, rgba(84,247,162,.18), transparent 36%);
+      border:1px solid rgba(245,240,221,.14);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-copy::before{
+      content:"";
+      position:absolute;
+      width:480px;
+      height:480px;
+      right:-190px;
+      bottom:-230px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(216,255,110,.24), transparent 66%);
+      filter:blur(2px);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:24px;
+      font-family:"JetBrains Mono", monospace;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--mint);
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:42px;
+      height:1px;
+      background:linear-gradient(90deg,var(--green),transparent);
+    }
+
+    h1{
+      margin:0;
+      max-width:930px;
+      color:var(--cream2);
+      font-size:clamp(56px,10vw,142px);
+      line-height:.82;
+      letter-spacing:-.085em;
+      text-wrap:balance;
+    }
+
+    .serif{
+      font-family:"Instrument Serif", serif;
+      font-weight:400;
+      font-style:italic;
+      letter-spacing:-.045em;
+      color:var(--mint);
+    }
+
+    .subtitle{
+      max-width:690px;
+      margin:30px 0 0;
+      color:rgba(245,240,221,.78);
+      font-size:clamp(18px,2vw,25px);
+      line-height:1.36;
+      letter-spacing:-.025em;
+    }
+
+    .verdict-strip{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:18px;
+      align-items:start;
+      margin-top:44px;
+      padding:20px;
+      border-radius:28px;
+      background:rgba(7,18,15,.52);
+      border:1px solid rgba(186,255,220,.2);
+      max-width:760px;
+    }
+
+    .verdict-number{
+      display:grid;
+      place-items:center;
+      width:64px;
+      height:64px;
+      border-radius:20px;
+      color:var(--night);
+      background:linear-gradient(135deg,var(--green),var(--lime));
+      font-weight:900;
+      font-size:20px;
+      box-shadow:0 18px 55px rgba(84,247,162,.24);
+    }
+
+    .verdict-strip h2{
+      margin:0 0 7px;
+      font-size:clamp(22px,3vw,34px);
+      letter-spacing:-.05em;
+      color:var(--cream2);
+    }
+
+    .verdict-strip p{
+      margin:0;
+      color:rgba(245,240,221,.74);
+      line-height:1.5;
+      font-size:15px;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:620px;
+      border-radius:44px;
+      padding:24px;
+      background:
+        linear-gradient(180deg, rgba(16,35,29,.82), rgba(7,18,15,.68)),
+        radial-gradient(circle at 40% 8%, rgba(88,255,224,.15), transparent 32%);
+      border:1px solid rgba(245,240,221,.14);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .orbital{
+      position:absolute;
+      inset:36px 22px auto;
+      height:410px;
+      border-radius:36px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(216,255,110,.12), transparent 35%),
+        linear-gradient(135deg, rgba(245,240,221,.1), rgba(245,240,221,.02));
+      border:1px solid rgba(245,240,221,.13);
+      overflow:hidden;
+    }
+
+    .orbit-ring{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%) rotate(-18deg);
+      width:330px;
+      height:330px;
+      border-radius:50%;
+      border:1px solid rgba(245,240,221,.18);
+    }
+
+    .orbit-ring:nth-child(2){
+      width:245px;
+      height:245px;
+      border-color:rgba(84,247,162,.28);
+      transform:translate(-50%,-50%) rotate(28deg);
+    }
+
+    .orbit-ring:nth-child(3){
+      width:420px;
+      height:180px;
+      border-radius:50%;
+      border-color:rgba(255,189,107,.18);
+      transform:translate(-50%,-50%) rotate(18deg);
+    }
+
+    .core-drop{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:188px;
+      height:188px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      background:
+        radial-gradient(circle at 35% 25%, #fff9e7, var(--mint) 28%, var(--green) 58%, #18995c 100%);
+      color:#06110f;
+      box-shadow:
+        0 0 0 14px rgba(84,247,162,.08),
+        0 0 80px rgba(84,247,162,.34);
+      animation:pulse 4.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse{
+      0%,100%{transform:translate(-50%,-50%) scale(1)}
+      50%{transform:translate(-50%,-50%) scale(1.035)}
+    }
+
+    .core-drop strong{
+      display:block;
+      font-size:70px;
+      line-height:.8;
+      letter-spacing:-.09em;
+    }
+
+    .core-drop span{
+      display:block;
+      margin-top:8px;
+      font-family:"JetBrains Mono", monospace;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .satellite{
+      position:absolute;
+      padding:10px 12px;
+      border-radius:999px;
+      font-family:"JetBrains Mono", monospace;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:rgba(245,240,221,.84);
+      background:rgba(7,18,15,.72);
+      border:1px solid rgba(245,240,221,.16);
+      box-shadow:0 16px 50px rgba(0,0,0,.22);
+    }
+
+    .satellite.one{left:35px; top:52px}
+    .satellite.two{right:34px; top:116px}
+    .satellite.three{left:62px; bottom:82px}
+    .satellite.four{right:44px; bottom:54px}
+
+    .console{
+      position:absolute;
+      left:24px;
+      right:24px;
+      bottom:24px;
+      display:grid;
+      gap:12px;
+    }
+
+    .console-row{
+      display:grid;
+      grid-template-columns:120px 1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:15px 16px;
+      border-radius:20px;
+      background:rgba(7,18,15,.64);
+      border:1px solid rgba(245,240,221,.1);
+      font-family:"JetBrains Mono", monospace;
+      font-size:12px;
+    }
+
+    .console-row b{
+      color:var(--mint);
+      font-weight:700;
+    }
+
+    .bar{
+      height:8px;
+      border-radius:999px;
+      background:rgba(245,240,221,.1);
+      overflow:hidden;
+    }
+
+    .bar span{
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--green),var(--lime));
+    }
+
+    .console-row:nth-child(2) .bar span{width:86%; background:linear-gradient(90deg,var(--amber),var(--green))}
+    .console-row:nth-child(3) .bar span{width:38%; background:linear-gradient(90deg,var(--rose),var(--amber))}
+    .console-row:nth-child(1) .bar span{width:93%}
+
+    .section{
+      padding:clamp(62px,9vw,128px) 0 0;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:.62fr 1fr;
+      gap:26px;
+      align-items:end;
+      margin-bottom:28px;
+    }
+
+    .kicker{
+      font-family:"JetBrains Mono", monospace;
+      color:var(--green);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:800;
+    }
+
+    h3{
+      margin:10px 0 0;
+      color:var(--cream2);
+      font-size:clamp(38px,6vw,86px);
+      line-height:.9;
+      letter-spacing:-.075em;
+      text-wrap:balance;
+    }
+
+    .section-lede{
+      margin:0;
+      color:rgba(245,240,221,.68);
+      font-size:clamp(16px,1.5vw,20px);
+      line-height:1.55;
+      max-width:780px;
+    }
+
+    .reasons{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .reason-card{
+      position:relative;
+      overflow:hidden;
+      min-height:340px;
+      padding:26px;
+      border-radius:var(--radius);
+      background:
+        linear-gradient(180deg, rgba(245,240,221,.11), rgba(245,240,221,.035)),
+        radial-gradient(circle at 80% 18%, rgba(84,247,162,.18), transparent 36%);
+      border:1px solid rgba(245,240,221,.12);
+    }
+
+    .reason-card::after{
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      right:-50px;
+      bottom:-54px;
+      border-radius:50%;
+      border:1px solid rgba(245,240,221,.16);
+      box-shadow:0 0 0 24px rgba(245,240,221,.025);
+    }
+
+    .reason-icon{
+      width:58px;
+      height:58px;
+      border-radius:19px;
+      margin-bottom:28px;
+      display:grid;
+      place-items:center;
+      color:var(--night);
+      background:linear-gradient(135deg,var(--mint),var(--green));
+      box-shadow:0 20px 50px rgba(84,247,162,.18);
+    }
+
+    .reason-card:nth-child(2) .reason-icon{background:linear-gradient(135deg,var(--lime),var(--green))}
+    .reason-card:nth-child(3) .reason-icon{background:linear-gradient(135deg,var(--amber),var(--mint))}
+
+    .reason-card h4{
+      margin:0 0 12px;
+      font-size:clamp(25px,3vw,36px);
+      line-height:.98;
+      letter-spacing:-.06em;
+      color:var(--cream2);
+    }
+
+    .reason-card p{
+      margin:0;
+      color:rgba(245,240,221,.7);
+      line-height:1.58;
+      font-size:15px;
+    }
+
+    .rank-board{
+      border-radius:36px;
+      padding:12px;
+      background:
+        linear-gradient(135deg, rgba(186,255,220,.12), rgba(245,240,221,.035)),
+        rgba(7,18,15,.38);
+      border:1px solid rgba(245,240,221,.14);
+    }
+
+    .contender{
+      display:grid;
+      grid-template-columns:82px 1.1fr 1.7fr auto;
+      gap:18px;
+      align-items:center;
+      min-height:122px;
+      padding:18px 22px;
+      border-radius:26px;
+      background:rgba(245,240,221,.055);
+      border:1px solid rgba(245,240,221,.08);
+    }
+
+    .contender + .contender{margin-top:10px}
+
+    .rank{
+      font-family:"Instrument Serif", serif;
+      font-size:64px;
+      line-height:.8;
+      color:var(--green);
+      letter-spacing:-.06em;
+    }
+
+    .contender h4{
+      margin:0;
+      color:var(--cream2);
+      font-size:clamp(22px,2.4vw,36px);
+      line-height:1;
+      letter-spacing:-.06em;
+    }
+
+    .contender p{
+      margin:0;
+      color:rgba(245,240,221,.66);
+      line-height:1.45;
+      font-size:15px;
+    }
+
+    .tag{
+      justify-self:end;
+      white-space:nowrap;
+      font-family:"JetBrains Mono", monospace;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--night);
+      background:var(--cream2);
+      padding:10px 12px;
+      border-radius:999px;
+    }
+
+    .contender:first-child{
+      background:
+        linear-gradient(135deg, rgba(84,247,162,.18), rgba(216,255,110,.07)),
+        rgba(245,240,221,.055);
+      border-color:rgba(186,255,220,.26);
+    }
+
+    .contender:first-child .tag{
+      background:linear-gradient(135deg,var(--green),var(--lime));
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .caveat-panel,
+    .falsification-panel{
+      border-radius:36px;
+      padding:clamp(26px,4vw,42px);
+      border:1px solid rgba(245,240,221,.13);
+      background:
+        linear-gradient(180deg, rgba(245,240,221,.09), rgba(245,240,221,.035)),
+        rgba(7,18,15,.42);
+      box-shadow:0 26px 80px rgba(0,0,0,.22);
+    }
+
+    .caveat-list{
+      list-style:none;
+      padding:0;
+      margin:24px 0 0;
+      display:grid;
+      gap:12px;
+    }
+
+    .caveat-list li{
+      display:grid;
+      grid-template-columns:32px 1fr;
+      gap:12px;
+      align-items:start;
+      color:rgba(245,240,221,.72);
+      line-height:1.5;
+      font-size:15px;
+    }
+
+    .caveat-list li::before{
+      content:"!";
+      display:grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      color:var(--amber);
+      border:1px solid rgba(255,189,107,.5);
+      font-family:"JetBrains Mono", monospace;
+      font-weight:800;
+    }
+
+    .falsification-panel{
+      background:
+        radial-gradient(circle at 85% 18%, rgba(255,125,154,.14), transparent 34%),
+        linear-gradient(180deg, rgba(245,240,221,.09), rgba(245,240,221,.035)),
+        rgba(7,18,15,.42);
+    }
+
+    .falsification-panel h4,
+    .caveat-panel h4{
+      margin:0;
+      color:var(--cream2);
+      font-size:clamp(30px,4vw,54px);
+      line-height:.92;
+      letter-spacing:-.065em;
+    }
+
+    .falsification-panel p{
+      margin:24px 0 0;
+      color:rgba(245,240,221,.73);
+      line-height:1.58;
+      font-size:17px;
+    }
+
+    .stamp{
+      display:inline-flex;
+      margin-bottom:18px;
+      padding:10px 12px;
+      border-radius:999px;
+      color:var(--rose);
+      border:1px solid rgba(255,125,154,.38);
+      background:rgba(255,125,154,.06);
+      font-family:"JetBrains Mono", monospace;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .plan{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+      counter-reset:step;
+    }
+
+    .step{
+      position:relative;
+      min-height:355px;
+      padding:22px;
+      border-radius:30px;
+      background:
+        linear-gradient(180deg, rgba(245,240,221,.1), rgba(245,240,221,.032)),
+        rgba(7,18,15,.46);
+      border:1px solid rgba(245,240,221,.12);
+      overflow:hidden;
+    }
+
+    .step::before{
+      counter-increment:step;
+      content:"0" counter(step);
+      display:block;
+      margin-bottom:52px;
+      font-family:"Instrument Serif", serif;
+      font-size:74px;
+      line-height:.78;
+      letter-spacing:-.08em;
+      color:rgba(186,255,220,.72);
+    }
+
+    .step::after{
+      content:"";
+      position:absolute;
+      inset:auto 22px 166px 22px;
+      height:1px;
+      background:linear-gradient(90deg,var(--green),rgba(245,240,221,.1));
+    }
+
+    .step h4{
+      margin:0 0 12px;
+      color:var(--cream2);
+      font-size:24px;
+      line-height:1;
+      letter-spacing:-.055em;
+    }
+
+    .step p{
+      margin:0;
+      color:rgba(245,240,221,.67);
+      line-height:1.48;
+      font-size:14px;
+    }
+
+    .matrix{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+    }
+
+    .metric{
+      min-height:230px;
+      padding:26px;
+      border-radius:30px;
+      background:rgba(245,240,221,.055);
+      border:1px solid rgba(245,240,221,.1);
+    }
+
+    .metric .mono{
+      font-family:"JetBrains Mono", monospace;
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .metric strong{
+      display:block;
+      margin:22px 0 10px;
+      color:var(--cream2);
+      font-size:clamp(28px,4vw,52px);
+      line-height:.92;
+      letter-spacing:-.07em;
+    }
+
+    .metric p{
+      margin:0;
+      color:rgba(245,240,221,.66);
+      line-height:1.48;
+      font-size:15px;
+    }
+
+    .footer{
+      margin-top:clamp(74px,10vw,150px);
+      padding:38px;
+      border-radius:36px 36px 0 0;
+      background:
+        radial-gradient(circle at 88% 20%, rgba(84,247,162,.16), transparent 35%),
+        linear-gradient(135deg, rgba(245,240,221,.1), rgba(245,240,221,.035));
+      border:1px solid rgba(245,240,221,.12);
+      border-bottom:0;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:24px;
+      align-items:end;
+    }
+
+    .footer h3{
+      max-width:770px;
+    }
+
+    .provenance{
+      color:rgba(245,240,221,.68);
+      line-height:1.55;
+      font-size:15px;
+    }
+
+    .advisors{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:18px;
+    }
+
+    .advisor{
+      padding:10px 12px;
+      border-radius:999px;
+      color:rgba(245,240,221,.78);
+      background:rgba(7,18,15,.42);
+      border:1px solid rgba(245,240,221,.12);
+      font-family:"JetBrains Mono", monospace;
+      font-size:11px;
+      letter-spacing:.04em;
+    }
+
+    .floating-code{
+      position:absolute;
+      z-index:-1;
+      color:rgba(186,255,220,.08);
+      font-family:"JetBrains Mono", monospace;
+      font-size:13px;
+      line-height:1.8;
+      white-space:pre;
+      transform:rotate(-8deg);
+      right:4vw;
+      top:96vh;
+      pointer-events:none;
+    }
+
+    @media (max-width:1100px){
+      .hero,
+      .section-head,
+      .split,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-visual{min-height:640px}
+      .reasons{grid-template-columns:1fr}
+      .plan{grid-template-columns:1fr 1fr}
+      .matrix{grid-template-columns:1fr}
+      .contender{grid-template-columns:64px 1fr}
+      .contender p{grid-column:2}
+      .tag{grid-column:2; justify-self:start}
+    }
+
+    @media (max-width:680px){
+      .page{padding:16px}
+      .nav{align-items:flex-start; padding-bottom:20px}
+      .brand span{display:none}
+      .nav-meta{justify-content:flex-start}
+      .hero-copy,
+      .hero-visual{
+        border-radius:30px;
+      }
+      .hero-copy{padding:30px 24px}
+      .hero-visual{min-height:590px; padding:16px}
+      .orbital{inset:16px 16px auto; height:360px}
+      .orbit-ring{width:250px; height:250px}
+      .orbit-ring:nth-child(2){width:185px; height:185px}
+      .orbit-ring:nth-child(3){width:315px; height:130px}
+      .core-drop{width:145px; height:145px}
+      .core-drop strong{font-size:54px}
+      .satellite{font-size:9px; padding:8px 9px}
+      .satellite.one{left:18px; top:38px}
+      .satellite.two{right:16px; top:105px}
+      .satellite.three{left:22px; bottom:70px}
+      .satellite.four{right:18px; bottom:42px}
+      .console{left:16px; right:16px; bottom:16px}
+      .console-row{
+        grid-template-columns:1fr;
+        gap:8px;
+      }
+      .verdict-strip{grid-template-columns:1fr}
+      .reasons{gap:12px}
+      .reason-card{min-height:auto}
+      .rank-board{padding:8px}
+      .contender{
+        min-height:auto;
+        padding:16px;
+        gap:10px 14px;
+      }
+      .rank{font-size:52px}
+      .plan{grid-template-columns:1fr}
+      .step{min-height:auto}
+      .step::before{margin-bottom:34px}
+      .step::after{inset:auto 22px 118px 22px}
+      .footer{padding:28px 22px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{
+        animation:none!important;
+        transition:none!important;
+        scroll-behavior:auto!important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="floating-code">last_active &lt; 21:30
+movement_block == protected
+system_building → less_chaos
+sleep_consistency ↑
+rhr ↓
+whoop_age ↓</div>
+
+  <main class="page">
+    <nav class="nav" aria-label="Brief metadata">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Physiology × Code Brief</span>
+      </div>
+      <div class="nav-meta">
+        <span class="pill">2026-06-28</span>
+        <span class="pill">Round 2</span>
+        <span class="pill">Confidence: High</span>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Decision brief</div>
+        <h1>Eric's Coding &amp; <span class="serif">Whoop Age</span> Drops</h1>
+        <p class="subtitle">Optimizing coding patterns to improve physiological markers.</p>
+
+        <div class="verdict-strip">
+          <div class="verdict-number">#1</div>
+          <div>
+            <h2>Contained Coding, Max Movement</h2>
+            <p>Your biggest WHOOP Age drops track coding staying in a box small enough to protect sleep timing and daily movement, with durable system-building acting as a protective pattern.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-label="WHOOP age drop visual">
+        <div class="orbital">
+          <div class="orbit-ring"></div>
+          <div class="orbit-ring"></div>
+          <div class="orbit-ring"></div>
+
+          <div class="core-drop">
+            <div>
+              <strong>↓</strong>
+              <span>Age Drop</span>
+            </div>
+          </div>
+
+          <div class="satellite one">Early Shutdown</div>
+          <div class="satellite two">Daily Strain</div>
+          <div class="satellite three">Lower RHR</div>
+          <div class="satellite four">System Build</div>
+        </div>
+
+        <div class="console">
+          <div class="console-row">
+            <b>Protect</b>
+            <div class="bar"><span></span></div>
+            <span>Sleep timing</span>
+          </div>
+          <div class="console-row">
+            <b>Enable</b>
+            <div class="bar"><span></span></div>
+            <span>Movement</span>
+          </div>
+          <div class="console-row">
+            <b>Avoid</b>
+            <div class="bar"><span></span></div>
+            <span>Late coding</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Why it wins</div>
+          <h3>The signal is not more code. It is cleaner boundaries.</h3>
+        </div>
+        <p class="section-lede">The advisors strongly converged on the same causal pathway: coding affects WHOOP Age indirectly by shaping sleep, resting heart rate, cardiovascular activity, and cognitive chaos.</p>
+      </div>
+
+      <div class="reasons">
+        <article class="reason-card">
+          <div class="reason-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M4 13.5C4 8.25 8.25 4 13.5 4c1.34 0 2.61.28 3.76.78-1.77.95-2.97 2.82-2.97 4.97 0 3.11 2.52 5.63 5.63 5.63.37 0 .74-.04 1.09-.11A9.48 9.48 0 0 1 12.5 23C7.81 23 4 19.19 4 14.5v-1Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h4>Late Coding Disrupts Recovery</h4>
+          <p>Late-night coding directly impairs sleep timing, duration, consistency, and elevates next-day resting heart rate, which are key physiological inputs to WHOOP Age, as Claude emphasized.</p>
+        </article>
+
+        <article class="reason-card">
+          <div class="reason-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M3 13h4l2-7 4 14 3-9 2 2h3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Movement Drives WHOOP Age</h4>
+          <p>Cardiovascular fitness, including RHR, VO₂ max, steps, and strain, is the primary direct driver of WHOOP Age; coding's best role is to enable, not displace, consistent daily activity.</p>
+        </article>
+
+        <article class="reason-card">
+          <div class="reason-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M5 6.5h14M5 12h14M5 17.5h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M8 4v5M16 9.5v5M11 15v5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>System-Building Reduces Chaos</h4>
+          <p>Durable system-building work, such as infrastructure, decreases future cognitive load and urgent late-night tasks, thereby protecting early shutdowns and consistent movement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Ranked strategies</div>
+          <h3>Best to worst predictors to use.</h3>
+        </div>
+        <p class="section-lede">The core mistake is treating raw coding output as the signal. The stronger pattern is when coding ends, whether movement survives, and whether the work reduces future chaos.</p>
+      </div>
+
+      <div class="rank-board">
+        <article class="contender">
+          <div class="rank">1</div>
+          <h4>Contained Coding &amp;</h4>
+          <p>Combine early coding shutdown with protected daily movement. This strategy targets the most movable WHOOP Age inputs for Eric.</p>
+          <span class="tag">Do First</span>
+        </article>
+
+        <article class="contender">
+          <div class="rank">2</div>
+          <h4>Early Shutdown / Timing</h4>
+          <p>Focus on the last-active timestamp as the cleanest coding log feature, directly impacting sleep consistency and next-day RHR.</p>
+          <span class="tag">Core Action</span>
+        </article>
+
+        <article class="contender">
+          <div class="rank">3</div>
+          <h4>System-Building Work</h4>
+          <p>Prioritize durable infrastructure work that reduces future chaos, enabling better boundaries and protecting physiological recovery.</p>
+          <span class="tag">Supportive</span>
+        </article>
+
+        <article class="contender">
+          <div class="rank">4</div>
+          <h4>Coding Hygiene</h4>
+          <p>Metrics like breaks, flow state, or context switching are less impactful than timing, harder to extract, and provide diminishing returns.</p>
+          <span class="tag">Analyze Later</span>
+        </article>
+
+        <article class="contender">
+          <div class="rank">5</div>
+          <h4>Raw Volume/Commits</h4>
+          <p>Simple commit counts or total hours are unanimously deemed misleading and should be avoided as primary predictors.</p>
+          <span class="tag">Do Not Use</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Model honestly</div>
+          <h3>What could fool the analysis?</h3>
+        </div>
+        <p class="section-lede">Because WHOOP Age is sparse, the best evidence comes from daily mediators: sleep consistency, sleep debt, RHR, HRV, steps, strain, and Pace of Aging.</p>
+      </div>
+
+      <div class="split">
+        <article class="caveat-panel">
+          <h4>Caveats</h4>
+          <ul class="caveat-list">
+            <li>WHOOP Age data is sparse, n≈4, for direct statistical analysis; focus on daily mediators for robust conclusions.</li>
+            <li>Confounding factors, including alcohol, illness, stress, and non-coding screen time, can skew apparent coding effects.</li>
+            <li>WHOOP algorithm recalibration or new-user settling can create non-behavioral “drops” in Healthspan metrics.</li>
+            <li>Reverse causation: feeling physiologically good might enable more system-building, not vice-versa.</li>
+          </ul>
+        </article>
+
+        <article class="falsification-panel">
+          <span class="stamp">Falsification test</span>
+          <h4>What would change the verdict?</h4>
+          <p>Verified daily data showing that late-night coding consistently leads to improvements in WHOOP Age or Pace of Aging, after controlling for sleep, RHR, movement, and all other identified external factors, would fundamentally challenge the primacy of timing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="kicker">21-day protocol</div>
+          <h3>Turn the insight into a clean experiment.</h3>
+        </div>
+        <p class="section-lede">The goal is not to code less. It is to make coding physiologically cheaper: earlier stop time, protected movement, fewer urgent loops, and better daily recovery inputs.</p>
+      </div>
+
+      <div class="plan">
+        <article class="step">
+          <h4>Validate &amp; Export WHOOP Data</h4>
+          <p>Confirm WHOOP Age ownership; export daily WHOOP Age, Pace of Aging, RHR, HRV, sleep metrics, strain, steps, VO₂ max, and off-wrist flags.</p>
+        </article>
+
+        <article class="step">
+          <h4>Build Daily Coding Dataset</h4>
+          <p>Extract daily last-active timestamp, minutes active after 9:30 PM/10 PM, total active coding time, longest uninterrupted session, and system-build versus bug-fix type tags from your logs.</p>
+        </article>
+
+        <article class="step">
+          <h4>Analyze Daily Mediators</h4>
+          <p>Model coding features, especially last-active timestamp and minutes after 9:30 PM, against next-day sleep consistency, duration, RHR, and daily steps/strain. Include alcohol/illness as covariates.</p>
+        </article>
+
+        <article class="step">
+          <h4>Implement 21-Day Experiment</h4>
+          <p>Enforce a strict “no commits/active coding after 9:30 PM” rule and a non-negotiable daily movement block for 3 weeks.</p>
+        </article>
+
+        <article class="step">
+          <h4>Monitor &amp; Decide</h4>
+          <p>Track RHR, sleep consistency, sleep debt, steps, and Pace of Aging daily during the experiment; maintain the rule if clear improvements are observed without output quality collapse.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Operational dashboard</div>
+          <h3>The four daily features that matter most.</h3>
+        </div>
+        <p class="section-lede">Use these as the first-pass coding-health bridge before chasing noisier behavioral metrics.</p>
+      </div>
+
+      <div class="matrix">
+        <article class="metric">
+          <span class="mono">Coding feature</span>
+          <strong>Last-active timestamp</strong>
+          <p>The cleanest coding log feature. It should predict sleep timing, sleep consistency, and next-day resting heart rate.</p>
+        </article>
+
+        <article class="metric">
+          <span class="mono">Movement feature</span>
+          <strong>Steps / strain protected</strong>
+          <p>The physiological lever most likely to move WHOOP Age through cardiovascular fitness, VO₂ max, and RHR.</p>
+        </article>
+
+        <article class="metric">
+          <span class="mono">Work-type feature</span>
+          <strong>System-build tags</strong>
+          <p>Useful when they mark durable infrastructure work that reduces future chaos and urgent late-night rescue coding.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <div class="kicker">Final principle</div>
+          <h3>Code inside a box. Move outside it.</h3>
+        </div>
+        <div class="provenance">
+          <p><strong>Provenance:</strong> A three-advisor debate — ChatGPT (browser engine), Claude.ai (browser engine), and Gemini (free API). They strongly converged on the irrelevance of raw coding volume, the indirect physiological pathways, and the critical importance of coding timing and movement for WHOOP Age.</p>
+          <div class="advisors">
+            <span class="advisor">ChatGPT / browser engine</span>
+            <span class="advisor">Claude.ai / browser engine</span>
+            <span class="advisor">Gemini / free API</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
