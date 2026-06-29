@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable Coding & Athlete's Life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #06110f;
+      --deep: #081a18;
+      --deep-2: #0b2421;
+      --paper: #f2f0e7;
+      --paper-2: #fff9ea;
+      --mint: #a8ffce;
+      --green: #42f59b;
+      --acid: #ddff5f;
+      --blue: #91e8ff;
+      --orange: #ff985d;
+      --red: #ff5e62;
+      --muted: rgba(242, 240, 231, .68);
+      --line: rgba(242, 240, 231, .16);
+      --line-dark: rgba(6, 17, 15, .13);
+      --shadow: 0 30px 90px rgba(0,0,0,.38);
+      --radius-xl: 42px;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --sans: "Inter Tight", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(66,245,155,.24), transparent 34rem),
+        radial-gradient(circle at 85% 10%, rgba(145,232,255,.20), transparent 33rem),
+        radial-gradient(circle at 50% 78%, rgba(255,152,93,.14), transparent 36rem),
+        linear-gradient(135deg, #04100e 0%, #071815 42%, #0d211b 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .34;
+      background-image:
+        linear-gradient(rgba(242,240,231,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(242,240,231,.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,.24));
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .11;
+      background:
+        repeating-linear-gradient(
+          -7deg,
+          transparent 0 12px,
+          rgba(255,255,255,.3) 13px,
+          transparent 14px 22px
+        );
+      mix-blend-mode: overlay;
+      z-index: 0;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(18px);
+      opacity: .7;
+      pointer-events: none;
+      animation: drift 9s ease-in-out infinite alternate;
+    }
+
+    .orb.one {
+      width: 240px;
+      height: 240px;
+      right: -80px;
+      top: 190px;
+      background: rgba(66,245,155,.18);
+    }
+
+    .orb.two {
+      width: 170px;
+      height: 170px;
+      left: -70px;
+      top: 760px;
+      background: rgba(255,152,93,.20);
+      animation-delay: -4s;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(-18px, 28px, 0) scale(1.08); }
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 36px));
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      width: min(1180px, calc(100% - 28px));
+      margin: 16px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px;
+      border: 1px solid rgba(242,240,231,.14);
+      background: rgba(6,17,15,.62);
+      backdrop-filter: blur(18px);
+      border-radius: 999px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 8px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, var(--green) 0 4px, transparent 5px),
+        conic-gradient(from 180deg, var(--green), var(--blue), var(--orange), var(--green));
+      box-shadow: 0 0 22px rgba(66,245,155,.32);
+      position: relative;
+    }
+
+    .brand-mark::after {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border-radius: inherit;
+      background: var(--ink);
+      border: 1px solid rgba(242,240,231,.14);
+    }
+
+    .brand span {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(242,240,231,.68);
+      padding: 10px 13px;
+      border-radius: 999px;
+      transition: all .25s ease;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+      background: var(--mint);
+    }
+
+    .hero {
+      padding: 96px 0 52px;
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .75fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(168,255,206,.32);
+      color: var(--mint);
+      background: rgba(168,255,206,.08);
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(66,245,155,.62);
+      animation: pulse 1.9s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 12px rgba(66,245,155,0); }
+      100% { box-shadow: 0 0 0 0 rgba(66,245,155,0); }
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(58px, 9.7vw, 142px);
+      line-height: .78;
+      letter-spacing: -.085em;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .h1-line {
+      display: block;
+      position: relative;
+    }
+
+    .h1-line:nth-child(2) {
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(242,240,231,.88);
+      text-shadow: none;
+    }
+
+    .hero-sub {
+      max-width: 685px;
+      margin: 28px 0 0;
+      color: rgba(242,240,231,.78);
+      font-size: clamp(20px, 2.3vw, 30px);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+      font-weight: 600;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(242,240,231,.16);
+      background: rgba(242,240,231,.06);
+      color: rgba(242,240,231,.76);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .chip strong {
+      color: var(--paper);
+      font-weight: 700;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 550px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(242,240,231,.16);
+      background:
+        linear-gradient(145deg, rgba(242,240,231,.12), rgba(242,240,231,.035)),
+        radial-gradient(circle at 20% 20%, rgba(66,245,155,.20), transparent 20rem),
+        radial-gradient(circle at 80% 0%, rgba(145,232,255,.18), transparent 22rem);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 30px;
+      border: 1px solid rgba(242,240,231,.13);
+      pointer-events: none;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent, rgba(168,255,206,.12), transparent);
+      transform: translateX(-100%);
+      animation: scan 5.6s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    @keyframes scan {
+      0%, 32% { transform: translateX(-100%); opacity: 0; }
+      45% { opacity: 1; }
+      62%, 100% { transform: translateX(100%); opacity: 0; }
+    }
+
+    .scope-ring {
+      position: absolute;
+      inset: 58px 44px auto auto;
+      width: 254px;
+      height: 254px;
+      border-radius: 50%;
+      background:
+        conic-gradient(from 225deg, var(--green) 0 38%, rgba(145,232,255,.92) 38% 64%, rgba(255,152,93,.92) 64% 83%, rgba(255,94,98,.86) 83% 100%);
+      box-shadow: 0 0 80px rgba(66,245,155,.2);
+      animation: rotateSoft 20s linear infinite;
+    }
+
+    .scope-ring::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: inherit;
+      background: #071815;
+      border: 1px solid rgba(242,240,231,.14);
+    }
+
+    .scope-ring::after {
+      content: "GREEN / YELLOW / RED";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 52px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: .14em;
+      color: rgba(242,240,231,.78);
+      animation: rotateSoftReverse 20s linear infinite;
+    }
+
+    @keyframes rotateSoft {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes rotateSoftReverse {
+      to { transform: rotate(-360deg); }
+    }
+
+    .operative {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 34px;
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(6,17,15,.76);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(242,240,231,.15);
+    }
+
+    .operative-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: rgba(242,240,231,.58);
+    }
+
+    .status {
+      color: var(--mint);
+    }
+
+    .operative h2 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: -.045em;
+      line-height: .95;
+    }
+
+    .operative p {
+      margin: 16px 0 0;
+      color: rgba(242,240,231,.72);
+      font-size: 16px;
+      line-height: 1.48;
+    }
+
+    .heartline {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      top: 320px;
+      height: 95px;
+      opacity: .9;
+    }
+
+    .heartline svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .heartline path {
+      fill: none;
+      stroke: var(--mint);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 14px rgba(66,245,155,.7));
+      stroke-dasharray: 950;
+      stroke-dashoffset: 950;
+      animation: draw 4.4s ease-in-out infinite;
+    }
+
+    @keyframes draw {
+      0% { stroke-dashoffset: 950; opacity: .1; }
+      42% { stroke-dashoffset: 0; opacity: 1; }
+      75%, 100% { stroke-dashoffset: 0; opacity: .45; }
+    }
+
+    .section {
+      padding: 86px 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .6fr) minmax(280px, .4fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: .88;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: rgba(242,240,231,.68);
+      font-size: clamp(17px, 1.8vw, 22px);
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .verdict-panel {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(280px, .34fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .glass {
+      border: 1px solid rgba(242,240,231,.15);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(242,240,231,.12), rgba(242,240,231,.04)),
+        radial-gradient(circle at 0% 0%, rgba(168,255,206,.14), transparent 24rem);
+      box-shadow: var(--shadow);
+    }
+
+    .verdict-main {
+      padding: clamp(28px, 5vw, 58px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verdict-main::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(168,255,206,.26);
+      box-shadow:
+        inset 0 0 0 38px rgba(168,255,206,.03),
+        inset 0 0 0 78px rgba(145,232,255,.035);
+    }
+
+    .verdict-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(168,255,206,.1);
+      border: 1px solid rgba(168,255,206,.22);
+      color: var(--mint);
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      margin-bottom: 22px;
+    }
+
+    .verdict-main h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(36px, 6vw, 78px);
+      line-height: .9;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+    }
+
+    .verdict-main .one-liner {
+      position: relative;
+      z-index: 1;
+      max-width: 890px;
+      margin: 24px 0 0;
+      color: rgba(242,240,231,.78);
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      font-weight: 600;
+    }
+
+    .confidence-card {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .confidence-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -80px auto;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(221,255,95,.25), transparent 66%);
+    }
+
+    .confidence-card span {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(242,240,231,.56);
+    }
+
+    .confidence-card strong {
+      display: block;
+      margin-top: 18px;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: .98;
+      letter-spacing: -.04em;
+      color: var(--acid);
+    }
+
+    .meter {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(242,240,231,.12);
+      overflow: hidden;
+      margin-top: 34px;
+      border: 1px solid rgba(242,240,231,.1);
+    }
+
+    .meter i {
+      display: block;
+      width: 88%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--acid));
+      box-shadow: 0 0 24px rgba(66,245,155,.45);
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .reason {
+      position: relative;
+      padding: 26px;
+      min-height: 360px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(242,240,231,.15);
+      background:
+        linear-gradient(180deg, rgba(242,240,231,.105), rgba(242,240,231,.04)),
+        radial-gradient(circle at 50% -10%, rgba(66,245,155,.15), transparent 16rem);
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.2);
+    }
+
+    .reason:nth-child(2) {
+      background:
+        linear-gradient(180deg, rgba(242,240,231,.105), rgba(242,240,231,.04)),
+        radial-gradient(circle at 50% -10%, rgba(145,232,255,.15), transparent 16rem);
+    }
+
+    .reason:nth-child(3) {
+      background:
+        linear-gradient(180deg, rgba(242,240,231,.105), rgba(242,240,231,.04)),
+        radial-gradient(circle at 50% -10%, rgba(255,152,93,.16), transparent 16rem);
+    }
+
+    .reason-number {
+      font-family: var(--mono);
+      color: rgba(242,240,231,.45);
+      font-size: 13px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reason-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      border: 1px solid rgba(242,240,231,.17);
+      display: grid;
+      place-items: center;
+      background: rgba(6,17,15,.32);
+    }
+
+    .reason-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--mint);
+    }
+
+    .reason:nth-child(2) .reason-icon svg { stroke: var(--blue); }
+    .reason:nth-child(3) .reason-icon svg { stroke: var(--orange); }
+
+    .reason h3 {
+      margin: 0;
+      font-size: clamp(27px, 2.8vw, 38px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    .reason p {
+      margin: 18px 0 0;
+      color: rgba(242,240,231,.68);
+      font-size: 16.5px;
+      line-height: 1.5;
+    }
+
+    .contenders {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contender {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr) 170px;
+      gap: 22px;
+      align-items: center;
+      padding: 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(242,240,231,.14);
+      background: rgba(242,240,231,.055);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contender::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--green);
+      opacity: .9;
+    }
+
+    .contender:nth-child(2)::before { background: var(--blue); }
+    .contender:nth-child(3)::before { background: var(--orange); }
+    .contender:nth-child(4)::before { background: var(--red); }
+
+    .contender:hover {
+      transform: translateY(-3px);
+      background: rgba(242,240,231,.085);
+      border-color: rgba(242,240,231,.24);
+    }
+
+    .rank {
+      display: grid;
+      place-items: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 24px;
+      background: var(--paper);
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 34px;
+      letter-spacing: -.06em;
+    }
+
+    .contender h3 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    .contender p {
+      margin: 9px 0 0;
+      color: rgba(242,240,231,.69);
+      font-size: 16.5px;
+      line-height: 1.45;
+    }
+
+    .tag {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 145px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(242,240,231,.16);
+      font-family: var(--mono);
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: rgba(6,17,15,.32);
+    }
+
+    .contender:first-child .tag {
+      background: rgba(66,245,155,.13);
+      color: var(--mint);
+      border-color: rgba(66,245,155,.32);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, .65fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .card {
+      padding: clamp(24px, 3vw, 36px);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(242,240,231,.15);
+      background: rgba(242,240,231,.06);
+      box-shadow: 0 20px 70px rgba(0,0,0,.22);
+    }
+
+    .card.light {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(66,245,155,.45), transparent 20rem),
+        linear-gradient(135deg, var(--paper-2), #e4f4dc);
+      border-color: rgba(6,17,15,.1);
+    }
+
+    .card-title {
+      margin: 0 0 20px;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .light .card-title {
+      color: rgba(6,17,15,.72);
+    }
+
+    .caveat-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+      counter-reset: caveat;
+    }
+
+    .caveat-list li {
+      counter-increment: caveat;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(242,240,231,.11);
+      color: rgba(242,240,231,.72);
+      font-size: 16.5px;
+      line-height: 1.5;
+    }
+
+    .caveat-list li:last-child { border-bottom: 0; }
+
+    .caveat-list li::before {
+      content: counter(caveat, decimal-leading-zero);
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(255,152,93,.12);
+      color: var(--orange);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .falsification {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .falsification::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      right: -62px;
+      bottom: -66px;
+      border-radius: 50%;
+      border: 1px solid rgba(6,17,15,.12);
+      box-shadow:
+        inset 0 0 0 24px rgba(6,17,15,.035),
+        inset 0 0 0 58px rgba(6,17,15,.025);
+    }
+
+    .falsification h3 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: .9;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+    }
+
+    .falsification p {
+      position: relative;
+      z-index: 1;
+      margin: 24px 0 0;
+      color: rgba(6,17,15,.72);
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .plan {
+      position: relative;
+    }
+
+    .plan::before {
+      content: "";
+      position: absolute;
+      top: 144px;
+      bottom: 144px;
+      left: calc(50% - 1px);
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, rgba(168,255,206,.35), transparent);
+    }
+
+    .steps {
+      display: grid;
+      gap: 22px;
+      position: relative;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 82px minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .step:nth-child(even) .step-card {
+      grid-column: 3;
+    }
+
+    .step:nth-child(even) .step-num {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .step-card {
+      padding: 26px;
+      border-radius: 30px;
+      border: 1px solid rgba(242,240,231,.15);
+      background:
+        linear-gradient(135deg, rgba(242,240,231,.11), rgba(242,240,231,.04)),
+        radial-gradient(circle at 0% 0%, rgba(66,245,155,.10), transparent 18rem);
+      box-shadow: 0 18px 52px rgba(0,0,0,.22);
+    }
+
+    .step:nth-child(2) .step-card,
+    .step:nth-child(5) .step-card {
+      background:
+        linear-gradient(135deg, rgba(242,240,231,.11), rgba(242,240,231,.04)),
+        radial-gradient(circle at 0% 0%, rgba(145,232,255,.10), transparent 18rem);
+    }
+
+    .step:nth-child(3) .step-card,
+    .step:nth-child(6) .step-card {
+      background:
+        linear-gradient(135deg, rgba(242,240,231,.11), rgba(242,240,231,.04)),
+        radial-gradient(circle at 0% 0%, rgba(255,152,93,.10), transparent 18rem);
+    }
+
+    .step-num {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      align-self: center;
+      justify-self: center;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 0 0 10px rgba(6,17,15,.88), 0 0 0 11px rgba(242,240,231,.12);
+      z-index: 2;
+    }
+
+    .step h3 {
+      margin: 0;
+      font-size: clamp(24px, 2.8vw, 35px);
+      line-height: 1;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+    }
+
+    .step p {
+      margin: 14px 0 0;
+      color: rgba(242,240,231,.70);
+      font-size: 16.5px;
+      line-height: 1.5;
+    }
+
+    .system-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(242,240,231,.15);
+      background: rgba(242,240,231,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .system-cell {
+      padding: clamp(24px, 3vw, 36px);
+      min-height: 300px;
+      border-right: 1px solid rgba(242,240,231,.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .system-cell:last-child { border-right: 0; }
+
+    .system-cell::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      right: -70px;
+      top: -70px;
+      background: rgba(66,245,155,.12);
+    }
+
+    .system-cell:nth-child(2)::after { background: rgba(145,232,255,.12); }
+    .system-cell:nth-child(3)::after { background: rgba(255,152,93,.12); }
+
+    .system-cell .mini {
+      font-family: var(--mono);
+      color: rgba(242,240,231,.52);
+      font-size: 12px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 70px;
+    }
+
+    .system-cell h3 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: .92;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+    }
+
+    .system-cell p {
+      margin: 16px 0 0;
+      color: rgba(242,240,231,.68);
+      font-size: 16.5px;
+      line-height: 1.48;
+    }
+
+    .provenance {
+      margin-top: 18px;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(168,255,206,.14), rgba(145,232,255,.09)),
+        rgba(242,240,231,.04);
+      border: 1px solid rgba(168,255,206,.2);
+      display: grid;
+      grid-template-columns: minmax(0, .45fr) minmax(0, .55fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .provenance h2 {
+      font-size: clamp(34px, 5vw, 70px);
+    }
+
+    .provenance p {
+      margin: 0;
+      color: rgba(242,240,231,.74);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    .advisors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .advisor {
+      display: inline-flex;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(242,240,231,.08);
+      border: 1px solid rgba(242,240,231,.14);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(242,240,231,.72);
+    }
+
+    .footer {
+      padding: 40px 0 70px;
+      color: rgba(242,240,231,.52);
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .footer-inner {
+      border-top: 1px solid rgba(242,240,231,.12);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .mobile-only { display: none; }
+
+    @media (max-width: 980px) {
+      .hero {
+        padding-top: 74px;
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .section-header,
+      .verdict-panel,
+      .split,
+      .provenance {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 520px;
+      }
+
+      .reasons-grid,
+      .system-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .system-cell {
+        border-right: 0;
+        border-bottom: 1px solid rgba(242,240,231,.12);
+      }
+
+      .system-cell:last-child { border-bottom: 0; }
+
+      .contender {
+        grid-template-columns: 72px minmax(0, 1fr);
+      }
+
+      .tag {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .plan::before {
+        left: 41px;
+      }
+
+      .step,
+      .step:nth-child(even) {
+        grid-template-columns: 82px minmax(0, 1fr);
+      }
+
+      .step .step-card,
+      .step:nth-child(even) .step-card {
+        grid-column: 2;
+      }
+
+      .step .step-num,
+      .step:nth-child(even) .step-num {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        border-radius: 26px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .brand span {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        font-size: clamp(54px, 17vw, 82px);
+      }
+
+      .hero-sub {
+        font-size: 20px;
+      }
+
+      .chip {
+        font-size: 11px;
+        padding: 9px 10px;
+      }
+
+      .hero-card {
+        min-height: 570px;
+        border-radius: 30px;
+      }
+
+      .scope-ring {
+        width: 220px;
+        height: 220px;
+        top: 40px;
+        right: 50%;
+        transform: translateX(50%);
+        animation: rotateSoftMobile 20s linear infinite;
+      }
+
+      @keyframes rotateSoftMobile {
+        from { transform: translateX(50%) rotate(0); }
+        to { transform: translateX(50%) rotate(360deg); }
+      }
+
+      .heartline {
+        top: 278px;
+      }
+
+      .operative {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .operative-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section-header {
+        gap: 18px;
+      }
+
+      .verdict-main,
+      .confidence-card,
+      .card {
+        border-radius: 30px;
+      }
+
+      .reasons-grid {
+        gap: 14px;
+      }
+
+      .reason {
+        min-height: auto;
+        padding: 22px;
+      }
+
+      .reason-number {
+        margin-bottom: 48px;
+      }
+
+      .contender {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      .rank {
+        width: 62px;
+        height: 62px;
+        font-size: 30px;
+        border-radius: 20px;
+      }
+
+      .tag {
+        grid-column: auto;
+      }
+
+      .caveat-list li {
+        grid-template-columns: 1fr;
+      }
+
+      .plan::before {
+        display: none;
+      }
+
+      .steps {
+        gap: 14px;
+      }
+
+      .step,
+      .step:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .step .step-card,
+      .step:nth-child(even) .step-card,
+      .step .step-num,
+      .step:nth-child(even) .step-num {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .step-num {
+        justify-self: start;
+        width: 54px;
+        height: 54px;
+        box-shadow: none;
+      }
+
+      .system-cell {
+        min-height: auto;
+      }
+
+      .system-cell .mini {
+        margin-bottom: 48px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .mobile-only { display: block; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+
+    <nav class="nav" aria-label="Page navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Surgical Code / Athlete Life</span>
+      </div>
+      <div class="nav-links">
+        <a href="#verdict">Verdict</a>
+        <a href="#reasons">Why</a>
+        <a href="#contenders">Options</a>
+        <a href="#plan">Plan</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><i class="pulse-dot"></i> Decision Brief · 2026-06-28</div>
+          <h1 aria-label="Sustainable Coding and Athlete's Life">
+            <span class="h1-line">Sustainable</span>
+            <span class="h1-line">Coding</span>
+            <span class="h1-line">& Athlete’s Life</span>
+          </h1>
+          <p class="hero-sub">Balancing disciplined output with physiological and creative well-being.</p>
+          <div class="hero-meta" aria-label="Brief metadata">
+            <span class="chip"><strong>Topic</strong> Contained Coding, Recovery-Gated Movement → Surgical Code, Athlete Life</span>
+            <span class="chip"><strong>Rounds</strong> 2</span>
+            <span class="chip"><strong>Confidence</strong> High</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Recovery-gated coding visualization">
+          <div class="scope-ring" aria-hidden="true"></div>
+          <div class="heartline" aria-hidden="true">
+            <svg viewBox="0 0 520 95" preserveAspectRatio="none">
+              <path d="M4 54 H85 L110 54 L126 25 L150 82 L178 12 L208 54 H286 L306 54 L324 35 L344 70 L366 54 H516" />
+            </svg>
+          </div>
+          <div class="operative">
+            <div class="operative-top">
+              <span>Operating protocol</span>
+              <span class="status">Recovery-gated</span>
+            </div>
+            <h2>Surgical Code, Athlete Frame, Context-Aware Scope</h2>
+            <p>Peak output comes from precise coding operations inside a day architected around movement, sleep, recovery, and honest explore/exploit mode selection.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="verdict">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Verdict</div>
+            <h2>The winning operating system</h2>
+          </div>
+          <p class="section-intro">The advisors converged: don’t become a full-time hacker with movement squeezed around the edges. Become an athlete who codes with surgical precision.</p>
+        </div>
+
+        <div class="verdict-panel">
+          <article class="glass verdict-main">
+            <div class="verdict-label">Winner</div>
+            <h3>Surgical Code, Athlete Frame, Context-Aware Scope</h3>
+            <p class="one-liner">Achieve peak sustainable output by applying surgical precision to coding, framing your day with athlete-level recovery, and dynamically adjusting coding scope based on whether you're exploring or exploiting.</p>
+          </article>
+
+          <aside class="glass confidence-card">
+            <div>
+              <span>Confidence</span>
+              <strong>High, with significant cross-advisor refinement.</strong>
+            </div>
+            <div class="meter" aria-label="High confidence meter"><i></i></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reasons">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Reasons</div>
+            <h2>Why this wins</h2>
+          </div>
+          <p class="section-intro">The core move is simple: treat your nervous system as the platform. Code quality, creative range, and athletic health all ride on it.</p>
+        </div>
+
+        <div class="reasons-grid">
+          <article class="reason">
+            <div class="reason-number">
+              <span>Reason 01</span>
+              <span class="reason-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                  <path d="M12 3v4M12 17v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M3 12h4M17 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/>
+                  <circle cx="12" cy="12" r="3.2"/>
+                </svg>
+              </span>
+            </div>
+            <h3>Recovery Gates Intensity</h3>
+            <p>Your physiological state, not willpower or a dopamine rush, must dictate permissible coding intensity and movement load. Pre-commit to recovery-gated states (Green, Yellow, Red) to prevent burnout and ensure sustainable performance.</p>
+          </article>
+
+          <article class="reason">
+            <div class="reason-number">
+              <span>Reason 02</span>
+              <span class="reason-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                  <path d="M4 7h16M7 4v16M17 4v16M4 17h16"/>
+                  <path d="M9 12h6M12 9v6"/>
+                </svg>
+              </span>
+            </div>
+            <h3>Bounded, Surgical Coding</h3>
+            <p>Treat coding as precise “operations” with clear targets, boundaries, tests, and shutdown notes. As ChatGPT put it, this prevents AI-driven sprawl and late-night nervous system hijack, protecting both your code quality and your recovery.</p>
+          </article>
+
+          <article class="reason">
+            <div class="reason-number">
+              <span>Reason 03</span>
+              <span class="reason-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                  <path d="M6 19c3.5-2.5 4.5-5.5 4.5-9.5"/>
+                  <path d="M13 5c1.5 1.7 3.1 2.7 5 3"/>
+                  <path d="M12 9.5c1.5 1.8 3.2 3 5.5 3.5"/>
+                  <circle cx="12" cy="4" r="2"/>
+                  <path d="M5 21h14"/>
+                </svg>
+              </span>
+            </div>
+            <h3>Movement Frames the Day</h3>
+            <p>Integrate movement, sleep, and recovery as the primary architecture of your day, not an afterthought. This sustains your WHOOP Age, VO₂ max, and nervous system, while, as Claude clarified, preserving space for intrinsically joyful and relational movement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contenders">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Contenders</div>
+            <h2>Strategies ranked</h2>
+          </div>
+          <p class="section-intro">The best strategy changes its coding scope based on the work phase, but it never negotiates with the clock wall or recovery gate.</p>
+        </div>
+
+        <div class="contenders">
+          <article class="contender">
+            <div class="rank">1</div>
+            <div>
+              <h3>Context-Aware Flow</h3>
+              <p>The ideal blend: precise, time-boxed coding (surgical) within a day framed by physiological recovery (athlete life). Crucially, adjust code scope (narrow vs. wide) based on whether you're in “explore” or “exploit” mode.</p>
+            </div>
+            <span class="tag">Do First</span>
+          </article>
+
+          <article class="contender">
+            <div class="rank">2</div>
+            <div>
+              <h3>Disciplined Deliverables</h3>
+              <p>Best for phases with named deliverables and clear objectives. Apply full surgical scope discipline — smallest diffs, focused incisions — to maximize high-quality, contained output while prioritizing recovery.</p>
+            </div>
+            <span class="tag">Runner-Up</span>
+          </article>
+
+          <article class="contender">
+            <div class="rank">3</div>
+            <div>
+              <h3>Bounded Exploration</h3>
+              <p>When genuinely exploring, time-box coding strictly to protect your body, but leave the scope free to sprawl and discover new pathways within those blocks. The time wall is unconditional; the scope wall is not.</p>
+            </div>
+            <span class="tag">Explore Mode</span>
+          </article>
+
+          <article class="contender">
+            <div class="rank">4</div>
+            <div>
+              <h3>Hacker Life</h3>
+              <p>Maximizing coding hours, pushing late, letting sleep absorb costs, and fitting movement in only if there's time. This directly attacks all levers for sustainable high performance and well-being.</p>
+            </div>
+            <span class="tag">Avoid At All Costs</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="caveats">
+      <div class="wrap split">
+        <article class="card">
+          <p class="card-title">Caveats / Guardrails</p>
+          <ul class="caveat-list">
+            <li>Don't medicalize intrinsically joyful movement (like dance or walks with pets) by making its presence conditional on recovery scores. Gate load, not presence, as Claude wisely cautioned.</li>
+            <li>Be honest about your current mode: “explore” (learn, discover) vs. “exploit” (ship, deliver). Applying exploit-phase discipline to exploration can prematurely choke off discovery.</li>
+            <li>Avoid building an elaborate meta-system to manage these rules; simplicity (e.g., an index card) ensures the cure doesn't become the disease.</li>
+            <li>Remember WHOOP Age is a dashboard light, not the terminal goal of a flourishing life. Optimize for meaning and well-being, not just proxy metrics.</li>
+            <li>Recovery gates can misattribute: a “red day” might be environmental/allergic, requiring exposure reduction, not just reduced load. Account for non-training stressors and caregiving responsibilities.</li>
+          </ul>
+        </article>
+
+        <aside class="card light falsification">
+          <div>
+            <p class="card-title">Falsification Test</p>
+            <h3>What would change the answer?</h3>
+          </div>
+          <p>A clean, multi-week self-experiment showing that longer, later, less contained coding consistently produces more durable, impactful output without worsening physiological markers (sleep timing, RHR, HRV, VO₂ max, WHOOP Age trend) or next-day recovery.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="system">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">The frame</div>
+            <h2>Three controls, one life</h2>
+          </div>
+          <p class="section-intro">This brief is not asking for less ambition. It is asking for cleaner ambition: more precision, less sprawl, better physiology.</p>
+        </div>
+
+        <div class="system-card">
+          <div class="system-grid">
+            <article class="system-cell">
+              <div class="mini">Control 01</div>
+              <h3>Clock Wall</h3>
+              <p>No meaningful coding after 9:30 pm. Shutdown notes start at 8:45 pm. The clock wall is unconditional.</p>
+            </article>
+            <article class="system-cell">
+              <div class="mini">Control 02</div>
+              <h3>Mode Declaration</h3>
+              <p>Each morning, name the day: explore or exploit. Exploration gets time walls; exploitation gets surgical scope discipline.</p>
+            </article>
+            <article class="system-cell">
+              <div class="mini">Control 03</div>
+              <h3>Body Gate</h3>
+              <p>Use one clear recovery metric to set Green, Yellow, and Red intensity. Gate load, not joyful presence.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plan" id="plan">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Action Plan</div>
+            <h2>The six moves</h2>
+          </div>
+          <p class="section-intro">This is the practical protocol: small enough to live on an index card, strong enough to protect years of output.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-card">
+              <h3>Install a hard clock wall</h3>
+              <p>No meaningful coding after 9:30 pm. Use 8:45 pm for shutdown notes, 9:30 pm for hard stop. This is unconditional.</p>
+            </div>
+            <div class="step-num">01</div>
+          </article>
+
+          <article class="step">
+            <div class="step-card">
+              <h3>Daily Mode Declaration</h3>
+              <p>Each morning, decide: are you in “explore” mode (learn, discover) or “exploit” mode (deliver, ship)? This dictates your coding scope discipline for the day.</p>
+            </div>
+            <div class="step-num">02</div>
+          </article>
+
+          <article class="step">
+            <div class="step-card">
+              <h3>Apply Surgical Briefs</h3>
+              <p>For all “exploit” coding, write a 60-second brief (Target, Boundary, Test, Risk, Exit) before starting, and a 90-second operative note afterward. For “explore” coding, time-box blocks but let scope be free within them.</p>
+            </div>
+            <div class="step-num">03</div>
+          </article>
+
+          <article class="step">
+            <div class="step-card">
+              <h3>Implement a One-Number Body Gate</h3>
+              <p>Choose a single, clear recovery metric (e.g., WHOOP recovery score, simplified RHR/sleep combo) and define Green, Yellow, Red thresholds. Let this, not motivation, determine your movement and coding intensity. Always show up for joyful movement, but gate the load.</p>
+            </div>
+            <div class="step-num">04</div>
+          </article>
+
+          <article class="step">
+            <div class="step-card">
+              <h3>Frame Day with Movement</h3>
+              <p>Prioritize daily steps, 3-4x/week strength, and 2-3x/week Zone 2 aerobic work as non-negotiable blocks. Integrate intrinsically joyful movement like dance or walks with pets, ensuring presence is never gated.</p>
+            </div>
+            <div class="step-num">05</div>
+          </article>
+
+          <article class="step">
+            <div class="step-card">
+              <h3>Write it on an Index Card</h3>
+              <p>Keep these core rules simple and visible. As Claude suggested, deliberately avoid folding them into complex digital pipelines to prevent system-managing-system sprawl.</p>
+            </div>
+            <div class="step-num">06</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="provenance">
+      <div class="wrap">
+        <div class="provenance">
+          <div>
+            <div class="kicker">Provenance</div>
+            <h2>Two rounds. Three advisors. One convergence.</h2>
+          </div>
+          <div>
+            <p>A two-round, three-advisor debate (ChatGPT (browser engine), Claude.ai (browser engine), Gemini (free API)). Advisors converged strongly on the need for boundaries and recovery, and mutually refined interpretations of “surgical code” and “athlete life”, with Claude introducing the critical “explore vs. exploit” distinction.</p>
+            <div class="advisors" aria-label="Advisors">
+              <span class="advisor">ChatGPT (browser engine)</span>
+              <span class="advisor">Claude.ai (browser engine)</span>
+              <span class="advisor">Gemini (free API)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <span>Contained Coding, Recovery-Gated Movement → Surgical Code, Athlete Life</span>
+        <span>2026-06-28</span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
