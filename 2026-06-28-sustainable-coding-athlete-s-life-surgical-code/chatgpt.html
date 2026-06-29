@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable AI Coding Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #07110d;
+      --deep: #0b1813;
+      --field: #10281f;
+      --moss: #1d4b36;
+      --lime: #cbff4d;
+      --mint: #afffd7;
+      --aqua: #62e9ff;
+      --cream: #f5f1e7;
+      --paper: #fffaf0;
+      --clay: #d86f45;
+      --amber: #ffb84d;
+      --muted: rgba(245, 241, 231, .68);
+      --line: rgba(245, 241, 231, .18);
+      --shadow: 0 30px 90px rgba(0,0,0,.35);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      color: var(--cream);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(203,255,77,.16), transparent 28rem),
+        radial-gradient(circle at 84% 14%, rgba(98,233,255,.15), transparent 30rem),
+        radial-gradient(circle at 50% 90%, rgba(216,111,69,.18), transparent 35rem),
+        linear-gradient(135deg, #07110d 0%, #0d1e17 48%, #06100d 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .32;
+      background-image:
+        linear-gradient(rgba(245,241,231,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,241,231,.045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at 50% 25%, black, transparent 78%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .11;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+      mix-blend-mode: screen;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      z-index: 20;
+      background: linear-gradient(90deg, var(--lime), var(--aqua), var(--amber));
+      transform-origin: left;
+      animation: grow auto linear;
+      animation-timeline: scroll();
+    }
+
+    @keyframes grow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      margin: 16px auto 0;
+      width: min(var(--max), calc(100% - 32px));
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 12px 14px;
+      border: 1px solid rgba(245,241,231,.15);
+      border-radius: 999px;
+      background: rgba(7, 17, 13, .72);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background:
+        conic-gradient(from 220deg, var(--lime), var(--aqua), var(--clay), var(--lime));
+      box-shadow: 0 0 36px rgba(203,255,77,.24);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: var(--ink);
+      border: 1px solid rgba(245,241,231,.18);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: rgba(245,241,231,.72);
+      padding: 9px 12px;
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: var(--lime);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      padding: 96px 0 68px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+      gap: clamp(34px, 6vw, 76px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 13px;
+      border: 1px solid rgba(203,255,77,.28);
+      border-radius: 999px;
+      background: rgba(203,255,77,.08);
+      color: var(--mint);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 0 rgba(203,255,77,.75);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 13px rgba(203,255,77,0); }
+      100% { box-shadow: 0 0 0 0 rgba(203,255,77,0); }
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      max-width: 860px;
+      font-size: clamp(60px, 9.4vw, 132px);
+      line-height: .84;
+      letter-spacing: -.08em;
+      font-weight: 900;
+    }
+
+    .serif {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -.045em;
+      color: var(--lime);
+    }
+
+    .subtitle {
+      max-width: 680px;
+      color: rgba(245,241,231,.76);
+      font-size: clamp(18px, 2.1vw, 25px);
+      line-height: 1.42;
+      letter-spacing: -.035em;
+      margin: 0;
+    }
+
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .meta {
+      padding: 11px 13px;
+      border: 1px solid rgba(245,241,231,.16);
+      border-radius: 999px;
+      background: rgba(245,241,231,.06);
+      color: rgba(245,241,231,.76);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 560px;
+      border-radius: 42px;
+      padding: clamp(22px, 3vw, 34px);
+      background:
+        linear-gradient(180deg, rgba(245,241,231,.12), rgba(245,241,231,.04)),
+        radial-gradient(circle at 18% 10%, rgba(203,255,77,.22), transparent 13rem),
+        radial-gradient(circle at 86% 80%, rgba(98,233,255,.16), transparent 16rem);
+      border: 1px solid rgba(245,241,231,.18);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 32px;
+      border: 1px dashed rgba(203,255,77,.25);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -70px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(203,255,77,.42), transparent 62%);
+      filter: blur(6px);
+      z-index: -2;
+      animation: drift 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      to { transform: translate(-28px, 42px) scale(1.06); }
+    }
+
+    .scope-window {
+      position: relative;
+      border-radius: 28px;
+      border: 1px solid rgba(245,241,231,.16);
+      background: rgba(7,17,13,.56);
+      overflow: hidden;
+    }
+
+    .window-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(245,241,231,.12);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: rgba(245,241,231,.62);
+    }
+
+    .lights {
+      display: flex;
+      gap: 7px;
+    }
+
+    .light {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .light:nth-child(1) { background: var(--clay); }
+    .light:nth-child(2) { background: var(--amber); }
+    .light:nth-child(3) { background: var(--lime); }
+
+    .code-lines {
+      padding: 20px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: clamp(12px, 1.3vw, 14px);
+      line-height: 1.9;
+      color: rgba(245,241,231,.72);
+    }
+
+    .code-lines span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .green { color: var(--lime); }
+    .blue { color: var(--aqua); }
+    .orange { color: var(--amber); }
+    .dim { color: rgba(245,241,231,.38); }
+
+    .verdict-plate {
+      position: absolute;
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+      padding: 24px;
+      border-radius: 28px;
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 0 30px 80px rgba(0,0,0,.32);
+      transform: rotate(-1.2deg);
+    }
+
+    .verdict-plate .label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--moss);
+    }
+
+    .verdict-plate h2 {
+      margin: 8px 0 10px;
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: .92;
+      letter-spacing: -.065em;
+    }
+
+    .verdict-plate p {
+      margin: 0;
+      color: rgba(7,17,13,.72);
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: clamp(70px, 9vw, 128px) 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(260px, .42fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .kicker {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--lime);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .11em;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    h2.section-title {
+      margin: 0;
+      font-size: clamp(42px, 6.4vw, 92px);
+      line-height: .88;
+      letter-spacing: -.065em;
+    }
+
+    .section-note {
+      color: rgba(245,241,231,.65);
+      line-height: 1.65;
+      font-size: 15px;
+      max-width: 420px;
+      margin: 0;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .reason-card {
+      position: relative;
+      min-height: 290px;
+      padding: 26px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(245,241,231,.15);
+      background:
+        linear-gradient(180deg, rgba(245,241,231,.10), rgba(245,241,231,.045)),
+        radial-gradient(circle at 18% 10%, rgba(203,255,77,.16), transparent 13rem);
+      overflow: hidden;
+      transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(203,255,77,.4);
+      background:
+        linear-gradient(180deg, rgba(245,241,231,.14), rgba(245,241,231,.055)),
+        radial-gradient(circle at 18% 10%, rgba(203,255,77,.23), transparent 13rem);
+    }
+
+    .reason-card::after {
+      content: "";
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 24px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--lime), transparent);
+      opacity: .7;
+    }
+
+    .reason-number {
+      font-family: "Instrument Serif", serif;
+      font-size: 88px;
+      line-height: .75;
+      color: rgba(203,255,77,.54);
+      letter-spacing: -.08em;
+      margin-bottom: 32px;
+    }
+
+    .reason-card h3 {
+      margin: 0 0 12px;
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .reason-card p {
+      margin: 0;
+      color: rgba(245,241,231,.66);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .arena {
+      border-radius: 40px;
+      border: 1px solid rgba(245,241,231,.16);
+      background:
+        linear-gradient(90deg, rgba(245,241,231,.08), rgba(245,241,231,.03)),
+        radial-gradient(circle at 85% 18%, rgba(98,233,255,.14), transparent 20rem);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .contender {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr) 150px;
+      gap: 20px;
+      align-items: center;
+      padding: 26px;
+      border-bottom: 1px solid rgba(245,241,231,.12);
+      position: relative;
+    }
+
+    .contender:last-child { border-bottom: 0; }
+
+    .contender::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: calc(var(--score) * 1%);
+      max-width: 100%;
+      background: linear-gradient(90deg, rgba(203,255,77,.14), transparent);
+      opacity: .78;
+      pointer-events: none;
+    }
+
+    .rank {
+      position: relative;
+      z-index: 1;
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(245,241,231,.09);
+      border: 1px solid rgba(245,241,231,.14);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+      color: var(--lime);
+      font-size: 20px;
+    }
+
+    .contender h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 8px;
+      font-size: clamp(24px, 3vw, 42px);
+      line-height: .95;
+      letter-spacing: -.055em;
+    }
+
+    .contender p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(245,241,231,.67);
+      line-height: 1.55;
+      max-width: 760px;
+    }
+
+    .tag {
+      position: relative;
+      z-index: 1;
+      justify-self: end;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(203,255,77,.28);
+      color: var(--ink);
+      background: var(--lime);
+      white-space: nowrap;
+    }
+
+    .tag.warn {
+      background: rgba(255,184,77,.16);
+      color: var(--amber);
+      border-color: rgba(255,184,77,.28);
+    }
+
+    .tag.bad {
+      background: rgba(216,111,69,.18);
+      color: #ffad92;
+      border-color: rgba(216,111,69,.34);
+    }
+
+    .principle-band {
+      margin: 22px 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .big-quote {
+      position: relative;
+      min-height: 430px;
+      border-radius: 40px;
+      padding: clamp(28px, 4vw, 44px);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(203,255,77,.22), transparent 17rem),
+        linear-gradient(135deg, rgba(245,241,231,.12), rgba(245,241,231,.04));
+      border: 1px solid rgba(245,241,231,.16);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .big-quote::before {
+      content: "150";
+      position: absolute;
+      right: -14px;
+      bottom: -34px;
+      font-family: "Instrument Serif", serif;
+      font-size: 240px;
+      line-height: 1;
+      color: rgba(203,255,77,.08);
+      letter-spacing: -.12em;
+    }
+
+    .big-quote h3 {
+      margin: 0;
+      font-size: clamp(40px, 5.2vw, 76px);
+      line-height: .9;
+      letter-spacing: -.065em;
+      max-width: 620px;
+    }
+
+    .big-quote p {
+      margin: 26px 0 0;
+      color: rgba(245,241,231,.7);
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    .metric-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .metric {
+      border-radius: 30px;
+      border: 1px solid rgba(245,241,231,.15);
+      background: rgba(245,241,231,.06);
+      padding: 24px;
+      min-height: 131px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .metric b {
+      font-size: 34px;
+      letter-spacing: -.055em;
+      line-height: 1;
+    }
+
+    .metric span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: rgba(245,241,231,.58);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-top: 18px;
+    }
+
+    .plan {
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .plan-sticky {
+      position: sticky;
+      top: 104px;
+      padding: 30px;
+      border-radius: 34px;
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .plan-sticky h3 {
+      margin: 0;
+      font-size: 45px;
+      line-height: .92;
+      letter-spacing: -.06em;
+    }
+
+    .plan-sticky p {
+      margin: 16px 0 0;
+      color: rgba(7,17,13,.65);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      counter-reset: steps;
+    }
+
+    .step {
+      counter-increment: steps;
+      position: relative;
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 20px;
+      padding: 24px;
+      border-radius: 30px;
+      background: rgba(245,241,231,.07);
+      border: 1px solid rgba(245,241,231,.13);
+      overflow: hidden;
+    }
+
+    .step::before {
+      content: counter(steps, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      border-radius: 22px;
+      background: rgba(203,255,77,.12);
+      color: var(--lime);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+      border: 1px solid rgba(203,255,77,.22);
+    }
+
+    .step p {
+      margin: 0;
+      color: rgba(245,241,231,.74);
+      line-height: 1.62;
+      font-size: 17px;
+      align-self: center;
+    }
+
+    .caveat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .caveat {
+      border-radius: 30px;
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,184,77,.11), rgba(245,241,231,.04));
+      border: 1px solid rgba(255,184,77,.22);
+      min-height: 230px;
+    }
+
+    .caveat svg {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 44px;
+    }
+
+    .caveat p {
+      margin: 0;
+      color: rgba(245,241,231,.75);
+      line-height: 1.62;
+      font-size: 16px;
+    }
+
+    .falsification {
+      border-radius: 42px;
+      padding: clamp(28px, 5vw, 56px);
+      background:
+        linear-gradient(135deg, rgba(216,111,69,.18), rgba(245,241,231,.045)),
+        radial-gradient(circle at 80% 20%, rgba(216,111,69,.24), transparent 20rem);
+      border: 1px solid rgba(216,111,69,.3);
+      display: grid;
+      grid-template-columns: .42fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .falsification h2 {
+      margin: 0;
+      font-size: clamp(44px, 6vw, 86px);
+      line-height: .88;
+      letter-spacing: -.065em;
+    }
+
+    .falsification p {
+      margin: 0;
+      color: rgba(245,241,231,.78);
+      line-height: 1.72;
+      font-size: clamp(17px, 1.8vw, 22px);
+    }
+
+    .footer {
+      padding: 28px 0 60px;
+    }
+
+    .footer-card {
+      display: grid;
+      grid-template-columns: 1fr .62fr;
+      gap: 26px;
+      align-items: end;
+      padding: clamp(28px, 4.5vw, 52px);
+      border-radius: 42px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(203,255,77,.18), transparent 16rem),
+        linear-gradient(180deg, rgba(245,241,231,.09), rgba(245,241,231,.04));
+      border: 1px solid rgba(245,241,231,.16);
+    }
+
+    .footer-card h2 {
+      margin: 0;
+      font-size: clamp(48px, 8vw, 118px);
+      line-height: .82;
+      letter-spacing: -.08em;
+      max-width: 760px;
+    }
+
+    .provenance {
+      color: rgba(245,241,231,.68);
+      line-height: 1.66;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .advisor-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .advisor {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: rgba(245,241,231,.74);
+      border: 1px solid rgba(245,241,231,.14);
+      background: rgba(245,241,231,.055);
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    .orbital {
+      position: absolute;
+      width: 680px;
+      height: 680px;
+      right: -300px;
+      top: 720px;
+      border-radius: 50%;
+      border: 1px solid rgba(203,255,77,.11);
+      pointer-events: none;
+      animation: spin 34s linear infinite;
+    }
+
+    .orbital::before,
+    .orbital::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 28px rgba(203,255,77,.7);
+    }
+
+    .orbital::before {
+      left: 50%;
+      top: -7px;
+    }
+
+    .orbital::after {
+      right: 52px;
+      bottom: 88px;
+      background: var(--aqua);
+      box-shadow: 0 0 28px rgba(98,233,255,.7);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .route-svg {
+      position: absolute;
+      inset: auto 0 0 0;
+      width: 100%;
+      height: 230px;
+      pointer-events: none;
+      opacity: .38;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-header,
+      .principle-band,
+      .plan,
+      .falsification,
+      .footer-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 78px;
+      }
+
+      .hero-card {
+        min-height: 500px;
+      }
+
+      .reason-grid,
+      .caveat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-sticky {
+        position: relative;
+        top: auto;
+      }
+
+      .contender {
+        grid-template-columns: 66px minmax(0, 1fr);
+      }
+
+      .tag {
+        grid-column: 2;
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 28px, var(--max)); }
+
+      .nav {
+        position: relative;
+        top: auto;
+        width: calc(100% - 24px);
+        border-radius: 24px;
+        align-items: flex-start;
+      }
+
+      .nav-links { display: none; }
+
+      .brand {
+        white-space: normal;
+        line-height: 1.1;
+      }
+
+      h1 {
+        font-size: clamp(58px, 18vw, 86px);
+      }
+
+      .meta-strip {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-card {
+        min-height: 620px;
+        border-radius: 32px;
+      }
+
+      .verdict-plate {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      .code-lines {
+        padding: 16px;
+        overflow: hidden;
+      }
+
+      .code-lines span {
+        white-space: normal;
+      }
+
+      .contender {
+        padding: 20px;
+        grid-template-columns: 1fr;
+      }
+
+      .rank {
+        width: 56px;
+        height: 56px;
+      }
+
+      .tag {
+        grid-column: 1;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress"></div>
+
+  <main class="page">
+    <nav class="nav" aria-label="Page navigation">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Sustainable AI Coding Strategy</span>
+      </div>
+      <div class="nav-links">
+        <a href="#verdict">Verdict</a>
+        <a href="#reasons">Reasons</a>
+        <a href="#contenders">Rankings</a>
+        <a href="#plan">Plan</a>
+        <a href="#risks">Risks</a>
+      </div>
+    </nav>
+
+    <div class="orbital" aria-hidden="true"></div>
+
+    <header class="hero" id="verdict">
+      <div class="shell hero-grid">
+        <section>
+          <div class="eyebrow"><span class="pulse-dot"></span> 2026-06-28 · Round 2 synthesis</div>
+          <h1>Surgical Code.<br><span class="serif">Athlete Life.</span></h1>
+          <p class="subtitle">Balancing AI throughput with human capacity — a decision brief for sustainable excellence, context-aware scope, and recovery-gated engineering.</p>
+
+          <div class="meta-strip" aria-label="Decision brief metadata">
+            <div class="meta">Topic: Sustainable Coding & Athlete's Life -> Surgical Code, Athlete Frame, Context-Aware Scope</div>
+            <div class="meta">Confidence: high</div>
+            <div class="meta">Advisors: ChatGPT · Claude.ai · Gemini</div>
+          </div>
+        </section>
+
+        <aside class="hero-card" aria-label="Verdict card">
+          <div class="scope-window">
+            <div class="window-top">
+              <div class="lights" aria-hidden="true">
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+              </div>
+              <span>capacity_gate.ts</span>
+            </div>
+            <div class="code-lines" aria-hidden="true">
+              <span><span class="dim">01</span> const day = <span class="green">assessRecovery()</span>;</span>
+              <span><span class="dim">02</span> const scope = <span class="blue">contextAwareBoundary</span>(day);</span>
+              <span><span class="dim">03</span> if (scope === <span class="orange">"green"</span>) runSurgery();</span>
+              <span><span class="dim">04</span> if (diff.lines &gt; 150) stop();</span>
+              <span><span class="dim">05</span> review.before(<span class="green">merge</span>);</span>
+              <span><span class="dim">06</span> move.body(); sleep.protect();</span>
+              <span><span class="dim">07</span> output = quality × recovery;</span>
+            </div>
+          </div>
+
+          <div class="verdict-plate">
+            <div class="label">Winning verdict</div>
+            <h2>Integrated Performance & Longevity</h2>
+            <p>Prioritize human capacity over machine throughput with surgical precision and adaptive boundaries for enduring excellence.</p>
+          </div>
+        </aside>
+      </div>
+
+      <svg class="route-svg" viewBox="0 0 1440 230" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-40 170 C 170 40, 300 210, 520 96 S 950 46, 1130 124 S 1320 220, 1490 74" fill="none" stroke="rgba(203,255,77,.42)" stroke-width="2" stroke-dasharray="10 14"/>
+        <path d="M-20 202 C 210 92, 390 225, 610 134 S 1010 92, 1180 166 S 1350 228, 1480 116" fill="none" stroke="rgba(98,233,255,.28)" stroke-width="2"/>
+      </svg>
+    </header>
+
+    <section class="section" id="reasons">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Why this wins</div>
+            <h2 class="section-title">The bottleneck is not the model. It is the human.</h2>
+          </div>
+          <p class="section-note">All three advisors converged on the same center of gravity: AI can generate endlessly, but judgment, review, sleep, movement, and recovery determine whether the work compounds or collapses.</p>
+        </div>
+
+        <div class="reason-grid">
+          <article class="reason-card">
+            <div class="reason-number">01</div>
+            <h3>Human Capacity is Bottleneck</h3>
+            <p>All advisors agree AI's infinite potential is not matched by human cognitive limits; judgment, review, and recovery are the true constraints.</p>
+          </article>
+
+          <article class="reason-card">
+            <div class="reason-number">02</div>
+            <h3>Athlete Frame is Foundation</h3>
+            <p>The 'Athlete Frame' is the essential gatekeeper, ensuring sleep, movement, and presence enable effective coding, not just maximize output.</p>
+          </article>
+
+          <article class="reason-card">
+            <div class="reason-number">03</div>
+            <h3>Surgical Scope Prevents Debt</h3>
+            <p>Bounding work into narrow, verifiable 'surgical operations' is critical for managing cognitive load and preventing unmanageable technical debt.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contenders">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Ranked strategies</div>
+            <h2 class="section-title">Five modes. One default. One trap.</h2>
+          </div>
+          <p class="section-note">The hierarchy rewards approaches that protect quality, energy, and long-term creative power — not the ones that merely create more code faster.</p>
+        </div>
+
+        <div class="arena">
+          <article class="contender" style="--score: 100">
+            <div class="rank">#1</div>
+            <div>
+              <h3>Integrated Performance &</h3>
+              <p>Athlete Frame first, then Surgical Code and Context-Aware Scope. Always, especially with AI. Requires self-awareness and discipline.</p>
+            </div>
+            <div class="tag">DO FIRST</div>
+          </article>
+
+          <article class="contender" style="--score: 82">
+            <div class="rank">#2</div>
+            <div>
+              <h3>Two-Surgery Green Day</h3>
+              <p>A second, smaller coding operation on peak days. Requires extreme discipline to maintain hard stops and avoid overwork.</p>
+            </div>
+            <div class="tag">RUNNER-UP</div>
+          </article>
+
+          <article class="contender" style="--score: 67">
+            <div class="rank">#3</div>
+            <div>
+              <h3>Maintenance & Recovery Day</h3>
+              <p>Focus on reviews, planning, or recovery on yellow days. Essential for long-term health, but can feel like falling behind.</p>
+            </div>
+            <div class="tag warn">NON-NEGOTIABLE</div>
+          </article>
+
+          <article class="contender" style="--score: 39">
+            <div class="rank">#4</div>
+            <div>
+              <h3>Launch Sprint / Emergency</h3>
+              <p>Temporary, extreme focus for rare emergencies. Must have clear end dates and immediate recovery; expensive and high-risk.</p>
+            </div>
+            <div class="tag warn">RISKY</div>
+          </article>
+
+          <article class="contender" style="--score: 18">
+            <div class="rank">#5</div>
+            <div>
+              <h3>Heroic All-Day AI Coding</h3>
+              <p>Maximizing AI throughput with disregard for human capacity and quality. Guarantees burnout, debt, and ultimately, failure.</p>
+            </div>
+            <div class="tag bad">AVOID</div>
+          </article>
+        </div>
+
+        <div class="principle-band">
+          <div class="big-quote">
+            <div>
+              <div class="kicker">Operating principle</div>
+              <h3>Code like a surgeon. Recover like an athlete.</h3>
+              <p>The strategy is not anti-output. It is anti-fragile output: smaller operations, sharper review, clear exit criteria, and the body protected as the production system.</p>
+            </div>
+          </div>
+
+          <div class="metric-stack">
+            <div class="metric">
+              <b>&lt;150 lines</b>
+              <span>Target diff budget</span>
+            </div>
+            <div class="metric">
+              <b>90–150 min</b>
+              <span>Deep work block</span>
+            </div>
+            <div class="metric">
+              <b>9:30 PM</b>
+              <span>Hard coding stop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="plan">
+      <div class="shell plan">
+        <aside class="plan-sticky">
+          <div class="kicker" style="color: var(--moss)">Action plan</div>
+          <h3>Make capacity visible before ambition takes over.</h3>
+          <p>Every day begins by deciding what the human system can safely handle. Then the code scope is carved down until it can be completed, reviewed, and recovered from.</p>
+        </aside>
+
+        <div class="steps">
+          <article class="step">
+            <p>Start every day with a 'Human Capacity Scope Gate' assessing recovery and context to set daily coding limits.</p>
+          </article>
+          <article class="step">
+            <p>Define each 'Surgical Operation' with a hard diff budget (&lt;150 lines target) and explicit exit criteria before starting.</p>
+          </article>
+          <article class="step">
+            <p>Implement dedicated deep work blocks (90-150 min) with hard stops (no coding after 9:30 PM) and mandatory movement.</p>
+          </article>
+          <article class="step">
+            <p>Track 'Human Load' metrics (clean days, late coding violations, unreviewed diffs, movement) alongside code output.</p>
+          </article>
+          <article class="step">
+            <p>Proactively address technical debt and schedule dedicated time for continuous learning and skill development.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="risks">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Caveats</div>
+            <h2 class="section-title">Do not turn discipline into superstition.</h2>
+          </div>
+          <p class="section-note">The system should protect judgment and recovery, not become another source of anxious self-monitoring or organizational friction.</p>
+        </div>
+
+        <div class="caveat-grid">
+          <article class="caveat">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 6v36M6 24h36" stroke="#ffb84d" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="16" stroke="#ffb84d" stroke-width="3" opacity=".45"/>
+            </svg>
+            <p>The 'Athlete Frame' can become an anxious ritual if over-indexed on sensor data.</p>
+          </article>
+
+          <article class="caveat">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M11 33c7-12 19-18 30-20M8 17c12 1 22 8 30 21" stroke="#ffb84d" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="10" cy="34" r="4" fill="#ffb84d"/>
+              <circle cx="40" cy="13" r="4" fill="#ffb84d"/>
+            </svg>
+            <p>Individual 'Athlete Frame' needs must be reconciled with team dynamics and organizational culture.</p>
+          </article>
+
+          <article class="caveat">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M10 26l9 9 20-23" stroke="#ffb84d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 9h34v30H7z" stroke="#ffb84d" stroke-width="3" opacity=".42"/>
+            </svg>
+            <p>Effective automated verification is key to safely increasing throughput in 'coach-mode' orchestration.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="falsification">
+          <h2>What would change the answer?</h2>
+          <p>If 'heroic all-day AI coding' consistently produced demonstrably superior long-term product quality, faster sustainable innovation, higher developer retention, and lower operational costs than the 'Athlete-Engineer' approach, rendering human limitations and technical debt negligible.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="shell footer-card">
+        <div>
+          <div class="kicker">Final synthesis</div>
+          <h2>Human capacity is the strategy.</h2>
+        </div>
+
+        <div>
+          <p class="provenance">This verdict synthesizes a three-advisor debate (ChatGPT, Claude.ai, Gemini). They converged on the core principle that human capacity, not AI throughput, is the bottleneck, and that a sustainable approach requires bounded, 'surgical' coding within an 'athlete's' recovery frame, adapting scope to context.</p>
+          <div class="advisor-row" aria-label="Advisors">
+            <span class="advisor">ChatGPT (browser engine)</span>
+            <span class="advisor">Claude.ai (browser engine)</span>
+            <span class="advisor">Gemini (free API)</span>
+            <span class="advisor">Rounds: 2</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
