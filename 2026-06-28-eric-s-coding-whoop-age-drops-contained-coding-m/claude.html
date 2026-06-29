@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contained Coding, Recovery-Gated Movement — Decision Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#080B0A;
+    --ink-2:#0E1413;
+    --ink-3:#141C1A;
+    --vital:#46E08A;
+    --vital-dim:#2BA565;
+    --amber:#F6C453;
+    --strain:#FF6E55;
+    --mist:#8DA39A;
+    --mist-2:#5C6E68;
+    --paper:#F2EFE6;
+    --line:rgba(70,224,138,.16);
+    --glow:rgba(70,224,138,.20);
+    --mono:'Space Mono',monospace;
+    --serif:'Fraunces',serif;
+    --sans:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--vital);color:var(--ink)}
+
+  /* ambient field */
+  .field{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .field .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;mix-blend-mode:screen}
+  .b1{width:50vw;height:50vw;top:-12vw;right:-10vw;background:radial-gradient(circle,var(--glow),transparent 70%);animation:drift 22s ease-in-out infinite}
+  .b2{width:46vw;height:46vw;bottom:-14vw;left:-12vw;background:radial-gradient(circle,rgba(246,196,83,.13),transparent 70%);animation:drift 28s ease-in-out infinite reverse}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4vw,3vw) scale(1.12)}}
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  .wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 26px}
+
+  /* nav */
+  nav{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;
+    padding:26px 26px;max-width:1180px;margin:0 auto;font-family:var(--mono);font-size:12px;letter-spacing:.12em}
+  nav .brand{display:flex;align-items:center;gap:10px;text-transform:uppercase;color:var(--paper)}
+  nav .dot{width:9px;height:9px;border-radius:50%;background:var(--vital);box-shadow:0 0 14px var(--vital);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.78)}}
+  nav .date{color:var(--mist)}
+
+  /* hero */
+  header{position:relative;padding:48px 0 70px;text-align:center}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--vital);margin-bottom:30px}
+  .ring-wrap{display:flex;justify-content:center;margin-bottom:34px}
+  .ring{width:128px;height:128px}
+  .ring .track{fill:none;stroke:rgba(255,255,255,.07);stroke-width:7}
+  .ring .prog{fill:none;stroke:var(--vital);stroke-width:7;stroke-linecap:round;
+    stroke-dasharray:339;stroke-dashoffset:339;transform:rotate(-90deg);transform-origin:center;
+    animation:fill 2.6s cubic-bezier(.16,1,.3,1) .4s forwards;filter:drop-shadow(0 0 8px var(--glow))}
+  @keyframes fill{to{stroke-dashoffset:54}}
+  .ring text{font-family:var(--mono);fill:var(--paper)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.7rem,8vw,6rem);line-height:.98;
+    letter-spacing:-.02em;margin:0 auto;max-width:14ch}
+  h1 em{font-style:italic;color:var(--vital);font-weight:500}
+  .sub{font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--mist);max-width:46ch;margin:28px auto 0;font-weight:400}
+  .advisors{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:42px}
+  .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;padding:8px 15px;border:1px solid var(--line);
+    border-radius:100px;color:var(--mist);background:rgba(255,255,255,.015);transition:.3s}
+  .chip:hover{color:var(--vital);border-color:var(--vital)}
+  .meta-row{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--mist-2);
+    text-transform:uppercase;margin-top:30px}
+
+  /* wave divider */
+  .wave{width:100%;height:60px;display:block;color:var(--line)}
+
+  /* section scaffold */
+  section{padding:78px 0;position:relative}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--vital);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:'';width:34px;height:1px;background:var(--vital);display:inline-block}
+  .sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5vw,3.4rem);
+    line-height:1.02;letter-spacing:-.02em;margin-bottom:14px;max-width:18ch}
+
+  /* verdict */
+  .verdict{background:linear-gradient(150deg,var(--ink-3),var(--ink-2));
+    border:1px solid var(--line);border-radius:28px;padding:clamp(30px,5vw,58px);position:relative;overflow:hidden}
+  .verdict::before{content:'';position:absolute;top:-40%;right:-10%;width:60%;height:160%;
+    background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none}
+  .verdict .lab{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);position:relative}
+  .verdict h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,6vw,4.4rem);
+    line-height:1;letter-spacing:-.025em;margin:14px 0 26px;position:relative}
+  .verdict h2 span{color:var(--vital)}
+  .verdict .one{font-size:clamp(1.1rem,2.6vw,1.45rem);max-width:52ch;color:#D9DED9;position:relative;line-height:1.55}
+  .conf{margin-top:34px;display:flex;align-items:flex-start;gap:16px;position:relative;flex-wrap:wrap}
+  .conf .badge{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--vital);border:1px solid var(--vital);padding:8px 16px;border-radius:100px;white-space:nowrap;flex-shrink:0}
+  .conf p{font-size:.96rem;color:var(--mist);max-width:60ch}
+
+  /* reasons */
+  .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rcard{background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:32px 28px;transition:.4s;position:relative}
+  .rcard:hover{transform:translateY(-6px);border-color:var(--vital);box-shadow:0 24px 50px -28px var(--glow)}
+  .rnum{font-family:var(--mono);font-size:13px;color:var(--vital);letter-spacing:.1em}
+  .rcard h3{font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1.1;margin:16px 0 14px}
+  .rcard p{font-size:.95rem;color:var(--mist)}
+
+  /* contenders */
+  .conts{display:flex;flex-direction:column;gap:0}
+  .row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:26px;
+    padding:30px 8px;border-top:1px solid var(--line);transition:.35s;position:relative}
+  .row:last-child{border-bottom:1px solid var(--line)}
+  .row:hover{padding-left:22px;background:linear-gradient(90deg,rgba(70,224,138,.05),transparent)}
+  .rk{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.6rem);font-weight:300;color:var(--mist-2);line-height:1;min-width:1.6ch}
+  .row:hover .rk{color:var(--vital)}
+  .rbody h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.05;margin-bottom:8px}
+  .rbody p{font-size:.93rem;color:var(--mist);max-width:62ch}
+  .tag{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.13em;padding:7px 13px;
+    border-radius:7px;white-space:nowrap;text-transform:uppercase}
+  .t-do{background:var(--vital);color:var(--ink)}
+  .t-run{background:rgba(70,224,138,.14);color:var(--vital);border:1px solid var(--line)}
+  .t-mod{background:rgba(246,196,83,.14);color:var(--amber);border:1px solid rgba(246,196,83,.3)}
+  .t-sup{background:rgba(141,163,154,.12);color:var(--mist);border:1px solid rgba(141,163,154,.25)}
+  .t-avoid{background:rgba(255,110,85,.13);color:var(--strain);border:1px solid rgba(255,110,85,.35)}
+
+  /* action plan */
+  .plan{position:relative;padding-left:8px}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:26px;padding:0 0 38px;position:relative}
+  .step:last-child{padding-bottom:0}
+  .node{position:relative;display:flex;flex-direction:column;align-items:center}
+  .node .n{width:46px;height:46px;border-radius:50%;border:1px solid var(--vital);display:flex;
+    align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;font-weight:700;
+    color:var(--vital);background:var(--ink);flex-shrink:0;z-index:2}
+  .node .ln{width:1px;flex:1;background:linear-gradient(var(--vital),var(--line));margin-top:4px;min-height:24px}
+  .step:last-child .ln{display:none}
+  .step p{padding-top:10px;font-size:1rem;color:#CDD4CE;max-width:64ch}
+  .step p b{color:var(--paper);font-weight:600;font-family:var(--mono);font-size:.86rem;
+    letter-spacing:.04em;display:block;margin-bottom:6px;text-transform:uppercase}
+
+  /* caveats + falsification grid */
+  .dual{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:start}
+  .cav{list-style:none;display:flex;flex-direction:column;gap:18px}
+  .cav li{display:flex;gap:14px;font-size:.95rem;color:var(--mist);line-height:1.55}
+  .cav li::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--amber);
+    margin-top:9px;flex-shrink:0;box-shadow:0 0 10px rgba(246,196,83,.5)}
+  .fals{background:var(--ink-2);border:1px solid rgba(255,110,85,.3);border-radius:22px;padding:34px 30px;position:relative}
+  .fals .lab{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--strain);margin-bottom:16px}
+  .fals p{font-size:.96rem;color:#CDD4CE;line-height:1.6}
+
+  /* provenance */
+  .prov{border:1px solid var(--line);border-radius:22px;padding:38px 34px;background:rgba(255,255,255,.012)}
+  .prov p{font-size:.98rem;color:var(--mist);max-width:74ch;line-height:1.65}
+  footer{padding:60px 0 70px;text-align:center;border-top:1px solid var(--line);margin-top:30px}
+  footer .sig{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--paper)}
+  footer .fm{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--mist-2);text-transform:uppercase;margin-top:14px}
+
+  /* reveal */
+  .rev{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .rev.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .reasons{grid-template-columns:1fr}
+    .dual{grid-template-columns:1fr;gap:28px}
+    .row{grid-template-columns:auto 1fr;grid-template-areas:'rk body' 'tag tag';row-gap:14px}
+    .rk{grid-area:rk}.rbody{grid-area:body}.row .tag{grid-area:tag;justify-self:start}
+    .row:hover{padding-left:8px}
+  }
+  @media(max-width:560px){
+    nav{flex-direction:column;gap:12px}
+    .step{gap:18px}
+    section{padding:58px 0}
+  }
+</style>
+</head>
+<body>
+<div class="field"><div class="blob b1"></div><div class="blob b2"></div></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="brand"><span class="dot"></span>WHOOP&nbsp;AGE&nbsp;·&nbsp;DECISION&nbsp;BRIEF</div>
+  <div class="date">2026·06·28 / 2 ROUNDS / 3 ADVISORS</div>
+</nav>
+
+<header class="wrap">
+  <div class="kicker">Coding &amp; WHOOP Age Drops</div>
+  <div class="ring-wrap">
+    <svg class="ring" viewBox="0 0 128 128" aria-hidden="true">
+      <circle class="track" cx="64" cy="64" r="54"/>
+      <circle class="prog" cx="64" cy="64" r="54"/>
+      <text x="64" y="60" text-anchor="middle" font-size="22" font-weight="700">85</text>
+      <text x="64" y="78" text-anchor="middle" font-size="9" fill="#8DA39A" letter-spacing="1.5">RECOVERY</text>
+    </svg>
+  </div>
+  <h1>Contained Coding, <em>Recovery-Gated</em> Movement</h1>
+  <p class="sub">Synthesizing advisor insights for Eric's WHOOP Age drops — surgical code by day, an athlete's life around it.</p>
+  <div class="advisors">
+    <span class="chip">ChatGPT · browser engine</span>
+    <span class="chip">Claude.ai · browser engine</span>
+    <span class="chip">Gemini · free API</span>
+  </div>
+  <div class="meta-row">Two rounds · Strong convergence · High confidence</div>
+</header>
+
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,30 C150,4 300,56 450,30 C600,4 750,56 900,30 C1050,4 1150,48 1200,30" fill="none" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+
+<!-- VERDICT -->
+<section class="wrap rev">
+  <div class="eyebrow">The Verdict</div>
+  <div class="verdict">
+    <div class="lab">Winner · The optimal default</div>
+    <h2>Surgical Code,<br><span>Athlete Life.</span></h2>
+    <p class="one">Implement strict coding containers and a hard curfew, then anchor your day with a high movement floor — actively closing loops and recovery-gating intensity — to protect your WHOOP Age.</p>
+    <div class="conf">
+      <span class="badge">High Confidence</span>
+      <p>Advisors converged on the core strategy of containment and protected movement, with critical refinements on recovery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section class="wrap rev">
+  <div class="eyebrow">Why this wins</div>
+  <h2 class="sec-title">Three forces that decided it.</h2>
+  <div class="reasons">
+    <div class="rcard">
+      <div class="rnum">01</div>
+      <h3>Coding Curfew is Non-Negotiable</h3>
+      <p>All advisors agree edgeless coding — especially AI agent loops — must be contained by hard start/stop times and a strict evening curfew to protect sleep and recovery, as Claude emphasized for stopping evening sprawl.</p>
+    </div>
+    <div class="rcard">
+      <div class="rnum">02</div>
+      <h3>Movement is Infrastructure</h3>
+      <p>Physical activity must be a proactive, structural component of the day — not something earned after coding. As ChatGPT put it: movement is not dessert, it is infrastructure for health and cognitive function.</p>
+    </div>
+    <div class="rcard">
+      <div class="rnum">03</div>
+      <h3>Recovery Gates Intensity</h3>
+      <p>A high movement floor is essential, but "max movement" without recovery is counterproductive. Activity — though ambitious — must be recovery-gated by WHOOP data to optimize adaptation and avoid overtraining; a crucial refinement by Claude and Gemini.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENDERS -->
+<section class="wrap rev">
+  <div class="eyebrow">The Field</div>
+  <h2 class="sec-title">Five contenders, ranked.</h2>
+  <div class="conts">
+    <div class="row">
+      <div class="rk">1</div>
+      <div class="rbody">
+        <h3>Surgical Code</h3>
+        <p>A strict coding container and hard curfew daily, then the rest of your time to a high movement floor with intensity adjusted by WHOOP recovery. The optimal default.</p>
+      </div>
+      <span class="tag t-do">Do First</span>
+    </div>
+    <div class="row">
+      <div class="rk">2</div>
+      <div class="rbody">
+        <h3>Movement-First Day</h3>
+        <p>Prioritize a morning walk, class, or workout before coding begins. A powerful reset when recovery, mood, or relationship energy is slipping — though it may shift morning creative flow.</p>
+      </div>
+      <span class="tag t-run">Runner-Up</span>
+    </div>
+    <div class="row">
+      <div class="rk">3</div>
+      <div class="rbody">
+        <h3>Recovery-First Protocol</h3>
+        <p>Let WHOOP recovery dictate daily activity: green allows intense work/movement; red defaults to restorative movement and lighter work. Best as a modifier to the top option, not standalone.</p>
+      </div>
+      <span class="tag t-mod">Modifier</span>
+    </div>
+    <div class="row">
+      <div class="rk">4</div>
+      <div class="rbody">
+        <h3>Integrated Micro-Movement</h3>
+        <p>Standing desks, walking pads, and movement "snacks" (5 squats every 45 mins) during coding blocks. A useful supplement for sedentary physiology — but it doesn't solve edgeless coding or open cognitive loops.</p>
+      </div>
+      <span class="tag t-sup">Supplement</span>
+    </div>
+    <div class="row">
+      <div class="rk">5</div>
+      <div class="rbody">
+        <h3>Unbounded Coding Sprint</h3>
+        <p>Let coding expand without boundaries, sacrificing movement, sleep, and recovery. Exactly the unsustainable pattern you're trying to outgrow — only for true, short-term emergencies.</p>
+      </div>
+      <span class="tag t-avoid">Avoid</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION PLAN -->
+<section class="wrap rev">
+  <div class="eyebrow">The Protocol</div>
+  <h2 class="sec-title">Seven moves, starting tonight.</h2>
+  <div class="plan">
+    <div class="step"><div class="node"><div class="n">1</div><div class="ln"></div></div><p><b>Set a hard coding curfew</b>Tonight, define a non-negotiable "no serious coding after [e.g., 7 PM]" rule. Serious = debugging, new features, agent runs; allowed = notes, light planning.</p></div>
+    <div class="step"><div class="node"><div class="n">2</div><div class="ln"></div></div><p><b>Schedule one primary coding block</b>Default to 90–150 minutes daily. Before starting, write down what you're shipping, the stop condition, and what is explicitly out of scope for that session.</p></div>
+    <div class="step"><div class="node"><div class="n">3</div><div class="ln"></div></div><p><b>Close the agent loop</b>At the end of the block, explicitly stop all agents, close related terminals/tabs, write a clear handoff/next action, and physically leave your workstation.</p></div>
+    <div class="step"><div class="node"><div class="n">4</div><div class="ln"></div></div><p><b>Establish a movement floor</b>Target 10,000+ steps/day or 70,000–90,000/week. Leverage daily Cupcake walks and scheduled dance/Ballet BC sessions as non-negotiable movement blocks.</p></div>
+    <div class="step"><div class="node"><div class="n">5</div><div class="ln"></div></div><p><b>Add structured cardio &amp; strength</b>Include 4–5 meaningful movement days weekly (2 harder cardio/strain, 2–3 Zone 2/steady) and 2 minimum-dose strength sessions of 35–45 minutes each.</p></div>
+    <div class="step"><div class="node"><div class="n">6</div><div class="ln"></div></div><p><b>Recovery-gate intensity</b>Adjust workout intensity and volume to your WHOOP recovery score. On yellow/red days, swap high-intensity for restorative movement (Zone 2 walk, mobility) — but never skip movement entirely.</p></div>
+    <div class="step"><div class="node"><div class="n">7</div><div class="ln"></div></div><p><b>Review the weekly scoreboard</b>Every Sunday, review contained coding sessions, shipped artifacts, curfew adherence, weekly steps, structured cardio/strength, sleep duration/consistency, and recovery metrics (RHR, HRV).</p></div>
+  </div>
+</section>
+
+<!-- CAVEATS + FALSIFICATION -->
+<section class="wrap rev">
+  <div class="dual">
+    <div>
+      <div class="eyebrow">Watch-outs</div>
+      <h2 class="sec-title">Caveats worth holding.</h2>
+      <ul class="cav">
+        <li>AI agent loops are cognitive open loops; ensure they're explicitly closed when your coding block ends.</li>
+        <li>Don't use a "yellow recovery" day as an excuse to skip movement entirely; swap intensity (hard dance → Zone-2 walk) instead, as Claude advised.</li>
+        <li>WHOOP Age is a longer-term measure; focus on consistent input behaviors (sleep, HR-zone time, strength time, steps, VO₂ max, RHR) over daily fluctuations.</li>
+        <li>Integrate nutrition and hydration as foundational pillars for recovery — a blind spot for all advisors.</li>
+        <li>Consider the deeper "why" of your coding (building durable systems) and movement (walks with Cupcake) for sustained motivation, not just metrics.</li>
+      </ul>
+    </div>
+    <div class="fals">
+      <div class="lab">⚡ What could flip this</div>
+      <p>The specific breakdown of Eric's WHOOP Healthspan inputs — whether the Age Drop was driven primarily by <strong style="color:var(--vital)">Activity</strong> (VO₂max, strain, steps) or <strong style="color:var(--amber)">Recovery</strong> (sleep consistency, HRV, RHR). This would precisely calibrate the balance between strain and recovery as the primary lever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROVENANCE -->
+<section class="wrap rev">
+  <div class="eyebrow">Provenance</div>
+  <div class="prov">
+    <p>This decision brief synthesizes a three-advisor debate — ChatGPT (browser engine), Claude.ai (browser engine), and Gemini (free API). They strongly converged on the critical need for contained coding, strict curfews, and protected movement, while offering crucial refinements on how to define "max movement" by making it recovery-gated and emphasizing the importance of closing cognitive loops.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="sig">Surgical code by day. An athlete's life around it.</div>
+  <div class="fm">Decision Brief · 28 June 2026 · Synthesized across three advisors</div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
