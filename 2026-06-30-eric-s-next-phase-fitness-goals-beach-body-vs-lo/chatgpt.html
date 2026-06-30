@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WHOOP Age vs Beach Body Goals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,40,1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #07110f;
+      --deep: #0b1515;
+      --deep-2: #101b1a;
+      --bone: #f7f1e5;
+      --bone-2: #e8ddca;
+      --mist: rgba(247, 241, 229, 0.72);
+      --glass: rgba(255, 255, 255, 0.08);
+      --line: rgba(247, 241, 229, 0.16);
+      --line-dark: rgba(7, 17, 15, 0.12);
+      --green: #86ffb4;
+      --green-2: #1edc83;
+      --blue: #74d8ff;
+      --coral: #ff7b5f;
+      --amber: #ffd37a;
+      --violet: #b9a5ff;
+      --muted: #aab4aa;
+      --shadow: 0 32px 90px rgba(0,0,0,.34);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--bone);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(134,255,180,.18), transparent 28%),
+        radial-gradient(circle at 85% 12%, rgba(116,216,255,.13), transparent 29%),
+        radial-gradient(circle at 75% 65%, rgba(255,123,95,.13), transparent 26%),
+        linear-gradient(135deg, #08100f 0%, #111c1b 48%, #07110f 100%);
+      font-family: "Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(247,241,229,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(247,241,229,.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .33;
+      background:
+        linear-gradient(115deg, transparent 0 42%, rgba(134,255,180,.08) 42% 43%, transparent 43% 100%),
+        linear-gradient(65deg, transparent 0 56%, rgba(116,216,255,.08) 56% 57%, transparent 57% 100%);
+    }
+
+    ::selection {
+      color: var(--ink);
+      background: var(--green);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: .12;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 15, .68);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100vw - 36px));
+      margin: 0 auto;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 28%, var(--green), transparent 27%),
+        conic-gradient(from 210deg, var(--green), var(--blue), var(--coral), var(--green));
+      box-shadow: 0 0 36px rgba(134,255,180,.32);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border-radius: 50%;
+      background: var(--deep);
+      border: 1px solid rgba(247,241,229,.2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(247,241,229,.78);
+    }
+
+    .nav-links a {
+      padding: 9px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--bone);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 92px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--green), transparent);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(58px, 9.2vw, 136px);
+      line-height: .82;
+      letter-spacing: -.075em;
+      max-width: 920px;
+    }
+
+    .hero .subtitle {
+      margin: 28px 0 0;
+      max-width: 650px;
+      color: rgba(247,241,229,.75);
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.35;
+      letter-spacing: -.03em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: rgba(247,241,229,.83);
+      background: rgba(255,255,255,.05);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .pill.primary {
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      border-color: transparent;
+      box-shadow: 0 18px 50px rgba(134,255,180,.18);
+    }
+
+    .hero-card {
+      min-height: 610px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.035)),
+        radial-gradient(circle at 70% 10%, rgba(134,255,180,.20), transparent 30%),
+        radial-gradient(circle at 20% 85%, rgba(255,123,95,.16), transparent 32%);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 100deg, transparent, rgba(134,255,180,.12), transparent, rgba(116,216,255,.12), transparent);
+      animation: rotate 18s linear infinite;
+    }
+
+    .hero-card-content {
+      position: absolute;
+      inset: 0;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .score-shell {
+      position: relative;
+      margin: 38px auto 0;
+      width: min(360px, 78vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, var(--deep) 0 41%, transparent 42%),
+        conic-gradient(var(--green) 0 64%, rgba(247,241,229,.12) 64% 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(247,241,229,.14),
+        0 0 90px rgba(134,255,180,.14);
+    }
+
+    .score-shell::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 50%;
+      border: 1px dashed rgba(247,241,229,.25);
+      animation: rotate 30s linear infinite reverse;
+    }
+
+    .score-shell::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      top: 31px;
+      right: 90px;
+      background: var(--green);
+      box-shadow: 0 0 30px var(--green);
+    }
+
+    .score-text {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .score-text span {
+      display: block;
+      color: rgba(247,241,229,.62);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .score-text strong {
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(56px, 8vw, 92px);
+      line-height: .88;
+      letter-spacing: -.08em;
+    }
+
+    .score-text em {
+      display: block;
+      margin-top: 8px;
+      color: var(--green);
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(7,17,15,.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .metric b {
+      display: block;
+      font-size: 12px;
+      color: rgba(247,241,229,.58);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .wave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 135px;
+      width: 100%;
+      height: 130px;
+      opacity: .7;
+    }
+
+    .section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: .91;
+      letter-spacing: -.065em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: rgba(247,241,229,.7);
+      font-size: 18px;
+      line-height: 1.55;
+      max-width: 610px;
+    }
+
+    .verdict-panel {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(134,255,180,.13), rgba(116,216,255,.08) 42%, rgba(255,123,95,.10)),
+        rgba(255,255,255,.045);
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      box-shadow: var(--shadow);
+    }
+
+    .verdict-left {
+      padding: clamp(28px, 5vw, 58px);
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verdict-left::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgba(134,255,180,.22);
+      border-radius: 50%;
+      right: -110px;
+      bottom: -150px;
+      box-shadow: inset 0 0 70px rgba(134,255,180,.09);
+    }
+
+    .winner-label {
+      color: var(--ink);
+      background: var(--green);
+      width: max-content;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 900;
+    }
+
+    .winner-title {
+      position: relative;
+      z-index: 1;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: .9;
+      letter-spacing: -.06em;
+      margin: 30px 0 16px;
+    }
+
+    .confidence {
+      color: rgba(247,241,229,.68);
+      font-weight: 700;
+    }
+
+    .verdict-right {
+      padding: clamp(28px, 5vw, 58px);
+    }
+
+    .quote {
+      margin: 0;
+      color: var(--bone);
+      font-size: clamp(24px, 3.2vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      font-weight: 800;
+    }
+
+    .quote::before {
+      content: "“";
+      color: var(--green);
+      font-family: "Fraunces", Georgia, serif;
+    }
+
+    .quote::after {
+      content: "”";
+      color: var(--green);
+      font-family: "Fraunces", Georgia, serif;
+    }
+
+    .advisor-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .advisor {
+      border: 1px solid var(--line);
+      background: rgba(7,17,15,.38);
+      border-radius: 999px;
+      padding: 11px 14px;
+      color: rgba(247,241,229,.78);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .reason-card {
+      padding: 30px;
+      min-height: 335px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.035));
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(134,255,180,.42);
+      background:
+        linear-gradient(180deg, rgba(134,255,180,.12), rgba(255,255,255,.035));
+    }
+
+    .reason-card::before {
+      content: attr(data-num);
+      position: absolute;
+      right: 24px;
+      top: 18px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 100px;
+      line-height: 1;
+      color: rgba(247,241,229,.055);
+      letter-spacing: -.08em;
+    }
+
+    .reason-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 54px;
+      background: rgba(134,255,180,.12);
+      border: 1px solid rgba(134,255,180,.25);
+    }
+
+    .reason-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+
+    .reason-card p {
+      margin: 0;
+      color: rgba(247,241,229,.68);
+      line-height: 1.6;
+    }
+
+    .ranking {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contender {
+      display: grid;
+      grid-template-columns: 86px 1fr auto;
+      gap: 20px;
+      align-items: stretch;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.045);
+      transition: .3s ease;
+    }
+
+    .contender:hover {
+      transform: translateX(6px);
+      background: rgba(255,255,255,.075);
+      border-color: rgba(247,241,229,.28);
+    }
+
+    .rank {
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(7,17,15,.55);
+      border: 1px solid var(--line);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 40px;
+      letter-spacing: -.08em;
+      color: var(--green);
+    }
+
+    .contender h3 {
+      margin: 3px 0 8px;
+      font-size: 24px;
+      letter-spacing: -.045em;
+    }
+
+    .contender p {
+      margin: 0;
+      color: rgba(247,241,229,.68);
+      line-height: 1.55;
+      max-width: 820px;
+    }
+
+    .tag {
+      align-self: center;
+      white-space: nowrap;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 900;
+      color: var(--ink);
+      background: var(--bone);
+    }
+
+    .tag.good {
+      background: var(--green);
+    }
+
+    .tag.warn {
+      background: var(--amber);
+    }
+
+    .tag.bad {
+      background: var(--coral);
+    }
+
+    .tag.soft {
+      background: var(--violet);
+    }
+
+    .caveat-shell {
+      border-radius: var(--radius-xl);
+      background: var(--bone);
+      color: var(--ink);
+      padding: clamp(24px, 4vw, 44px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 34px 90px rgba(0,0,0,.24);
+    }
+
+    .caveat-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(30,220,131,.22), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(255,123,95,.16), transparent 26%);
+      pointer-events: none;
+    }
+
+    .caveat-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .caveat {
+      min-height: 245px;
+      border: 1px solid var(--line-dark);
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(255,255,255,.38);
+    }
+
+    .caveat b {
+      display: block;
+      font-size: 12px;
+      color: rgba(7,17,15,.5);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 24px;
+    }
+
+    .caveat p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 750;
+      letter-spacing: -.025em;
+    }
+
+    .plan {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .plan-sticky {
+      position: sticky;
+      top: 104px;
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(134,255,180,.18), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      box-shadow: var(--shadow);
+    }
+
+    .plan-sticky h2 {
+      font-size: clamp(38px, 4.9vw, 64px);
+    }
+
+    .plan-sticky p {
+      color: rgba(247,241,229,.68);
+      line-height: 1.55;
+      margin: 18px 0 0;
+    }
+
+    .mini-dials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .mini-dial {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: conic-gradient(var(--green) 0 68%, rgba(247,241,229,.14) 68% 100%);
+      font-size: 11px;
+      text-align: center;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .mini-dial:nth-child(2) {
+      background: conic-gradient(var(--blue) 0 55%, rgba(247,241,229,.14) 55% 100%);
+    }
+
+    .mini-dial:nth-child(3) {
+      background: conic-gradient(var(--coral) 0 42%, rgba(247,241,229,.14) 42% 100%);
+    }
+
+    .mini-dial span {
+      width: 72%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--bone);
+      display: grid;
+      place-items: center;
+      padding: 8px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.055);
+      padding: 28px 28px 28px 94px;
+      min-height: 128px;
+      overflow: hidden;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 24px;
+      top: 26px;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      color: var(--ink);
+      font-weight: 950;
+      box-shadow: 0 16px 40px rgba(134,255,180,.17);
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      letter-spacing: -.04em;
+    }
+
+    .step p {
+      margin: 0;
+      color: rgba(247,241,229,.68);
+      line-height: 1.58;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .falsify, .provenance {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      padding: clamp(28px, 4vw, 44px);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .falsify::before, .provenance::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      right: -90px;
+      top: -80px;
+      background: rgba(255,123,95,.13);
+      filter: blur(4px);
+    }
+
+    .provenance::before {
+      background: rgba(116,216,255,.13);
+    }
+
+    .big-letter {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 108px;
+      line-height: .7;
+      color: var(--green);
+      letter-spacing: -.09em;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .falsify h2, .provenance h2 {
+      font-size: clamp(34px, 4vw, 54px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .falsify p, .provenance p {
+      position: relative;
+      z-index: 1;
+      color: rgba(247,241,229,.7);
+      line-height: 1.62;
+      font-size: 17px;
+      margin: 20px 0 0;
+    }
+
+    .footer {
+      padding: 50px 0 70px;
+      color: rgba(247,241,229,.5);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: .75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .verdict-panel,
+      .section-header,
+      .plan,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero-card {
+        min-height: 560px;
+      }
+
+      .verdict-left {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        min-height: 340px;
+      }
+
+      .reason-grid,
+      .caveat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .caveat {
+        min-height: auto;
+      }
+
+      .plan-sticky {
+        position: relative;
+        top: 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .wrap {
+        width: min(var(--max), calc(100vw - 28px));
+      }
+
+      .nav-inner {
+        width: calc(100vw - 28px);
+      }
+
+      .hero {
+        min-height: auto;
+        padding-bottom: 62px;
+      }
+
+      h1 {
+        font-size: clamp(56px, 17vw, 86px);
+      }
+
+      .hero-card {
+        min-height: 500px;
+        border-radius: 26px;
+      }
+
+      .hero-card-content {
+        padding: 18px;
+      }
+
+      .score-shell {
+        margin-top: 28px;
+      }
+
+      .metric-row {
+        grid-template-columns: 1fr;
+      }
+
+      .wave {
+        bottom: 190px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .reason-card {
+        min-height: auto;
+      }
+
+      .contender {
+        grid-template-columns: 58px 1fr;
+      }
+
+      .rank {
+        font-size: 30px;
+        border-radius: 15px;
+      }
+
+      .tag {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .step {
+        padding: 86px 22px 24px;
+      }
+
+      .step::before {
+        left: 22px;
+        top: 22px;
+      }
+
+      .mini-dials {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="WHOOP Age vs Beach Body Goals">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Healthspan Recomp</span>
+      </a>
+      <div class="nav-links" aria-label="Page navigation">
+        <a href="#verdict">Verdict</a>
+        <a href="#reasons">Why It Wins</a>
+        <a href="#contenders">Options</a>
+        <a href="#plan">Action Plan</a>
+        <a href="#falsification">Falsification</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Decision brief · 2026-06-30</div>
+          <h1>WHOOP Age vs Beach Body Goals</h1>
+          <p class="subtitle">Leverage aesthetic motivation to drive objective healthspan gains.</p>
+          <div class="hero-actions">
+            <a href="#plan" class="pill primary">Start with the 6-step plan</a>
+            <a href="#contenders" class="pill">Compare the strategies</a>
+            <span class="pill">Confidence: high</span>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="WHOOP scoreboard visual">
+          <div class="hero-card-content">
+            <div>
+              <div class="eyebrow" style="margin-bottom:0;">Scoreboard, not obsession</div>
+              <div class="score-shell">
+                <div class="score-text">
+                  <span>Winning model</span>
+                  <strong>Hybrid</strong>
+                  <em>Age down · physique up</em>
+                </div>
+              </div>
+            </div>
+
+            <svg class="wave" viewBox="0 0 900 180" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,116 C72,84 118,88 168,106 C246,134 268,34 344,68 C407,96 417,154 488,128 C558,102 555,28 636,52 C720,78 732,142 812,108 C858,88 880,78 900,82" fill="none" stroke="rgba(134,255,180,.78)" stroke-width="4"/>
+              <path d="M0,130 C94,104 136,130 194,126 C268,120 284,54 354,86 C420,116 448,148 522,116 C612,78 626,118 692,128 C770,140 804,76 900,104" fill="none" stroke="rgba(116,216,255,.58)" stroke-width="3"/>
+              <path d="M0,94 C86,130 150,76 218,88 C302,103 314,134 388,118 C474,100 496,42 566,74 C644,110 698,158 780,116 C828,92 866,84 900,92" fill="none" stroke="rgba(255,123,95,.55)" stroke-width="3"/>
+            </svg>
+
+            <div class="metric-row">
+              <div class="metric">
+                <b>Primary</b>
+                <span>WHOOP Age</span>
+              </div>
+              <div class="metric">
+                <b>Method</b>
+                <span>Beach Body</span>
+              </div>
+              <div class="metric">
+                <b>Guardrail</b>
+                <span>Recovery</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="verdict">
+      <div class="wrap">
+        <div class="verdict-panel reveal">
+          <div class="verdict-left">
+            <div>
+              <div class="winner-label">Winner</div>
+              <div class="winner-title">WHOOP Age as Scoreboard, Beach Body as Method</div>
+            </div>
+            <div class="confidence">Confidence: high, with strong convergence across advisors after initial differing emphasis.</div>
+          </div>
+          <div class="verdict-right">
+            <p class="quote">This approach leverages aesthetic motivation for consistency while prioritizing objective healthspan metrics through structured lifting, targeted cardio, and critical recovery, all guided by your WHOOP data.</p>
+            <div class="advisor-strip" aria-label="Advisors">
+              <span class="advisor">ChatGPT · browser engine</span>
+              <span class="advisor">Claude.ai · browser engine</span>
+              <span class="advisor">Gemini · free API</span>
+              <span class="advisor">Rounds: 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reasons">
+      <div class="wrap">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Why it wins</div>
+            <h2>The body is the hook. Healthspan is the scoreboard.</h2>
+          </div>
+          <p>The hybrid strategy keeps the motivation visceral while forcing the training system to serve objective, long-term metrics instead of mirror-only progress.</p>
+        </div>
+
+        <div class="reason-grid">
+          <article class="reason-card reveal" data-num="01">
+            <div class="reason-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M5 14.5L10.2 19.7L21 6.8" stroke="#86ffb4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Dual Motivation & Adherence</h3>
+            <p>The hybrid goal setting ensures you benefit from the tangible motivation of aesthetic progress, a better physique, while simultaneously optimizing objective health markers, WHOOP Age, maximizing long-term adherence and sustainability.</p>
+          </article>
+
+          <article class="reason-card reveal" data-num="02">
+            <div class="reason-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M5 21V12M14 21V5M23 21V9" stroke="#74d8ff" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Holistic Healthspan Levers</h3>
+            <p>The plan integrates targeted progressive resistance training for lean mass and strength, alongside critical high-intensity cardiovascular work, VO2max, covering the most impactful WHOOP Healthspan metrics often missed in aesthetic-only plans.</p>
+          </article>
+
+          <article class="reason-card reveal" data-num="03">
+            <div class="reason-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M14 4C8.5 4 4 8.5 4 14s4.5 10 10 10 10-4.5 10-10" stroke="#ff7b5f" stroke-width="3" stroke-linecap="round"/>
+                <path d="M14 8v7l5 3" stroke="#ff7b5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Sustainable, Data-Informed Approach</h3>
+            <p>This method rejects crash dieting and random activity, instead prioritizing foundational elements like consistent sleep, proper nutrition, and using WHOOP data as a recovery guardrail to ensure long-term, injury-free progress.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contenders">
+      <div class="wrap">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Ranked strategies</div>
+            <h2>Five routes. One clear winner.</h2>
+          </div>
+          <p>The strongest option is not the most extreme one. It is the one that converts visible progress into consistent, measurable healthspan progress.</p>
+        </div>
+
+        <div class="ranking">
+          <article class="contender reveal">
+            <div class="rank">1</div>
+            <div>
+              <h3>WHOOP Scoreboard</h3>
+              <p>Makes WHOOP Age the primary long-term objective, achieved through a structured aesthetic recomposition block. This balances motivation, health, and sustainable physique improvement.</p>
+            </div>
+            <span class="tag good">Do First</span>
+          </article>
+
+          <article class="contender reveal">
+            <div class="rank">2</div>
+            <div>
+              <h3>Aesthetic-First</h3>
+              <p>Good if you have a non-negotiable, near-term aesthetic deadline, such as a photoshoot, with WHOOP recovery preventing overreach. Risks under-dosing key healthspan levers like VO2max.</p>
+            </div>
+            <span class="tag">Runner-Up</span>
+          </article>
+
+          <article class="contender reveal">
+            <div class="rank">3</div>
+            <div>
+              <h3>WHOOP-Only Longevity</h3>
+              <p>Focuses solely on WHOOP metrics. Can be too abstract, less motivating, and lead to slower visible changes, potentially impacting adherence. As Claude put it, “dashboard optimization.”</p>
+            </div>
+            <span class="tag soft">Avoid If Sole Focus</span>
+          </article>
+
+          <article class="contender reveal">
+            <div class="rank">4</div>
+            <div>
+              <h3>Aggressive Beach Body Cut</h3>
+              <p>High risk for recovery, lean mass, and overall health, directly compromising WHOOP Age. Unsustainable and only suitable for very specific, short-term, expert-managed scenarios.</p>
+            </div>
+            <span class="tag bad">Avoid</span>
+          </article>
+
+          <article class="contender reveal">
+            <div class="rank">5</div>
+            <div>
+              <h3>Class Challenge / Random</h3>
+              <p>Excellent for habit formation, fun, and social connection, but lacks the progressive overload and specific zone targeting required for advanced physique or WHOOP Age goals.</p>
+            </div>
+            <span class="tag warn">Supplemental Only</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="caveats">
+      <div class="wrap">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Caveats</div>
+            <h2>Do not let the dashboard become theater.</h2>
+          </div>
+          <p>The plan only works if the metrics steer real behavior: sleep, lifting, cardio, recovery, and honest bottleneck identification.</p>
+        </div>
+
+        <div class="caveat-shell reveal">
+          <div class="caveat-grid">
+            <article class="caveat">
+              <b>01 · Bottleneck</b>
+              <p>Your actual WHOOP Healthspan screen is paramount: do not guess your bottleneck. The input adding the most years is your primary target.</p>
+            </article>
+            <article class="caveat">
+              <b>02 · Sleep disruptors</b>
+              <p>Late-night coding and alcohol consumption are significant, often underestimated, levers that can derail sleep consistency and recovery, directly impacting WHOOP metrics.</p>
+            </article>
+            <article class="caveat">
+              <b>03 · Steering wheel</b>
+              <p>Differentiate WHOOP Age, the long-term score, from Pace of Aging, the short-term steering wheel, for daily decision-making.</p>
+            </article>
+            <article class="caveat">
+              <b>04 · Tissue timing</b>
+              <p>Ramp up new lifting loads conservatively; connective tissue adapts slower than muscle at 40+, risking injury.</p>
+            </article>
+            <article class="caveat">
+              <b>05 · Interference</b>
+              <p>Manage interference: do not stack multiple high-strain activities, such as heavy legs, hard HIIT, and intense dance, on low-recovery days.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="plan">
+      <div class="wrap plan">
+        <aside class="plan-sticky reveal">
+          <div class="section-kicker">Action plan</div>
+          <h2>Six moves for the next training block.</h2>
+          <p>Start by finding the actual WHOOP bottleneck, then run a recomposition system that trains strength, VO2max, sleep consistency, and visible physique progress together.</p>
+          <div class="mini-dials" aria-label="Training emphasis dials">
+            <div class="mini-dial"><span>Lift</span></div>
+            <div class="mini-dial"><span>Zone 2</span></div>
+            <div class="mini-dial"><span>VO2</span></div>
+          </div>
+        </aside>
+
+        <div class="steps">
+          <article class="step reveal">
+            <h3>Today: Open WHOOP Healthspan</h3>
+            <p>Identify your 1-2 biggest bottlenecks. Note your current WHOOP Age, Pace of Aging, and which specific inputs, such as VO2max, lean mass, and sleep consistency, are contributing most to your WHOOP Age.</p>
+          </article>
+
+          <article class="step reveal">
+            <h3>Weekly Training Template</h3>
+            <p>Implement 3-4 progressive resistance training sessions per week, focused on compound lifts, 2 Zone 2 cardio sessions of 30-45 minutes, and 1 structured Zone 4-5 VO2max session per week, such as 4x4 intervals, gradually increasing intensity. Maintain 1-2 joyful movement sessions, dance or yoga, as desired.</p>
+          </article>
+
+          <article class="step reveal">
+            <h3>Nutrition Foundation</h3>
+            <p>Target 1.6-2.2 g/kg protein, 125-155g for ~170lb, distributed across meals. Start at maintenance calories or a mild 200-300 calorie deficit for recomposition. Prioritize whole, nutrient-dense foods.</p>
+          </article>
+
+          <article class="step reveal">
+            <h3>Protect Sleep</h3>
+            <p>Establish a non-negotiable bedtime, aiming for 7-9 hours of quality sleep. Implement a hard stop on late-night screens and coding.</p>
+          </article>
+
+          <article class="step reveal">
+            <h3>Use WHOOP as Your Guardrail</h3>
+            <p>Use your daily WHOOP recovery score as your guide: Green means push; Yellow means moderate; Red means active recovery and mobility. Focus on weekly trends for Pace of Aging, not daily fluctuations.</p>
+          </article>
+
+          <article class="step reveal">
+            <h3>Track Progress Weekly</h3>
+            <p>Monitor weekly waist measurements, bi-weekly progress photos with consistent lighting and pose, a gym log for lift progression, and key WHOOP Healthspan metrics: VO2max, RHR, sleep consistency, HR zone time, and strength time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="falsification">
+      <div class="wrap split">
+        <article class="falsify reveal">
+          <div class="big-letter">F</div>
+          <h2>What would change the answer?</h2>
+          <p>Your actual WHOOP Healthspan screen shows VO2max, RHR, zone time, steps, and sleep are already green or age-lowering, while lean body mass or strength activity is the clear orange bottleneck. Alternatively, recent lab-verified data, such as DEXA or a formal VO2max test, confirms elite levels in key WHOOP inputs.</p>
+        </article>
+
+        <article class="provenance reveal">
+          <div class="big-letter">P</div>
+          <h2>Provenance</h2>
+          <p>This decision brief synthesizes a three-advisor debate between ChatGPT, browser engine; Claude.ai, browser engine; and Gemini, free API. While initial positions varied, the advisors largely converged on a hybrid strategy after considering each other’s arguments.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>Eric’s next-phase fitness goals: beach body vs lowering WHOOP age from his last 2 months of training.</span>
+      <span>Decision brief · 2026-06-30</span>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 45, 220)}ms`;
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WHOOP Age vs Beach Body — Decision Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0e12;
+  --ink2:#11181f;
+  --paper:#f3efe6;
+  --paper2:#e9e3d6;
+  --lime:#c6f24e;
+  --lime-dim:#9bc23a;
+  --pulse:#ff5b3a;
+  --cyan:#54e6c9;
+  --amber:#ffb240;
+  --muted:#7d8a93;
+  --line:rgba(255,255,255,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'Space Grotesk',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+.mono{font-family:'Space Mono',monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:.98;letter-spacing:-.02em}
+
+/* ---------- ambient ---------- */
+.glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none}
+.g1{width:520px;height:520px;background:radial-gradient(circle,#3a5a1e,transparent 70%);top:-160px;left:-120px}
+.g2{width:600px;height:600px;background:radial-gradient(circle,#5b1a12,transparent 70%);bottom:10%;right:-180px;opacity:.4}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(10,14,18,.55);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Bricolage Grotesque';font-weight:800;font-size:16px;letter-spacing:-.01em}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--lime);box-shadow:0 0 14px var(--lime);animation:beat 1.8s infinite}
+@keyframes beat{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.6}}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--lime)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+header{position:relative;z-index:1;padding:140px 0 70px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono';font-size:12px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--lime);
+  border:1px solid rgba(198,242,78,.3);border-radius:40px;padding:7px 16px;margin-bottom:34px}
+.hero-h{font-size:clamp(48px,9vw,118px);font-weight:800;letter-spacing:-.035em}
+.hero-h .vs{display:inline-block;color:var(--pulse);font-style:italic;transform:rotate(-4deg);margin:0 .06em;
+  font-family:'Bricolage Grotesque'}
+.hero-h .beach{color:transparent;-webkit-text-stroke:1.6px var(--paper)}
+.sub{font-size:clamp(18px,2.4vw,24px);color:var(--paper2);max-width:640px;margin:30px 0 0;font-weight:400}
+.metarow{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:48px;
+  border-top:1px solid var(--line);padding-top:26px;font-family:'Space Mono';font-size:12.5px;color:var(--muted)}
+.metarow b{color:var(--paper);font-weight:700}
+.metarow span{display:flex;flex-direction:column;gap:5px}
+.metarow .k{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime-dim)}
+
+/* ---------- verdict scoreboard ---------- */
+.scoreboard{position:relative;z-index:1;margin:30px 0 0}
+.board{
+  background:linear-gradient(160deg,#0e151b,#0a0e12);
+  border:1px solid var(--line);border-radius:26px;overflow:hidden;
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.8);position:relative}
+.board::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 40%,rgba(198,242,78,.06));pointer-events:none}
+.board-top{display:flex;align-items:center;justify-content:space-between;
+  padding:18px 30px;border-bottom:1px solid var(--line);font-family:'Space Mono';font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.live{display:flex;align-items:center;gap:8px;color:var(--lime)}
+.live .ring{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:beat 1.4s infinite}
+.board-body{padding:46px 40px 50px}
+.board-body .label{font-family:'Space Mono';font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--pulse);margin-bottom:16px}
+.winner{font-size:clamp(30px,5.5vw,62px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.winner em{font-style:normal;color:var(--lime)}
+.winner .amp{color:var(--muted);font-weight:400}
+.oneliner{max-width:740px;color:var(--paper2);font-size:17px;margin-top:26px;line-height:1.65}
+.conf{display:inline-flex;align-items:center;gap:12px;margin-top:30px;
+  background:rgba(198,242,78,.08);border:1px solid rgba(198,242,78,.25);border-radius:30px;
+  padding:9px 20px;font-family:'Space Mono';font-size:12.5px;color:var(--lime)}
+.conf b{color:var(--paper)}
+.bars{display:flex;gap:4px;align-items:flex-end;height:18px}
+.bars i{width:5px;background:var(--lime);border-radius:2px;display:block}
+.bars i:nth-child(1){height:7px}.bars i:nth-child(2){height:11px}.bars i:nth-child(3){height:15px}.bars i:nth-child(4){height:18px}
+
+/* ---------- section frames ---------- */
+section{position:relative;z-index:1;padding:96px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:48px;flex-wrap:wrap}
+.sec-num{font-family:'Space Mono';font-size:14px;color:var(--lime);letter-spacing:.1em}
+.sec-title{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-.03em}
+.sec-sub{color:var(--muted);font-size:16px;max-width:520px;margin-left:auto}
+
+/* ---------- reasons ---------- */
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:840px){.reasons{grid-template-columns:1fr}}
+.rcard{background:var(--ink2);border:1px solid var(--line);border-radius:20px;padding:34px 30px;
+  position:relative;overflow:hidden;transition:transform .35s,border-color .35s}
+.rcard:hover{transform:translateY(-6px);border-color:rgba(198,242,78,.4)}
+.rcard .ix{font-family:'Bricolage Grotesque';font-weight:800;font-size:56px;color:transparent;
+  -webkit-text-stroke:1.4px rgba(255,255,255,.14);line-height:1;margin-bottom:18px}
+.rcard h3{font-size:23px;font-weight:600;margin-bottom:14px;letter-spacing:-.01em}
+.rcard p{color:var(--muted);font-size:15px;line-height:1.6}
+.rcard::after{content:"";position:absolute;left:0;top:0;height:3px;width:40%;
+  background:linear-gradient(90deg,var(--lime),transparent)}
+
+/* ---------- contenders ranking ---------- */
+.ladder{display:flex;flex-direction:column;gap:14px}
+.rung{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:center;
+  background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:24px 28px;
+  transition:transform .3s,background .3s;cursor:default}
+.rung:hover{transform:translateX(8px);background:#141c24}
+.rung .rk{font-family:'Bricolage Grotesque';font-weight:800;font-size:42px;line-height:1}
+.rung:nth-child(1) .rk{color:var(--lime)}
+.rung .body h3{font-size:22px;font-weight:600;margin-bottom:8px}
+.rung .body p{color:var(--muted);font-size:14.5px;line-height:1.55;max-width:680px}
+.tag{font-family:'Space Mono';font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  padding:7px 13px;border-radius:30px;white-space:nowrap;border:1px solid}
+.t-do{color:var(--ink);background:var(--lime);border-color:var(--lime);font-weight:700}
+.t-run{color:var(--cyan);border-color:rgba(84,230,201,.4);background:rgba(84,230,201,.08)}
+.t-sup{color:var(--amber);border-color:rgba(255,178,64,.4);background:rgba(255,178,64,.08)}
+.t-avoid{color:var(--pulse);border-color:rgba(255,91,58,.4);background:rgba(255,91,58,.08)}
+@media(max-width:680px){.rung{grid-template-columns:48px 1fr;gap:16px}.rung .tag{grid-column:1/-1;justify-self:start}}
+
+/* ---------- action plan ---------- */
+.action{background:linear-gradient(180deg,#0d1419,#0a0e12)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step{position:relative;background:var(--ink2);border:1px solid var(--line);border-radius:18px;
+  padding:30px 28px 28px;padding-left:34px}
+.step::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:3px;border-radius:3px;
+  background:linear-gradient(var(--lime),var(--lime-dim))}
+.step .sn{font-family:'Space Mono';font-size:12px;color:var(--lime);letter-spacing:.1em;margin-bottom:12px;display:block}
+.step h4{font-family:'Bricolage Grotesque';font-weight:600;font-size:19px;margin-bottom:10px;letter-spacing:-.01em}
+.step p{color:var(--muted);font-size:14.5px;line-height:1.62}
+
+/* ---------- caveats ---------- */
+.caveats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.caveats{grid-template-columns:1fr}}
+.cav{display:flex;gap:16px;padding:24px 26px;border:1px solid var(--line);border-radius:16px;background:rgba(255,178,64,.04)}
+.cav .warn{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:rgba(255,178,64,.12);border:1px solid rgba(255,178,64,.3)}
+.cav p{font-size:14.5px;color:var(--paper2);line-height:1.6}
+
+/* ---------- falsification ---------- */
+.fals{border:1px solid rgba(255,91,58,.3);border-radius:24px;padding:46px 44px;
+  background:linear-gradient(135deg,rgba(255,91,58,.07),transparent);position:relative;overflow:hidden}
+.fals .kick{font-family:'Space Mono';font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--pulse);margin-bottom:20px}
+.fals h2{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:20px;max-width:620px}
+.fals p{color:var(--paper2);font-size:16.5px;line-height:1.7;max-width:760px}
+
+/* ---------- provenance / footer ---------- */
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:72px 0 64px;margin-top:40px}
+.adv{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 40px}
+.chip{font-family:'Space Mono';font-size:13px;padding:10px 18px;border:1px solid var(--line);border-radius:30px;
+  color:var(--paper2);display:flex;align-items:center;gap:9px}
+.chip .pip{width:7px;height:7px;border-radius:50%;background:var(--cyan)}
+.prov{color:var(--muted);max-width:760px;font-size:15px;line-height:1.7}
+.fmeta{display:flex;justify-content:space-between;align-items:center;margin-top:48px;
+  padding-top:26px;border-top:1px solid var(--line);font-family:'Space Mono';font-size:12px;color:var(--muted);flex-wrap:wrap;gap:14px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>DECISION&nbsp;BRIEF</div>
+    <div class="nav-links">
+      <a href="#verdict">Verdict</a>
+      <a href="#why">Why</a>
+      <a href="#ranking">Ranking</a>
+      <a href="#plan">Plan</a>
+      <a href="#risks">Risks</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">● THREE-ADVISOR DEBATE · 2026.06.30</span>
+    <h1 class="hero-h">WHOOP&nbsp;Age <span class="vs">vs</span><br><span class="beach">Beach&nbsp;Body</span></h1>
+    <p class="sub">Leverage aesthetic motivation to drive objective healthspan gains — built from Eric's last two months of training.</p>
+    <div class="metarow">
+      <span><i class="k">Rounds</i><b>2 of debate</b></span>
+      <span><i class="k">Advisors</i><b>ChatGPT · Claude · Gemini</b></span>
+      <span><i class="k">Convergence</i><b>High</b></span>
+      <span><i class="k">Decision</i><b>Hybrid strategy</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap scoreboard" id="verdict">
+  <div class="board reveal">
+    <div class="board-top">
+      <span>THE&nbsp;VERDICT</span>
+      <span class="live"><span class="ring"></span>RESOLVED</span>
+    </div>
+    <div class="board-body">
+      <div class="label">Winning approach</div>
+      <h2 class="winner"><em>WHOOP Age</em> as Scoreboard <span class="amp">&</span> <em>Beach Body</em> as Method</h2>
+      <p class="oneliner">This approach leverages aesthetic motivation for consistency while prioritizing objective healthspan metrics through structured lifting, targeted cardio, and critical recovery — all guided by your WHOOP data.</p>
+      <div class="conf">
+        <div class="bars"><i></i><i></i><i></i><i></i></div>
+        Confidence: <b>High</b> · strong convergence after initial differing emphasis
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Why this wins</h2>
+      <p class="sec-sub">Three independent advisors, one shared conclusion: motivation and metrics don't have to compete.</p>
+    </div>
+    <div class="reasons">
+      <div class="rcard reveal">
+        <div class="ix">01</div>
+        <h3>Dual Motivation & Adherence</h3>
+        <p>The hybrid goal lets you ride the tangible motivation of aesthetic progress while optimizing objective health markers — maximizing long-term adherence and sustainability.</p>
+      </div>
+      <div class="rcard reveal">
+        <div class="ix">02</div>
+        <h3>Holistic Healthspan Levers</h3>
+        <p>It integrates progressive resistance training for lean mass and strength alongside high-intensity VO2max work — covering the most impactful WHOOP metrics that aesthetic-only plans miss.</p>
+      </div>
+      <div class="rcard reveal">
+        <div class="ix">03</div>
+        <h3>Sustainable & Data-Informed</h3>
+        <p>It rejects crash dieting and random activity, prioritizing consistent sleep, proper nutrition, and WHOOP data as a recovery guardrail for injury-free progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ranking">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">The contenders</h2>
+      <p class="sec-sub">Five strategies ranked — from the one to run today to the ones to avoid.</p>
+    </div>
+    <div class="ladder">
+      <div class="rung reveal">
+        <div class="rk">01</div>
+        <div class="body"><h3>WHOOP Scoreboard</h3><p>Makes WHOOP Age the primary long-term objective, achieved through a structured aesthetic recomposition block. Balances motivation, health, and sustainable physique improvement.</p></div>
+        <span class="tag t-do">Do First</span>
+      </div>
+      <div class="rung reveal">
+        <div class="rk">02</div>
+        <div class="body"><h3>Aesthetic-First</h3><p>Good if you have a non-negotiable, near-term aesthetic deadline (e.g., photoshoot), with WHOOP recovery preventing overreach. Risks under-dosing key healthspan levers like VO2max.</p></div>
+        <span class="tag t-run">Runner-up</span>
+      </div>
+      <div class="rung reveal">
+        <div class="rk">03</div>
+        <div class="body"><h3>WHOOP-Only Longevity</h3><p>Focuses solely on WHOOP metrics. Can be too abstract, less motivating, and lead to slower visible changes — what Claude called "dashboard optimization."</p></div>
+        <span class="tag t-avoid">Avoid if sole focus</span>
+      </div>
+      <div class="rung reveal">
+        <div class="rk">04</div>
+        <div class="body"><h3>Aggressive Beach Body Cut</h3><p>High risk for recovery, lean mass, and overall health — directly compromising WHOOP Age. Unsustainable; only fit for very specific, short-term, expert-managed scenarios.</p></div>
+        <span class="tag t-avoid">Avoid</span>
+      </div>
+      <div class="rung reveal">
+        <div class="rk">05</div>
+        <div class="body"><h3>Class Challenge / Random</h3><p>Excellent for habit formation, fun, and social connection — but lacks the progressive overload and zone targeting required for advanced physique or WHOOP Age goals.</p></div>
+        <span class="tag t-sup">Supplemental only</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="action" id="plan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">The action plan</h2>
+      <p class="sec-sub">Six moves — starting today — that turn the verdict into a weekly operating system.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="sn">STEP 01 · TODAY</span><h4>Find your bottleneck</h4><p>Open WHOOP Healthspan and identify your 1–2 biggest bottlenecks. Note current WHOOP Age, Pace of Aging, and which inputs (VO2max, lean mass, sleep consistency) contribute most.</p></div>
+      <div class="step reveal"><span class="sn">STEP 02 · TRAINING</span><h4>Weekly template</h4><p>3–4 progressive resistance sessions (compound lifts), 2 Zone 2 cardio sessions (30–45 min), 1 structured Zone 4–5 VO2max session (e.g., 4×4 intervals). Keep 1–2 joyful movement sessions.</p></div>
+      <div class="step reveal"><span class="sn">STEP 03 · NUTRITION</span><h4>Protein-forward foundation</h4><p>Target 1.6–2.2 g/kg protein (125–155g for ~170lb) across meals. Start at maintenance or a mild 200–300 kcal deficit for recomposition. Prioritize whole, nutrient-dense foods.</p></div>
+      <div class="step reveal"><span class="sn">STEP 04 · RECOVERY</span><h4>Protect sleep</h4><p>Establish a non-negotiable bedtime aiming for 7–9 hours of quality sleep. Implement a hard stop on late-night screens and coding.</p></div>
+      <div class="step reveal"><span class="sn">STEP 05 · GUARDRAIL</span><h4>Let WHOOP steer</h4><p>Use daily recovery as your guide — Green: push · Yellow: moderate · Red: active recovery/mobility. Watch weekly trends for Pace of Aging, not daily noise.</p></div>
+      <div class="step reveal"><span class="sn">STEP 06 · REVIEW</span><h4>Track progress weekly</h4><p>Monitor weekly waist measurements, bi-weekly progress photos (consistent lighting/pose), a gym log for lift progression, and key WHOOP metrics: VO2max, RHR, sleep consistency, HR-zone time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="risks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Watch-outs</h2>
+      <p class="sec-sub">The levers that quietly derail progress — keep these in view.</p>
+    </div>
+    <div class="caveats">
+      <div class="cav reveal"><span class="warn">⚑</span><p>Your actual WHOOP Healthspan screen is paramount — don't guess your bottleneck. The input adding the most years is your primary target.</p></div>
+      <div class="cav reveal"><span class="warn">⚑</span><p>Late-night coding and alcohol are significant, often-underestimated levers that derail sleep consistency and recovery, directly hurting WHOOP metrics.</p></div>
+      <div class="cav reveal"><span class="warn">⚑</span><p>Differentiate WHOOP Age (long-term score) from Pace of Aging (short-term steering wheel) for daily decision-making.</p></div>
+      <div class="cav reveal"><span class="warn">⚑</span><p>Ramp new lifting loads conservatively — connective tissue adapts slower than muscle at 40+, raising injury risk.</p></div>
+      <div class="cav reveal"><span class="warn">⚑</span><p>Manage interference: don't stack multiple high-strain activities (heavy legs, hard HIIT, intense dance) on low-recovery days.</p></div>
+    </div>
+
+    <div style="margin-top:60px" class="fals reveal">
+      <div class="kick">⟲ When this verdict flips</div>
+      <h2>The falsification test</h2>
+      <p>If your actual WHOOP Healthspan screen shows VO2max, RHR, zone time, steps, and sleep already green and age-lowering — while lean body mass or strength activity is the clear orange bottleneck — the emphasis shifts. The same applies if recent lab-verified data (DEXA, formal VO2max test) confirms elite levels in key WHOOP inputs.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap reveal">
+    <div class="sec-num">PROVENANCE</div>
+    <div class="adv">
+      <span class="chip"><span class="pip"></span>ChatGPT · browser engine</span>
+      <span class="chip"><span class="pip" style="background:var(--lime)"></span>Claude.ai · browser engine</span>
+      <span class="chip"><span class="pip" style="background:var(--amber)"></span>Gemini · free API</span>
+    </div>
+    <p class="prov">This decision brief synthesizes a three-advisor debate across two rounds. While initial positions varied, the advisors largely converged on a hybrid strategy after weighing each other's arguments — aesthetic motivation as the engine, objective healthspan as the destination.</p>
+    <div class="fmeta">
+      <span>WHOOP AGE vs BEACH BODY · DECISION BRIEF</span>
+      <span>2026.06.30 · CONFIDENCE: HIGH</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*70+'ms';io.observe(el)});
+
+// subtle parallax on glows
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  document.querySelector('.g1').style.transform='translateY('+y*.12+'px)';
+  document.querySelector('.g2').style.transform='translateY('+y*-.08+'px)';
+},{passive:true});
+</script>
+</body>
+</html>
