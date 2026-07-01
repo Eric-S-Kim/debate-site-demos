@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Romantic Canada Day Itineraries — Eric & Jung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #16201d;
+      --muted: #5b6762;
+      --paper: #fff8ed;
+      --paper-2: #f2eadc;
+      --cream: #fffdf6;
+      --red: #d53131;
+      --red-dark: #a91820;
+      --blue: #1e5c7a;
+      --sky: #b9d8dc;
+      --gold: #f1b84b;
+      --moss: #556f5b;
+      --rose: #e7a6a0;
+      --night: #18212f;
+      --shadow: 0 24px 80px rgba(22, 32, 29, .18);
+      --soft-shadow: 0 14px 40px rgba(22, 32, 29, .10);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 7% 8%, rgba(213, 49, 49, .18), transparent 28rem),
+        radial-gradient(circle at 90% 6%, rgba(30, 92, 122, .18), transparent 30rem),
+        radial-gradient(circle at 80% 78%, rgba(241, 184, 75, .17), transparent 36rem),
+        linear-gradient(180deg, #fff8ed 0%, #f9f0df 44%, #fffdf6 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .35;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(22, 32, 29, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 32, 29, .035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 70%);
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+      opacity: .08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      width: min(var(--max), calc(100% - 28px));
+      margin: 14px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 14px 12px 18px;
+      border: 1px solid rgba(22, 32, 29, .12);
+      border-radius: 999px;
+      background: rgba(255, 253, 246, .74);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 36px rgba(22, 32, 29, .08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, var(--red), var(--red-dark));
+      color: white;
+      box-shadow: inset 0 -8px 14px rgba(0,0,0,.16);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: rgba(22, 32, 29, .07);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      padding: 78px 0 52px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--red-dark);
+      background: rgba(213, 49, 49, .1);
+      border: 1px solid rgba(213, 49, 49, .2);
+      font-size: 12px;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 5px rgba(213, 49, 49, .12);
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(58px, 10vw, 134px);
+      line-height: .84;
+      letter-spacing: -.07em;
+      max-width: 920px;
+    }
+
+    .hero em {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    .lede {
+      max-width: 700px;
+      font-size: clamp(18px, 2.4vw, 25px);
+      line-height: 1.35;
+      color: #35403c;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 15px 21px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button.primary {
+      color: white;
+      background: var(--ink);
+      box-shadow: 0 18px 40px rgba(22, 32, 29, .2);
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      background: rgba(255,255,255,.5);
+      border: 1px solid rgba(22, 32, 29, .14);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 44px rgba(22, 32, 29, .16);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 620px;
+      border-radius: 46px;
+      padding: 26px;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,.72), rgba(255,255,255,.34)),
+        radial-gradient(circle at 24% 20%, rgba(241,184,75,.28), transparent 15rem),
+        radial-gradient(circle at 70% 72%, rgba(30,92,122,.24), transparent 18rem);
+      border: 1px solid rgba(22, 32, 29, .12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px dashed rgba(22, 32, 29, .16);
+      border-radius: 34px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .sunset-orb {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      left: 50%;
+      top: 15%;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(circle at 45% 40%, #ffe7a8 0 18%, #f1b84b 36%, #d53131 72%, rgba(213,49,49,0) 73%);
+      filter: blur(.2px);
+      opacity: .92;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .mountains {
+      position: absolute;
+      inset: auto 0 0;
+      height: 62%;
+      z-index: 1;
+    }
+
+    .map-pin {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      z-index: 3;
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: rgba(255,253,246,.83);
+      border: 1px solid rgba(22, 32, 29, .12);
+      box-shadow: 0 16px 42px rgba(22, 32, 29, .14);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+    }
+
+    .map-pin strong {
+      display: block;
+      color: var(--ink);
+      font-family: Inter, sans-serif;
+      font-size: 17px;
+      letter-spacing: -.06em;
+      text-transform: none;
+      margin-bottom: 4px;
+    }
+
+    .pin-1 { left: 30px; top: 110px; }
+    .pin-2 { right: 35px; top: 190px; }
+    .pin-3 { left: 72px; bottom: 96px; }
+    .pin-4 { right: 82px; bottom: 70px; }
+
+    .verdict-strip {
+      position: relative;
+      z-index: 4;
+      margin-top: 420px;
+      padding: 20px;
+      border-radius: 26px;
+      background: rgba(24, 33, 47, .9);
+      color: white;
+      box-shadow: 0 24px 60px rgba(24, 33, 47, .3);
+    }
+
+    .verdict-strip span {
+      display: block;
+      font-family: "JetBrains Mono", monospace;
+      color: #f9c85e;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      margin-bottom: 8px;
+    }
+
+    .verdict-strip h2 {
+      margin: 0 0 6px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: 42px;
+      letter-spacing: -.05em;
+      line-height: .95;
+    }
+
+    .verdict-strip p {
+      margin: 0;
+      color: rgba(255,255,255,.78);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-12px); }
+    }
+
+    .section {
+      padding: 72px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(280px, .55fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--red-dark);
+      margin-bottom: 14px;
+    }
+
+    h2.section-title {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(44px, 6vw, 76px);
+      font-weight: 400;
+      line-height: .92;
+      letter-spacing: -.055em;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .brief-card {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 20px;
+      align-items: stretch;
+      padding: 18px;
+      border-radius: 36px;
+      background: rgba(255,253,246,.68);
+      border: 1px solid rgba(22, 32, 29, .12);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .winner-panel {
+      padding: clamp(26px, 4vw, 46px);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(213,49,49,.93), rgba(169,24,32,.95)),
+        radial-gradient(circle at 20% 18%, rgba(255,255,255,.28), transparent 17rem);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .winner-panel::after {
+      content: "01";
+      position: absolute;
+      right: -8px;
+      bottom: -28px;
+      font-family: "Instrument Serif", serif;
+      font-size: 210px;
+      line-height: .7;
+      opacity: .12;
+      letter-spacing: -.08em;
+    }
+
+    .winner-panel h3 {
+      margin: 0 0 16px;
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(42px, 7vw, 86px);
+      font-weight: 400;
+      letter-spacing: -.06em;
+      line-height: .88;
+      position: relative;
+      z-index: 1;
+    }
+
+    .winner-panel p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 1.42;
+      color: rgba(255,255,255,.86);
+    }
+
+    .reasons {
+      display: grid;
+      gap: 14px;
+    }
+
+    .reason {
+      padding: 22px;
+      border-radius: 26px;
+      background: #fffdf6;
+      border: 1px solid rgba(22, 32, 29, .1);
+    }
+
+    .reason b {
+      display: block;
+      font-size: 16px;
+      letter-spacing: -.04em;
+      margin-bottom: 8px;
+    }
+
+    .reason p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .confidence {
+      display: inline-flex;
+      margin-top: 22px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      color: rgba(255,255,255,.9);
+      border: 1px solid rgba(255,255,255,.2);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contender-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .contender {
+      min-height: 260px;
+      padding: 18px;
+      border-radius: 26px;
+      background: rgba(255,253,246,.74);
+      border: 1px solid rgba(22, 32, 29, .11);
+      box-shadow: var(--soft-shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .contender:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 60px rgba(22, 32, 29, .15);
+    }
+
+    .contender::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+      background: var(--accent, var(--red));
+    }
+
+    .contender .rank {
+      font-family: "Instrument Serif", serif;
+      font-size: 58px;
+      line-height: .8;
+      letter-spacing: -.06em;
+      color: rgba(22,32,29,.18);
+    }
+
+    .tag {
+      display: inline-flex;
+      margin: 16px 0 14px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(22, 32, 29, .07);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    .contender h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      letter-spacing: -.06em;
+      line-height: .95;
+    }
+
+    .contender p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .itinerary {
+      margin-top: 26px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .route-card {
+      display: grid;
+      grid-template-columns: 330px minmax(0, 1fr);
+      gap: 0;
+      border-radius: 36px;
+      background: rgba(255,253,246,.78);
+      border: 1px solid rgba(22, 32, 29, .12);
+      box-shadow: var(--soft-shadow);
+      overflow: hidden;
+    }
+
+    .route-card.featured {
+      box-shadow: 0 28px 86px rgba(213,49,49,.18);
+      border-color: rgba(213,49,49,.24);
+    }
+
+    .route-side {
+      position: relative;
+      min-height: 100%;
+      padding: 28px;
+      color: white;
+      background:
+        linear-gradient(150deg, rgba(22,32,29,.34), rgba(22,32,29,.08)),
+        var(--route-bg, linear-gradient(135deg, var(--red), var(--blue)));
+      overflow: hidden;
+    }
+
+    .route-side::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      right: -86px;
+      bottom: -80px;
+      background: rgba(255,255,255,.14);
+    }
+
+    .route-side::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background-image:
+        radial-gradient(circle at 20px 20px, white 2px, transparent 2.5px);
+      background-size: 28px 28px;
+    }
+
+    .route-side > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .route-number {
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      opacity: .86;
+    }
+
+    .route-side h3 {
+      margin: 18px 0 12px;
+      font-family: "Instrument Serif", serif;
+      font-size: 58px;
+      font-weight: 400;
+      letter-spacing: -.07em;
+      line-height: .84;
+    }
+
+    .route-side p {
+      margin: 0;
+      line-height: 1.48;
+      color: rgba(255,255,255,.84);
+      font-size: 15px;
+    }
+
+    .route-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 12px;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+
+    .route-body {
+      padding: 26px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .time-block {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(22, 32, 29, .09);
+    }
+
+    .time-block:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .time {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--red-dark);
+      letter-spacing: -.02em;
+      padding-top: 2px;
+    }
+
+    .time-block h4 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      letter-spacing: -.04em;
+    }
+
+    .time-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .note-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .micro {
+      display: inline-flex;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(22,32,29,.06);
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .micro.hot {
+      color: var(--red-dark);
+      background: rgba(213,49,49,.1);
+    }
+
+    .micro.ticket {
+      color: var(--blue);
+      background: rgba(30,92,122,.12);
+    }
+
+    .map-section {
+      border-radius: 44px;
+      background:
+        linear-gradient(135deg, rgba(24,33,47,.94), rgba(26,56,71,.92)),
+        radial-gradient(circle at 70% 40%, rgba(241,184,75,.26), transparent 28rem);
+      color: white;
+      padding: clamp(28px, 5vw, 56px);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .map-section::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        repeating-linear-gradient(30deg, rgba(255,255,255,.04) 0 1px, transparent 1px 24px);
+      animation: drift 18s linear infinite;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(-20px, -20px, 0); }
+      to { transform: translate3d(20px, 20px, 0); }
+    }
+
+    .map-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .map-content h2 {
+      margin: 0 0 18px;
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(46px, 7vw, 82px);
+      font-weight: 400;
+      line-height: .9;
+      letter-spacing: -.06em;
+    }
+
+    .map-content p {
+      margin: 0;
+      color: rgba(255,255,255,.74);
+      line-height: 1.65;
+    }
+
+    .fireworks-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .firework {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .firework strong {
+      color: #fff;
+      font-size: 15px;
+      letter-spacing: -.03em;
+    }
+
+    .firework span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 900;
+      color: #f9c85e;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .firework p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.7);
+    }
+
+    .caveat-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .caveat {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,253,246,.72);
+      border: 1px solid rgba(22, 32, 29, .11);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .caveat .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: rgba(213,49,49,.1);
+      color: var(--red-dark);
+      font-weight: 900;
+    }
+
+    .caveat h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      letter-spacing: -.04em;
+    }
+
+    .caveat p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.48;
+      font-size: 13px;
+    }
+
+    .action-board {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .falsification {
+      padding: 28px;
+      border-radius: 34px;
+      background:
+        linear-gradient(150deg, #18212f, #263849);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .falsification span {
+      display: inline-flex;
+      color: #f9c85e;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 18px;
+    }
+
+    .falsification h3 {
+      margin: 0 0 12px;
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      font-size: 46px;
+      line-height: .92;
+      letter-spacing: -.05em;
+    }
+
+    .falsification p {
+      margin: 0;
+      color: rgba(255,255,255,.74);
+      line-height: 1.58;
+    }
+
+    .steps {
+      display: grid;
+      gap: 10px;
+      counter-reset: step;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,253,246,.78);
+      border: 1px solid rgba(22,32,29,.1);
+    }
+
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: white;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .step b {
+      display: block;
+      letter-spacing: -.04em;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .footer {
+      padding: 56px 0 40px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-card {
+      border-radius: 34px;
+      padding: 28px;
+      background: rgba(255,253,246,.7);
+      border: 1px solid rgba(22,32,29,.1);
+    }
+
+    .footer strong {
+      color: var(--ink);
+    }
+
+    .footer p {
+      margin: 8px auto 0;
+      max-width: 830px;
+      line-height: 1.6;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise .8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: .08s; }
+    .delay-2 { animation-delay: .16s; }
+    .delay-3 { animation-delay: .24s; }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .brief-card,
+      .map-content,
+      .action-board {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 540px;
+      }
+
+      .verdict-strip {
+        margin-top: 340px;
+      }
+
+      .contender-grid,
+      .caveat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .route-card {
+        grid-template-columns: 1fr;
+      }
+
+      .route-side {
+        min-height: 310px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .nav {
+        align-items: flex-start;
+        border-radius: 24px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .nav-links a {
+        padding: 7px 9px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      h1 {
+        font-size: clamp(58px, 18vw, 88px);
+      }
+
+      .hero-card {
+        min-height: 500px;
+        border-radius: 32px;
+        padding: 18px;
+      }
+
+      .sunset-orb {
+        width: 235px;
+        height: 235px;
+      }
+
+      .map-pin {
+        width: 92px;
+        height: 92px;
+        font-size: 9px;
+      }
+
+      .map-pin strong {
+        font-size: 13px;
+      }
+
+      .pin-1 { left: 18px; top: 86px; }
+      .pin-2 { right: 18px; top: 145px; }
+      .pin-3 { left: 26px; bottom: 88px; }
+      .pin-4 { right: 32px; bottom: 62px; }
+
+      .verdict-strip {
+        margin-top: 315px;
+        padding: 16px;
+      }
+
+      .verdict-strip h2 {
+        font-size: 34px;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .contender-grid,
+      .caveat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .route-body,
+      .route-side {
+        padding: 20px;
+      }
+
+      .route-side h3 {
+        font-size: 48px;
+      }
+
+      .time-block {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .time {
+        font-size: 11px;
+      }
+
+      .firework {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain"></div>
+
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="brand">
+      <div class="brand-mark">✦</div>
+      <span>Eric & Jung / Canada Day 2026</span>
+    </div>
+    <div class="nav-links">
+      <a href="#verdict">Verdict</a>
+      <a href="#rankings">Rankings</a>
+      <a href="#itineraries">Itineraries</a>
+      <a href="#fireworks">Fireworks</a>
+      <a href="#plan">Action Plan</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <div class="kicker">Wednesday · July 1 · Metro Vancouver</div>
+          <h1>Romantic Canada Day <em>under the long light.</em></h1>
+          <p class="lede">
+            Five full-day routes for Eric and Jung, built around food, arts, live music, movement,
+            the outdoors, and scenic waterfront moments — with one decisive winner.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#itineraries">Explore the five routes</a>
+            <a class="button secondary" href="#verdict">See the top pick</a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal delay-1" aria-label="Illustrated Vancouver map card">
+          <div class="sunset-orb"></div>
+
+          <div class="map-pin pin-1"><span><strong>Granville</strong>Island</span></div>
+          <div class="map-pin pin-2"><span><strong>Canada</strong>Place</span></div>
+          <div class="map-pin pin-3"><span><strong>Bard</strong>Vanier Park</span></div>
+          <div class="map-pin pin-4"><span><strong>White</strong>Rock</span></div>
+
+          <svg class="mountains" viewBox="0 0 720 560" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 346L102 218L179 318L276 139L392 325L492 190L720 352V560H0Z" fill="#253847" opacity=".92"/>
+            <path d="M0 397L118 283L201 373L319 236L433 389L539 281L720 402V560H0Z" fill="#1a2b35" opacity=".96"/>
+            <path d="M0 462C88 426 149 432 239 462C330 492 423 520 520 478C612 438 668 432 720 450V560H0Z" fill="#315f72" opacity=".82"/>
+            <path d="M0 498C103 475 202 480 309 506C433 536 561 518 720 484V560H0Z" fill="#fff8ed" opacity=".82"/>
+          </svg>
+
+          <div class="verdict-strip">
+            <span>Top Recommendation</span>
+            <h2>The Long Light</h2>
+            <p>
+              Granville Island food and jazz, a garden reset, then Bard on the Beach at sunset —
+              the rare Vancouver finale that beats fireworks by being easier, more intimate, and more them.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="verdict" class="section">
+      <div class="shell">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">The verdict</span>
+            <h2 class="section-title">Skip the crush. Choose the artful sunset.</h2>
+          </div>
+          <p class="section-note">
+            Confidence: high. The advisors converged on Granville Island as the ideal morning anchor,
+            then narrowed the romantic finale to Bard on the Beach versus White Rock fireworks.
+            The better couple-specific answer is Bard.
+          </p>
+        </div>
+
+        <div class="brief-card reveal delay-1">
+          <div class="winner-panel">
+            <h3>The Long Light: Bard on the Beach Sunset</h3>
+            <p>
+              This itinerary perfectly blends Eric and Jung’s love for arts, food, movement, and
+              scenic waterfronts into an elegant, intimate, logistically smooth Canada Day climaxing
+              with a unique sunset-backed Shakespearean performance.
+            </p>
+            <div class="confidence">High confidence · top recommendation</div>
+          </div>
+
+          <div class="reasons">
+            <article class="reason">
+              <b>Tailored romance & culture</b>
+              <p>
+                Bard on the Beach leverages their love for arts, live performance, dance/movement,
+                and waterfront scenery — not just generic holiday spectacle.
+              </p>
+            </article>
+            <article class="reason">
+              <b>Logistical ease & reset</b>
+              <p>
+                The route stays car-free, avoids the late-night suburban transit crush, and includes
+                a mid-day home reset that is ideal for pet care and changing for the evening.
+              </p>
+            </article>
+            <article class="reason">
+              <b>Unique holiday magic</b>
+              <p>
+                A July 1 sunset behind Bard’s open-backed stage over English Bay is a once-a-year
+                Vancouver moment that can rival fireworks without the hassle.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rankings" class="section">
+      <div class="shell">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Ranked contenders</span>
+            <h2 class="section-title">Five moods, one clear winner.</h2>
+          </div>
+          <p class="section-note">
+            Each route is built as a real day, not a wishlist. Travel time, fatigue, ticketing,
+            crowds, FIFA World Cup spillover, and the no-fireworks-in-Vancouver constraint are baked in.
+          </p>
+        </div>
+
+        <div class="contender-grid reveal delay-1">
+          <article class="contender" style="--accent:#d53131">
+            <div class="rank">1</div>
+            <span class="tag">Top recommendation</span>
+            <h3>The Long Light</h3>
+            <p>
+              Granville Island’s food and jazz, serene gardens, then Bard on the Beach at sunset.
+              Best for arts, low-key romance, and convenience.
+            </p>
+          </article>
+
+          <article class="contender" style="--accent:#1e5c7a">
+            <div class="rank">2</div>
+            <span class="tag">Fireworks option</span>
+            <h3>Saltwater Spark</h3>
+            <p>
+              Granville Island energy, a home reset, then White Rock for the most romantic
+              over-water fireworks finale. Requires a car or a very deliberate ride plan.
+            </p>
+          </article>
+
+          <article class="contender" style="--accent:#f1b84b">
+            <div class="rank">3</div>
+            <span class="tag">Easy fireworks</span>
+            <h3>Civic Pulse</h3>
+            <p>
+              Canada Together at Canada Place, then SkyTrain to Burnaby Central Park for the
+              most central suburban fireworks. Big energy, bigger crowds.
+            </p>
+          </article>
+
+          <article class="contender" style="--accent:#556f5b">
+            <div class="rank">4</div>
+            <span class="tag">Active exploration</span>
+            <h3>Peak & Pier</h3>
+            <p>
+              Grouse Mountain or Capilano, Shipyards waterfront, Navy ships, beer garden,
+              and an English Bay sunset. Views and movement, no fireworks.
+            </p>
+          </article>
+
+          <article class="contender" style="--accent:#e7a6a0">
+            <div class="rank">5</div>
+            <span class="tag">Culinary cruise</span>
+            <h3>Salt & Sizzle</h3>
+            <p>
+              Granville Island market and jazz, Junction Public Market, then Harbour Cruises
+              sunset dinner cruise. Refined, foodie, water-based, ticketed.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="itineraries" class="section">
+      <div class="shell">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">The itineraries</span>
+            <h2 class="section-title">Morning to night, with breathing room.</h2>
+          </div>
+          <p class="section-note">
+            The goal is romance plus momentum: enough structure to feel special, enough whitespace
+            to avoid turning Canada Day into a transit endurance sport.
+          </p>
+        </div>
+
+        <div class="itinerary">
+          <article class="route-card featured reveal delay-1">
+            <div class="route-side" style="--route-bg:linear-gradient(135deg,#d53131,#1e5c7a)">
+              <div class="route-number">Route 01 · Arts / Romance / Waterfront</div>
+              <h3>The Long Light</h3>
+              <p>
+                The best fit: foodie morning, jazz, quiet gardens, home reset, then Bard on the Beach
+                as the sunset finale. Elegant, intimate, distinctly Vancouver.
+              </p>
+              <div class="route-meta">
+                <span class="pill">★ Winner</span>
+                <span class="pill">Ticketed Bard</span>
+                <span class="pill">No fireworks</span>
+              </div>
+            </div>
+            <div class="route-body">
+              <div class="timeline">
+                <div class="time-block">
+                  <div class="time">8:00–12:30</div>
+                  <div>
+                    <h4>Granville Island breakfast, water ballet, cake, and jazz</h4>
+                    <p>
+                      Arrive around 8:00–8:15 by Aquabus, walk, taxi, or bike. Catch the False Creek
+                      water ballet at 8:30, wander the Public Market after its early opening, then stay
+                      for the giant cake-cutting at noon and free / pay-what-you-can TD Vancouver
+                      International Jazz Festival sets.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro">Compact</span>
+                      <span class="micro">Foodie</span>
+                      <span class="micro">Waterfront</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">1:00–3:45</div>
+                  <div>
+                    <h4>VanDusen + Bloedel / Queen Elizabeth Park garden reset</h4>
+                    <p>
+                      Taxi or bus from Granville Island to VanDusen in roughly 20–30 minutes, then
+                      continue to Bloedel Conservatory and Queen Elizabeth Park for a calm city-view
+                      summit. This is the crowd antidote.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro ticket">Ticketed garden/conservatory</span>
+                      <span class="micro">Quiet romance</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">4:00–5:30</div>
+                  <div>
+                    <h4>Home reset, Cupcake care, change for the evening</h4>
+                    <p>
+                      Keep this deliberately protected. Eat a snack, charge phones, walk/feed Cupcake
+                      if needed, and switch from festival clothes into soft evening layers.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro hot">Do not skip</span>
+                      <span class="micro">Fatigue saver</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">6:00–10:00</div>
+                  <div>
+                    <h4>Vanier Park picnic walk → Bard on the Beach sunset</h4>
+                    <p>
+                      Head to Kits/Vanier Park around 6:00. Do a light seawall walk, bring a picnic
+                      or reserve nearby dinner, then settle into Bard on the Beach, typically around
+                      7:30. The open-backed tent frames mountains and English Bay as the evening turns gold.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro ticket">Book Bard now</span>
+                      <span class="micro">Sunset finale</span>
+                      <span class="micro hot">Top pick</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card reveal delay-1">
+            <div class="route-side" style="--route-bg:linear-gradient(135deg,#1e5c7a,#b74b5d)">
+              <div class="route-number">Route 02 · Romantic Fireworks / Seaside</div>
+              <h3>Saltwater Spark</h3>
+              <p>
+                The fireworks lover’s route: festival morning, real downtime, then White Rock for
+                the most romantic water-and-pier finale.
+              </p>
+              <div class="route-meta">
+                <span class="pill">Fireworks</span>
+                <span class="pill">Car strongly preferred</span>
+                <span class="pill">Romantic but harder</span>
+              </div>
+            </div>
+            <div class="route-body">
+              <div class="timeline">
+                <div class="time-block">
+                  <div class="time">8:15–12:30</div>
+                  <div>
+                    <h4>Granville Island: market, water ballet, cake, jazz</h4>
+                    <p>
+                      Use Granville Island as the joyful, walkable anchor: Public Market breakfast,
+                      8:30 water ballet, noon cake-cutting, lobster boil energy, and jazz sets.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">12:45–3:30</div>
+                  <div>
+                    <h4>False Creek stroll or home reset</h4>
+                    <p>
+                      Keep the afternoon intentionally light. Either walk the seawall toward Olympic
+                      Village or go home for Cupcake, a nap, and a full reset before the suburban push.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">4:00–8:45</div>
+                  <div>
+                    <h4>Drive or pre-book to White Rock beach and pier</h4>
+                    <p>
+                      Leave early. Treat the travel as part of the date, not an afterthought. Arrive
+                      with time for dinner reservations, fish-and-chips, beach wandering, and a slow
+                      golden-hour walk along the pier.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro hot">Transit is a slog</span>
+                      <span class="micro">Reserve dinner</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">10:15 PM</div>
+                  <div>
+                    <h4>White Rock fireworks over the water</h4>
+                    <p>
+                      This is the most romantic fireworks finale: bursts over the water, beach atmosphere,
+                      and a proper holiday climax. The tradeoff is the late-night return.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro hot">Solve return trip first</span>
+                      <span class="micro">Best fireworks romance</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card reveal delay-2">
+            <div class="route-side" style="--route-bg:linear-gradient(135deg,#d53131,#f1b84b)">
+              <div class="route-number">Route 03 · Patriotic Spectacle / Live Music</div>
+              <h3>Civic Pulse</h3>
+              <p>
+                Maximum Canada Day energy: the biggest July 1 celebration outside Ottawa, then the
+                most practical fireworks by SkyTrain.
+              </p>
+              <div class="route-meta">
+                <span class="pill">Big crowds</span>
+                <span class="pill">Easy fireworks</span>
+                <span class="pill">The Strumbellas</span>
+              </div>
+            </div>
+            <div class="route-body">
+              <div class="timeline">
+                <div class="time-block">
+                  <div class="time">10:30–2:30</div>
+                  <div>
+                    <h4>Canada Together at Canada Place</h4>
+                    <p>
+                      Start downtown and lean into the spectacle: the 40th anniversary Canada Together
+                      event runs 11:00–6:00 with multiple live-music stages, an Indigenous marketplace,
+                      citizenship ceremony, food trucks, and The Strumbellas as headliner.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">2:30–4:00</div>
+                  <div>
+                    <h4>Junction Public Market waterfront patio</h4>
+                    <p>
+                      Walk to Granville Square for Junction Public Market, local artisans, and a licensed
+                      waterfront patio running 11:00–7:00. It keeps the energy high without adding a big transfer.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">4:00–6:30</div>
+                  <div>
+                    <h4>Early dinner and crowd buffer</h4>
+                    <p>
+                      Eat early downtown or pack food before moving. FIFA World Cup watch parties and
+                      holiday crowds will thicken the core, so do not wait until everyone is hungry.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">7:00–10:15</div>
+                  <div>
+                    <h4>SkyTrain to Burnaby Central Park StreetFest fireworks</h4>
+                    <p>
+                      Take SkyTrain toward Burnaby for the most central, transit-friendly fireworks option.
+                      Expect crowds, but this is the pragmatic fireworks finale from Vancouver.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro">Most central fireworks</span>
+                      <span class="micro hot">Expect transit crush</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card reveal delay-2">
+            <div class="route-side" style="--route-bg:linear-gradient(135deg,#556f5b,#1e5c7a)">
+              <div class="route-number">Route 04 · Outdoors / Active / North Shore</div>
+              <h3>Peak & Pier</h3>
+              <p>
+                Built for movement and views: North Shore forest or mountain air, waterfront music,
+                Navy ships, and a softer beach sunset back in Vancouver.
+              </p>
+              <div class="route-meta">
+                <span class="pill">Active</span>
+                <span class="pill">Ticketed option</span>
+                <span class="pill">No fireworks</span>
+              </div>
+            </div>
+            <div class="route-body">
+              <div class="timeline">
+                <div class="time-block">
+                  <div class="time">9:00–1:00</div>
+                  <div>
+                    <h4>Choose one: Grouse Mountain or Capilano Suspension Bridge</h4>
+                    <p>
+                      Grouse runs 9:00–9:00 with Skyride tickets, Lumberjack Show, birds-of-prey demo,
+                      live music, and panoramic city-ocean views. Capilano offers treetop walkways and
+                      cliffwalk; a free Canada Day shuttle runs from downtown, and a BC-resident ticket
+                      converts to a year pass.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro ticket">Ticketed</span>
+                      <span class="micro">Do not do both</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">1:30–5:00</div>
+                  <div>
+                    <h4>North Van Shipyards and Lonsdale waterfront</h4>
+                    <p>
+                      Bus or shuttle down to the Shipyards for live music, splash park, beer garden,
+                      and Canadian Navy ships docked at the pier. This is the best mid-day North Shore
+                      festival cluster.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">5:00–6:00</div>
+                  <div>
+                    <h4>SeaBus back downtown</h4>
+                    <p>
+                      The SeaBus gives you a built-in scenic transfer across the harbour. Keep dinner
+                      flexible: casual Lonsdale food or downtown takeout depending on energy.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">7:30–9:30</div>
+                  <div>
+                    <h4>Stanley Park Seawall or English Bay sunset</h4>
+                    <p>
+                      Finish with a slow seawall ride or beach blanket sunset. This is not a fireworks
+                      route; it wins through movement, views, and lower evening friction.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro">Sunset finale</span>
+                      <span class="micro">Lower-key finish</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="route-card reveal delay-3">
+            <div class="route-side" style="--route-bg:linear-gradient(135deg,#e7a6a0,#d17839)">
+              <div class="route-number">Route 05 · Foodie / Refined / Water</div>
+              <h3>Salt & Sizzle</h3>
+              <p>
+                The polished culinary route: markets, artisans, patio energy, then a ticketed dinner
+                cruise through Coal Harbour and the North Shore mountain light.
+              </p>
+              <div class="route-meta">
+                <span class="pill">Food-first</span>
+                <span class="pill">Ticketed cruise</span>
+                <span class="pill">Live music</span>
+              </div>
+            </div>
+            <div class="route-body">
+              <div class="timeline">
+                <div class="time-block">
+                  <div class="time">7:45–12:45</div>
+                  <div>
+                    <h4>Granville Island market crawl</h4>
+                    <p>
+                      Start early at the Public Market, catch the 8:30 water ballet, graze instead of
+                      committing to one big brunch, then fold in noon cake-cutting, lobster boil energy,
+                      and TD Vancouver International Jazz Festival sets.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">1:15–3:45</div>
+                  <div>
+                    <h4>Junction Public Market at Granville Square</h4>
+                    <p>
+                      Move downtown for local artisans and a licensed waterfront patio, open 11:00–7:00.
+                      This keeps the day food-and-maker focused without sending you too far.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">4:00–5:30</div>
+                  <div>
+                    <h4>Coal Harbour pre-cruise walk</h4>
+                    <p>
+                      Shift to Coal Harbour early. Walk the marina, find a calm bench, and avoid arriving
+                      rushed. This is the day’s romantic transition.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="time-block">
+                  <div class="time">Evening</div>
+                  <div>
+                    <h4>Harbour Cruises sunset dinner cruise</h4>
+                    <p>
+                      Book the ticketed sunset dinner cruise from Coal Harbour: buffet, live music, Canada
+                      Place views, and North Shore mountains from the water. A refined alternative to fireworks.
+                    </p>
+                    <div class="note-row">
+                      <span class="micro ticket">Advance booking</span>
+                      <span class="micro">Water finale</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fireworks" class="section">
+      <div class="shell">
+        <div class="map-section reveal">
+          <div class="map-content">
+            <div>
+              <span class="eyebrow" style="color:#f9c85e">Fireworks reality check</span>
+              <h2>No Vancouver fireworks this year.</h2>
+              <p>
+                The City of Vancouver has no fireworks finale for July 1, 2026. Every fireworks ending
+                requires a suburban move at about 10:15 PM. That is why The Long Light wins unless
+                fireworks are emotionally non-negotiable.
+              </p>
+            </div>
+
+            <div class="fireworks-grid">
+              <div class="firework">
+                <span>Most central</span>
+                <div>
+                  <strong>Burnaby Central Park</strong>
+                  <p>StreetFest plus fireworks. The easiest by SkyTrain and the most practical from Vancouver.</p>
+                </div>
+              </div>
+
+              <div class="firework">
+                <span>Most romantic</span>
+                <div>
+                  <strong>White Rock beach and pier</strong>
+                  <p>Fireworks over the water near sunset energy. Beautiful, but late-night return logistics are hard.</p>
+                </div>
+              </div>
+
+              <div class="firework">
+                <span>Big concert</span>
+                <div>
+                  <strong>Surrey</strong>
+                  <p>Fireworks paired with a Josh Ross concert. Strong festival payoff, farther from central Vancouver.</p>
+                </div>
+              </div>
+
+              <div class="firework">
+                <span>Classic rock</span>
+                <div>
+                  <strong>Coquitlam / Port Coquitlam</strong>
+                  <p>April Wine at Castle Park plus suburban fireworks energy. Best only if that music draw matters.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="caveats" class="section">
+      <div class="shell">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Caveats to respect</span>
+            <h2 class="section-title">The unsexy details that make the day good.</h2>
+          </div>
+          <p class="section-note">
+            July 1 is a Wednesday, FIFA World Cup energy is everywhere, and some suburban parades are
+            stationary this year. Romance survives because logistics are handled.
+          </p>
+        </div>
+
+        <div class="caveat-grid reveal delay-1">
+          <article class="caveat">
+            <div class="icon">01</div>
+            <h3>Book Bard now</h3>
+            <p>July 1 evening performances sell out quickly. Do not delay tickets for Macbeth or Antigone.</p>
+          </article>
+
+          <article class="caveat">
+            <div class="icon">02</div>
+            <h3>White Rock is hard</h3>
+            <p>The finale is gorgeous, but only choose it if a car or pre-booked private transport is solved first.</p>
+          </article>
+
+          <article class="caveat">
+            <div class="icon">03</div>
+            <h3>Pace the day</h3>
+            <p>Holiday crowds add fatigue. Protect the mid-day reset, especially for Cupcake care.</p>
+          </article>
+
+          <article class="caveat">
+            <div class="icon">04</div>
+            <h3>Bring layers</h3>
+            <p>Early July can turn cool and cloudy near the water. Pack a light rain shell.</p>
+          </article>
+
+          <article class="caveat">
+            <div class="icon">05</div>
+            <h3>Reserve dinner</h3>
+            <p>For sit-down meals, reserve early. Otherwise commit to picnic, market, or takeout strategy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan" class="section">
+      <div class="shell">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Action plan</span>
+            <h2 class="section-title">What to do next.</h2>
+          </div>
+          <p class="section-note">
+            The decision hinge is simple: does Jung need fireworks to feel like Canada Day?
+            If not, the Bard route is the clear move.
+          </p>
+        </div>
+
+        <div class="action-board reveal delay-1">
+          <aside class="falsification">
+            <span>What would change the answer?</span>
+            <h3>The falsifier</h3>
+            <p>
+              A confirmed evening FIFA World Cup knockout match at BC Place on July 1, 2026, which would flood
+              downtown and Vanier Park with unmanageable crowds and transit disruptions, compromising
+              The Long Light itinerary.
+            </p>
+          </aside>
+
+          <div class="steps">
+            <div class="step">
+              <div>
+                <b>Ask Jung the fireworks question</b>
+                <p>Confirm whether a fireworks finale is non-negotiable. If not, choose The Long Light.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>Book Bard on the Beach immediately</b>
+                <p>Secure July 1 evening tickets, typically around 7:30 PM, for Macbeth or Antigone.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>Plan the Granville Island arrival</b>
+                <p>Choose Aquabus ferry, walk, bike, or taxi for an 8:15 AM arrival before the 8:30 water ballet.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>Protect the home reset</b>
+                <p>Block mid-afternoon for Cupcake, snacks, charging phones, and changing for the evening.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>Pack for long-light Vancouver</b>
+                <p>Comfortable shoes, versatile layers, light rain shell, and portable phone charger.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>If choosing White Rock, solve transport first</b>
+                <p>Secure a car or pre-booked ride plan before committing. Then reserve dinner or build a serious picnic plan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer-card">
+        <strong>Provenance</strong>
+        <p>
+          This page synthesizes a three-advisor debate from ChatGPT, Claude.ai, and Gemini. The advisors
+          converged on Granville Island as the strongest morning anchor and identified Bard on the Beach
+          and White Rock as the leading romantic finales. The final recommendation prioritizes Eric and
+          Jung’s stated loves: food, arts, live music, movement, outdoors, and scenic waterfront moments.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
