@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King Comforter for a Hot Sleeper — Vancouver, No AC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#151318;
+    --paper:#f4efe7;
+    --paper2:#ede6da;
+    --cool:#3f7cae;
+    --cool-deep:#21496e;
+    --cool-mist:#cfe0ec;
+    --warm:#d8763b;
+    --warm-deep:#a9481f;
+    --warm-mist:#f2ddc7;
+    --line:rgba(21,19,24,.14);
+    --sans:'Inter',system-ui,sans-serif;
+    --serif:'Fraunces',Georgia,serif;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--warm);color:#fff}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* ---------- thermal band ---------- */
+  .thermal{
+    height:6px;width:100%;
+    background:linear-gradient(90deg,var(--cool-deep),var(--cool) 22%,var(--cool-mist) 40%,var(--warm-mist) 58%,var(--warm) 78%,var(--warm-deep));
+    background-size:200% 100%;
+    animation:slide 14s ease-in-out infinite alternate;
+  }
+  @keyframes slide{from{background-position:0% 0}to{background-position:100% 0}}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,239,231,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+  .brand{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:26px;height:26px;border-radius:50%;background:conic-gradient(from 220deg,var(--cool),var(--warm),var(--cool-deep),var(--cool));box-shadow:inset 0 0 6px rgba(0,0,0,.25)}
+  .navlinks{display:flex;gap:26px;font-size:13px;font-weight:500;letter-spacing:.02em}
+  .navlinks a{color:var(--ink);text-decoration:none;opacity:.62;transition:opacity .25s}
+  .navlinks a:hover{opacity:1}
+  @media(max-width:720px){.navlinks{display:none}}
+
+  /* ---------- hero ---------- */
+  header{position:relative;padding:78px 0 64px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5}
+  .blob.b1{width:520px;height:520px;background:var(--cool);top:-160px;left:-120px}
+  .blob.b2{width:460px;height:460px;background:var(--warm);bottom:-200px;right:-100px;opacity:.42}
+  header .wrap{position:relative;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cool-deep);margin-bottom:26px}
+  .eyebrow .pip{width:7px;height:7px;border-radius:50%;background:var(--warm);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.9rem,7.4vw,6rem);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+  h1 em{font-style:italic;color:var(--warm-deep)}
+  .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.7rem);color:#4a4550;margin-top:26px;max-width:34ch;font-weight:300}
+  .meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px 30px;font-size:12.5px;font-family:var(--mono);letter-spacing:.03em;color:#65606b}
+  .meta b{color:var(--ink);font-weight:500}
+
+  /* ---------- verdict ---------- */
+  .verdict{margin-top:56px;position:relative}
+  .vcard{
+    background:linear-gradient(150deg,var(--cool-deep),#132a3f 55%,var(--warm-deep));
+    color:var(--paper);
+    border-radius:26px;
+    padding:clamp(30px,5vw,54px);
+    position:relative;overflow:hidden;
+    box-shadow:0 30px 70px -30px rgba(20,20,40,.6);
+  }
+  .vcard::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 20%,rgba(216,118,59,.4),transparent 45%);pointer-events:none}
+  .vtag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.75;display:flex;align-items:center;gap:10px}
+  .vtag::before{content:"";width:26px;height:1px;background:currentColor;opacity:.6}
+  .vwin{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5vw,3.3rem);line-height:1.02;margin:18px 0 20px;letter-spacing:-.02em;position:relative;z-index:1}
+  .vline{font-size:clamp(1rem,1.7vw,1.18rem);max-width:60ch;opacity:.92;position:relative;z-index:1}
+  .vconf{margin-top:26px;display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-family:var(--mono);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:9px 16px;border-radius:100px;position:relative;z-index:1}
+  .vconf .g{display:flex;gap:4px}
+  .vconf .g i{width:6px;height:14px;border-radius:2px;background:#7fd18a}
+
+  /* ---------- section shell ---------- */
+  section{padding:82px 0}
+  .shead{display:flex;align-items:baseline;gap:16px;margin-bottom:44px;flex-wrap:wrap}
+  .snum{font-family:var(--mono);font-size:13px;color:var(--warm-deep);letter-spacing:.1em}
+  .stitle{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.02em;line-height:1}
+  .sdesc{font-size:15px;color:#5c5762;max-width:52ch;margin-left:auto}
+  @media(max-width:720px){.sdesc{margin-left:0}}
+
+  /* ---------- reasons ---------- */
+  .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.reasons{grid-template-columns:1fr}}
+  .rcard{background:var(--paper2);border:1px solid var(--line);border-radius:20px;padding:32px 28px;position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+  .rcard:hover{transform:translateY(-6px);box-shadow:0 24px 44px -26px rgba(20,20,40,.4)}
+  .rnum{font-family:var(--mono);font-size:12px;color:var(--cool-deep);letter-spacing:.14em}
+  .rcard h3{font-family:var(--serif);font-weight:500;font-size:1.42rem;margin:14px 0 12px;line-height:1.1;letter-spacing:-.01em}
+  .rcard p{font-size:14.5px;color:#57525d}
+  .rcard .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:6px}
+  .rcard:nth-child(1) .ic{background:var(--warm-mist)}
+  .rcard:nth-child(2) .ic{background:var(--cool-mist)}
+  .rcard:nth-child(3) .ic{background:linear-gradient(135deg,var(--cool-mist),var(--warm-mist))}
+
+  /* ---------- contenders / ranking ---------- */
+  .ranks{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  .rank{display:grid;grid-template-columns:74px 1fr 200px;gap:24px;align-items:center;padding:30px 6px;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+  .rank:hover{background:var(--paper2);padding-left:16px}
+  .rk{font-family:var(--serif);font-size:2.6rem;font-weight:300;color:var(--ink);opacity:.28;line-height:1}
+  .rank.top .rk{opacity:1;color:var(--warm-deep)}
+  .rname{font-family:var(--serif);font-weight:500;font-size:1.32rem;letter-spacing:-.01em;margin-bottom:7px}
+  .rblurb{font-size:14px;color:#5c5762;max-width:60ch}
+  .rtag{justify-self:end;text-align:right;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;border-radius:8px;border:1px solid var(--line);line-height:1.35;font-weight:500}
+  .tag-do{background:var(--warm-deep);color:#fff;border-color:var(--warm-deep)}
+  .tag-must{background:var(--cool-deep);color:#fff;border-color:var(--cool-deep)}
+  .tag-budget{background:var(--cool-mist);color:var(--cool-deep)}
+  .tag-avoid{background:transparent;color:#9a4a35;border-color:#c98a72;border-style:dashed}
+  @media(max-width:780px){
+    .rank{grid-template-columns:52px 1fr;gap:14px}
+    .rtag{grid-column:1/-1;justify-self:start;text-align:left;margin-top:4px}
+    .rk{font-size:2rem}
+  }
+
+  /* ---------- compare matrix ---------- */
+  .matrix{background:var(--paper2);border:1px solid var(--line);border-radius:22px;padding:14px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;min-width:640px}
+  th,td{text-align:left;padding:16px 18px;font-size:14px;border-bottom:1px solid var(--line)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6a6570;font-weight:500}
+  tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600}
+  .dots{display:inline-flex;gap:4px}
+  .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+  .dots i.on{background:var(--cool)}
+  .dots i.warm{background:var(--warm)}
+
+  /* ---------- action plan ---------- */
+  .actions{position:relative;padding-left:28px}
+  .actions::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cool),var(--warm))}
+  .step{position:relative;padding:16px 0 16px 30px}
+  .step::before{content:"";position:absolute;left:-27px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--warm-deep)}
+  .step .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--warm-deep)}
+  .step p{font-size:15.5px;margin-top:4px;color:#3d3843;max-width:70ch}
+
+  /* ---------- caveats ---------- */
+  .caveats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:720px){.caveats{grid-template-columns:1fr}}
+  .cav{background:var(--paper);border:1px dashed #c8a98d;border-radius:16px;padding:24px;font-size:14.5px;color:#544e58;position:relative;padding-left:52px}
+  .cav::before{content:"!";position:absolute;left:20px;top:22px;width:22px;height:22px;border-radius:50%;background:var(--warm);color:#fff;font-weight:700;font-size:13px;display:grid;place-items:center;font-family:var(--sans)}
+
+  /* ---------- falsification ---------- */
+  .falsify{background:var(--ink);color:var(--paper);border-radius:24px;padding:clamp(32px,5vw,52px);position:relative;overflow:hidden}
+  .falsify::before{content:"";position:absolute;top:-40%;right:-10%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(63,124,174,.5),transparent 70%)}
+  .falsify .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--warm);position:relative}
+  .falsify h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3vw,2.1rem);margin:14px 0 18px;position:relative;letter-spacing:-.01em}
+  .falsify p{font-size:15.5px;opacity:.82;max-width:70ch;position:relative}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:52px 0 70px}
+  .adv{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 28px}
+  .chip{font-family:var(--mono);font-size:12px;padding:8px 15px;border:1px solid var(--line);border-radius:100px;background:var(--paper2);letter-spacing:.02em}
+  .prov{font-size:13.5px;color:#6a6570;max-width:80ch;line-height:1.7}
+  .fbrand{font-family:var(--serif);font-size:15px;color:#8b8690;margin-top:30px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="thermal"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Thermal Brief</div>
+    <div class="navlinks">
+      <a href="#verdict">Verdict</a>
+      <a href="#why">Why</a>
+      <a href="#ranking">Ranking</a>
+      <a href="#compare">Compare</a>
+      <a href="#plan">Plan</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="hero-bg"><div class="blob b1"></div><div class="blob b2"></div></div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="pip"></span>Decision Brief · 2026-07-01</div>
+    <h1>King comforter for a <em>hot sleeper</em> in a no-AC Vancouver bedroom.</h1>
+    <p class="sub">Year-round smart comfort — cool in humid summers, warm in winter, and hot-dryable for allergies.</p>
+    <div class="meta">
+      <span><b>Bed</b> King · two adults</span>
+      <span><b>Priority</b> Temperature regulation</span>
+      <span><b>Hard rule</b> Machine wash + hot dry</span>
+      <span><b>Budget</b> Open · premium welcome</span>
+    </div>
+
+    <div class="verdict rv" id="verdict">
+      <div class="vcard">
+        <div class="vtag">The Verdict · 2-round advisor debate</div>
+        <div class="vwin">Modular Outlast Insert&nbsp;+ Hot-Dryable Covers</div>
+        <p class="vline">Prioritize a lightweight Outlast insert for smart cooling and heat-buffering, combined with aggressively hot-washable, hot-dryable cotton percale covers — adding a winter insert only if truly needed, as Claude rightly emphasized.</p>
+        <div class="vconf">Confidence: HIGH
+          <span class="g"><i></i><i></i><i></i><i></i><i style="opacity:.35"></i></span>
+          advisors converged after refining their positions
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="snum">01</span>
+      <span class="stitle">Why this wins</span>
+      <span class="sdesc">Three reasons the modular split beats a single all-season comforter for your exact constraints.</span>
+    </div>
+    <div class="reasons">
+      <div class="rcard rv">
+        <div class="ic" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a9481f" stroke-width="1.8"><path d="M3 6h18M6 6v12a2 2 0 002 2h8a2 2 0 002-2V6"/><path d="M9 11l2 2 4-4"/></svg>
+        </div>
+        <div class="rnum">R.01</div>
+        <h3>Allergy-safe hot laundering</h3>
+        <p>The "wash and dry on hot" rule is met by durable cotton percale covers that shrug off frequent hot cycles. Premium inserts (Outlast, silk, wool) want low-heat drying — so the cover does the laundering work.</p>
+      </div>
+      <div class="rcard rv">
+        <div class="ic" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#21496e" stroke-width="1.8"><path d="M12 3v10"/><circle cx="12" cy="17" r="4"/><path d="M12 13a4 4 0 010 8"/></svg>
+        </div>
+        <div class="rnum">R.02</div>
+        <h3>True temperature regulation</h3>
+        <p>Outlast phase-change materials — found in Slumber Cloud comforters — actively absorb, store, and release heat to prevent overheating. That's real regulation, not a passive "cool-to-touch" shell.</p>
+      </div>
+      <div class="rcard rv">
+        <div class="ic" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a9481f" stroke-width="1.8"><rect x="3" y="5" width="8" height="14" rx="1"/><rect x="13" y="5" width="8" height="14" rx="1"/></svg>
+        </div>
+        <div class="rnum">R.03</div>
+        <h3>Seasonal & two-sleeper range</h3>
+        <p>No single comforter spans humid AC-less summers and cool winters. A light Outlast insert plus an optional winter one covers the range — and the Scandinavian split (two Twin XLs) lets each sleeper run their own temperature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ranking" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="snum">02</span>
+      <span class="stitle">The ranking</span>
+      <span class="sdesc">Five specific paths, ordered from do-first to avoid.</span>
+    </div>
+    <div class="ranks">
+      <div class="rank top rv">
+        <div class="rk">1</div>
+        <div><div class="rname">Outlast Insert + Hot-Dryable Covers</div><div class="rblurb">Your best option: a Slumber Cloud Lightweight Comforter (Outlast fill, ~US$249–329) as the smart core, paired with two to three hot-washable 100% cotton percale duvet covers. Add a warmer down-alternative insert only if Vancouver winters prove genuinely cold.</div></div>
+        <div class="rtag tag-do">Do first</div>
+      </div>
+      <div class="rank rv">
+        <div class="rk">2</div>
+        <div><div class="rname">Scandinavian Split Duvets</div><div class="rblurb">Ultimate individual control and home washability: two Twin XL inserts (a Slumber Cloud Lightweight + a warmer down-alternative) under one King cover. Also solves fitting a King comforter into most home washers and dryers.</div></div>
+        <div class="rtag tag-must">Non-negotiable for washer limits</div>
+      </div>
+      <div class="rank rv">
+        <div class="rk">3</div>
+        <div><div class="rname">IKEA Modular System</div><div class="rblurb">ChatGPT's BLÅNEPETA Cool + SKOGSFRÄKEN Warm duvets (~C$40–100 each) meet the hot-wash / medium-dry rule for inserts. No Outlast active regulation, but a very budget-friendly, allergy-compliant swappable system.</div></div>
+        <div class="rtag tag-budget">Budget-friendly compliant</div>
+      </div>
+      <div class="rank rv">
+        <div class="rk">4</div>
+        <div><div class="rname">Single Slumber Cloud</div><div class="rblurb">If swappable inserts are a dealbreaker, one Slumber Cloud Lightweight Comforter is the best "smart" single option — but you must accept tumble-dry low, which compromises the hard hot-dry allergy requirement.</div></div>
+        <div class="rtag tag-avoid">Avoid if hot-dry is hard</div>
+      </div>
+      <div class="rank rv">
+        <div class="rk">5</div>
+        <div><div class="rname">SmartSilk / Wool / Down</div><div class="rblurb">Not suited to your needs. Silk (the returned Costco SmartSilk "Silkfield" included) fails on hot-drying and durability under frequent washing; natural fills are ill-suited to rigorous, frequent, hot laundering for allergen control. Don't re-buy SmartSilk.</div></div>
+        <div class="rtag tag-avoid">Avoid</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="snum">03</span>
+      <span class="stitle">How they compare</span>
+      <span class="sdesc">Scored across the dimensions that matter for two hot sleepers in a humid, no-AC room.</span>
+    </div>
+    <div class="matrix rv">
+      <table>
+        <thead>
+          <tr><th>Approach</th><th>Cooling</th><th>Winter warmth</th><th>Fill</th><th>Wash / hot-dry</th><th>Two-sleeper fit</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Outlast + covers</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="dots"><i class="warm"></i><i class="warm"></i><i class="warm"></i><i></i><i></i></span></td>
+            <td>PCM (Outlast)</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+          </tr>
+          <tr>
+            <td>Split duvets</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="dots"><i class="warm"></i><i class="warm"></i><i class="warm"></i><i class="warm"></i><i></i></span></td>
+            <td>Mixed inserts</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+          </tr>
+          <tr>
+            <td>IKEA modular</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+            <td><span class="dots"><i class="warm"></i><i class="warm"></i><i class="warm"></i><i></i><i></i></span></td>
+            <td>Down-alt</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+          </tr>
+          <tr>
+            <td>Single smart</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="dots"><i class="warm"></i><i class="warm"></i><i></i><i></i><i></i></span></td>
+            <td>PCM (Outlast)</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+          </tr>
+          <tr>
+            <td>SmartSilk / wool / down</td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td><span class="dots"><i class="warm"></i><i class="warm"></i><i class="warm"></i><i></i><i></i></span></td>
+            <td>Silk / wool / down</td>
+            <td><span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span></td>
+            <td><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="plan" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="snum">04</span>
+      <span class="stitle">Your action plan</span>
+      <span class="sdesc">Six moves, in order — from measurement to purchase to the humidity hedge.</span>
+    </div>
+    <div class="actions">
+      <div class="step rv"><span class="n">STEP 01</span><p>Confirm your King comforter fits your home washer/dryer. If not, plan for two Twin XL inserts.</p></div>
+      <div class="step rv"><span class="n">STEP 02</span><p>Place a thermometer in your bedroom to monitor overnight lows through winter, so you learn your true warmth needs.</p></div>
+      <div class="step rv"><span class="n">STEP 03</span><p>Buy 2–3 King-size, 100% long-staple cotton percale duvet covers (Brooklinen, Parachute, or The Company Store). These are your hot-washable allergy defense.</p></div>
+      <div class="step rv"><span class="n">STEP 04</span><p>Order the Slumber Cloud Lightweight Comforter (King) from slumbercloud.com — confirm Canadian shipping/duties and use its 30-night trial.</p></div>
+      <div class="step rv"><span class="n">STEP 05</span><p>Consider a quality bedroom dehumidifier for summer humidity, independent of the bedding itself.</p></div>
+      <div class="step rv"><span class="n">STEP 06</span><p>Hold off on a dedicated winter insert until you've felt colder nights — the lightweight Outlast may surprise you under a flannel or warmer percale cover.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="watch">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="snum">05</span>
+      <span class="stitle">Watch-outs</span>
+      <span class="sdesc">The caveats that could change your setup — mostly about bulk, humidity, and cross-border logistics.</span>
+    </div>
+    <div class="caveats">
+      <div class="cav rv">King inserts are bulky — verify washer/dryer capacity. If it won't fit, switch to the Scandinavian split (two Twin XL inserts) for thorough drying and mold prevention, as Claude emphasized.</div>
+      <div class="cav rv">Vancouver humidity is a real factor. A bedroom dehumidifier or small portable AC helps — bedding alone can't fully offset mold risk or overheating in a humid, AC-less room.</div>
+      <div class="cav rv">Confirm Canadian shipping and any duties/fees for US direct-to-consumer brands like Slumber Cloud before ordering.</div>
+      <div class="cav rv">Measure your bedroom's lowest overnight winter temperature. That data tells you whether you genuinely need a warmer winter insert at all.</div>
+    </div>
+
+    <div class="falsify rv" style="margin-top:44px">
+      <span class="lbl">What would change this verdict</span>
+      <h3>If a truly hot-dryable smart fill arrives.</h3>
+      <p>If a new premium temperature-regulating fill (not just a shell fabric) delivers active heat management on par with or better than Outlast, and the maker explicitly certifies it as fully machine-washable and machine-dryable on high heat without degradation — then a single, genuine "smart comforter" could become the top recommendation.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="shead rv" style="margin-bottom:8px">
+      <span class="snum">06</span>
+      <span class="stitle">Provenance</span>
+    </div>
+    <div class="adv rv">
+      <span class="chip">ChatGPT · browser engine</span>
+      <span class="chip">Claude.ai · browser engine</span>
+      <span class="chip">Gemini · free API</span>
+      <span class="chip">2 rounds</span>
+    </div>
+    <p class="prov rv">This decision brief synthesizes a three-advisor debate. The advisors converged strongly on the critical challenge posed by the hot-dry requirement for premium inserts and the efficacy of Outlast technology, leading to a refined modular solution with the duvet cover as the hot-laundering workhorse.</p>
+    <p class="fbrand rv">Thermal Brief · King Comforter for a Hot Sleeper, Vancouver No AC</p>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3)*70+'ms';io.observe(el)});
+</script>
+</body>
+</html>

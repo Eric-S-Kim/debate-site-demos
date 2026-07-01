@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>King Comforter for Hot Sleeper, Vancouver No AC</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,60,1&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#07151f;
+      --muted:#5a6c76;
+      --mist:#e9f5f4;
+      --foam:#f7fbf8;
+      --ice:#dff6ff;
+      --blue:#6fc7df;
+      --deep:#0a5664;
+      --teal:#1aa6a8;
+      --mint:#8ee0c7;
+      --warm:#f7c873;
+      --linen:#fff9ef;
+      --coral:#ff7f66;
+      --shadow: 0 30px 90px rgba(6, 33, 46, .18);
+      --radius: 28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(142,224,199,.45), transparent 28%),
+        radial-gradient(circle at 85% 2%, rgba(111,199,223,.38), transparent 32%),
+        linear-gradient(180deg, #f6fbfb 0%, #fff9ef 46%, #eef8f8 100%);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.33;
+      background-image:
+        linear-gradient(rgba(7,21,31,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7,21,31,.045) 1px, transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(180deg, black, transparent 88%);
+      z-index:0;
+    }
+
+    .page{position:relative; z-index:1}
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(18px);
+      background:rgba(247,251,248,.72);
+      border-bottom:1px solid rgba(7,21,31,.08);
+    }
+
+    .nav-inner{
+      width:min(1180px, calc(100% - 36px));
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 35%, #fff 0 11%, transparent 12%),
+        conic-gradient(from 170deg, var(--mint), var(--blue), var(--warm), var(--mint));
+      box-shadow:0 10px 25px rgba(26,166,168,.24);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:18px;
+      font-size:13px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .nav-links a{
+      color:rgba(7,21,31,.65);
+      text-decoration:none;
+    }
+
+    .hero{
+      width:min(1180px, calc(100% - 36px));
+      margin:0 auto;
+      min-height:92vh;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:54px;
+      align-items:center;
+      padding:74px 0 46px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:18px;
+      padding:9px 13px;
+      border:1px solid rgba(10,86,100,.16);
+      border-radius:999px;
+      background:rgba(255,255,255,.55);
+      box-shadow:0 12px 40px rgba(10,86,100,.08);
+      color:var(--deep);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .pulse{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--teal);
+      box-shadow:0 0 0 8px rgba(26,166,168,.12);
+    }
+
+    h1{
+      margin:0;
+      max-width:980px;
+      font-family:Fraunces, serif;
+      font-size:clamp(54px, 9vw, 120px);
+      line-height:.86;
+      letter-spacing:-.075em;
+      font-weight:900;
+    }
+
+    .hero h1 span{
+      display:block;
+    }
+
+    .cool-word{
+      background:linear-gradient(110deg, var(--deep), var(--teal), #65cfe7);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      margin:26px 0 0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:clamp(18px, 2vw, 24px);
+      line-height:1.45;
+      letter-spacing:-.035em;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:0 20px;
+      border-radius:999px;
+      font-weight:900;
+      text-decoration:none;
+      letter-spacing:-.02em;
+      transition:.25s ease;
+    }
+
+    .button.primary{
+      color:white;
+      background:linear-gradient(135deg, var(--deep), var(--teal));
+      box-shadow:0 18px 45px rgba(10,86,100,.25);
+    }
+
+    .button.secondary{
+      color:var(--deep);
+      background:white;
+      border:1px solid rgba(10,86,100,.16);
+    }
+
+    .button:hover{transform:translateY(-3px)}
+
+    .hero-card{
+      position:relative;
+      min-height:620px;
+      border-radius:46px;
+      overflow:hidden;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.94), rgba(223,246,255,.82)),
+        radial-gradient(circle at 40% 20%, rgba(142,224,199,.55), transparent 45%);
+      border:1px solid rgba(255,255,255,.86);
+      box-shadow:var(--shadow);
+      isolation:isolate;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:24px;
+      border-radius:34px;
+      background:
+        repeating-linear-gradient(110deg, rgba(255,255,255,.9) 0 18px, rgba(255,255,255,.35) 18px 36px),
+        linear-gradient(135deg, rgba(255,255,255,.75), rgba(111,199,223,.2));
+      transform:rotate(-5deg) translateY(24px);
+      box-shadow:0 24px 70px rgba(10,86,100,.16);
+      z-index:-1;
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      left:50%;
+      top:47%;
+      transform:translate(-50%, -50%);
+      border-radius:50%;
+      background:conic-gradient(from 210deg, rgba(142,224,199,.72), rgba(111,199,223,.75), rgba(247,200,115,.65), rgba(142,224,199,.72));
+      filter:blur(6px);
+      opacity:.86;
+      animation:breathe 8s ease-in-out infinite;
+      z-index:-2;
+    }
+
+    @keyframes breathe{
+      0%,100%{transform:translate(-50%, -50%) scale(.92); opacity:.68}
+      50%{transform:translate(-50%, -50%) scale(1.08); opacity:.92}
+    }
+
+    .bed{
+      position:absolute;
+      left:50%;
+      top:51%;
+      width:78%;
+      aspect-ratio:1.18;
+      transform:translate(-50%, -50%) rotate(-5deg);
+      border-radius:46px 46px 64px 64px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(225,247,244,.96)),
+        repeating-linear-gradient(90deg, rgba(10,86,100,.05) 0 16px, transparent 16px 32px);
+      box-shadow:0 35px 90px rgba(8,56,69,.24);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.9);
+    }
+
+    .bed::before{
+      content:"";
+      position:absolute;
+      inset:28px 24px auto;
+      height:30%;
+      border-radius:30px;
+      background:
+        linear-gradient(90deg, rgba(255,249,239,.96) 0 48%, rgba(255,255,255,.92) 48% 52%, rgba(223,246,255,.96) 52% 100%);
+      box-shadow:inset 0 -12px 30px rgba(10,86,100,.06);
+    }
+
+    .bed::after{
+      content:"PCM";
+      position:absolute;
+      left:50%;
+      top:58%;
+      transform:translate(-50%, -50%);
+      font-family:Fraunces, serif;
+      font-size:clamp(82px, 8vw, 132px);
+      font-weight:900;
+      letter-spacing:-.08em;
+      color:rgba(10,86,100,.08);
+    }
+
+    .temp-strip{
+      position:absolute;
+      left:34px;
+      right:34px;
+      bottom:36px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:12px;
+      padding:14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.8);
+      backdrop-filter:blur(12px);
+      box-shadow:0 15px 40px rgba(10,86,100,.12);
+      font-weight:900;
+      color:var(--deep);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .line{
+      height:10px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--blue), var(--mint), var(--warm));
+      position:relative;
+      overflow:hidden;
+    }
+
+    .line::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      width:38%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent);
+      animation:slide 3.8s linear infinite;
+    }
+
+    @keyframes slide{
+      from{transform:translateX(-100%)}
+      to{transform:translateX(280%)}
+    }
+
+    .float-note{
+      position:absolute;
+      padding:14px 16px;
+      border-radius:20px;
+      background:rgba(255,255,255,.88);
+      box-shadow:0 18px 45px rgba(10,86,100,.14);
+      border:1px solid rgba(255,255,255,.85);
+      font-size:13px;
+      font-weight:900;
+      color:var(--deep);
+      letter-spacing:-.02em;
+    }
+
+    .float-note.one{top:46px; left:36px}
+    .float-note.two{top:118px; right:28px}
+    .float-note.three{bottom:116px; left:28px}
+
+    section{
+      width:min(1180px, calc(100% - 36px));
+      margin:0 auto;
+      padding:72px 0;
+    }
+
+    .section-header{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:38px;
+      align-items:end;
+      margin-bottom:34px;
+    }
+
+    .kicker{
+      margin:0 0 12px;
+      color:var(--teal);
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+
+    h2{
+      margin:0;
+      font-family:Fraunces, serif;
+      font-size:clamp(38px, 5vw, 76px);
+      line-height:.94;
+      letter-spacing:-.065em;
+      font-weight:900;
+    }
+
+    .section-copy{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.65;
+      letter-spacing:-.02em;
+    }
+
+    .verdict-panel{
+      position:relative;
+      overflow:hidden;
+      border-radius:44px;
+      padding:38px;
+      background:linear-gradient(135deg, #092c35, #0a5664 54%, #1aa6a8);
+      color:white;
+      box-shadow:var(--shadow);
+    }
+
+    .verdict-panel::before{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      right:-180px;
+      top:-230px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.35), transparent 65%);
+    }
+
+    .verdict-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr .62fr;
+      gap:32px;
+      align-items:end;
+    }
+
+    .verdict-label{
+      margin:0 0 14px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+    }
+
+    .verdict-title{
+      margin:0;
+      font-family:Fraunces, serif;
+      font-size:clamp(42px, 6vw, 86px);
+      line-height:.9;
+      letter-spacing:-.07em;
+      font-weight:900;
+    }
+
+    .verdict-line{
+      margin:24px 0 0;
+      color:rgba(255,255,255,.84);
+      font-size:20px;
+      line-height:1.55;
+      max-width:780px;
+      letter-spacing:-.03em;
+    }
+
+    .confidence{
+      padding:24px;
+      border-radius:28px;
+      background:rgba(255,255,255,.13);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,.2);
+    }
+
+    .confidence strong{
+      display:block;
+      font-size:52px;
+      line-height:1;
+      font-family:Fraunces, serif;
+      letter-spacing:-.06em;
+    }
+
+    .confidence span{
+      display:block;
+      margin-top:10px;
+      color:rgba(255,255,255,.76);
+      font-size:14px;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    .reasons{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .reason-card{
+      border-radius:28px;
+      padding:24px;
+      background:rgba(255,255,255,.74);
+      border:1px solid rgba(10,86,100,.1);
+      box-shadow:0 22px 60px rgba(10,86,100,.09);
+    }
+
+    .reason-num{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--mint), var(--blue));
+      color:var(--deep);
+      font-weight:950;
+      margin-bottom:18px;
+    }
+
+    .reason-card h3{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.045em;
+    }
+
+    .reason-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.58;
+      font-size:15px;
+    }
+
+    .solution-map{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .shape-card{
+      position:relative;
+      min-height:390px;
+      padding:30px;
+      border-radius:38px;
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(10,86,100,.12);
+      overflow:hidden;
+      box-shadow:0 24px 70px rgba(10,86,100,.1);
+    }
+
+    .shape-card.winner{
+      background:linear-gradient(145deg, rgba(255,255,255,.9), rgba(223,246,255,.75));
+      border:2px solid rgba(26,166,168,.35);
+    }
+
+    .shape-card::after{
+      content:"";
+      position:absolute;
+      width:240px;
+      height:240px;
+      right:-90px;
+      bottom:-90px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(142,224,199,.45), transparent 68%);
+    }
+
+    .shape-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      margin-bottom:22px;
+      position:relative;
+      z-index:1;
+    }
+
+    .shape-pill{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(10,86,100,.08);
+      color:var(--deep);
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .winner .shape-pill{
+      background:var(--deep);
+      color:white;
+    }
+
+    .shape-icon{
+      width:82px;
+      height:82px;
+      border-radius:25px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--mint), var(--ice));
+      color:var(--deep);
+      font-size:38px;
+      font-weight:950;
+      box-shadow:0 18px 45px rgba(10,86,100,.13);
+    }
+
+    .shape-card h3{
+      position:relative;
+      z-index:1;
+      margin:0 0 12px;
+      font-family:Fraunces, serif;
+      font-size:36px;
+      line-height:.95;
+      letter-spacing:-.055em;
+    }
+
+    .shape-card p{
+      position:relative;
+      z-index:1;
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:16px;
+    }
+
+    .shape-score{
+      position:relative;
+      z-index:1;
+      margin-top:24px;
+      display:grid;
+      gap:10px;
+    }
+
+    .score-row{
+      display:grid;
+      grid-template-columns:150px 1fr;
+      gap:12px;
+      align-items:center;
+      font-size:13px;
+      font-weight:850;
+      color:var(--deep);
+    }
+
+    .bar{
+      height:11px;
+      border-radius:999px;
+      background:rgba(10,86,100,.09);
+      overflow:hidden;
+    }
+
+    .bar span{
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--teal), var(--mint));
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:14px;
+      counter-reset:rank;
+    }
+
+    .product-card{
+      position:relative;
+      border-radius:30px;
+      overflow:hidden;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(10,86,100,.11);
+      box-shadow:0 22px 62px rgba(10,86,100,.1);
+      min-height:420px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .product-card:first-child{
+      grid-column:span 2;
+      background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(223,246,255,.78));
+      border:2px solid rgba(26,166,168,.35);
+    }
+
+    .product-rank{
+      position:absolute;
+      top:16px;
+      left:16px;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:white;
+      background:linear-gradient(135deg, var(--deep), var(--teal));
+      font-weight:950;
+      z-index:2;
+    }
+
+    .product-art{
+      height:144px;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,.98), transparent 21%),
+        radial-gradient(circle at 78% 18%, rgba(247,200,115,.45), transparent 23%),
+        linear-gradient(135deg, rgba(142,224,199,.72), rgba(111,199,223,.68));
+      position:relative;
+      overflow:hidden;
+    }
+
+    .product-art::before{
+      content:"";
+      position:absolute;
+      inset:34px 24px 20px;
+      border-radius:28px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.78) 0 14px, rgba(255,255,255,.36) 14px 28px);
+      transform:rotate(-6deg);
+      box-shadow:0 18px 40px rgba(10,86,100,.16);
+    }
+
+    .product-body{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .product-tag{
+      align-self:flex-start;
+      margin-bottom:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(255,127,102,.12);
+      color:#9b3d2d;
+      font-size:11px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .product-card:first-child .product-tag{
+      background:rgba(26,166,168,.13);
+      color:var(--deep);
+    }
+
+    .product-body h3{
+      margin:0 0 10px;
+      font-size:22px;
+      line-height:1.05;
+      letter-spacing:-.055em;
+    }
+
+    .product-card:first-child .product-body h3{
+      font-family:Fraunces, serif;
+      font-size:36px;
+      line-height:.95;
+    }
+
+    .product-body p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.58;
+    }
+
+    .meta-list{
+      margin-top:auto;
+      display:grid;
+      gap:8px;
+      font-size:12.5px;
+      color:rgba(7,21,31,.72);
+      font-weight:700;
+    }
+
+    .meta-list div{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      border-top:1px solid rgba(10,86,100,.09);
+      padding-top:8px;
+    }
+
+    .meta-list b{color:var(--deep)}
+
+    .compare-wrap{
+      border-radius:36px;
+      overflow:hidden;
+      border:1px solid rgba(10,86,100,.12);
+      background:rgba(255,255,255,.82);
+      box-shadow:0 22px 70px rgba(10,86,100,.1);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:14px;
+    }
+
+    th, td{
+      padding:18px 16px;
+      text-align:left;
+      vertical-align:top;
+      border-bottom:1px solid rgba(10,86,100,.09);
+    }
+
+    th{
+      background:rgba(10,86,100,.06);
+      color:var(--deep);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:950;
+    }
+
+    td{
+      color:rgba(7,21,31,.76);
+      line-height:1.45;
+    }
+
+    td strong{
+      color:var(--ink);
+      letter-spacing:-.02em;
+    }
+
+    tr:last-child td{border-bottom:none}
+
+    .system-diagram{
+      display:grid;
+      grid-template-columns:1fr auto 1fr auto 1fr;
+      gap:16px;
+      align-items:stretch;
+      margin-top:34px;
+    }
+
+    .diagram-step{
+      border-radius:32px;
+      padding:26px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(10,86,100,.11);
+      box-shadow:0 18px 55px rgba(10,86,100,.09);
+    }
+
+    .diagram-step h3{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.045em;
+    }
+
+    .diagram-step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px;
+    }
+
+    .arrow{
+      display:grid;
+      place-items:center;
+      color:var(--teal);
+      font-size:34px;
+      font-weight:950;
+    }
+
+    .caveats{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .caveat{
+      border-radius:26px;
+      padding:22px;
+      background:rgba(255,249,239,.78);
+      border:1px solid rgba(155,108,36,.12);
+      box-shadow:0 18px 50px rgba(128,89,32,.08);
+    }
+
+    .caveat h3{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.035em;
+    }
+
+    .caveat p{
+      margin:0;
+      color:rgba(7,21,31,.66);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .action{
+      border-radius:46px;
+      padding:42px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.88), rgba(223,246,255,.72)),
+        radial-gradient(circle at 12% 18%, rgba(142,224,199,.55), transparent 34%);
+      border:1px solid rgba(10,86,100,.12);
+      box-shadow:var(--shadow);
+    }
+
+    .action-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+      margin-top:28px;
+      counter-reset:step;
+    }
+
+    .action-item{
+      position:relative;
+      padding:20px 20px 20px 70px;
+      border-radius:24px;
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(10,86,100,.1);
+      min-height:96px;
+      color:var(--muted);
+      line-height:1.52;
+      font-weight:600;
+    }
+
+    .action-item::before{
+      counter-increment:step;
+      content:counter(step);
+      position:absolute;
+      left:18px;
+      top:18px;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--deep);
+      color:white;
+      font-weight:950;
+    }
+
+    .falsification{
+      margin-top:24px;
+      border-radius:32px;
+      padding:28px;
+      background:#07151f;
+      color:white;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .falsification::after{
+      content:"";
+      position:absolute;
+      width:300px;
+      height:300px;
+      right:-120px;
+      top:-120px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,127,102,.42), transparent 70%);
+    }
+
+    .falsification h3{
+      margin:0 0 12px;
+      font-size:24px;
+      letter-spacing:-.04em;
+    }
+
+    .falsification p{
+      position:relative;
+      margin:0;
+      max-width:900px;
+      color:rgba(255,255,255,.78);
+      line-height:1.62;
+    }
+
+    .footer{
+      width:min(1180px, calc(100% - 36px));
+      margin:0 auto;
+      padding:50px 0 80px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+      border-top:1px solid rgba(10,86,100,.12);
+    }
+
+    .footer strong{color:var(--deep)}
+
+    .mobile-note{display:none}
+
+    @media (max-width: 980px){
+      .nav-links{display:none}
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:48px;
+      }
+      .hero-card{min-height:520px}
+      .section-header,
+      .verdict-grid,
+      .solution-map{
+        grid-template-columns:1fr;
+      }
+      .reasons,
+      .caveats{
+        grid-template-columns:1fr 1fr;
+      }
+      .product-grid{
+        grid-template-columns:1fr 1fr;
+      }
+      .product-card:first-child{grid-column:span 2}
+      .system-diagram{
+        grid-template-columns:1fr;
+      }
+      .arrow{transform:rotate(90deg)}
+      .compare-wrap{
+        overflow-x:auto;
+      }
+      table{
+        min-width:840px;
+      }
+    }
+
+    @media (max-width: 680px){
+      .hero,
+      section,
+      .footer,
+      .nav-inner{
+        width:min(100% - 24px, 1180px);
+      }
+
+      .hero{min-height:auto; gap:32px}
+      h1{font-size:clamp(48px, 17vw, 78px)}
+
+      .hero-card{
+        min-height:430px;
+        border-radius:34px;
+      }
+
+      .float-note{
+        font-size:11px;
+        padding:10px 12px;
+      }
+
+      .float-note.one{top:28px; left:20px}
+      .float-note.two{top:86px; right:16px}
+      .float-note.three{bottom:104px; left:18px}
+
+      .bed{width:84%; border-radius:34px 34px 46px 46px}
+      .temp-strip{
+        left:18px;
+        right:18px;
+        bottom:20px;
+        grid-template-columns:1fr;
+        text-align:center;
+        border-radius:24px;
+      }
+
+      section{padding:50px 0}
+      .reasons,
+      .caveats,
+      .product-grid,
+      .action-list{
+        grid-template-columns:1fr;
+      }
+      .product-card:first-child{grid-column:span 1}
+      .verdict-panel,
+      .action{
+        padding:26px;
+        border-radius:34px;
+      }
+      .shape-card{padding:24px}
+      .mobile-note{
+        display:block;
+        margin:12px 0 0;
+        color:var(--muted);
+        font-size:13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <span>Sleep System Brief</span>
+        </div>
+        <div class="nav-links">
+          <a href="#verdict">Verdict</a>
+          <a href="#shape">System</a>
+          <a href="#contenders">Contenders</a>
+          <a href="#action">Action</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> July 1, 2026 · Vancouver · King Bed</div>
+        <h1>
+          <span>Stop</span>
+          <span class="cool-word">Overheating.</span>
+          <span>Sleep Smart.</span>
+        </h1>
+        <p class="subtitle">
+          The best comforter strategy for two adults sharing a king bed in humid, AC-light Vancouver:
+          year-round temperature regulation, allergy-safe laundering, and premium comfort without the sweaty compromise.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#verdict">See the winner</a>
+          <a class="button secondary" href="#action">Shopping plan</a>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-label="Abstract king bed cooling system illustration">
+        <div class="float-note one">Hot sleeper priority</div>
+        <div class="float-note two">Outlast PCM core</div>
+        <div class="float-note three">Hot-wash cover defense</div>
+        <div class="bed"></div>
+        <div class="temp-strip">
+          <span>Cool</span>
+          <div class="line"></div>
+          <span>Warm enough</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="verdict">
+      <div class="verdict-panel">
+        <div class="verdict-grid">
+          <div>
+            <p class="verdict-label">Final verdict</p>
+            <h2 class="verdict-title">Modular Outlast Insert + Hot-Dryable Covers</h2>
+            <p class="verdict-line">
+              Prioritize a lightweight Outlast insert for smart cooling and thermal buffering, combine it with aggressively
+              hot-washable and hot-dryable cotton percale covers, and add a winter insert only if truly needed.
+            </p>
+          </div>
+          <div class="confidence">
+            <strong>High</strong>
+            <span>Advisor confidence after two rounds: strong convergence from ChatGPT, Claude, and Gemini.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reasons">
+        <article class="reason-card">
+          <div class="reason-num">1</div>
+          <h3>Allergy-Safe Hot Laundering</h3>
+          <p>
+            Durable cotton percale duvet covers become the hot-wash and hot-dry allergy defense. Most premium inserts,
+            including Outlast, silk, and wool, are not designed for high-heat drying.
+          </p>
+        </article>
+
+        <article class="reason-card">
+          <div class="reason-num">2</div>
+          <h3>True Temperature Regulation</h3>
+          <p>
+            Outlast phase-change material is the most legitimate “smart” option here because it absorbs, stores,
+            and releases heat rather than simply feeling cool at first touch.
+          </p>
+        </article>
+
+        <article class="reason-card">
+          <div class="reason-num">3</div>
+          <h3>Two-Sleeper Versatility</h3>
+          <p>
+            No single comforter perfectly spans humid, AC-less summers and cooler winters for two people. Modular bedding,
+            especially split Twin XL inserts, gives each sleeper a better thermal zone.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="shape">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Decision architecture</p>
+          <h2>One magic comforter loses. A modular sleep system wins.</h2>
+        </div>
+        <p class="section-copy">
+          The hard constraint changes the entire answer. The insert can be smart and breathable, but the cover must do the
+          dirty work for allergies: frequent hot washing and hot drying. That is why the best solution is not a single heroic duvet.
+        </p>
+      </div>
+
+      <div class="solution-map">
+        <article class="shape-card">
+          <div class="shape-top">
+            <span class="shape-pill">Option A</span>
+            <div class="shape-icon">1</div>
+          </div>
+          <h3>One all-season smart comforter</h3>
+          <p>
+            Appealingly simple, but flawed for this use case. A single Slumber Cloud Lightweight Comforter is the best
+            “smart” single option, yet it requires low-heat drying, compromising the hot-dry allergy requirement for the insert.
+          </p>
+          <div class="shape-score">
+            <div class="score-row"><span>Cooling</span><div class="bar"><span style="width:82%"></span></div></div>
+            <div class="score-row"><span>Hot-dry compliance</span><div class="bar"><span style="width:36%"></span></div></div>
+            <div class="score-row"><span>Two-sleeper fit</span><div class="bar"><span style="width:54%"></span></div></div>
+          </div>
+        </article>
+
+        <article class="shape-card winner">
+          <div class="shape-top">
+            <span class="shape-pill">Option B · Winner</span>
+            <div class="shape-icon">2</div>
+          </div>
+          <h3>Duvet cover + swappable inserts</h3>
+          <p>
+            Best match for Vancouver humidity, hot sleeping, allergy control, and two bodies in one king bed. Use a lightweight
+            Outlast insert as the smart core, hot-launder percale covers, then add winter warmth only if your bedroom data says you need it.
+          </p>
+          <div class="shape-score">
+            <div class="score-row"><span>Cooling</span><div class="bar"><span style="width:91%"></span></div></div>
+            <div class="score-row"><span>Hot-dry compliance</span><div class="bar"><span style="width:88%"></span></div></div>
+            <div class="score-row"><span>Two-sleeper fit</span><div class="bar"><span style="width:94%"></span></div></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="system-diagram">
+        <div class="diagram-step">
+          <h3>Layer 1: Percale Covers</h3>
+          <p>Buy 2–3 king-size, 100% long-staple cotton percale duvet covers. These are the hot-washable and hot-dryable allergy layer.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="diagram-step">
+          <h3>Layer 2: Outlast Core</h3>
+          <p>Use the Slumber Cloud Lightweight Comforter as the main smart insert for cooling and temperature buffering.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="diagram-step">
+          <h3>Layer 3: Winter Add-On</h3>
+          <p>Hold off on a warmer insert until winter bedroom temperatures prove it is necessary.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contenders">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Ranked contenders</p>
+          <h2>What to buy, what to delay, what to avoid.</h2>
+        </div>
+        <p class="section-copy">
+          The ranking is not about softness alone. It is about cooling, winter warmth, fill type, washability, durability,
+          and whether two sleepers can share the system without one person roasting.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-rank">1</div>
+          <div class="product-art"></div>
+          <div class="product-body">
+            <span class="product-tag">Do first</span>
+            <h3>Outlast Insert + Hot-Washable Covers</h3>
+            <p>
+              Your best option: Slumber Cloud Lightweight Comforter with Outlast fill as the smart core, paired with
+              two to three hot-washable and hot-dryable 100% cotton percale duvet covers. Add a warmer down-alternative
+              insert only if Vancouver winters prove genuinely cold.
+            </p>
+            <div class="meta-list">
+              <div><b>Buy</b><span>Slumber Cloud + Brooklinen / Parachute / The Company Store</span></div>
+              <div><b>Fill</b><span>Outlast PCM down-alternative</span></div>
+              <div><b>Best for</b><span>Cooling + allergy strategy</span></div>
+              <div><b>Price</b><span>Premium; verify current Canadian total</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-rank">2</div>
+          <div class="product-art"></div>
+          <div class="product-body">
+            <span class="product-tag">Washer/dryer limits</span>
+            <h3>Scandinavian Split Duvets</h3>
+            <p>
+              Use two Twin XL inserts under one king visual setup. This gives each sleeper individual temperature control and
+              helps solve the practical problem of fitting bulky king bedding into home machines.
+            </p>
+            <div class="meta-list">
+              <div><b>Buy</b><span>Slumber Cloud + warmer alternative insert</span></div>
+              <div><b>Fill</b><span>Mixed by sleeper need</span></div>
+              <div><b>Best for</b><span>Different sleep temperatures</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-rank">3</div>
+          <div class="product-art"></div>
+          <div class="product-body">
+            <span class="product-tag">Budget compliant</span>
+            <h3>IKEA Modular System</h3>
+            <p>
+              BLÅNEPETA Cool plus SKOGSFRÄKEN Warm duvets meet the hot-wash and medium-dry requirement for inserts.
+              They lack active Outlast regulation but are functional, affordable, and allergy-compliant.
+            </p>
+            <div class="meta-list">
+              <div><b>Buy</b><span>IKEA Canada</span></div>
+              <div><b>Fill</b><span>Down-alternative</span></div>
+              <div><b>Best for</b><span>Strict washable practicality</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-rank">4</div>
+          <div class="product-art"></div>
+          <div class="product-body">
+            <span class="product-tag">Compromise</span>
+            <h3>Single Slumber Cloud</h3>
+            <p>
+              The best single “smart comforter” route if you refuse swaps. The issue: the comforter itself needs tumble-dry low,
+              so it does not fully satisfy the hot-dry allergy requirement.
+            </p>
+            <div class="meta-list">
+              <div><b>Buy</b><span>Slumber Cloud</span></div>
+              <div><b>Fill</b><span>Outlast PCM</span></div>
+              <div><b>Best for</b><span>Simplicity over compliance</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-rank">5</div>
+          <div class="product-art"></div>
+          <div class="product-body">
+            <span class="product-tag">Avoid</span>
+            <h3>SmartSilk / Wool / Down</h3>
+            <p>
+              Do not retry SmartSilk for this specific job. Silk fails on hot-drying and durability for frequent washing,
+              while natural fills are generally poor fits for rigorous, repeated hot laundering.
+            </p>
+            <div class="meta-list">
+              <div><b>Buy</b><span>Not recommended</span></div>
+              <div><b>Fill</b><span>Silk, wool, or down</span></div>
+              <div><b>Best for</b><span>Someone without hot-dry needs</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <div>
+          <p class="kicker">Comparison matrix</p>
+          <h2>The practical tradeoffs.</h2>
+        </div>
+        <p class="section-copy">
+          The core tension: the best temperature-regulating fills are usually not the most aggressively washable.
+          So the winning system separates temperature management from allergen laundering.
+        </p>
+      </div>
+
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Cooling / Breathability</th>
+              <th>Winter Warmth</th>
+              <th>Fill Type</th>
+              <th>Wash / Dry Reality</th>
+              <th>Two-Sleeper Handling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Outlast + Percale Covers</strong></td>
+              <td>Best active heat buffering; strongest “smart” profile.</td>
+              <td>Likely enough for shoulder seasons; add winter insert only if needed.</td>
+              <td>Phase-change material, down-alternative style core.</td>
+              <td>Covers handle hot laundering; insert requires gentler care.</td>
+              <td>Excellent, especially as two Twin XL inserts.</td>
+            </tr>
+            <tr>
+              <td><strong>Scandinavian Split Duvets</strong></td>
+              <td>Excellent because each sleeper can choose weight and warmth.</td>
+              <td>Highly adaptable with one lighter and one warmer insert.</td>
+              <td>Can mix Outlast, down-alternative, or other fills.</td>
+              <td>Smaller inserts improve home machine practicality.</td>
+              <td>Best for different temperature preferences.</td>
+            </tr>
+            <tr>
+              <td><strong>IKEA BLÅNEPETA + SKOGSFRÄKEN</strong></td>
+              <td>Functional but not actively temperature-regulating.</td>
+              <td>Good through modular cool and warm inserts.</td>
+              <td>Down-alternative.</td>
+              <td>Strongest insert-level compliance among listed options.</td>
+              <td>Good if split into individual inserts.</td>
+            </tr>
+            <tr>
+              <td><strong>Single Slumber Cloud</strong></td>
+              <td>Strong cooling and buffering.</td>
+              <td>May be too light for cold sleepers in winter.</td>
+              <td>Outlast PCM.</td>
+              <td>Low-heat drying weakens the allergy-fit argument.</td>
+              <td>Moderate; one shared thermal compromise.</td>
+            </tr>
+            <tr>
+              <td><strong>SmartSilk / Wool / Down</strong></td>
+              <td>Can breathe well, but not the right system constraint.</td>
+              <td>Often warm and cozy.</td>
+              <td>Natural fill.</td>
+              <td>Poor match for frequent hot washing and hot drying.</td>
+              <td>Weak for hot sleeper plus allergy laundering.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mobile-note">Tip: swipe the table horizontally on smaller screens.</p>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <div>
+          <p class="kicker">Caveats that matter</p>
+          <h2>Do not ignore the boring constraints.</h2>
+        </div>
+        <p class="section-copy">
+          The advisors converged on one thing: the best bedding choice can still fail if it is too bulky to wash,
+          trapped in humidity, or asked to solve a ventilation problem by itself.
+        </p>
+      </div>
+
+      <div class="caveats">
+        <article class="caveat">
+          <h3>Check machine capacity</h3>
+          <p>King inserts are bulky. If your washer or dryer cannot handle one thoroughly, switch to two Twin XL inserts.</p>
+        </article>
+        <article class="caveat">
+          <h3>Control humidity</h3>
+          <p>Vancouver humidity matters. A bedroom dehumidifier or small portable AC may outperform another bedding upgrade.</p>
+        </article>
+        <article class="caveat">
+          <h3>Confirm shipping</h3>
+          <p>For Slumber Cloud and other US direct-to-consumer brands, confirm Canadian shipping, duties, and total landed cost.</p>
+        </article>
+        <article class="caveat">
+          <h3>Measure winter lows</h3>
+          <p>Track your actual overnight bedroom temperature before buying a dedicated warm winter insert.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="action">
+      <div class="action">
+        <p class="kicker">Purchase sequence</p>
+        <h2>Buy the system in this order.</h2>
+
+        <div class="action-list">
+          <div class="action-item">Confirm whether a king comforter fits your home washer and dryer. If not, plan around two Twin XL inserts.</div>
+          <div class="action-item">Place a thermometer in the bedroom to monitor overnight lows and learn your true winter warmth needs.</div>
+          <div class="action-item">Purchase 2–3 king-size, 100% long-staple cotton percale duvet covers from Brooklinen, Parachute, or The Company Store.</div>
+          <div class="action-item">Order the Slumber Cloud Lightweight Comforter in king size and confirm Canadian shipping, duties, and trial terms.</div>
+          <div class="action-item">Consider a quality bedroom dehumidifier for summer humidity control independent of bedding.</div>
+          <div class="action-item">Delay the warmer winter insert until cold-weather data proves the lightweight Outlast setup is not enough.</div>
+        </div>
+
+        <div class="falsification">
+          <h3>What would change the verdict?</h3>
+          <p>
+            A new premium temperature-regulating comforter fill, not just a shell fabric, would need to demonstrate active heat
+            management on par with or better than Outlast while being explicitly manufacturer-certified as fully machine-washable
+            and machine-dryable on high heat without degradation. Then a single true smart comforter could become the winner.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>Provenance:</strong> This brief synthesizes a three-advisor debate from ChatGPT, Claude.ai, and Gemini.
+      The advisors converged on the key conflict: premium temperature-regulating inserts usually do not tolerate high-heat drying,
+      so the refined solution makes the duvet cover the allergy-laundering workhorse and the Outlast insert the smart thermal core.
+    </footer>
+  </div>
+</body>
+</html>
